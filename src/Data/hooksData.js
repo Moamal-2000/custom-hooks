@@ -2,7 +2,7 @@ export const hooksData = [
   {
     name: "useToggle",
     explanation: [
-      `Hook Explanation:
+      `
         The useToggle hook manages a boolean state, providing functions to toggle between true and false.
         It initializes with an optional initial state (default is false).
         It returns the current state, a toggle function, and a custom toggle function.
@@ -49,7 +49,7 @@ export default useToggle;`,
   {
     name: "useArray",
     explanation: [
-      `Hook Explanation:
+      `
         The useArray hook provides a set of functions to manage and manipulate an array state 
         in a React component. It initializes with an initial array (initArray) and exposes methods 
         for common array operations such as adding, updating, removing elements, and more. 
@@ -144,7 +144,7 @@ export default useArray;`,
   {
     name: "useCloseElement",
     explanation: [
-      `Hook Explanation:
+      `
         The useCloseElement hook manages the state of an element's visibility based on clicks outside designated elements.
         It takes three refs - toggleEleRef, switcherEleRef, and exceptElementRef to control the toggle behavior.
         The hook uses a helper function, compareAbsoluteParentEle, to determine if an element or its parent is an absolute parent.`,
@@ -229,7 +229,7 @@ const compareAbsoluteParentEle = (element, requiredEle) => {
   {
     name: "useCopyText",
     explanation: [
-      `Hook Explanation:
+      `
         The useCopyText hook facilitates copying text to the clipboard. It utilizes the Clipboard API 
         to write the provided text to the clipboard and keeps track of the last copied text.`,
     ],
@@ -266,7 +266,7 @@ export default useCopyText;`,
   {
     name: "useElementData",
     explanation: [
-      `Hook Explanation:
+      `
         The useElementData hook provides functionality to gather data about a given DOM element.
         It utilizes the useOnScreen hook to determine if the element is currently visible on the screen.
         The element data includes its dimensions and visibility.`,
@@ -325,7 +325,7 @@ export default useElementData;`,
   {
     name: "useEventListener",
     explanation: [
-      `Hook Explanation:
+      `
         The useEventListener hook allows attaching and removing event listeners to a specified DOM element.
         It ensures proper cleanup by removing the event listener when the component unmounts.`,
     ],
@@ -363,7 +363,7 @@ export default useEventListener;`,
   {
     name: "useFetchDataFrom",
     explanation: [
-      `Hook Explanation:
+      `
         The useFetchDataFrom hook fetches data from a specified URL using the Axios library.`,
     ],
     inputs: [
@@ -406,7 +406,7 @@ export default function useFetchDataFrom(url) {
   {
     name: "useFilter",
     explanation: [
-      `Hook Explanation:
+      `
         The useFilter hook filters an array of objects based on a specified search value and key.`,
     ],
     inputs: [
@@ -458,7 +458,7 @@ export default useFilter;`,
   {
     name: "useGetParams",
     explanation: [
-      `Hook Explanation:
+      `
         The useGetParams hook extracts query parameters from the current URL.`,
     ],
     inputs: [],
@@ -494,7 +494,7 @@ export default useGetParams;`,
   {
     name: "useGetResizeWindow",
     explanation: [
-      `Hook Explanation:
+      `
         The useGetResizeWindow hook provides the current dimensions of the window and updates them on window resize.`,
     ],
     inputs: [],
@@ -534,7 +534,7 @@ export default useGetResizeWindow;`,
   {
     name: "useKeyPress",
     explanation: [
-      `Hook Explanation:
+      `
         The useKeyPress hook detects key presses and provides information about the pressed key.`,
     ],
     inputs: [],
@@ -578,7 +578,7 @@ export default useKeyPress;`,
   {
     name: "useLocalStorage",
     explanation: [
-      `Hook Explanation:
+      `
         The useLocalStorage hook provides a way to interact with the browser's localStorage.`,
     ],
     inputs: [
@@ -614,7 +614,7 @@ export default useLocalStorage;`,
   {
     name: "useMouseEffect",
     explanation: [
-      `Hook Explanation:
+      `
         The useMouseEffect hook adds visual effects to a DOM element based on mouse movement.`,
     ],
     inputs: [
@@ -664,7 +664,7 @@ export default useMouseEffect;`,
   {
     name: "useOnlineStatus",
     explanation: [
-      `Hook Explanation:
+      `
         The useOnlineStatus hook detects the online/offline status of the user's device.`,
     ],
     inputs: [],
@@ -710,7 +710,7 @@ export default useOnlineStatus;`,
   {
     name: "useOnScreen",
     explanation: [
-      `Hook Explanation:
+      `
         The useOnScreen hook detects whether a specified DOM element is visible on the screen.`,
     ],
     inputs: [
@@ -766,7 +766,7 @@ export default useOnScreen;`,
   {
     name: "usePageBottom",
     explanation: [
-      `Hook Explanation:
+      `
         The usePageBottom hook detects whether the user has scrolled to the bottom of the page.`,
     ],
     inputs: [],
@@ -805,7 +805,7 @@ export default usePageBottom;`,
   {
     name: "usePreviousState",
     explanation: [
-      `Hook Explanation:
+      `
         The usePreviousState hook tracks the previous state of a component.`,
     ],
     inputs: [
@@ -841,7 +841,7 @@ export default usePreviousState;
   {
     name: "useOnlineStatus",
     explanation: [
-      `Hook Explanation:
+      `
         The useOnlineStatus hook detects the online/offline status of the browser.`,
     ],
     inputs: [],
@@ -887,7 +887,7 @@ export default useOnlineStatus;`,
   {
     name: "useOnScreen",
     explanation: [
-      `Hook Explanation:
+      `
         The useOnScreen hook detects if a specified element is within the user's viewport.`,
     ],
     inputs: [
@@ -943,7 +943,7 @@ export default useOnScreen;`,
   {
     name: "useTextInput",
     explanation: [
-      `Hook Explanation:
+      `
         The useTextInput hook manages the state of a text input field.`,
     ],
     inputs: [
@@ -988,7 +988,7 @@ export default useTextInput;`,
   {
     name: "useRandomNumber",
     explanation: [
-      `Hook Explanation:
+      `
         The useRandomNumber hook generates a random number within a specified range.`,
     ],
     inputs: [

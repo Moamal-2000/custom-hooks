@@ -4,6 +4,7 @@
   margin: 20px;
   font-size: 1.2rem;
   background-color: #0d1017;
+  position: relative;
 }
 
 .numbering {
@@ -19,9 +20,17 @@
 }
 
 .copyButton {
-
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  cursor: pointer;
+  border: none;
+  padding: 12px 13px;
+  background-color: black;
+  border-radius: 4px;
 }
 
 .copyButton i {
-  
+  font-size: 1.2rem;
+  color: var(--text);
 }
