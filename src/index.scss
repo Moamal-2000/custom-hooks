@@ -1,0 +1,63 @@
+@import "./Sass/mixins";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  font-family: 'Lato', sans-serif;
+}
+
+:root {
+  --background: #161616;
+  --text: #fff;
+}
+
+a {
+  // text-decoration: none;
+  color: var(--text);
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+button {
+  outline: none;
+  border: none;
+}
+
+
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+@include medium {
+  .container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    width: 90%;
+  }
+}
+
+@include small {
+  .container {
+    width: 95%;
+  }
+}
