@@ -24,4 +24,5 @@ const useArray = (initArray) => {
 
   return { array, push, update, set, remove, clear, filter };
 };
+
 export default useArray;

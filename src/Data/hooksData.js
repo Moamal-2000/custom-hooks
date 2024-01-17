@@ -43,8 +43,7 @@ const useToggle = (initState = false) => {
   return [state, toggle, customToggle];
 };
 
-export default useToggle;
-    `,
+export default useToggle;`,
   },
 
   {
@@ -112,6 +111,34 @@ export default useToggle;
       ],
     ],
     id: 1,
+    code: `import { useState } from "react";
+
+const useArray = (initArray) => {
+  const [array, setArray] = useState(initArray);
+  const copiedArray = array;
+  const clear = () => setArray([]);
+  const set = (newArray) => setArray([...newArray]);
+  const push = (item) => setArray((oldArr) => [...oldArr, item]);
+  const filter = (callback) => setArray([...array.filter(callback)]);
+
+  function update(oldValue, newValue) {
+    const requiredIndex = array.indexOf(
+      copiedArray.find((item) => item === oldValue)
+    );
+
+    copiedArray[requiredIndex] = newValue;
+    setArray([...copiedArray]);
+  }
+
+  function remove(item) {
+    const filteredArray = copiedArray.filter((arrItem) => item !== arrItem);
+    setArray([...filteredArray]);
+  }
+
+  return { array, push, update, set, remove, clear, filter };
+};
+
+export default useArray;`,
   },
 
   {
@@ -181,6 +208,7 @@ const useCloseElement = (toggleEleRef, switcherEleRef, exceptElementRef) => {
 
   return { isElementClose, setIsElementClose };
 };
+
 export default useCloseElement;
 
 // Helper function
@@ -195,8 +223,7 @@ const compareAbsoluteParentEle = (element, requiredEle) => {
     parentElement = parentElement.parentElement;
 
   return !!parentElement;
-};
-    `,
+};`,
   },
 
   {
@@ -233,8 +260,7 @@ const useCopyText = () => {
   return [copiedText, setCopy];
 };
 
-export default useCopyText;
-    `,
+export default useCopyText;`,
   },
 
   {
@@ -293,8 +319,7 @@ const useElementData = (ref) => {
   return [ref.current, elementData, setRenders];
 };
 
-export default useElementData;
-    `,
+export default useElementData;`,
   },
 
   {
@@ -332,8 +357,7 @@ const useEventListener = (element, eventName, callback) => {
   }, []);
 };
 
-export default useEventListener;
-    `,
+export default useEventListener;`,
   },
 
   {
@@ -376,11 +400,8 @@ export default function useFetchDataFrom(url) {
   }, [url]);
 
   return data;
-}
-`,
+}`,
   },
-
-
 
   {
     name: "useFilter",
@@ -431,11 +452,8 @@ const useFilter = (array, searchValue, key) => {
   return [filteredArr, setFilteredArr];
 };
 
-export default useFilter;
-    `,
+export default useFilter;`,
   },
-
-
 
   {
     name: "useGetParams",
@@ -470,11 +488,8 @@ params?.forEach((param) => {
 return { allParams };
 };
 
-export default useGetParams;
-    `,
+export default useGetParams;`,
   },
-
-
 
   {
     name: "useGetResizeWindow",
@@ -514,8 +529,7 @@ const useGetResizeWindow = () => {
   return sizes;
 };
 
-export default useGetResizeWindow;
-    `,
+export default useGetResizeWindow;`,
   },
   {
     name: "useKeyPress",
@@ -559,8 +573,7 @@ const useKeyPress = () => {
   return [key, event];
 };
 
-export default useKeyPress;
-    `,
+export default useKeyPress;`,
   },
   {
     name: "useLocalStorage",
@@ -595,11 +608,8 @@ export default useKeyPress;
   return JSON.parse(localData)
 }
 
-export default useLocalStorage;
-    `,
+export default useLocalStorage;`,
   },
-
-
 
   {
     name: "useMouseEffect",
@@ -648,11 +658,8 @@ const useMouseEffect = (
   }, []);
 };
 
-export default useMouseEffect;
-    `,
+export default useMouseEffect;`,
   },
-
-
 
   {
     name: "useOnlineStatus",
@@ -697,11 +704,8 @@ const useOnlineStatus = () => {
   return isOnline;
 };
 
-export default useOnlineStatus;
-    `,
+export default useOnlineStatus;`,
   },
-
-
 
   {
     name: "useOnScreen",
@@ -759,8 +763,6 @@ const useOnScreen = (ref, rootMargin = "0px") => {
 export default useOnScreen;`,
   },
 
-
-
   {
     name: "usePageBottom",
     explanation: [
@@ -800,8 +802,6 @@ const usePageBottom = () => {
 export default usePageBottom;`,
   },
 
-
-
   {
     name: "usePreviousState",
     explanation: [
@@ -837,8 +837,6 @@ const usePreviousState = (state) => {
 export default usePreviousState;
 `,
   },
-
-
 
   {
     name: "useOnlineStatus",
@@ -882,10 +880,9 @@ const useOnlineStatus = () => {
 
   return isOnline;
 };
+
 export default useOnlineStatus;`,
   },
-
-
 
   {
     name: "useOnScreen",
@@ -914,7 +911,7 @@ export default useOnlineStatus;`,
     id: 18,
     code: `import { useEffect, useState } from "react";
 
-export default function useOnScreen(ref, rootMargin = "0px") {
+function useOnScreen(ref, rootMargin = "0px") {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -938,10 +935,10 @@ export default function useOnScreen(ref, rootMargin = "0px") {
   }, []);
 
   return isVisible;
-}`,
+}
+
+export default useOnScreen;`,
   },
-
-
 
   {
     name: "useTextInput",
@@ -984,10 +981,9 @@ const useTextInput = (initialValue = "") => {
 
   return [value, attributes, setValue];
 };
+
 export default useTextInput;`,
   },
-
-
 
   {
     name: "useRandomNumber",
@@ -1035,6 +1031,7 @@ const useRandomNumber = (min, max) => {
 
   return { randomNumber, changeRandomNumber };
 };
+
 export default useRandomNumber;`,
   },
 ];

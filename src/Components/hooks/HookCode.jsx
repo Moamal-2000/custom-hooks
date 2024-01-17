@@ -15,6 +15,10 @@ const HookCode = ({ code }) => {
 
   return (
     <div className={styles.code}>
+      <button className={styles.copyButton} title="copy icon">
+        <i class="fa-regular fa-copy"></i>
+      </button>
+
       <ul className={styles.numbering}>
         {numbersOfLines.map((num) => (
           <li key={num}>{num}</li>

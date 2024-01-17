@@ -3,7 +3,9 @@ import HooksLayout from "./Components/hooks/HooksLayout";
 function App() {
   return (
     <>
-      <HooksLayout />
+      <div className="container">
+        <HooksLayout />
+      </div>
     </>
   );
 }
