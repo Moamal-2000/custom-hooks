@@ -8,17 +8,19 @@ export const hooksData = [
     liveCode:
       "https://codesandbox.io/p/sandbox/usetoggle-dxg958?file=%2Fsrc%2FuseToggle.jsx",
     code: `
-    import { useState } from "react";
-    const useToggle = (initState = false) => {
-      const [state, setState] = useState(initState);
+import { useState } from "react";
 
-      function toggle() {
-        setState((prevState) => !prevState);
-      }
+const useToggle = (initState = false) => {
+  const [state, setState] = useState(initState);
 
-      return [state, toggle];
-    };
-    export default useToggle;`,
+  function toggle() {
+    setState((prevState) => !prevState);
+  }
+
+  return [state, toggle];
+};
+
+export default useToggle;`,
   },
   {
     name: "useRandomNumber",
@@ -26,26 +28,26 @@ export const hooksData = [
     inputs: ["Minimum number", "Maximum number"],
     outputs: ["Random number", "function to generate a new random number"],
     id: 1,
-    liveCode:
-      "",
+    liveCode: "",
     code: `
-    import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-    const useRandomNumber = (min, max) => {
-      const [randomNumber, setRandomNumber] = useState(0);
+const useRandomNumber = (min, max) => {
+  const [randomNumber, setRandomNumber] = useState(0);
 
-      function changeRandomNumber(getMin = min, getMax = max) {
-        ++getMax
-        setRandomNumber(Math.floor(Math.random() * (getMin - getMax) + getMax));
-      }
+  function changeRandomNumber(getMin = min, getMax = max) {
+    ++getMax
+    setRandomNumber(Math.floor(Math.random() * (getMin - getMax) + getMax));
+  }
 
-      useEffect(() => {
-        ++max
-        setRandomNumber(Math.floor(Math.random() * (min - max) + max));
-      }, []);
+  useEffect(() => {
+    ++max
+    setRandomNumber(Math.floor(Math.random() * (min - max) + max));
+  }, []);
 
-      return { randomNumber, changeRandomNumber };
-    };
-    export default useRandomNumber;`,
+  return { randomNumber, changeRandomNumber };
+};
+
+export default useRandomNumber;`,
   },
 ];

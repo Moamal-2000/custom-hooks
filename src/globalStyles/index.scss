@@ -1,4 +1,4 @@
-@import "./Sass/mixins";
+@import "../Sass/mixins";
 
 * {
   margin: 0;
@@ -36,8 +36,6 @@ button {
   outline: none;
   border: none;
 }
-
-
 
 .container {
   width: 80%;
