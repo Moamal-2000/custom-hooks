@@ -2,7 +2,7 @@ const HookExplanation = ({ name, explanation, liveCode }) => {
   return (
     <div className="explanation">
       {explanation?.map((explain, i) => (
-        <p key={i}>{explain}</p>
+        <p className="hook-paragraph" key={i}>{explain}</p>
       ))}
 
       <a href={liveCode} target="_blank">

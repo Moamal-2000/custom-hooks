@@ -3,11 +3,11 @@ import HookExplanation from "./HookExplanation";
 import HookInputsOutputs from "./HookInputsOutputs";
 
 const Hook = ({ hookData }) => {
-  const { name, explanation, liveCode, inputs, outputs, code } = hookData;
+  const { name, explanation, liveCode, inputs, outputs, id, code } = hookData;
 
   return (
     <div className="hook">
-      <h2>{name}</h2>
+      <h2>{id+1}- {name} Hook</h2>
 
       <HookExplanation
         name={name}
