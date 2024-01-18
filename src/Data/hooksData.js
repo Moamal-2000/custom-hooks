@@ -885,62 +885,6 @@ export default useOnlineStatus;`,
   },
 
   {
-    name: "useOnScreen",
-    explanation: [
-      `
-        The useOnScreen hook detects if a specified element is within the user's viewport.`,
-    ],
-    inputs: [
-      [
-        `ref (Object):
-          React ref object of the element to observe.`,
-      ],
-      [
-        `rootMargin (String):
-          Optional root margin to define a box of extra space around the observed element.`,
-      ],
-    ],
-    outputsText:
-      "The useOnScreen hook returns a boolean indicating whether the specified element is in the viewport.",
-    outputs: [
-      [
-        `isVisible (Boolean):
-          Indicates whether the specified element is in the viewport.`,
-      ],
-    ],
-    id: 18,
-    code: `import { useEffect, useState } from "react";
-
-function useOnScreen(ref, rootMargin = "0px") {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    if (!ref.current) return;
-
-    const observers = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-      },
-      {
-        rootMargin: rootMargin,
-      }
-    );
-
-    observers.observe(ref.current);
-
-    return () => {
-      if (!ref.current) return;
-      observers.unobserve(ref.current);
-    };
-  }, []);
-
-  return isVisible;
-}
-
-export default useOnScreen;`,
-  },
-
-  {
     name: "useTextInput",
     explanation: [
       `
@@ -968,7 +912,7 @@ export default useOnScreen;`,
           Function to manually set the value of the text input field. Usage: setValue(newValue).`,
       ],
     ],
-    id: 19,
+    id: 18,
     code: `import { useState } from "react";
 
 const useTextInput = (initialValue = "") => {
@@ -1013,7 +957,7 @@ export default useTextInput;`,
           Function to change the random number within the specified range. Usage: changeRandomNumber(newMin, newMax).`,
       ],
     ],
-    id: 20,
+    id: 19,
     code: `import { useEffect, useState } from "react";
 
 const useRandomNumber = (min, max) => {

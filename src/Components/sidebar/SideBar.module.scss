@@ -42,4 +42,20 @@
   &:hover {
     background-color: #2b2b2b;
   }
+
+  &.active {
+    animation: .2s .4s 1 delayStyles forwards;
+  }
+}
+
+@keyframes delayStyles {
+  0% {
+    background-color: #0e0e0e;
+    color: var(--text);
+  }
+
+  100% {
+    background-color: var(--text);
+    color: var(--background);
+  }
 }
