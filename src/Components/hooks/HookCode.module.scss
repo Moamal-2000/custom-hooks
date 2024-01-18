@@ -7,6 +7,10 @@
   position: relative;
 }
 
+.code:hover .copyButton {
+  opacity: 1;
+}
+
 .numbering {
   font-size: 1.1rem;
   line-height: 1.275;
@@ -26,8 +30,18 @@
   cursor: pointer;
   border: none;
   padding: 12px 13px;
-  background-color: black;
+  background-color: rgb(105, 105, 105);
   border-radius: 4px;
+  transition: background-color .2s, transform .1s ease, opacity .2s .1s;
+  opacity: 0;
+
+  &:hover {
+    background-color: rgb(49, 49, 49);
+  }
+
+  &:active {
+    transform: scale(.93);
+  }
 }
 
 .copyButton i {
