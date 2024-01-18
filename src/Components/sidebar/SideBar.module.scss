@@ -1,0 +1,45 @@
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 20px;
+  height: 100%;
+  overflow-y: auto;
+  user-select: none;
+}
+
+.sidebar::-webkit-scrollbar {
+  background-color: rgba(0, 0, 0, .186);
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: rgba(186, 186, 186, .237);
+  border-radius: 10px;
+
+  &:hover {
+    background-color: rgba(186, 186, 186, .5);
+  }
+}
+
+.sidebar ul {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sidebar ul li {
+  background-color: #0e0e0e;
+  color: var(--text);
+  font-size: 1.1rem;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color .2s;
+
+  &:hover {
+    background-color: #2b2b2b;
+  }
+}
