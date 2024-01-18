@@ -11,6 +11,10 @@
   opacity: 1;
 }
 
+.code pre {
+  width: 100%;
+}
+
 .numbering {
   font-size: 1.1rem;
   line-height: 1.275;
@@ -21,15 +25,27 @@
 .languageJs {
   padding: 0 !important;
   background-color: #0d1017 !important;
+  width: 100%;
+}
+
+.languageJs>span {
+  display: block;
+  height: 22.4px;
+  width: 100%;
+  transition: background-color .05s;
+
+  &:hover {
+    background-color: #0e2238;
+  }
 }
 
 .copyButton {
   position: absolute;
-  right: 30px;
-  top: 30px;
+  right: 20px;
+  top: 20px;
   cursor: pointer;
   border: none;
-  padding: 12px 13px;
+  padding: 10px 12px;
   background-color: rgb(105, 105, 105);
   border-radius: 4px;
   transition: background-color .2s, transform .1s ease, opacity .2s .1s;
@@ -45,6 +61,6 @@
 }
 
 .copyButton i {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: var(--text);
 }

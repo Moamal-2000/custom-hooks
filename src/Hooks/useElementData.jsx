@@ -20,6 +20,6 @@ const useElementData = (ref) => {
     updateData();
   }, [renders, isVisible]);
 
-  return [ref.current, elementData, setRenders];
+  return [ref.current, elementData, renders, setRenders];
 };
 export default useElementData;

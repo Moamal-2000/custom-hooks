@@ -8,14 +8,15 @@ const HookCode = ({ code }) => {
   const [copiedText, copyText] = useCopyText();
   const [isCopied, toggleIsCopied] = useToggle(false);
   const [numberOfLines, setNumberOfLines] = useState(0);
+  const [codeState, setCodeState] = useState(code);
   const numbersOfLines = Array.from({ length: numberOfLines }).map(
     (_, i) => i + 1
   );
 
-  function handleCopyButton(e) {
-    if (isCopied) return
+  function handleCopyButton() {
+    if (isCopied) return;
     copyText(code);
-    toggleIsCopied()
+    toggleIsCopied();
 
     setTimeout(() => toggleIsCopied(), 1000);
   }
@@ -23,6 +24,11 @@ const HookCode = ({ code }) => {
   useEffect(() => {
     let lines = code?.split("\n");
     setNumberOfLines(lines?.length);
+
+    const codeWithSpanOnEachLine = lines.map((line, i) => (
+      <span key={i}>{line}</span>
+    ));
+    setCodeState(codeWithSpanOnEachLine);
   }, []);
 
   return (
@@ -30,7 +36,7 @@ const HookCode = ({ code }) => {
       <button
         className={styles.copyButton}
         title="Copy Code"
-        onClick={(e) => handleCopyButton(e)}
+        onClick={handleCopyButton}
       >
         {isCopied ? (
           <i className="fa-solid fa-check"></i>
@@ -46,7 +52,7 @@ const HookCode = ({ code }) => {
       </ul>
 
       <HighlightElement className={`${styles.languageJs} js`}>
-        {code}
+        {codeState}
       </HighlightElement>
     </div>
   );
