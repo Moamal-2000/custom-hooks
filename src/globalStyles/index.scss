@@ -42,6 +42,10 @@ button {
   border: none;
 }
 
+p {
+  font-size: 1rem;
+}
+
 .container {
   width: 80%;
   margin: 0 auto;
@@ -76,6 +80,7 @@ button {
 }
 
 .hook h2 {
+  font-size: 1.8rem;
   margin-bottom: 20px;
 }
 
@@ -84,4 +89,30 @@ button {
   // padding: 20px;
   height: 400px;
   margin-bottom: 40px;
+}
+
+
+
+
+// Hook explanation
+.hook-paragraph {
+  margin: 30px 0 60px;
+}
+
+
+// Hook Inputs/Outputs
+.inputs-outputs {
+  margin: 50px 0;
+}
+
+.inputs-outputs h3 {
+  margin-bottom: 20px;
+}
+
+.inputs-outputs>ul {
+  margin: 30px 0;
+}
+
+.inputs-outputs>ul>li {
+  margin: 6px 0;
 }
