@@ -14,10 +14,6 @@ const useElementData = (ref) => {
 
   useEffect(() => {
     updateData();
-  }, []);
-
-  useEffect(() => {
-    updateData();
   }, [renders, isVisible]);
 
   return [ref.current, elementData, renders, setRenders];

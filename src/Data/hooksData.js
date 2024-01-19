@@ -839,52 +839,6 @@ export default usePreviousState;
   },
 
   {
-    name: "useOnlineStatus",
-    explanation: [
-      `
-        The useOnlineStatus hook detects the online/offline status of the browser.`,
-    ],
-    inputs: [],
-    outputsText:
-      "The useOnlineStatus hook returns a boolean indicating whether the browser is online.",
-    outputs: [
-      [
-        `isOnline (Boolean):
-          Indicates whether the browser is online.`,
-      ],
-    ],
-    id: 17,
-    code: `import { useEffect, useState } from "react";
-
-const useOnlineStatus = () => {
-  const [isOnline, setIsOnline] = useState(false);
-
-  function checkOnlineStatus() {
-    setIsOnline(true);
-  }
-
-  function checkOfflineStatus() {
-    setIsOnline(false);
-  }
-
-  useEffect(() => {
-    checkOnlineStatus();
-    window.addEventListener("online", checkOnlineStatus);
-    window.addEventListener("offline", checkOfflineStatus);
-
-    return () => {
-      window.removeEventListener("online", checkOnlineStatus);
-      window.removeEventListener("offline", checkOfflineStatus);
-    };
-  }, []);
-
-  return isOnline;
-};
-
-export default useOnlineStatus;`,
-  },
-
-  {
     name: "useTextInput",
     explanation: [
       `
@@ -912,7 +866,7 @@ export default useOnlineStatus;`,
           Function to manually set the value of the text input field. Usage: setValue(newValue).`,
       ],
     ],
-    id: 18,
+    id: 17,
     code: `import { useState } from "react";
 
 const useTextInput = (initialValue = "") => {
@@ -957,7 +911,7 @@ export default useTextInput;`,
           Function to change the random number within the specified range. Usage: changeRandomNumber(newMin, newMax).`,
       ],
     ],
-    id: 19,
+    id: 18,
     code: `import { useEffect, useState } from "react";
 
 const useRandomNumber = (min, max) => {

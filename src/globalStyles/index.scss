@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--background);
   color: var(--text);
@@ -14,7 +18,7 @@ body {
 }
 
 :root {
-  --background: #161616;
+  --background: #0a1119;
   --text: #fff;
 }
 
@@ -75,3 +79,9 @@ button {
   margin-bottom: 20px;
 }
 
+.scrollTest {
+  border: solid;
+  // padding: 20px;
+  height: 400px;
+  margin-bottom: 40px;
+}

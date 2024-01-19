@@ -3,15 +3,21 @@ import { hooksData } from "../../Data/hooksData";
 import styles from "./SideBar.module.scss";
 
 const SideBar = () => {
-  const {scrolledHook, setScrolledHok} = useGlobalContext()
-
-  // console.log(scrolledHook);
+  const { scrolledHook, setScrolledHook } = useGlobalContext();
 
   return (
     <div className={styles.sidebar}>
       <ul>
         {hooksData.map(({ name, id }) => (
-          <li className={scrolledHook === name ? styles.active : ""} key={id}>{name}</li>
+          <li key={id}>
+            <a
+              href={`#${name}-hook`}
+              className={scrolledHook === name ? styles.active : ""}
+              onClick={() => setScrolledHook(name)}
+            >
+              {name}
+            </a>
+          </li>
         ))}
       </ul>
     </div>
