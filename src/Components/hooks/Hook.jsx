@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { memo, useEffect, useRef } from "react";
 import { useGlobalContext } from "../../Context/GlobalContext";
 import useElementData from "../../Hooks/useElementData";
 import HookCode from "./HookCode";
@@ -33,4 +33,4 @@ const Hook = ({ hookData }) => {
     </div>
   );
 };
-export default Hook;
+export default memo(Hook);

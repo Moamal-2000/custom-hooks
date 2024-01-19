@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import HighlightElement from "react-highlight";
 import useCopyText from "../../Hooks/useCopyText";
 import useToggle from "../../Hooks/useToggle";
@@ -57,4 +57,4 @@ const HookCode = ({ code }) => {
     </div>
   );
 };
-export default HookCode;
+export default memo(HookCode);
