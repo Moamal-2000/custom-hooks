@@ -8,9 +8,9 @@ import HookInputsOutputs from "./HookInputsOutputs";
 const Hook = ({ hookData }) => {
   const { name, explanation, liveCode, inputs, outputs, id, code } = hookData;
   const { scrolledHook, setScrolledHook } = useGlobalContext();
-  const hookContainerRef = useRef();
+  const hookTitleRef = useRef();
   const [hookContainerEle, hookContainerData, renders, setRenders] =
-    useElementData(hookContainerRef);
+    useElementData(hookTitleRef);
   const { isVisible } = hookContainerData;
 
   useEffect(() => {
@@ -18,8 +18,8 @@ const Hook = ({ hookData }) => {
   }, [isVisible]);
 
   return (
-    <div className="hook" ref={hookContainerRef} id={`${name}-hook`}>
-      <h2>
+    <div className="hook" id={`${name}-hook`}>
+      <h2 ref={hookTitleRef}>
         {id + 1}- {name} Hook
       </h2>
 
