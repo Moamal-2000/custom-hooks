@@ -1,5 +1,5 @@
-import { useGlobalContext } from "../../Context/GlobalContext";
-import { hooksData } from "../../Data/hooksData";
+import { useGlobalContext } from "../../../Context/GlobalContext";
+import { hooksData } from "../../../Data/hooksData";
 import styles from "./SideBar.module.scss";
 
 const SideBar = () => {

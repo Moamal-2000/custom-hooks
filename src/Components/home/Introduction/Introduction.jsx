@@ -1,5 +1,5 @@
-import introImage from "../../Assets/introduction-image.webp";
-import { useGlobalContext } from "../../Context/GlobalContext";
+import introImage from "../../../Assets/introduction-image.webp";
+import { useGlobalContext } from "../../../Context/GlobalContext";
 import styles from "./Introduction.module.scss";
 
 const Introduction = () => {

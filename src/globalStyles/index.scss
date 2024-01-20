@@ -18,7 +18,13 @@ body {
   background-color: var(--background);
   color: var(--text);
   font-family: 'Roboto', sans-serif;
-  padding-left: 240px;
+  padding-left: 280px;
+}
+
+@media (max-width: 1250px) {
+  body {
+    padding-left: 290px;
+  }
 }
 
 :root {
@@ -47,25 +53,13 @@ p {
 }
 
 .container {
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
-}
-
-@include medium {
-  .container {
-    width: 90%;
-  }
-}
-
-@media (max-width: 992px) {
-  .container {
-    width: 90%;
-  }
 }
 
 @include small {
   .container {
-    width: 95%;
+    width: 92%;
   }
 }
 

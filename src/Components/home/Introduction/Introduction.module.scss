@@ -1,4 +1,4 @@
-@import "../../Sass/mixins";
+@import "../../../Sass/mixins";
 
 .introduction {
   padding: 20px 0;
@@ -7,6 +7,12 @@
 
 .introduction>h1 {
   font-size: 3rem;
+}
+
+@include large {
+  .introduction>h1 {
+    font-size: 2.3rem;
+  }
 }
 
 .introduction>img {

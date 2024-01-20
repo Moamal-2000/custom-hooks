@@ -1,10 +1,10 @@
 import { memo, useEffect, useRef } from "react";
-import { useGlobalContext } from "../../Context/GlobalContext";
-import useElementData from "../../Hooks/useElementData";
+import { useGlobalContext } from "../../../Context/GlobalContext";
+import useElementData from "../../../Hooks/useElementData";
+import styles from "./Hook.module.scss";
 import HookCode from "./HookCode";
 import HookExplanation from "./HookExplanation";
 import HookInputsOutputs from "./HookInputsOutputs";
-import styles from "./Hook.module.scss"
 
 const Hook = ({ hookData }) => {
   const { name, explanation, liveCode, inputs, outputs, id, code } = hookData;

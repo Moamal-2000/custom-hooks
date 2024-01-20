@@ -1,16 +1,10 @@
-import Introduction from "./Components/Introduction/Introduction";
-import HooksLayout from "./Components/hooks/HooksLayout";
-import SideBar from "./Components/sidebar/SideBar";
+import Home from "./Components/home/Home";
 import GlobalContextProvider from "./Context/GlobalContext";
 
 function App() {
   return (
     <GlobalContextProvider>
-      <div className="container">
-        <SideBar />
-        <Introduction />
-        <HooksLayout />
-      </div>
+      <Home />
     </GlobalContextProvider>
   );
 }

@@ -1,9 +1,9 @@
-import { hooksData } from "../../Data/hooksData";
+import { hooksData } from "../../../Data/hooksData";
 import Hook from "./Hook";
 
 const HooksLayout = () => {
   return (
-    <div>
+    <div className="hooks">
       {hooksData.map((hookData) => (
         <Hook key={hookData.id} hookData={hookData} />
       ))}

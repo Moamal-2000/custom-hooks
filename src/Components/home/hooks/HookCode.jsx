@@ -1,7 +1,7 @@
 import { memo, useEffect, useState } from "react";
 import HighlightElement from "react-highlight";
-import useCopyText from "../../Hooks/useCopyText";
-import useToggle from "../../Hooks/useToggle";
+import useCopyText from "../../../Hooks/useCopyText";
+import useToggle from "../../../Hooks/useToggle";
 import styles from "./HookCode.module.scss";
 
 const HookCode = ({ code }) => {
