@@ -1,3 +1,5 @@
+@import "../../../Sass/mixins";
+
 .hook {
   margin-top: 70px;
 
@@ -9,4 +11,10 @@
 .hook h2 {
   font-size: 1.7rem;
   margin-bottom: 14px;
+}
+
+@include medium {
+  .hook h2 {
+    font-size: 1.4rem;
+  }
 }

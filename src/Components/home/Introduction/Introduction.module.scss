@@ -9,7 +9,13 @@
   font-size: 3rem;
 }
 
-@include large {
+@media (max-width: 1000px) {
+  .introduction>h1 {
+    font-size: 2.3rem;
+  }
+}
+
+@include medium {
   .introduction>h1 {
     font-size: 2.3rem;
   }
@@ -26,4 +32,11 @@
 .introduction>article>h2 {
   margin: 40px 0 14px;
   font-size: 2rem;
+}
+
+@include medium {
+  .introduction>article>h2 {
+    margin: 40px 0 14px;
+    font-size: 1.7rem;
+  }
 }

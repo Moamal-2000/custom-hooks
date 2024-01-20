@@ -8,6 +8,10 @@
   user-select: none;
 }
 
+.sidebar.active {
+  display: none;
+}
+
 .sidebar::-webkit-scrollbar {
   background-color: rgba(0, 0, 0, .186);
   width: 8px;

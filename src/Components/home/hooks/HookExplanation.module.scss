@@ -1,3 +1,5 @@
+@import "../../../Sass/mixins";
+
 .explanation {
 
 }
@@ -9,4 +11,10 @@
 .explanation>p + a {
   font-size: 1.2rem;
   padding-left: 0;
+}
+
+@include medium {
+  .explanation>p + a {
+    font-size: 1rem;
+  }
 }

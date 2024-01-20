@@ -21,9 +21,9 @@ body {
   padding-left: 280px;
 }
 
-@media (max-width: 1250px) {
+@media (max-width: 1280px) {
   body {
-    padding-left: 290px;
+    padding-left: 0;
   }
 }
 
@@ -52,12 +52,24 @@ p {
   line-height: 1.4;
 }
 
+@include medium {
+  p {
+    font-size: 1rem;
+  }
+}
+
 .container {
   width: 90%;
   margin: 0 auto;
 }
 
-@include small {
+@media (max-width: 1280px) {
+  .container {
+    width: 80%;
+  }
+}
+
+@include medium {
   .container {
     width: 92%;
   }

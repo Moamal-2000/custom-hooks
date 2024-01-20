@@ -1,3 +1,5 @@
+@import "../../../Sass/mixins";
+
 .code {
   display: flex;
   font-size: 1.2rem;
@@ -5,12 +7,18 @@
   position: relative;
   border: solid 2px #0d1017;
   border-radius: 10px;
+  padding: 20px 20px 0 0;
   width: 100%;
-  padding: 20px 0;
   transition: border-color .2s;
 
   &:hover {
     border-color: #5c5e62;
+  }
+}
+
+@include medium {
+  .code {
+    font-size: 1rem;
   }
 }
 
@@ -19,35 +27,55 @@
 }
 
 .code pre {
+  border-radius: 10px;
   width: 100%;
+  overflow: hidden;
 }
 
 .numbering {
   font-size: 1.1rem;
   line-height: 1.2742;
   color: #5a606d;
-  position: absolute;
-  left: 20px;
-  z-index: 1;
+  border-radius: 10px;
+  padding: 0 20px;
 }
 
 .languageJs {
   background-color: #0d1017 !important;
   padding: 0 !important;
-  width: 100%;
-  position: relative;
-  z-index: 0;
+  padding-bottom: 20px !important;
+  border-radius: 10px;
+  overflow-x: auto !important;
+}
+
+.languageJs::-webkit-scrollbar {
+  background-color: rgba(0, 0, 0, .186);
+  height: 8px;
+}
+
+.languageJs::-webkit-scrollbar-thumb {
+  background-color: rgba(186, 186, 186, .237);
+  border-radius: 10px;
+
+  &:hover {
+    background-color: rgba(186, 186, 186, .5);
+  }
 }
 
 .languageJs>span {
   display: block;
   height: 22.4px;
   width: 100%;
-  padding-left: 60px;
   transition: background-color .05s;
 
   &:hover {
     background-color: #0e2238;
+  }
+}
+
+@include medium {
+  .languageJs>span:hover {
+    background-color: transparent;
   }
 }
 
@@ -72,7 +100,19 @@
   }
 }
 
+@include medium {
+  .copyButton {
+    padding: 8px 10px;
+  }
+}
+
 .copyButton i {
   font-size: 1.1rem;
   color: var(--text);
+}
+
+@include medium {
+  .copyButton i {
+    font-size: 1rem;
+  }
 }
