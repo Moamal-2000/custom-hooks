@@ -1,0 +1,53 @@
+@import "../../Sass/mixins";
+
+.introduction {
+  padding: 20px 0;
+  margin: 70px 0 50px;
+}
+
+.introduction>h1 {
+  font-size: 3rem;
+}
+
+.introduction>img {
+  margin: 40px 0;
+}
+
+.introduction>article:not(:last-child) {
+  margin-bottom: 70px;
+}
+
+.introduction>article>h2 {
+  margin: 40px 0 14px;
+  font-size: 2rem;
+}
+
+.introduction>article>p>a {
+  text-decoration: none;
+  color: #2483ff;
+  position: relative;
+  transition: color .3s;
+  padding: 0 5px;
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: calc(100% - 5px);
+    height: 0;
+    background-color: #2483ff;
+  }
+
+  &:hover {
+    color: #398fff;
+  }
+
+  &:hover::before {
+    height: 2px;
+  }
+}

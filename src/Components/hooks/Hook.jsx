@@ -4,6 +4,7 @@ import useElementData from "../../Hooks/useElementData";
 import HookCode from "./HookCode";
 import HookExplanation from "./HookExplanation";
 import HookInputsOutputs from "./HookInputsOutputs";
+import styles from "./Hook.module.scss"
 
 const Hook = ({ hookData }) => {
   const { name, explanation, liveCode, inputs, outputs, id, code } = hookData;
@@ -18,9 +19,9 @@ const Hook = ({ hookData }) => {
   }, [isVisible]);
 
   return (
-    <div className="hook" id={`${name}-hook`}>
+    <div className={styles.hook} id={`${name}-hook`}>
       <h2 ref={hookTitleRef}>
-        {id + 1}- {name} Hook
+        {id + 1}- <strong>{name}</strong> Hook
       </h2>
 
       <HookExplanation

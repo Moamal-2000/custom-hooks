@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./globalStyles/index.scss";
+import "../node_modules/highlight.js/styles/hybrid.css";
 import App from "./App";
-import "../node_modules/highlight.js/styles/hybrid.css"
+import "./globalStyles/index.scss";
 
 ReactDOM.createRoot(document.getElementById("root")).render(<App />);

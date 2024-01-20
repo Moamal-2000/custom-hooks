@@ -2,7 +2,7 @@
   position: fixed;
   left: 0;
   top: 0;
-  padding: 20px;
+  padding: 50px 30px;
   height: 100%;
   overflow-y: auto;
   user-select: none;
@@ -29,8 +29,8 @@
 }
 .sidebar ul li a {
   text-decoration: none;
-  padding: 10px;
-  background-color: #0e0e0e;
+  padding: 14px 10px;
+  background-color: #040404;
   color: var(--text);
   font-size: 1.1rem;
   width: 100%;

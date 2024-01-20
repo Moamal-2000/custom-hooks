@@ -211,8 +211,8 @@ const useCloseElement = (toggleEleRef, switcherEleRef, exceptElementRef) => {
 
 export default useCloseElement;
 
-// Helper function
-const compareAbsoluteParentEle = (element, requiredEle) => {
+/* Helper function */
+function compareAbsoluteParentEle(element, requiredEle) {
   let parentElement = element.parentElement;
 
   while (
@@ -360,48 +360,48 @@ const useEventListener = (element, eventName, callback) => {
 export default useEventListener;`,
   },
 
-  {
-    name: "useFetchDataFrom",
-    explanation: [
-      `
-        The useFetchDataFrom hook fetches data from a specified URL using the Axios library.`,
-    ],
-    inputs: [
-      [
-        `url (String):
-          The URL from which to fetch data.`,
-      ],
-    ],
-    outputsText: "The useFetchDataFrom hook returns the fetched data.",
-    outputs: [
-      [
-        `data (Any):
-          The fetched data from the specified URL.`,
-      ],
-    ],
-    id: 6,
-    code: `import { useEffect, useState } from "react";
-import axios from "axios";
+//   {
+//     name: "useFetchDataFrom",
+//     explanation: [
+//       `
+//         The useFetchDataFrom hook fetches data from a specified URL using the Axios library.`,
+//     ],
+//     inputs: [
+//       [
+//         `url (String):
+//           The URL from which to fetch data.`,
+//       ],
+//     ],
+//     outputsText: "The useFetchDataFrom hook returns the fetched data.",
+//     outputs: [
+//       [
+//         `data (Any):
+//           The fetched data from the specified URL.`,
+//       ],
+//     ],
+//     id: 6,
+//     code: `import { useEffect, useState } from "react";
+// import axios from "axios";
 
-export default function useFetchDataFrom(url) {
-  const [data, setData] = useState(null);
+// export default function useFetchDataFrom(url) {
+//   const [data, setData] = useState(null);
 
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const res = await axios.get(url);
-        setData(res.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
+//   useEffect(() => {
+//     const getData = async () => {
+//       try {
+//         const res = await axios.get(url);
+//         setData(res.data);
+//       } catch (err) {
+//         console.log(err);
+//       }
+//     };
 
-    getData();
-  }, [url]);
+//     getData();
+//   }, [url]);
 
-  return data;
-}`,
-  },
+//   return data;
+// }`,
+//   },
 
   {
     name: "useFilter",
@@ -611,55 +611,53 @@ export default useKeyPress;`,
 export default useLocalStorage;`,
   },
 
-  {
-    name: "useMouseEffect",
-    explanation: [
-      `
-        The useMouseEffect hook adds visual effects to a DOM element based on mouse movement.`,
-    ],
-    inputs: [
-      [
-        `ref (React ref):
-          Ref of the DOM element to which the mouse effect will be applied.`,
-      ],
-      [
-        `options (Object):
-          Object containing options for the mouse effect:
-          - activeClass (String): Class added to the element during the mouse effect.
-          - isActiveOnHover (Boolean): Flag to activate the effect only on hover.
-          - hoverElements (Array): Array of HTML tag names on which to trigger the hover effect.`,
-      ],
-    ],
-    outputs: [],
-    id: 12,
-    code: `import { useEffect } from "react";
+//   {
+//     name: "useMouseEffect",
+//     explanation: [
+//       `
+//         The useMouseEffect hook adds visual effects to a DOM element based on mouse movement.`,
+//     ],
+//     inputs: [
+//       [
+//         `ref (React ref):
+//           Ref of the DOM element to which the mouse effect will be applied.`,
+//       ],
+//       [
+//         `options (Object):
+//           Object containing options for the mouse effect:
+//           - activeClass (String): Class added to the element during the mouse effect.
+//           - isActiveOnHover (Boolean): Flag to activate the effect only on hover.
+//           - hoverElements (Array): Array of HTML tag names on which to trigger the hover effect.`,
+//       ],
+//     ],
+//     outputs: [],
+//     id: 12,
+//     code: `import { useEffect } from "react";
 
-const useMouseEffect = (
-  ref,
-  { activeClass = "active", isActiveOnHover = false, hoverElements = [] }
-) => {
-  function handleMouseMove(e) {
-    // Implementation details for mouse effect
+// const useMouseEffect = (
+//   ref,
+//   { activeClass = "active", isActiveOnHover = false, hoverElements = [] }
+// ) => {
+//   function handleMouseMove(e) {
+//     if (hoverElements.length === 0 || !isActiveOnHover) return;
+//     handleHoverOnElements(e);
+//   }
 
-    if (hoverElements.length === 0 || !isActiveOnHover) return;
-    handleHoverOnElements(e);
-  }
+//   function handleHoverOnElements(e) {
+//     // Implementation details for hover effect
+//   }
 
-  function handleHoverOnElements(e) {
-    // Implementation details for hover effect
-  }
+//   useEffect(() => {
+//     window.addEventListener("mousemove", (e) => handleMouseMove(e));
 
-  useEffect(() => {
-    window.addEventListener("mousemove", (e) => handleMouseMove(e));
+//     return () => {
+//       window.removeEventListener("mousemove", (e) => handleMouseMove(e));
+//     };
+//   }, []);
+// };
 
-    return () => {
-      window.removeEventListener("mousemove", (e) => handleMouseMove(e));
-    };
-  }, []);
-};
-
-export default useMouseEffect;`,
-  },
+// export default useMouseEffect;`,
+//   },
 
   {
     name: "useOnlineStatus",
@@ -763,44 +761,44 @@ const useOnScreen = (ref, rootMargin = "0px") => {
 export default useOnScreen;`,
   },
 
-  {
-    name: "usePageBottom",
-    explanation: [
-      `
-        The usePageBottom hook detects whether the user has scrolled to the bottom of the page.`,
-    ],
-    inputs: [],
-    outputsText:
-      "The usePageBottom hook returns a boolean indicating whether the page is scrolled to the bottom.",
-    outputs: [
-      [
-        `isScrolledToBottom (Boolean):
-          True if the page is scrolled to the bottom, false otherwise.`,
-      ],
-    ],
-    id: 15,
-    code: `import { useEffect, useState } from "react";
+//   {
+//     name: "usePageBottom",
+//     explanation: [
+//       `
+//         The usePageBottom hook detects whether the user has scrolled to the bottom of the page.`,
+//     ],
+//     inputs: [],
+//     outputsText:
+//       "The usePageBottom hook returns a boolean indicating whether the page is scrolled to the bottom.",
+//     outputs: [
+//       [
+//         `isScrolledToBottom (Boolean):
+//           True if the page is scrolled to the bottom, false otherwise.`,
+//       ],
+//     ],
+//     id: 15,
+//     code: `import { useEffect, useState } from "react";
 
-const usePageBottom = () => {
-  const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
+// const usePageBottom = () => {
+//   const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
 
-  function handleScroll() {
-    // Implementation details for detecting page bottom
-  }
+//   function handleScroll() {
+//     // Implementation details for detecting page bottom
+//   }
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+//   useEffect(() => {
+//     window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+//     return () => {
+//       window.removeEventListener("scroll", handleScroll);
+//     };
+//   }, []);
 
-  return isScrolledToBottom;
-};
+//   return isScrolledToBottom;
+// };
 
-export default usePageBottom;`,
-  },
+// export default usePageBottom;`,
+//   },
 
   {
     name: "usePreviousState",

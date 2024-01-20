@@ -14,17 +14,12 @@ body {
   background-color: var(--background);
   color: var(--text);
   font-family: 'Roboto', sans-serif;
-  padding-left: 200px;
+  padding-left: 240px;
 }
 
 :root {
   --background: #0a1119;
   --text: #fff;
-}
-
-a {
-  // text-decoration: none;
-  color: var(--text);
 }
 
 li {
@@ -43,7 +38,8 @@ button {
 }
 
 p {
-  font-size: 1rem;
+  font-size: 1.2rem;
+  line-height: 1.4;
 }
 
 .container {
@@ -69,34 +65,9 @@ p {
   }
 }
 
-// Hooks styles
-
-.hook {
-  margin-top: 70px;
-}
-
-.hook:last-child {
-  margin-bottom: 70px;
-}
-
-.hook h2 {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-}
-
-.scrollTest {
-  border: solid;
-  // padding: 20px;
-  height: 400px;
-  margin-bottom: 40px;
-}
-
-
-
-
 // Hook explanation
 .hook-paragraph {
-  margin: 30px 0 60px;
+  margin: 0 0 60px;
 }
 
 
