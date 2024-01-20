@@ -3,9 +3,16 @@ import { hooksData } from "../Data/hooksData";
 
 const GlobalContextProvider = ({ children }) => {
   const [scrolledHook, setScrolledHook] = useState(hooksData[0].name);
+  const [isSideBarActive, setIsSideBarActive] = useState(false);
   const numberOfHooks = hooksData.length;
 
-  const data = { scrolledHook, setScrolledHook, numberOfHooks };
+  const data = {
+    scrolledHook,
+    setScrolledHook,
+    isSideBarActive,
+    setIsSideBarActive,
+    numberOfHooks,
+  };
 
   return (
     <GlobalContext.Provider value={data}>{children}</GlobalContext.Provider>

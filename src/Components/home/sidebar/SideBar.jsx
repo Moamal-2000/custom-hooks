@@ -5,20 +5,42 @@ import useGetResizeWindow from "../../../Hooks/useGetResizeWindow";
 import styles from "./SideBar.module.scss";
 
 const SideBar = () => {
-  const { scrolledHook, setScrolledHook } = useGlobalContext();
+  const { scrolledHook, setScrolledHook, isSideBarActive, setIsSideBarActive } =
+    useGlobalContext();
   const windowSizes = useGetResizeWindow();
   const { width } = windowSizes;
 
   return (
-    width > 1280 && (
-      <div className={`${styles.sidebar}`}>
+    <>
+      {width < 1280 && (
+        <i
+          onClick={() => {
+            setIsSideBarActive((prevState) => !prevState);
+          }}
+          className={`fa-solid fa-bars ${styles.sidebarIcon}`}
+        ></i>
+      )}
+
+      <div
+        className={`${styles.sidebar} ${width < 1280 ? styles.hide : ""} ${
+          isSideBarActive ? styles.active : ""
+        }`}
+      >
+        <i
+          onClick={() => setIsSideBarActive(false)}
+          className="fa-solid fa-xmark"
+        ></i>
+
         <ul>
           {hooksData.map(({ name, id }) => (
             <li key={id}>
               <a
                 href={`#${name}-hook`}
                 className={scrolledHook === name ? styles.active : ""}
-                onClick={() => setScrolledHook(name)}
+                onClick={() => {
+                  setScrolledHook(name)
+                  setIsSideBarActive(false)
+                }}
               >
                 {name}
               </a>
@@ -26,7 +48,7 @@ const SideBar = () => {
           ))}
         </ul>
       </div>
-    )
+    </>
   );
 };
 export default memo(SideBar);

@@ -1,15 +1,53 @@
+.sidebarIcon {
+  position: fixed;
+  left: 10px;
+  top: 30px;
+  font-size: 1.4rem;
+  color: var(--text);
+  padding: 10px;
+  cursor: pointer;
+  transition: opacity .2s;
+
+  &:hover {
+    opacity: .8;
+  }
+}
+
 .sidebar {
   position: fixed;
   left: 0;
   top: 0;
-  padding: 60px 30px 60px 70px;
+  padding: 70px 30px 70px 70px;
   height: 100%;
   overflow-y: auto;
   user-select: none;
+  transition:  left .5s ease-in-out;
+  z-index: 100;
+}
+
+.sidebar.hide {
+  left: -110%;
 }
 
 .sidebar.active {
-  display: none;
+  left: 0;
+  background-color: #151c27;
+  padding: 20px 100px 20px 30px;
+}
+
+.sidebar>i {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 1.4rem;
+  color: var(--text);
+  padding: 10px;
+  cursor: pointer;
+  transition: opacity .2s;
+
+  &:hover {
+    opacity: .8;
+  }
 }
 
 .sidebar::-webkit-scrollbar {
@@ -52,4 +90,8 @@
     background-color: var(--text);
     color: var(--background);
   }
+}
+
+.sidebar.active ul li a {
+  font-size: 1rem;
 }
