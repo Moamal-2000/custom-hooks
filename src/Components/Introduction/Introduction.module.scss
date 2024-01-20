@@ -21,33 +21,3 @@
   margin: 40px 0 14px;
   font-size: 2rem;
 }
-
-.introduction>article>p>a {
-  text-decoration: none;
-  color: #2483ff;
-  position: relative;
-  transition: color .3s;
-  padding: 0 5px;
-
-  &:first-child {
-    padding-left: 0;
-  }
-
-  &::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -1px;
-    width: calc(100% - 5px);
-    height: 0;
-    background-color: #2483ff;
-  }
-
-  &:hover {
-    color: #398fff;
-  }
-
-  &:hover::before {
-    height: 2px;
-  }
-}

@@ -30,6 +30,7 @@ export const hooksData = [
           Custom toggle function that sets the state to a specific value. Usage: customToggle(value).`,
       ],
     ],
+    liveCode: "#",
     id: 0,
     code: `import { useState } from "react";
 
@@ -110,6 +111,7 @@ export default useToggle;`,
           Usage: filter(callback).`,
       ],
     ],
+    liveCode: "#",
     id: 1,
     code: `import { useState } from "react";
 
@@ -175,6 +177,7 @@ export default useArray;`,
           Function to manually set the state of isElementClose.`,
       ],
     ],
+    liveCode: "#",
     id: 2,
     code: `import { useEffect, useState } from "react";
 
@@ -246,6 +249,7 @@ function compareAbsoluteParentEle(element, requiredEle) {
           Function to copy text to the clipboard. Usage: setCopy(text).`,
       ],
     ],
+    liveCode: "#",
     id: 3,
     code: `import { useState } from "react";
 
@@ -293,6 +297,7 @@ export default useCopyText;`,
           Function to increment the renders count, triggering a re-evaluation of element data.`,
       ],
     ],
+    liveCode: "#",
     id: 4,
     code: `import { useEffect, useState } from "react";
 import useOnScreen from "./useOnScreen";
@@ -344,6 +349,7 @@ export default useElementData;`,
       ],
     ],
     outputs: [],
+    liveCode: "#",
     id: 5,
     code: `import { useEffect } from "react";
 
@@ -435,6 +441,7 @@ export default useEventListener;`,
           Function to manually set the filtered array.`,
       ],
     ],
+    liveCode: "#",
     id: 7,
     code: `import { useEffect, useState } from "react";
 
@@ -470,6 +477,7 @@ export default useFilter;`,
           An object containing all the extracted query parameters.`,
       ],
     ],
+    liveCode: "#",
     id: 8,
     code: `const useGetParams = () => {
 const url = location?.href;
@@ -506,6 +514,7 @@ export default useGetParams;`,
           An object containing the current window dimensions (width and height).`,
       ],
     ],
+    liveCode: "#",
     id: 9,
     code: `import { useEffect, useState } from "react";
 
@@ -550,6 +559,7 @@ export default useGetResizeWindow;`,
           The event object related to the key press.`,
       ],
     ],
+    liveCode: "#",
     id: 10,
     code: `import { useEffect, useState } from "react";
 
@@ -599,6 +609,7 @@ export default useKeyPress;`,
           The data retrieved from localStorage.`,
       ],
     ],
+    liveCode: "#",
     id: 11,
     code: `const useLocalStorage = (keyName, data) => {
   const localData = localStorage.getItem(keyName)
@@ -674,6 +685,7 @@ export default useLocalStorage;`,
           True if the device is online, false if it is offline.`,
       ],
     ],
+    liveCode: "#",
     id: 13,
     code: `import { useEffect, useState } from "react";
 
@@ -729,6 +741,7 @@ export default useOnlineStatus;`,
           True if the observed element is visible, false otherwise.`,
       ],
     ],
+    liveCode: "#",
     id: 14,
     code: `import { useEffect, useState } from "react";
 
@@ -819,6 +832,7 @@ export default useOnScreen;`,
           The previous state of the component.`,
       ],
     ],
+    liveCode: "#",
     id: 16,
     code: `import { useEffect, useRef } from "react";
 
@@ -864,6 +878,7 @@ export default usePreviousState;
           Function to manually set the value of the text input field. Usage: setValue(newValue).`,
       ],
     ],
+    liveCode: "#",
     id: 17,
     code: `import { useState } from "react";
 
@@ -909,6 +924,7 @@ export default useTextInput;`,
           Function to change the random number within the specified range. Usage: changeRandomNumber(newMin, newMax).`,
       ],
     ],
+    liveCode: "#",
     id: 18,
     code: `import { useEffect, useState } from "react";
 

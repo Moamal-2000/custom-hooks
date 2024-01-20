@@ -1,11 +1,15 @@
+import styles from "./HookExplanation.module.scss";
+
 const HookExplanation = ({ name, explanation, liveCode }) => {
   return (
-    <div className="explanation">
+    <div className={styles.explanation}>
       {explanation?.map((explain, i) => (
-        <p className="hook-paragraph" key={i}>{explain}</p>
+        <p className={styles.hookParagraph} key={i}>
+          {explain}
+        </p>
       ))}
 
-      <a href={liveCode} target="_blank">
+      <a href={liveCode} target="_blank" className="linkStyle1">
         {name} example
       </a>
     </div>

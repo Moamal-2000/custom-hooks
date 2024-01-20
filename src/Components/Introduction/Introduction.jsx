@@ -11,7 +11,7 @@ const Introduction = () => {
         <strong>Exploring {numberOfHooks} Custom Hooks in React</strong>
       </h1>
 
-      <img src={introImage} alt="react custom hook image" />
+      <img src={introImage} alt="React custom hook image." />
 
       <article>
         <h2>
@@ -19,11 +19,21 @@ const Introduction = () => {
         </h2>
 
         <p>
-          <a href="https://react.dev/learn/reusing-logic-with-custom-hooks">
+          <a
+            href="https://react.dev/learn/reusing-logic-with-custom-hooks"
+            target="_blank"
+            className="linkStyle1"
+          >
             Custom Hooks
           </a>
           in React allow you to extract and reuse logic from
-          <a href="https://react.dev/reference/react/Component">components</a>
+          <a
+            href="https://react.dev/reference/react/Component"
+            target="_blank"
+            className="linkStyle1"
+          >
+            components
+          </a>
           ,making your code more modular and maintainable. They are functions
           that can encapsulate complex behavior and be shared across different
           components.
