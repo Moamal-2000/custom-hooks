@@ -82,7 +82,7 @@
 :is(.copyButton, .downloadButton) {
   position: absolute;
   right: 20px;
-  top: 20px;
+  top: 16px;
   cursor: pointer;
   border: none;
   padding: 10px 12px;
@@ -118,5 +118,5 @@
 }
 
 .downloadButton {
-  right: 70px;
+  right: 64px;
 }

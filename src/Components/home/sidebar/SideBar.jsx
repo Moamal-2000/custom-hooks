@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useEffect } from "react";
 import { useGlobalContext } from "../../../Context/GlobalContext";
 import { hooksData } from "../../../Data/hooksData";
 import { saveInRAR } from "../../../Functions/helper";
@@ -10,6 +10,8 @@ const SideBar = () => {
     useGlobalContext();
   const windowSizes = useGetResizeWindow();
   const { width } = windowSizes;
+  const screenSize = 1280;
+  const isSmallThanScreen = width < screenSize;
 
   function handleDownloadAllHooks() {
     const files = [];
@@ -24,9 +26,13 @@ const SideBar = () => {
     saveInRAR(files);
   }
 
+  useEffect(() => {
+    if (width > screenSize) setIsSideBarActive(false);
+  }, [width]);
+
   return (
     <>
-      {width < 1280 && (
+      {isSmallThanScreen && (
         <i
           onClick={() => {
             setIsSideBarActive((prevState) => !prevState);
@@ -36,14 +42,16 @@ const SideBar = () => {
       )}
 
       <div
-        className={`${styles.sidebar} ${width < 1280 ? styles.hide : ""} ${
+        className={`${styles.sidebar} ${isSmallThanScreen ? styles.hide : ""} ${
           isSideBarActive ? styles.active : ""
         }`}
       >
-        <i
-          onClick={() => setIsSideBarActive(false)}
-          className="fa-solid fa-xmark"
-        ></i>
+        {isSmallThanScreen && (
+          <i
+            onClick={() => setIsSideBarActive(false)}
+            className="fa-solid fa-xmark"
+          ></i>
+        )}
 
         <button
           type="button"
