@@ -1,10 +1,12 @@
 import { memo, useEffect, useState } from "react";
 import HighlightElement from "react-highlight";
+import { saveInFile } from "../../../Functions/helper";
 import useCopyText from "../../../Hooks/useCopyText";
 import useToggle from "../../../Hooks/useToggle";
 import styles from "./HookCode.module.scss";
 
-const HookCode = ({ code }) => {
+const HookCode = ({ hookData }) => {
+  const { code, name } = hookData;
   const [copiedText, copyText] = useCopyText();
   const [isCopied, toggleIsCopied] = useToggle(false);
   const [numberOfLines, setNumberOfLines] = useState(0);
@@ -43,6 +45,14 @@ const HookCode = ({ code }) => {
         ) : (
           <i className="fa-regular fa-copy"></i>
         )}
+      </button>
+
+      <button
+        className={styles.downloadButton}
+        title="Download Code"
+        onClick={() => saveInFile(`${name}.jsx`, code)}
+      >
+        <i className="fa-solid fa-download"></i>
       </button>
 
       <ul className={styles.numbering}>

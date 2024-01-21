@@ -22,7 +22,7 @@
   }
 }
 
-.code:hover .copyButton {
+.code:hover :is(.copyButton, .downloadButton) {
   opacity: 1;
 }
 
@@ -79,7 +79,7 @@
   }
 }
 
-.copyButton {
+:is(.copyButton, .downloadButton) {
   position: absolute;
   right: 20px;
   top: 20px;
@@ -101,18 +101,22 @@
 }
 
 @include medium {
-  .copyButton {
+  :is(.copyButton, .downloadButton) {
     padding: 8px 10px;
   }
 }
 
-.copyButton i {
+:is(.copyButton, .downloadButton) i {
   font-size: 1.1rem;
   color: var(--text);
 }
 
 @include medium {
-  .copyButton i {
+  :is(.copyButton, .downloadButton) i {
     font-size: 1rem;
   }
+}
+
+.downloadButton {
+  right: 70px;
 }

@@ -30,7 +30,7 @@ const Hook = ({ hookData }) => {
         liveCode={liveCode}
       />
       <HookInputsOutputs data={{ inputs, outputs }} />
-      <HookCode code={code} />
+      <HookCode hookData={hookData} />
     </div>
   );
 };
