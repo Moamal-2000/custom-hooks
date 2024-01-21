@@ -36,6 +36,7 @@ const HookCode = ({ hookData }) => {
   return (
     <div className={styles.code}>
       <button
+        type="button"
         className={styles.copyButton}
         title="Copy Code"
         onClick={handleCopyButton}
@@ -48,6 +49,7 @@ const HookCode = ({ hookData }) => {
       </button>
 
       <button
+        type="button"
         className={styles.downloadButton}
         title="Download Code"
         onClick={() => saveInFile(`${name}.jsx`, code)}

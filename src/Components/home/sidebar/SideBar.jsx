@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { useGlobalContext } from "../../../Context/GlobalContext";
 import { hooksData } from "../../../Data/hooksData";
+import { saveInRAR } from "../../../Functions/helper";
 import useGetResizeWindow from "../../../Hooks/useGetResizeWindow";
 import styles from "./SideBar.module.scss";
 
@@ -9,6 +10,19 @@ const SideBar = () => {
     useGlobalContext();
   const windowSizes = useGetResizeWindow();
   const { width } = windowSizes;
+
+  function handleDownloadAllHooks() {
+    const files = [];
+
+    hooksData.forEach((hookData) =>
+      files.push({
+        name: `${hookData.name}.jsx`,
+        content: hookData.code,
+      })
+    );
+
+    saveInRAR(files);
+  }
 
   return (
     <>
@@ -31,6 +45,14 @@ const SideBar = () => {
           className="fa-solid fa-xmark"
         ></i>
 
+        <button
+          type="button"
+          className={`${styles.downloadAllButton} linkStyle1`}
+          onClick={handleDownloadAllHooks}
+        >
+          Download all hooks
+        </button>
+
         <ul>
           {hooksData.map(({ name, id }) => (
             <li key={id}>
@@ -38,8 +60,8 @@ const SideBar = () => {
                 href={`#${name}-hook`}
                 className={scrolledHook === name ? styles.active : ""}
                 onClick={() => {
-                  setScrolledHook(name)
-                  setIsSideBarActive(false)
+                  setScrolledHook(name);
+                  setIsSideBarActive(false);
                 }}
               >
                 {name}

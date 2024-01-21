@@ -64,6 +64,17 @@
   }
 }
 
+.downloadAllButton {
+  background-color: transparent;
+  font-size: 1.2rem;
+  margin: 10px 0 30px;
+  padding-left: 0 !important;
+}
+
+.sidebar.active .downloadAllButton {
+  margin: 30px 0 40px;
+}
+
 .sidebar ul {
   display: flex;
   flex-direction: column;
