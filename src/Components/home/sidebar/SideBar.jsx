@@ -6,8 +6,13 @@ import useGetResizeWindow from "../../../Hooks/useGetResizeWindow";
 import styles from "./SideBar.module.scss";
 
 const SideBar = () => {
-  const { scrolledHook, setScrolledHook, isSideBarActive, setIsSideBarActive } =
-    useGlobalContext();
+  const {
+    scrolledHook,
+    setScrolledHook,
+    isSideBarActive,
+    setIsSideBarActive,
+    setIsOverlayActive,
+  } = useGlobalContext();
   const windowSizes = useGetResizeWindow();
   const { width } = windowSizes;
   const screenSize = 1280;
@@ -26,17 +31,28 @@ const SideBar = () => {
     saveInRAR(files);
   }
 
+  function handleOpenSideBarButton() {
+    setIsSideBarActive(true);
+    setIsOverlayActive(true);
+  }
+
+  function handleCloseSideBarButton() {
+    setIsSideBarActive(false);
+    setIsOverlayActive(false);
+  }
+
   useEffect(() => {
-    if (width > screenSize) setIsSideBarActive(false);
+    if (width > screenSize) {
+      setIsSideBarActive(false)
+      setIsOverlayActive(false)
+    };
   }, [width]);
 
   return (
     <>
       {isSmallThanScreen && (
         <i
-          onClick={() => {
-            setIsSideBarActive((prevState) => !prevState);
-          }}
+          onClick={handleOpenSideBarButton}
           className={`fa-solid fa-bars ${styles.sidebarIcon}`}
         ></i>
       )}
@@ -48,7 +64,7 @@ const SideBar = () => {
       >
         {isSmallThanScreen && (
           <i
-            onClick={() => setIsSideBarActive(false)}
+            onClick={handleCloseSideBarButton}
             className="fa-solid fa-xmark"
           ></i>
         )}

@@ -4,6 +4,7 @@ import { hooksData } from "../Data/hooksData";
 const GlobalContextProvider = ({ children }) => {
   const [scrolledHook, setScrolledHook] = useState(hooksData[0].name);
   const [isSideBarActive, setIsSideBarActive] = useState(false);
+  const [isOverlayActive, setIsOverlayActive] = useState(false);
   const numberOfHooks = hooksData.length;
 
   const data = {
@@ -11,6 +12,8 @@ const GlobalContextProvider = ({ children }) => {
     setScrolledHook,
     isSideBarActive,
     setIsSideBarActive,
+    isOverlayActive,
+    setIsOverlayActive,
     numberOfHooks,
   };
 
