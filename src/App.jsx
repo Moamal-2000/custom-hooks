@@ -1,5 +1,6 @@
 import Footer from "./Components/footer/Footer";
 import Home from "./Components/home/Home";
+import ScrollBottomTop from "./Components/shared/ScrollBottomTop";
 import GlobalContextProvider from "./Context/GlobalContext";
 
 function App() {
@@ -10,6 +11,8 @@ function App() {
       <div className="container">
         <Footer />
       </div>
+
+      <ScrollBottomTop />
     </GlobalContextProvider>
   );
 }

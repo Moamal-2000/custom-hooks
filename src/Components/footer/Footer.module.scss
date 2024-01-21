@@ -4,7 +4,7 @@
 
 .footer p {
   width: fit-content;
-  color: var(--white);
+  color: var(--text);
   padding: 10px 0;
 
   & span {
@@ -13,7 +13,7 @@
 }
 
 .footer p a {
-  color: var(--white);
+  color: var(--text);
   padding: 4px;
   transition: opacity .2s;
   opacity: .7;
