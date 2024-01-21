@@ -774,44 +774,52 @@ const useOnScreen = (ref, rootMargin = "0px") => {
 export default useOnScreen;`,
   },
 
-//   {
-//     name: "usePageBottom",
-//     explanation: [
-//       `
-//         The usePageBottom hook detects whether the user has scrolled to the bottom of the page.`,
-//     ],
-//     inputs: [],
-//     outputsText:
-//       "The usePageBottom hook returns a boolean indicating whether the page is scrolled to the bottom.",
-//     outputs: [
-//       [
-//         `isScrolledToBottom (Boolean):
-//           True if the page is scrolled to the bottom, false otherwise.`,
-//       ],
-//     ],
-//     id: 15,
-//     code: `import { useEffect, useState } from "react";
+  {
+    name: "usePageBottom",
+    explanation: [
+      `
+        The usePageBottom hook detects whether the user has scrolled to the bottom of the page.`,
+    ],
+    inputs: [],
+    outputsText:
+      "The usePageBottom hook returns a boolean indicating whether the page is scrolled to the bottom.",
+    outputs: [
+      [
+        `isScrolledToBottom (Boolean):
+          True if the page is scrolled to the bottom, false otherwise.`,
+      ],
+    ],
+    id: 15,
+    code: `import { useEffect, useState } from "react";
 
-// const usePageBottom = () => {
-//   const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
+const usePageBottom = () => {
+  const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
 
-//   function handleScroll() {
-//     // Implementation details for detecting page bottom
-//   }
+  function handleScroll() {
+    const scrollPosition = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const htmlElement = document.documentElement;
+    const documentHeight = Math.max(
+      htmlElement.clientHeight,
+      htmlElement.scrollHeight,
+      htmlElement.offsetHeight
+    );
+    setIsScrolledToBottom(documentHeight - windowHeight <= scrollPosition + 1);
+  }
 
-//   useEffect(() => {
-//     window.addEventListener("scroll", handleScroll);
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
 
-//     return () => {
-//       window.removeEventListener("scroll", handleScroll);
-//     };
-//   }, []);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
-//   return isScrolledToBottom;
-// };
+  return isScrolledToBottom;
+};
 
-// export default usePageBottom;`,
-//   },
+export default usePageBottom;`,
+  },
 
   {
     name: "usePreviousState",

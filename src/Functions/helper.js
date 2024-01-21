@@ -20,3 +20,13 @@ export async function saveInRAR(files) {
   const blob = await zip.generateAsync({ type: "blob" });
   download(blob, "custom-hooks.rar");
 }
+
+export function getMoreData(entireData, currentDataNumber, neededDataNumber) {
+  const returnedData = [];
+
+  for (let i = currentDataNumber; i < neededDataNumber; i++) {
+    if (entireData?.[i]) returnedData.push(entireData?.[i]);
+  }
+
+  return returnedData;
+}

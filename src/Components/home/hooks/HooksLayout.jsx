@@ -4,9 +4,9 @@ import Hook from "./Hook";
 const HooksLayout = () => {
   return (
     <div className="hooks">
-      {hooksData.map((hookData) => (
-        <Hook key={hookData.id} hookData={hookData} />
-      ))}
+      {hooksData?.map(
+        (hookData) => hookData && <Hook key={hookData.id} hookData={hookData} />
+      )}
     </div>
   );
 };
