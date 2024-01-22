@@ -9,6 +9,8 @@ const HookCode = ({ hookData }) => {
   const { code, name } = hookData;
   const [copiedText, copyText] = useCopyText();
   const [isCopied, toggleIsCopied] = useToggle(false);
+  const [isDownloaded, toggleIsDownloaded] = useToggle(false);
+  const [isFullScreen, toggleIsFullScreen] = useToggle(false);
   const [numberOfLines, setNumberOfLines] = useState(0);
   const [codeState, setCodeState] = useState(code);
   const numbersOfLines = Array.from({ length: numberOfLines }).map(
@@ -23,6 +25,18 @@ const HookCode = ({ hookData }) => {
     setTimeout(() => toggleIsCopied(), 1000);
   }
 
+  function handleDownloadButton() {
+    if (isDownloaded) return;
+    saveInFile(`${name}.jsx`, code);
+    toggleIsDownloaded();
+
+    setTimeout(() => toggleIsDownloaded(), 1000);
+  }
+
+  function handleFullScreenButton() {
+    toggleIsFullScreen();
+  }
+
   useEffect(() => {
     let lines = code?.split("\n");
     setNumberOfLines(lines?.length);
@@ -34,28 +48,40 @@ const HookCode = ({ hookData }) => {
   }, []);
 
   return (
-    <div className={styles.code}>
-      <button
-        type="button"
-        className={styles.copyButton}
-        title="Copy Code"
-        onClick={handleCopyButton}
-      >
-        {isCopied ? (
-          <i className="fa-solid fa-check"></i>
-        ) : (
-          <i className="fa-regular fa-copy"></i>
-        )}
-      </button>
+    <div className={`${styles.code} ${isFullScreen ? styles.fullscreen : ""}`}>
+      <div className={styles.buttons}>
+        <button type="button" title="Copy Code" onClick={handleCopyButton}>
+          {isCopied ? (
+            <i className="fa-solid fa-check"></i>
+          ) : (
+            <i className="fa-regular fa-copy"></i>
+          )}
+        </button>
 
-      <button
-        type="button"
-        className={styles.downloadButton}
-        title="Download Code"
-        onClick={() => saveInFile(`${name}.jsx`, code)}
-      >
-        <i className="fa-solid fa-download"></i>
-      </button>
+        <button
+          type="button"
+          title="Download Code"
+          onClick={handleDownloadButton}
+        >
+          {isDownloaded ? (
+            <i className="fa-solid fa-check"></i>
+          ) : (
+            <i className="fa-solid fa-download"></i>
+          )}
+        </button>
+
+        <button
+          type="button"
+          title="Full Screen"
+          onClick={handleFullScreenButton}
+        >
+          {isFullScreen ? (
+            <i className="fa-solid fa-compress"></i>
+          ) : (
+            <i className="fa-solid fa-expand"></i>
+          )}
+        </button>
+      </div>
 
       <ul className={styles.numbering}>
         {numbersOfLines.map((num) => (

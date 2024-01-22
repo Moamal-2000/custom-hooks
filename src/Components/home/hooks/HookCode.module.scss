@@ -22,12 +22,66 @@
   }
 }
 
-.code:hover :is(.copyButton, .downloadButton) {
+.code.fullscreen {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 101;
+  overflow-y: auto;
+}
+
+.code:hover .buttons {
   opacity: 1;
 }
 
+.code .buttons {
+  position: absolute;
+  right: 14px;
+  top: 16px;
+  transition: opacity .2s .1s;
+  opacity: 0;
+}
+
+.code.fullscreen .buttons {
+  right: 26px;
+  position: fixed;
+}
+
+.code .buttons>button {
+  cursor: pointer;
+  border: none;
+  padding: 8px 10px;
+  background-color: rgb(105, 105, 105);
+  border-radius: 4px;
+  transition: background-color .2s, transform .1s ease;
+
+  &:hover {
+    background-color: rgb(49, 49, 49);
+  }
+
+  &:active {
+    transform: scale(.93);
+  }
+
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+}
+
+@include medium {
+  .code .buttons>button {
+    padding: 8px 10px;
+  }
+}
+
+.code .buttons>button>i {
+  font-size: 1rem;
+  color: var(--text);
+}
+
 .code pre {
-  border-radius: 10px;
   width: 100%;
   overflow: hidden;
 }
@@ -77,46 +131,4 @@
   .languageJs>span:hover {
     background-color: transparent;
   }
-}
-
-:is(.copyButton, .downloadButton) {
-  position: absolute;
-  right: 20px;
-  top: 16px;
-  cursor: pointer;
-  border: none;
-  padding: 10px 12px;
-  background-color: rgb(105, 105, 105);
-  border-radius: 4px;
-  transition: background-color .2s, transform .1s ease, opacity .2s .1s;
-  opacity: 0;
-
-  &:hover {
-    background-color: rgb(49, 49, 49);
-  }
-
-  &:active {
-    transform: scale(.93);
-  }
-}
-
-@include medium {
-  :is(.copyButton, .downloadButton) {
-    padding: 8px 10px;
-  }
-}
-
-:is(.copyButton, .downloadButton) i {
-  font-size: 1.1rem;
-  color: var(--text);
-}
-
-@include medium {
-  :is(.copyButton, .downloadButton) i {
-    font-size: 1rem;
-  }
-}
-
-.downloadButton {
-  right: 64px;
 }

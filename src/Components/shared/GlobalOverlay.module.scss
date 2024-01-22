@@ -6,7 +6,7 @@
   height: 100vh;
   background-color: #0f172acc;
   filter: blur(4px);
-  z-index: 1000;
+  z-index: 99;
   transition: opacity 0.2s ease-in-out;
   opacity: 0;
   pointer-events: none;
