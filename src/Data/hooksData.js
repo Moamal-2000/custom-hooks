@@ -30,7 +30,8 @@ export const hooksData = [
           Custom toggle function that sets the state to a specific value. Usage: customToggle(value).`,
       ],
     ],
-    liveCode: "#",
+    liveCode:
+      "https://codesandbox.io/p/sandbox/usetoggle-dxg958?file=%2Fsrc%2FTest.jsx",
     id: 0,
     code: `import { useState } from "react";
 
@@ -111,17 +112,29 @@ export default useToggle;`,
           Usage: filter(callback).`,
       ],
     ],
-    liveCode: "#",
+    liveCode: "https://codesandbox.io/p/sandbox/usearray-rxj3p5?file=%2Fsrc%2FTest.jsx",
     id: 1,
     code: `import { useState } from "react";
 
 const useArray = (initArray) => {
   const [array, setArray] = useState(initArray);
   const copiedArray = array;
-  const clear = () => setArray([]);
-  const set = (newArray) => setArray([...newArray]);
-  const push = (item) => setArray((oldArr) => [...oldArr, item]);
-  const filter = (callback) => setArray([...array.filter(callback)]);
+
+  function clear() {
+    setArray([]);
+  }
+
+  function set(newArray) {
+    setArray([...newArray]);
+  }
+
+  function push(item) {
+    setArray((oldArr) => [...oldArr, item]);
+  }
+
+  function filter(callback) {
+    setArray([...array.filter(callback)]);
+  }
 
   function update(oldValue, newValue) {
     const requiredIndex = array.indexOf(
@@ -139,7 +152,6 @@ const useArray = (initArray) => {
 
   return { array, push, update, set, remove, clear, filter };
 };
-
 export default useArray;`,
   },
 
@@ -177,45 +189,49 @@ export default useArray;`,
           Function to manually set the state of isElementClose.`,
       ],
     ],
-    liveCode: "#",
+    liveCode: "https://codesandbox.io/p/sandbox/usecloseelement-z49szj?file=%2Fsrc%2FTest.jsx",
     id: 2,
-    code: `import { useEffect, useState } from "react";
+    code: `import { useEffect, useRef, useState } from "react";
 
-const useCloseElement = (toggleEleRef, switcherEleRef, exceptElementRef) => {
+const useCloseElement = (toggleEleRef, switcherEleRef, exceptElementRef, isStrictMode = false) => {
   const [isElementClose, setIsElementClose] = useState(false);
+  const isMount = useRef(false);
 
   function handleDocumentClick(e) {
+    if (isStrictMode)
+      if (!isMount.current) isMount.current = true;
+      else {
+        isMount.current = false;
+        return;
+      }
+
     if (!toggleEleRef.current || !switcherEleRef.current) return;
 
     const target = e.target;
     const isSwitcherEle = target === switcherEleRef.current;
     const isExceptEle = target === exceptElementRef?.current;
-    const isInsideToggle = compareAbsoluteParentEle(
-      target,
-      toggleEleRef.current
-    );
-    const closeElementCondition =
-      (!isSwitcherEle && !isInsideToggle) || isExceptEle;
+    const isInsideToggle = compareAbsoluteParentEle(target, toggleEleRef.current);
+    const closeElementCondition = (!isSwitcherEle && !isInsideToggle) || isExceptEle;
 
-    if (closeElementCondition) setIsElementClose(true);
+    if (closeElementCondition) setIsElementClose(false);
     else if (isSwitcherEle) setIsElementClose((prevState) => !prevState);
   }
 
   useEffect(() => {
-    window.addEventListener("click", handleDocumentClick);
+    window.addEventListener("click", (e) => handleDocumentClick(e));
 
     return () => {
-      window.removeEventListener("click", handleDocumentClick);
+      window.removeEventListener("click", (e) => handleDocumentClick(e));
     };
   }, []);
 
-  return { isElementClose, setIsElementClose };
+  return [isElementClose, setIsElementClose];
 };
 
 export default useCloseElement;
 
 /* Helper function */
-function compareAbsoluteParentEle(element, requiredEle) {
+const compareAbsoluteParentEle = (element, requiredEle) => {
   let parentElement = element.parentElement;
 
   while (
@@ -366,48 +382,48 @@ const useEventListener = (element, eventName, callback) => {
 export default useEventListener;`,
   },
 
-//   {
-//     name: "useFetchDataFrom",
-//     explanation: [
-//       `
-//         The useFetchDataFrom hook fetches data from a specified URL using the Axios library.`,
-//     ],
-//     inputs: [
-//       [
-//         `url (String):
-//           The URL from which to fetch data.`,
-//       ],
-//     ],
-//     outputsText: "The useFetchDataFrom hook returns the fetched data.",
-//     outputs: [
-//       [
-//         `data (Any):
-//           The fetched data from the specified URL.`,
-//       ],
-//     ],
-//     id: 6,
-//     code: `import { useEffect, useState } from "react";
-// import axios from "axios";
+  //   {
+  //     name: "useFetchDataFrom",
+  //     explanation: [
+  //       `
+  //         The useFetchDataFrom hook fetches data from a specified URL using the Axios library.`,
+  //     ],
+  //     inputs: [
+  //       [
+  //         `url (String):
+  //           The URL from which to fetch data.`,
+  //       ],
+  //     ],
+  //     outputsText: "The useFetchDataFrom hook returns the fetched data.",
+  //     outputs: [
+  //       [
+  //         `data (Any):
+  //           The fetched data from the specified URL.`,
+  //       ],
+  //     ],
+  //     id: 6,
+  //     code: `import { useEffect, useState } from "react";
+  // import axios from "axios";
 
-// export default function useFetchDataFrom(url) {
-//   const [data, setData] = useState(null);
+  // export default function useFetchDataFrom(url) {
+  //   const [data, setData] = useState(null);
 
-//   useEffect(() => {
-//     const getData = async () => {
-//       try {
-//         const res = await axios.get(url);
-//         setData(res.data);
-//       } catch (err) {
-//         console.log(err);
-//       }
-//     };
+  //   useEffect(() => {
+  //     const getData = async () => {
+  //       try {
+  //         const res = await axios.get(url);
+  //         setData(res.data);
+  //       } catch (err) {
+  //         console.log(err);
+  //       }
+  //     };
 
-//     getData();
-//   }, [url]);
+  //     getData();
+  //   }, [url]);
 
-//   return data;
-// }`,
-//   },
+  //   return data;
+  // }`,
+  //   },
 
   {
     name: "useFilter",
@@ -441,7 +457,7 @@ export default useEventListener;`,
           Function to manually set the filtered array.`,
       ],
     ],
-    liveCode: "#",
+    liveCode: "https://codesandbox.io/p/sandbox/usefilter-qjd5tl?file=%2Fsrc%2FTest.jsx",
     id: 7,
     code: `import { useEffect, useState } from "react";
 
@@ -622,53 +638,75 @@ export default useKeyPress;`,
 export default useLocalStorage;`,
   },
 
-//   {
-//     name: "useMouseEffect",
-//     explanation: [
-//       `
-//         The useMouseEffect hook adds visual effects to a DOM element based on mouse movement.`,
-//     ],
-//     inputs: [
-//       [
-//         `ref (React ref):
-//           Ref of the DOM element to which the mouse effect will be applied.`,
-//       ],
-//       [
-//         `options (Object):
-//           Object containing options for the mouse effect:
-//           - activeClass (String): Class added to the element during the mouse effect.
-//           - isActiveOnHover (Boolean): Flag to activate the effect only on hover.
-//           - hoverElements (Array): Array of HTML tag names on which to trigger the hover effect.`,
-//       ],
-//     ],
-//     outputs: [],
-//     id: 12,
-//     code: `import { useEffect } from "react";
+  {
+    name: "useMouseEffect",
+    explanation: [
+      `
+          The useMouseEffect hook adds visual effects to a DOM element based on mouse movement.`,
+    ],
+    inputs: [
+      [
+        `ref (React ref):
+            Ref of the DOM element to which the mouse effect will be applied.`,
+      ],
+      [
+        `options (Object):
+            Object containing options for the mouse effect:
+            - activeClass (String): Class added to the element during the mouse effect.
+            - isActiveOnHover (Boolean): Flag to activate the effect only on hover.
+            - hoverElements (Array): Array of HTML tag names on which to trigger the hover effect.`,
+      ],
+    ],
+    outputs: [],
+    liveCode:
+      "https://codesandbox.io/p/sandbox/usemouseeffect-qwj9qt?file=%2Fsrc%2FTest.jsx",
+    id: 12,
+    code: `import { useEffect } from "react";
 
-// const useMouseEffect = (
-//   ref,
-//   { activeClass = "active", isActiveOnHover = false, hoverElements = [] }
-// ) => {
-//   function handleMouseMove(e) {
-//     if (hoverElements.length === 0 || !isActiveOnHover) return;
-//     handleHoverOnElements(e);
-//   }
+const useMouseEffect = (
+  ref,
+  { activeClass = "active", isActiveOnHover = false, hoverElements = [] }
+) => {
+  function handleMouseMove(e) {
+    if (!ref.current?.classList?.contains(activeClass))
+      setTimeout(() => ref.current?.classList?.add(activeClass), 500);
 
-//   function handleHoverOnElements(e) {
-//     // Implementation details for hover effect
-//   }
+    const element = ref.current;
+    const clientX = e.clientX;
+    const clientY = e.clientY;
+    const halfWidthRef = ref.current?.clientWidth / 2;
+    const halfHeightRef = ref.current?.clientHeight / 2;
 
-//   useEffect(() => {
-//     window.addEventListener("mousemove", (e) => handleMouseMove(e));
+    element.style.position = "absolute";
+    element.style.left = clientX - halfWidthRef + "px";
+    element.style.top = clientY - halfHeightRef + "px";
+    element.style.pointerEvent = "none";
 
-//     return () => {
-//       window.removeEventListener("mousemove", (e) => handleMouseMove(e));
-//     };
-//   }, []);
-// };
+    if (hoverElements.length === 0 || !isActiveOnHover) return;
+    handleHoverOnElements(e);
+  }
 
-// export default useMouseEffect;`,
-//   },
+  function handleHoverOnElements(e) {
+    const hoveredElementName = e.target.tagName.toLowerCase();
+    const isHoveredOnSpecificTags =
+      hoverElements.filter((tagName) => tagName === hoveredElementName)
+        .length !== 0;
+
+    ref.current?.classList?.[isHoveredOnSpecificTags ? "add" : "remove"](
+      "mouse-hover"
+    );
+  }
+
+  useEffect(() => {
+    window.addEventListener("mousemove", (e) => handleMouseMove(e));
+
+    return () => {
+      window.removeEventListener("mousemove", (e) => handleMouseMove(e));
+    };
+  }, []);
+};
+export default useMouseEffect;`,
+  },
 
   {
     name: "useOnlineStatus",
@@ -886,7 +924,7 @@ export default usePreviousState;
           Function to manually set the value of the text input field. Usage: setValue(newValue).`,
       ],
     ],
-    liveCode: "#",
+    liveCode: "https://codesandbox.io/p/sandbox/usetextinput-ss44cm?file=%2Fsrc%2FTest.jsx%3A10%2C4",
     id: 17,
     code: `import { useState } from "react";
 
