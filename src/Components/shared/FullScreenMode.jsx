@@ -9,19 +9,18 @@ const FullScreenMode = () => {
     toggleIsFullScreen();
 
     if (document.fullscreenElement) {
-      document.exitFullscreen()
-      return
+      document.exitFullscreen();
+      return;
     }
-    
 
     if (htmlElement.requestFullscreen) {
-      htmlElement.requestFullscreen()
+      htmlElement.requestFullscreen();
     } else if (htmlElement.mozRequestFullScreen) {
-      htmlElement.mozRequestFullScreen()
+      htmlElement.mozRequestFullScreen();
     } else if (htmlElement.webkitRequestFullscreen) {
-      htmlElement.webkitRequestFullscreen()
+      htmlElement.webkitRequestFullscreen();
     } else if (htmlElement.msRequestFullscreen) {
-      htmlElement.msRequestFullscreen()
+      htmlElement.msRequestFullscreen();
     }
   }
 

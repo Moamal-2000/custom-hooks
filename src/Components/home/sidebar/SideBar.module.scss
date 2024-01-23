@@ -19,6 +19,7 @@
   left: 0;
   top: 0;
   padding: 70px 30px 70px 70px;
+  width: 350px;
   height: 100%;
   overflow-y: auto;
   user-select: none;
@@ -37,13 +38,15 @@
 }
 
 .sidebar>i {
-  position: absolute;
-  right: 20px;
-  top: 10px;
+  position: sticky;
+  top: 21px;
+  left: 0;
+  transform: translateX(240px);
   font-size: 1.4rem;
   color: var(--text);
   padding: 10px;
   cursor: pointer;
+  z-index: 2;
   transition: opacity .2s;
 
   &:hover {
@@ -70,6 +73,12 @@
   font-size: 1.2rem;
   margin: 10px 0 30px;
   padding-left: 0 !important;
+}
+
+@media (max-width: 1280px) {
+  .downloadAllButton {
+    transform: translateX(-36px);
+  }
 }
 
 .sidebar.active .downloadAllButton {

@@ -79,7 +79,7 @@ const SideBar = () => {
 
         <ul>
           {hooksData.map(({ name, id }) => (
-            <li key={id}>
+            <li key={id} onClick={() => setIsOverlayActive(false)}>
               <a
                 href={`#${name}-hook`}
                 className={scrolledHook === name ? styles.active : ""}
