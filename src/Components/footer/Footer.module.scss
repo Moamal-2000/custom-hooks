@@ -1,8 +1,10 @@
+@import "../../Sass/mixins";
+
 .footer {
-  padding: 20px 0;
+  padding: 20px 0 40px;
 }
 
-.footer p {
+.footer>p {
   width: fit-content;
   color: var(--text);
   padding: 10px 0;
@@ -12,7 +14,13 @@
   }
 }
 
-.footer p a {
+@include medium {
+  .footer>p {
+    font-size: .9rem;
+  }
+}
+
+.footer>p>a {
   color: var(--text);
   padding: 4px;
   transition: opacity .2s;

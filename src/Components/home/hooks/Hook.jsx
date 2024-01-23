@@ -12,8 +12,6 @@ const Hook = ({ hookData }) => {
   const hookTitleRef = useRef();
   const isVisible = useOnScreen(hookTitleRef, id !== 0 ? "-150px 150px" : "0px");
 
-  console.log('Render');
-
   useEffect(() => {
     if (isVisible) setScrolledHook(hookData.name);
   }, [isVisible]);

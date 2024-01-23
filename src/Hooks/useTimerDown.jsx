@@ -29,7 +29,6 @@ const useTimerDown = (downTime, { timeResetRequired, stopTimer, timerName }) => 
 
 
     timerId = setTimeout(() => {
-      console.log(time);
       setTime(time - 1000);
       setTimeData(getTimeObj(time));
       useLocalStorage(timerName, time);
@@ -81,6 +80,5 @@ export function getTimeInMilliseconds(days, hours, minutes, seconds) {
       minutes * millisecondsPerMinute +
       seconds * millisecondsPerSecond;
 
-    console.log("totalMilliseconds", totalMilliseconds);
   return totalMilliseconds;
 }
