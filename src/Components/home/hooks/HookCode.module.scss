@@ -18,7 +18,7 @@
 
 @include medium {
   .code {
-    font-size: 1rem;
+    font-size: .8rem;
   }
 }
 
@@ -86,12 +86,25 @@
   overflow: hidden;
 }
 
+.code.fullscreen pre {
+  overflow: visible;
+  height: 100%;
+}
+
 .numbering {
   font-size: 1.1rem;
   line-height: 1.2742;
   color: #5a606d;
   border-radius: 10px;
   padding: 0 20px;
+  user-select: none;
+}
+
+@include medium {
+  .numbering {
+    font-size: .85rem;
+    line-height: 1.177;
+  }
 }
 
 .languageJs {
@@ -128,7 +141,11 @@
 }
 
 @include medium {
-  .languageJs>span:hover {
-    background-color: transparent;
+  .languageJs>span {
+    height: 16px;
+    &:hover {
+      background-color: transparent;
+    }
   }
 }
+

@@ -63,12 +63,6 @@ p {
   margin: 0 auto;
 }
 
-@media (max-width: 1280px) {
-  .container {
-    width: 80%;
-  }
-}
-
 @include medium {
   .container {
     width: 92%;

@@ -231,7 +231,7 @@ const useCloseElement = (toggleEleRef, switcherEleRef, exceptElementRef, isStric
 export default useCloseElement;
 
 /* Helper function */
-const compareAbsoluteParentEle = (element, requiredEle) => {
+function compareAbsoluteParentEle (element, requiredEle) {
   let parentElement = element.parentElement;
 
   while (
