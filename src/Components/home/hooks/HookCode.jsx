@@ -67,8 +67,8 @@ const HookCode = ({ hookData }) => {
 
     return () => {
       spans.forEach((span) =>
-      span.removeEventListener("click", () => handleFocusSpan(span))
-    );
+        span.removeEventListener("click", () => handleFocusSpan(span))
+      );
     }
   }, [codeState]);
 

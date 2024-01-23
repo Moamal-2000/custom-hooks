@@ -7,7 +7,7 @@
   position: relative;
   border: solid 2px #0d1017;
   border-radius: 10px;
-  padding: 20px 20px 0 0;
+  padding: 20px 0 0 0;
   width: 100%;
   transition: border-color .2s;
 
@@ -35,6 +35,7 @@
 .code>div {
   width: 100%;
   border-radius: inherit;
+  overflow: hidden;
 }
 
 .code:hover .buttons {
