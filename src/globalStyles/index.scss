@@ -6,8 +6,8 @@
   box-sizing: border-box;
 }
 
-:not(code)::selection {
-  background-color: #373b41;
+::selection {
+  background-color: #0e2238 !important;
 }
 
 html {

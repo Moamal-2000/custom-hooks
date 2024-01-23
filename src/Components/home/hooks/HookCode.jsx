@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import HighlightElement from "react-highlight";
 import { saveInFile } from "../../../Functions/helper";
 import useCopyText from "../../../Hooks/useCopyText";
@@ -13,6 +13,8 @@ const HookCode = ({ hookData }) => {
   const [isFullScreen, toggleIsFullScreen] = useToggle(false);
   const [numberOfLines, setNumberOfLines] = useState(0);
   const [codeState, setCodeState] = useState(code);
+  const codeBlockRef = useRef();
+  const mouseDown = useRef(false);
   const numbersOfLines = Array.from({ length: numberOfLines }).map(
     (_, i) => i + 1
   );
@@ -21,7 +23,6 @@ const HookCode = ({ hookData }) => {
     if (isCopied) return;
     copyText(code);
     toggleIsCopied();
-
     setTimeout(() => toggleIsCopied(), 1000);
   }
 
@@ -29,12 +30,7 @@ const HookCode = ({ hookData }) => {
     if (isDownloaded) return;
     saveInFile(`${name}.jsx`, code);
     toggleIsDownloaded();
-
     setTimeout(() => toggleIsDownloaded(), 1000);
-  }
-
-  function handleFullScreenButton() {
-    toggleIsFullScreen();
   }
 
   useEffect(() => {
@@ -44,8 +40,37 @@ const HookCode = ({ hookData }) => {
     const codeWithSpanOnEachLine = lines.map((line, i) => (
       <span key={i}>{line}</span>
     ));
+
     setCodeState(codeWithSpanOnEachLine);
   }, []);
+
+  useEffect(() => {
+    const codeBlockEle = codeBlockRef.current?.querySelector("code");
+    const spans = [...codeBlockEle?.children];
+
+    if (spans.length === 0) return;
+
+    codeBlockEle.addEventListener("mouseup", () => (mouseDown.current = false));
+    codeBlockEle.addEventListener("mousedown", () => (mouseDown.current = true));
+    codeBlockEle.addEventListener("mousemove", () => 
+      mouseDown.current && spans.forEach((span) => span.classList.remove("focus"))
+    );
+
+    function handleFocusSpan(span) {
+      spans.forEach((span) => span.classList.remove("focus"));
+      span.classList.add("focus");
+    }
+
+    spans.forEach((span) =>
+      span.addEventListener("click", () => handleFocusSpan(span))
+    );
+
+    return () => {
+      spans.forEach((span) =>
+      span.removeEventListener("click", () => handleFocusSpan(span))
+    );
+    }
+  }, [codeState]);
 
   return (
     <div className={`${styles.code} ${isFullScreen ? styles.fullscreen : ""}`}>
@@ -72,8 +97,8 @@ const HookCode = ({ hookData }) => {
 
         <button
           type="button"
-          title="Full Screen"
-          onClick={handleFullScreenButton}
+          title="Full Screen code"
+          onClick={toggleIsFullScreen}
         >
           {isFullScreen ? (
             <i className="fa-solid fa-compress"></i>
@@ -89,9 +114,11 @@ const HookCode = ({ hookData }) => {
         ))}
       </ul>
 
-      <HighlightElement className={`${styles.languageJs} js`}>
-        {codeState}
-      </HighlightElement>
+      <div className={styles.codeBlock} ref={codeBlockRef}>
+        <HighlightElement className={`${styles.languageJs} js`}>
+          {codeState}
+        </HighlightElement>
+      </div>
     </div>
   );
 };

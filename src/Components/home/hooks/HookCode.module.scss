@@ -32,6 +32,11 @@
   overflow-y: auto;
 }
 
+.code>div {
+  width: 100%;
+  border-radius: inherit;
+}
+
 .code:hover .buttons {
   opacity: 1;
 }
@@ -40,6 +45,7 @@
   position: absolute;
   right: 14px;
   top: 16px;
+  width: fit-content;
   transition: opacity .2s .1s;
   opacity: 0;
 }
@@ -53,12 +59,12 @@
   cursor: pointer;
   border: none;
   padding: 8px 10px;
-  background-color: rgb(105, 105, 105);
+  background-color: #696969;
   border-radius: 4px;
   transition: background-color .2s, transform .1s ease;
 
   &:hover {
-    background-color: rgb(49, 49, 49);
+    background-color: #313131;
   }
 
   &:active {
@@ -95,7 +101,7 @@
   font-size: 1.1rem;
   line-height: 1.2742;
   color: #5a606d;
-  border-radius: 10px;
+  border-radius: inherit;
   padding: 0 20px;
   user-select: none;
 }
@@ -135,7 +141,8 @@
   width: 100%;
   transition: background-color .05s;
 
-  &:hover {
+  &:hover,
+  &[class=focus] {
     background-color: #0e2238;
   }
 }
@@ -148,4 +155,3 @@
     }
   }
 }
-
