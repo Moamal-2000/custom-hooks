@@ -783,31 +783,27 @@ export default useOnlineStatus;`,
     id: 14,
     code: `import { useEffect, useState } from "react";
 
-const useOnScreen = (ref, rootMargin = "0px") => {
+function useOnScreen(ref, rootMargin = "0px") {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     if (!ref.current) return;
 
-    const observers = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-      },
-      {
-        rootMargin: rootMargin,
-      }
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { rootMargin: rootMargin }
     );
 
-    observers.observe(ref.current);
+    observer.observe(ref.current);
 
     return () => {
       if (!ref.current) return;
-      observers.unobserve(ref.current);
+      observer.unobserve(ref.current);
     };
   }, []);
 
   return isVisible;
-};
+}
 
 export default useOnScreen;`,
   },

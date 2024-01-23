@@ -1,18 +1,18 @@
 import { memo, useEffect, useRef } from "react";
 import { useGlobalContext } from "../../../Context/GlobalContext";
-import useElementData from "../../../Hooks/useElementData";
+import useOnScreen from "../../../Hooks/useOnScreen";
 import styles from "./Hook.module.scss";
 import HookCode from "./HookCode";
 import HookExplanation from "./HookExplanation";
 import HookInputsOutputs from "./HookInputsOutputs";
 
 const Hook = ({ hookData }) => {
-  const { name, explanation, liveCode, inputs, outputs, id, code } = hookData;
+  const { name, explanation, liveCode, inputs, outputs, id } = hookData;
   const { scrolledHook, setScrolledHook } = useGlobalContext();
   const hookTitleRef = useRef();
-  const [hookContainerEle, hookContainerData, renders, setRenders] =
-    useElementData(hookTitleRef);
-  const { isVisible } = hookContainerData;
+  const isVisible = useOnScreen(hookTitleRef, id !== 0 ? "-150px 150px" : "0px");
+
+  console.log('Render');
 
   useEffect(() => {
     if (isVisible) setScrolledHook(hookData.name);
