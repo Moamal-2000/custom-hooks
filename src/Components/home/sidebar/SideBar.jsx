@@ -1,4 +1,4 @@
-import { memo, useEffect } from "react";
+import { memo, useEffect, useRef } from "react";
 import { useGlobalContext } from "../../../Context/GlobalContext";
 import { hooksData } from "../../../Data/hooksData";
 import { saveInRAR } from "../../../Functions/helper";
@@ -14,9 +14,11 @@ const SideBar = () => {
     setIsOverlayActive,
   } = useGlobalContext();
   const windowSizes = useGetResizeWindow();
-  const { width } = windowSizes;
+  const { width: windowWidth } = windowSizes;
   const screenSize = 1280;
-  const isSmallThanScreen = width < screenSize;
+  const isSmallThanScreen = windowWidth < screenSize;
+  const dragLineRef = useRef();
+  const sidebarRef = useRef();
 
   function handleDownloadAllHooks() {
     const files = [];
@@ -42,11 +44,12 @@ const SideBar = () => {
   }
 
   useEffect(() => {
-    if (width > screenSize) {
-      setIsSideBarActive(false)
-      setIsOverlayActive(false)
-    };
-  }, [width]);
+    if (windowWidth > screenSize) {
+      setIsSideBarActive(false);
+      setIsOverlayActive(false);
+    }
+  }, [windowWidth]);
+
 
   return (
     <>
@@ -61,6 +64,7 @@ const SideBar = () => {
         className={`${styles.sidebar} ${isSmallThanScreen ? styles.hide : ""} ${
           isSideBarActive ? styles.active : ""
         }`}
+        ref={sidebarRef}
       >
         {isSmallThanScreen && (
           <i
@@ -93,6 +97,11 @@ const SideBar = () => {
             </li>
           ))}
         </ul>
+
+        <div
+          className={styles.dragLine}
+          ref={dragLineRef}
+        ></div>
       </div>
     </>
   );

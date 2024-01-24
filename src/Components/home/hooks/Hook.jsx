@@ -10,7 +10,7 @@ const Hook = ({ hookData }) => {
   const { name, explanation, liveCode, inputs, outputs, id } = hookData;
   const { scrolledHook, setScrolledHook } = useGlobalContext();
   const hookTitleRef = useRef();
-  const isVisible = useOnScreen(hookTitleRef, id !== 0 ? "-150px 150px" : "0px");
+  const isVisible = useOnScreen(hookTitleRef);
 
   useEffect(() => {
     if (isVisible) setScrolledHook(hookData.name);

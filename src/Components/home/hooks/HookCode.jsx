@@ -42,7 +42,7 @@ const HookCode = ({ hookData }) => {
     ));
 
     setCodeState(codeWithSpanOnEachLine);
-  }, []);
+  }, [isCopied, isDownloaded, isFullScreen]);
 
   useEffect(() => {
     const codeBlockEle = codeBlockRef.current?.querySelector("code");

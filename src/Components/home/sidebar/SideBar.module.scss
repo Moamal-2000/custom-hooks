@@ -18,7 +18,7 @@
   position: fixed;
   left: 0;
   top: 0;
-  padding: 20px 100px 20px 30px;
+  padding: 20px 30px 20px 30px;
   width: 350px;
   height: 100%;
   overflow-y: auto;
@@ -97,7 +97,7 @@
   background-color: #040404;
   color: var(--text);
   font-size: 1.1rem;
-  width: 100%;
+  width: 200px;
   display: flex;
   justify-content: center;
   border-radius: 5px;
@@ -115,4 +115,23 @@
 
 .sidebar.active ul li a {
   font-size: 1rem;
+}
+
+.sidebar .dragLine {
+  position: fixed;
+  // height: 100%;
+  // width: 4px;
+  // background-color: #040404;
+  // left: 350px;
+  // top: 0;
+  // cursor: -webkit-grab;
+  // transition: background-color .1s;
+
+  // &:hover {
+  //   background-color: royalblue;
+  // }
+
+  // &:active {
+  //   cursor: -webkit-grabbing;
+  // }
 }
