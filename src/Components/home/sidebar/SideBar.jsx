@@ -1,37 +1,19 @@
 import { memo, useEffect, useRef } from "react";
 import { useGlobalContext } from "../../../Context/GlobalContext";
-import { hooksData } from "../../../Data/hooksData";
-import { saveInRAR } from "../../../Functions/helper";
+import { handleDownloadAllHooks } from "../../../Functions/projectFunctions";
 import useGetResizeWindow from "../../../Hooks/useGetResizeWindow";
+import ActiveHooksMenu from "./ActiveHooksMenu";
 import styles from "./SideBar.module.scss";
 
 const SideBar = () => {
-  const {
-    scrolledHook,
-    setScrolledHook,
-    isSideBarActive,
-    setIsSideBarActive,
-    setIsOverlayActive,
-  } = useGlobalContext();
+  const { isSideBarActive, setIsSideBarActive, setIsOverlayActive } =
+    useGlobalContext();
   const windowSizes = useGetResizeWindow();
   const { width: windowWidth } = windowSizes;
   const screenSize = 1200;
   const isSmallThanScreen = windowWidth < screenSize;
   const dragLineRef = useRef();
   const sidebarRef = useRef();
-
-  function handleDownloadAllHooks() {
-    const files = [];
-
-    hooksData.forEach((hookData) =>
-      files.push({
-        name: `${hookData.name}.jsx`,
-        content: hookData.code,
-      })
-    );
-
-    saveInRAR(files);
-  }
 
   function handleOpenSideBarButton() {
     setIsSideBarActive(true);
@@ -89,23 +71,7 @@ const SideBar = () => {
             Download all hooks
           </button>
 
-          <ul>
-            {hooksData.map(({ name, id }) => (
-              <li key={id} onClick={() => setIsOverlayActive(false)}>
-                <a
-                  href={`#${name}-hook`}
-                  className={scrolledHook === name ? styles.active : ""}
-                  onClick={() => {
-                    setScrolledHook(name);
-                    setIsSideBarActive(false);
-                  }}
-                >
-                  {name}
-                </a>
-              </li>
-            ))}
-          </ul>
-
+          <ActiveHooksMenu />
           <div className={styles.dragLine} ref={dragLineRef}></div>
         </div>
 
