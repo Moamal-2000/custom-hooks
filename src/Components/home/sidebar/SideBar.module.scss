@@ -1,3 +1,26 @@
+.sidebarWrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  user-select: none;
+  z-index: 100;
+}
+
+.sidebarWrapper.hide {
+  left: -110%;
+}
+
+.sidebarWrapper.active {
+  transition:  left .5s ease-in-out;
+  left: 0;
+  background-color: #151c27;
+}
+
+.sidebarWrapper:hover .closeSideBarButton {
+  opacity: 1;
+}
+
 .sidebarIcon {
   position: fixed;
   left: 10px;
@@ -15,43 +38,39 @@
 }
 
 .sidebar {
-  position: fixed;
-  left: 0;
-  top: 0;
-  padding: 20px 30px 20px 30px;
-  width: 350px;
+  padding: 20px 60px 20px 30px;
   height: 100%;
   overflow-y: auto;
-  user-select: none;
-  transition:  left .5s ease-in-out;
-  z-index: 100;
-}
-
-.sidebar.hide {
-  left: -110%;
+  position: relative;
+  z-index: 102;
 }
 
 .sidebar.active {
-  left: 0;
-  background-color: #151c27;
   padding: 20px 100px 20px 30px;
 }
 
-.sidebar>i {
-  position: sticky;
-  top: 21px;
-  left: 0;
+.closeNavButton {
+  background-color: transparent;
+  position: fixed;
+  top: 26px;
+  left: 6px;
   transform: translateX(240px);
   font-size: 1.4rem;
   color: var(--text);
-  padding: 10px;
+  padding: 4px 8px;
   cursor: pointer;
   z-index: 2;
-  transition: opacity .2s;
+  transition: opacity 0 0;
+  opacity: 0;
 
-  &:hover {
+  &.active:hover {
     opacity: .8;
   }
+}
+
+.closeNavButton.active {
+  transition: opacity .2s .5s;
+  opacity: 1;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -73,12 +92,6 @@
   font-size: 1.2rem;
   margin: 10px 0 30px;
   padding-left: 0 !important;
-}
-
-@media (max-width: 1280px) {
-  .downloadAllButton {
-    transform: translateX(-36px);
-  }
 }
 
 .sidebar.active .downloadAllButton {
@@ -134,4 +147,23 @@
   // &:active {
   //   cursor: -webkit-grabbing;
   // }
+}
+
+.closeSideBarButton {
+  position: absolute;
+  left: 298px;
+  top: 50px;
+  padding: 5px 6px;
+  background-color: transparent;
+  background-color: #575c71;
+  color: var(--text);
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  z-index: -1;
+  transition: opacity .2s .1s, background-color .2s;
+  opacity: 0;
+
+  &:hover {
+    background-color: #70768f;
+  }
 }

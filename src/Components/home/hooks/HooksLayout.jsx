@@ -3,11 +3,11 @@ import Hook from "./Hook";
 
 const HooksLayout = () => {
   return (
-    <div className="hooks">
+    <section className="hooks">
       {hooksData?.map(
         (hookData) => hookData && <Hook key={hookData.id} hookData={hookData} />
       )}
-    </div>
+    </section>
   );
 };
 export default HooksLayout;

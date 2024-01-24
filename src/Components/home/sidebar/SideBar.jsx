@@ -15,7 +15,7 @@ const SideBar = () => {
   } = useGlobalContext();
   const windowSizes = useGetResizeWindow();
   const { width: windowWidth } = windowSizes;
-  const screenSize = 1280;
+  const screenSize = 1200;
   const isSmallThanScreen = windowWidth < screenSize;
   const dragLineRef = useRef();
   const sidebarRef = useRef();
@@ -50,7 +50,6 @@ const SideBar = () => {
     }
   }, [windowWidth]);
 
-
   return (
     <>
       {isSmallThanScreen && (
@@ -60,49 +59,62 @@ const SideBar = () => {
         ></i>
       )}
 
-      <div
-        className={`${styles.sidebar} ${isSmallThanScreen ? styles.hide : ""} ${
-          isSideBarActive ? styles.active : ""
-        }`}
-        ref={sidebarRef}
+      <aside
+        className={`${styles.sidebarWrapper} ${
+          isSmallThanScreen ? styles.hide : ""
+        } ${isSideBarActive ? styles.active : ""}
+    `}
       >
-        {isSmallThanScreen && (
-          <i
-            onClick={handleCloseSideBarButton}
-            className="fa-solid fa-xmark"
-          ></i>
+        <div className={`${styles.sidebar}`} ref={sidebarRef}>
+          {isSmallThanScreen && (
+            <button
+              type="button"
+              className={`${styles.closeNavButton} ${
+                isSideBarActive ? styles.active : ""
+              }`}
+              title="Close sidebar"
+            >
+              <i
+                onClick={handleCloseSideBarButton}
+                className="fa-solid fa-xmark"
+              ></i>
+            </button>
+          )}
+
+          <button
+            type="button"
+            className={`${styles.downloadAllButton} linkStyle1`}
+            onClick={handleDownloadAllHooks}
+          >
+            Download all hooks
+          </button>
+
+          <ul>
+            {hooksData.map(({ name, id }) => (
+              <li key={id} onClick={() => setIsOverlayActive(false)}>
+                <a
+                  href={`#${name}-hook`}
+                  className={scrolledHook === name ? styles.active : ""}
+                  onClick={() => {
+                    setScrolledHook(name);
+                    setIsSideBarActive(false);
+                  }}
+                >
+                  {name}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <div className={styles.dragLine} ref={dragLineRef}></div>
+        </div>
+
+        {!isSmallThanScreen && (
+          <button type="button" className={styles.closeSideBarButton}>
+            <i className="fa-solid fa-angles-left"></i>
+          </button>
         )}
-
-        <button
-          type="button"
-          className={`${styles.downloadAllButton} linkStyle1`}
-          onClick={handleDownloadAllHooks}
-        >
-          Download all hooks
-        </button>
-
-        <ul>
-          {hooksData.map(({ name, id }) => (
-            <li key={id} onClick={() => setIsOverlayActive(false)}>
-              <a
-                href={`#${name}-hook`}
-                className={scrolledHook === name ? styles.active : ""}
-                onClick={() => {
-                  setScrolledHook(name);
-                  setIsSideBarActive(false);
-                }}
-              >
-                {name}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        <div
-          className={styles.dragLine}
-          ref={dragLineRef}
-        ></div>
-      </div>
+      </aside>
     </>
   );
 };

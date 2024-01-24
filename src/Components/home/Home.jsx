@@ -1,17 +1,20 @@
+import styles from "./Home.module.scss";
 import Introduction from "./Introduction/Introduction";
 import HooksLayout from "./hooks/HooksLayout";
 import SideBar from "./sidebar/SideBar";
-import styles from "./Home.module.scss"
 
 const Home = () => {
   return (
-    <main className={styles.home}>
+    <div className={styles.home}>
+      <SideBar />
+
       <div className="container">
-        <SideBar />
-        <Introduction />
-        <HooksLayout />
+        <main className={styles.content}>
+          <Introduction />
+          <HooksLayout />
+        </main>
       </div>
-    </main>
+    </div>
   );
 };
 export default Home;
