@@ -4,7 +4,7 @@ import GlobalOverlay from "./Components/shared/GlobalOverlay";
 import { useGlobalContext } from "./Context/GlobalContext";
 // import ScrollBottomTop from "./Components/Shared/Features/ScrollBottomTop";
 // import FullScreenMode from "./Components/Shared/Features/FullScreenMode";
-// import FocusMode from "./Components/Shared/Features/FocusMode";
+import FocusMode from "./Components/Shared/Features/FocusMode";
 
 function App() {
   const { isFocusModeActive } = useGlobalContext();
@@ -24,7 +24,7 @@ function App() {
         </>
       )}
 
-      {/* <FocusMode /> */}
+      <FocusMode />
       <GlobalOverlay />
     </>
   );
