@@ -5,6 +5,7 @@
   height: 100vh;
   user-select: none;
   z-index: 100;
+  pointer-events: all;
   transition: left .5s ease-in-out;
 }
 
@@ -24,6 +25,12 @@
 .sidebarWrapper:hover .closeSideBarButton,
 .sidebarWrapper .closeSideBarButton.active {
   opacity: 1;
+}
+
+.sidebarWrapper.focusMode {
+  transition: left .5s ease-in-out, opacity .5s .5s;
+  pointer-events: none;
+  opacity: 0;
 }
 
 .sidebarIcon {

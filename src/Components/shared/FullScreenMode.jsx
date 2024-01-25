@@ -13,15 +13,10 @@ const FullScreenMode = () => {
       return;
     }
 
-    if (htmlElement.requestFullscreen) {
-      htmlElement.requestFullscreen();
-    } else if (htmlElement.mozRequestFullScreen) {
-      htmlElement.mozRequestFullScreen();
-    } else if (htmlElement.webkitRequestFullscreen) {
-      htmlElement.webkitRequestFullscreen();
-    } else if (htmlElement.msRequestFullscreen) {
-      htmlElement.msRequestFullscreen();
-    }
+    if (htmlElement.requestFullscreen) htmlElement.requestFullscreen()
+    else if (htmlElement.mozRequestFullScreen) htmlElement.mozRequestFullScreen();
+    else if (htmlElement.webkitRequestFullscreen) htmlElement.webkitRequestFullscreen();
+    else if (htmlElement.msRequestFullscreen) htmlElement.msRequestFullscreen()
   }
 
   return (

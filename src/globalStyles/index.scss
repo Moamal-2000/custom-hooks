@@ -22,6 +22,10 @@ body {
   transition: padding .5s ease-in-out;
 }
 
+body.focusMode::-webkit-scrollbar {
+  width: 0;
+}
+
 @include large {
   body {
     padding-left: 0;

@@ -13,7 +13,8 @@ const SideBar = () => {
   const screenSize = 1200;
   const isSmallThanScreen = windowWidth < screenSize;
   const sidebarRef = useRef();
-  const {isSideBarExtended, toggleIsSideVarExtended} = useGlobalContext();
+  const { isSideBarExtended, toggleIsSideBarExtended, isFocusModeActive } =
+    useGlobalContext();
 
   function handleOpenSideBarButton() {
     setIsSideBarActive(true);
@@ -33,12 +34,12 @@ const SideBar = () => {
   }, [windowWidth]);
 
   useEffect(() => {
-    document.body.style.padding = isSideBarExtended ? "0" : ""
-  }, [isSideBarExtended])
+    document.body.style.padding = isSideBarExtended ? "0" : "";
+  }, [isSideBarExtended]);
 
   return (
     <>
-      {isSmallThanScreen && (
+      {isSmallThanScreen && !isFocusModeActive && (
         <i
           onClick={handleOpenSideBarButton}
           className={`fa-solid fa-bars ${styles.sidebarIcon}`}
@@ -50,6 +51,7 @@ const SideBar = () => {
           isSmallThanScreen ? styles.hide : ""
         } ${isSideBarActive ? styles.active : ""}
         ${isSideBarExtended ? styles.extend : ""}
+        ${isFocusModeActive ? styles.focusMode : ""}
     `}
       >
         <div className={`${styles.sidebar}`} ref={sidebarRef}>
@@ -85,7 +87,7 @@ const SideBar = () => {
             className={`${styles.closeSideBarButton} ${
               isSideBarExtended ? styles.active : ""
             }`}
-            onClick={toggleIsSideVarExtended}
+            onClick={toggleIsSideBarExtended}
           >
             {isSideBarExtended ? (
               <i className="fa-solid fa-angles-left"></i>
@@ -98,7 +100,7 @@ const SideBar = () => {
         {isSideBarExtended && (
           <div
             className={styles.dragLine}
-            onClick={toggleIsSideVarExtended}
+            onClick={toggleIsSideBarExtended}
           ></div>
         )}
       </aside>

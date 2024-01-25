@@ -6,7 +6,9 @@ const GlobalContextProvider = ({ children }) => {
   const [scrolledHook, setScrolledHook] = useState(hooksData[0].name);
   const [isSideBarActive, setIsSideBarActive] = useState(false);
   const [isOverlayActive, setIsOverlayActive] = useState(false);
-  const [isSideBarExtended, toggleIsSideVarExtended] = useToggle();
+  const [isSideBarExtended, toggleIsSideBarExtended, setIsSideBarExtended] =
+    useToggle();
+  const [isFocusModeActive, toggleIsFocusModeActive] = useToggle();
   const numberOfHooks = hooksData.length;
 
   const data = {
@@ -18,7 +20,10 @@ const GlobalContextProvider = ({ children }) => {
     setIsOverlayActive,
     numberOfHooks,
     isSideBarExtended,
-    toggleIsSideVarExtended,
+    toggleIsSideBarExtended,
+    setIsSideBarExtended,
+    isFocusModeActive,
+    toggleIsFocusModeActive,
   };
 
   return (

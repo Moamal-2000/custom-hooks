@@ -5,7 +5,7 @@ const useToggle = (initState = false) => {
 
   const toggle = () => setState((prevState) => !prevState);
 
-  const customToggle = () => setState(value);
+  const customToggle = (value) => setState(value);
 
   return [state, toggle, customToggle];
 };

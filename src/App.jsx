@@ -1,24 +1,32 @@
 import Footer from "./Components/footer/Footer";
 import Home from "./Components/home/Home";
+import FocusMode from "./Components/shared/FocusMode";
 import FullScreenMode from "./Components/shared/FullScreenMode";
 import GlobalOverlay from "./Components/shared/GlobalOverlay";
 import ScrollBottomTop from "./Components/shared/ScrollBottomTop";
-import GlobalContextProvider from "./Context/GlobalContext";
+import { useGlobalContext } from "./Context/GlobalContext";
 
 function App() {
+  const { isFocusModeActive, toggleIsFocusModeActive } = useGlobalContext();
 
   return (
-    <GlobalContextProvider>
+    <>
       <Home />
 
       <div className="container">
         <Footer />
       </div>
 
-      <ScrollBottomTop />
-      <FullScreenMode />
+      {!isFocusModeActive && (
+        <>
+          <ScrollBottomTop />
+          <FullScreenMode />
+        </>
+      )}
+
+      <FocusMode />
       <GlobalOverlay />
-    </GlobalContextProvider>
+    </>
   );
 }
 
