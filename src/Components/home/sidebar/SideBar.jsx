@@ -1,6 +1,5 @@
 import { memo, useEffect, useRef } from "react";
 import { useGlobalContext } from "../../../Context/GlobalContext";
-import { handleDownloadAllHooks } from "../../../Functions/projectFunctions";
 import useGetResizeWindow from "../../../Hooks/useGetResizeWindow";
 import ActiveHooksMenu from "./ActiveHooksMenu";
 import styles from "./SideBar.module.scss";
@@ -72,12 +71,9 @@ const SideBar = () => {
             </button>
           )}
 
-          <button
-            type="button"
-            className={`${styles.downloadAllButton} linkStyle1`}
-            onClick={handleDownloadAllHooks}
-          >
-            Download all hooks
+          <button type="button" className={styles.downloadAllButton}>
+            <span>Download Hooks</span>
+            <i className="fa-solid fa-arrow-down"></i>
           </button>
 
           <ActiveHooksMenu />

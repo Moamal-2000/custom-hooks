@@ -99,15 +99,44 @@
   }
 }
 
+
 .downloadAllButton {
-  background-color: transparent;
-  font-size: 1.2rem;
-  margin: 10px 0 30px;
-  padding-left: 0 !important;
+  display: flex;
+  background-color: #275efe;
+  border-radius: 5px;
+  margin: 20px 0 20px;
+  cursor: pointer;
+  transition: background-color .2s, transform .2s;
+
+  &:active {
+    transform: scale(.98);
+  }
 }
 
-.sidebar.active .downloadAllButton {
-  margin: 30px 0 40px;
+.downloadAllButton:hover {
+  background-color: #1b54fe;
+}
+
+.downloadAllButton>span {
+  padding: 10px 16px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 28px;
+  color: #fff;
+}
+
+.downloadAllButton>i {
+  background-color: #184fee;
+  color: #fff;
+  padding: 16px 18px;
+  font-size: 1rem;
+  border-radius: 0 5px 5px 0;
+  transition: background-color .2s;
+}
+
+.downloadAllButton:hover>i {
+  background-color: #0e44e8;
 }
 
 .dragLine {
@@ -125,10 +154,6 @@
     background-color: #4b4f5a;
   }
 }
-
-// .sidebarWrapper:not(.hide).extend {
-//   left: -290px;
-// }
 
 .closeSideBarButton {
   position: absolute;
