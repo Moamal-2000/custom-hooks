@@ -1,9 +1,9 @@
-import Footer from "./Components/footer/Footer";
+import Footer from "./Components/Footer/Footer";
 import Home from "./Components/home/Home";
-import GlobalOverlay from "./Components/shared/GlobalOverlay";
+import GlobalOverlay from "./Components/Shared/GlobalOverlay";
 import { useGlobalContext } from "./Context/GlobalContext";
 import ScrollBottomTop from "./Components/Shared/Features/ScrollBottomTop";
-// import FullScreenMode from "./Components/Shared/Features/FullScreenMode";
+import FullScreenMode from "./Components/Shared/Features/FullScreenMode";
 import FocusMode from "./Components/Shared/Features/FocusMode";
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
       {!isFocusModeActive && (
         <>
           <ScrollBottomTop />
-          {/* <FullScreenMode /> */}
+          <FullScreenMode />
         </>
       )}
 
