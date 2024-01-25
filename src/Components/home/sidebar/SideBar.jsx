@@ -14,7 +14,7 @@ const SideBar = () => {
   const screenSize = 1200;
   const isSmallThanScreen = windowWidth < screenSize;
   const sidebarRef = useRef();
-  const [isSideBarExtended, toggleIsSideVarExtended] = useToggle();
+  const {isSideBarExtended, toggleIsSideVarExtended} = useGlobalContext();
 
   function handleOpenSideBarButton() {
     setIsSideBarActive(true);

@@ -1,10 +1,12 @@
 import { createContext, useContext, useState } from "react";
 import { hooksData } from "../Data/hooksData";
+import useToggle from "../Hooks/useToggle";
 
 const GlobalContextProvider = ({ children }) => {
   const [scrolledHook, setScrolledHook] = useState(hooksData[0].name);
   const [isSideBarActive, setIsSideBarActive] = useState(false);
   const [isOverlayActive, setIsOverlayActive] = useState(false);
+  const [isSideBarExtended, toggleIsSideVarExtended] = useToggle();
   const numberOfHooks = hooksData.length;
 
   const data = {
@@ -15,6 +17,8 @@ const GlobalContextProvider = ({ children }) => {
     isOverlayActive,
     setIsOverlayActive,
     numberOfHooks,
+    isSideBarExtended,
+    toggleIsSideVarExtended,
   };
 
   return (
