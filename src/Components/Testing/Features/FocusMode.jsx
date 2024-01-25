@@ -1,4 +1,5 @@
 import { useGlobalContext } from "../../../Context/GlobalContext";
+import useFunctionOnKey from "../../../Hooks/useFunctionOnKey";
 import styles from "./FocusMode.module.scss";
 
 const FocusMode = () => {
@@ -16,6 +17,8 @@ const FocusMode = () => {
       document.body.classList.add("focusMode")
     }
   }
+
+  useFunctionOnKey(handleFocusModeButton, "KeyG");
 
   return (
     <button

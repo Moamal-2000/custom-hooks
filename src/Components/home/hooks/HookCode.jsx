@@ -4,13 +4,15 @@ import { saveInFile } from "../../../Functions/helper";
 import useCopyText from "../../../Hooks/useCopyText";
 import useToggle from "../../../Hooks/useToggle";
 import styles from "./HookCode.module.scss";
+import { useGlobalContext } from "../../../Context/GlobalContext";
+import useFunctionOnKey from "../../../Hooks/useFunctionOnKey";
 
 const HookCode = ({ hookData }) => {
   const { code, name } = hookData;
   const [copiedText, copyText] = useCopyText();
   const [isCopied, toggleIsCopied] = useToggle(false);
   const [isDownloaded, toggleIsDownloaded] = useToggle(false);
-  const [isFullScreen, toggleIsFullScreen] = useToggle(false);
+  const [isFullScreen, toggleIsFullScreen, setIsFullScreen] = useToggle(false);
   const [numberOfLines, setNumberOfLines] = useState(0);
   const [codeState, setCodeState] = useState(code);
   const codeBlockRef = useRef();
@@ -18,6 +20,7 @@ const HookCode = ({ hookData }) => {
   const numbersOfLines = Array.from({ length: numberOfLines }).map(
     (_, i) => i + 1
   );
+  const { scrolledHook } = useGlobalContext()
 
   function handleCopyButton() {
     if (isCopied) return;
@@ -71,6 +74,12 @@ const HookCode = ({ hookData }) => {
       );
     }
   }, [codeState]);
+
+  // function handleFullScreenOnKey() {
+  //   if (scrolledHook === name) return toggleIsFullScreen()
+  // }
+
+  // useFunctionOnKey(handleFullScreenOnKey, "KeyC")
 
   return (
     <div className={`${styles.code} ${isFullScreen ? styles.fullscreen : ""}`}>

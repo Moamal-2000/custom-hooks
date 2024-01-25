@@ -1,5 +1,6 @@
 import { memo, useEffect, useRef } from "react";
 import { useGlobalContext } from "../../../Context/GlobalContext";
+import useFunctionOnKey from "../../../Hooks/useFunctionOnKey";
 import useGetResizeWindow from "../../../Hooks/useGetResizeWindow";
 import ActiveHooksMenu from "./ActiveHooksMenu";
 import styles from "./SideBar.module.scss";
@@ -25,6 +26,11 @@ const SideBar = () => {
     setIsOverlayActive(false);
   }
 
+  function toggleSideBar() {
+    if (isSmallThanScreen)
+      isSideBarActive ? handleCloseSideBarButton() : handleOpenSideBarButton();
+  }
+
   useEffect(() => {
     if (windowWidth > screenSize) {
       setIsSideBarActive(false);
@@ -37,6 +43,9 @@ const SideBar = () => {
       "sidebarExtend"
     );
   }, [isSideBarExtended]);
+
+  useFunctionOnKey(toggleSideBar, "KeyM");
+  useFunctionOnKey(toggleIsSideBarExtended, "KeyE");
 
   return (
     <>
@@ -88,9 +97,9 @@ const SideBar = () => {
             onClick={toggleIsSideBarExtended}
           >
             {isSideBarExtended ? (
-              <i className="fa-solid fa-angles-left"></i>
-            ) : (
               <i className="fa-solid fa-angles-right"></i>
+              ) : (
+              <i className="fa-solid fa-angles-left"></i>
             )}
           </button>
         )}

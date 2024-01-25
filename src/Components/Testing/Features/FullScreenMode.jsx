@@ -1,9 +1,12 @@
-import { enterFullScreen } from "../../Functions/projectFunctions";
-import useToggle from "../../Hooks/useToggle";
+import { enterFullScreen } from "../../../Functions/projectFunctions";
+import useFunctionOnKey from "../../../Hooks/useFunctionOnKey";
+import useToggle from "../../../Hooks/useToggle";
 import styles from "./FullScreenMode.module.scss";
 
 const FullScreenMode = () => {
-  const [isFullScreen, toggleIsFullScreen] = useToggle(false);
+  const [isFullScreen, toggleIsFullScreen] = useToggle();
+
+  useFunctionOnKey(handleFullScreen, "KeyF")
 
   function handleFullScreen() {
     toggleIsFullScreen();
@@ -13,7 +16,7 @@ const FullScreenMode = () => {
       return;
     }
 
-    enterFullScreen()
+    enterFullScreen();
   }
 
   return (
