@@ -17,6 +17,6 @@ const useKeyPress = () => {
     };
   }, []);
 
-  return [key, event];
+  return [key, setKey, event];
 };
 export default useKeyPress;

@@ -1,13 +1,13 @@
+import ScrollBottomTop from "./Components/Shared/Features/ScrollBottomTop";
+import FullScreenMode from "./Components/Shared/Features/FullScreenMode";
+import FocusMode from "./Components/Shared/Features/FocusMode";
 import Footer from "./Components/footer/Footer";
 import Home from "./Components/home/Home";
-import FocusMode from "./Components/shared/FocusMode";
-import FullScreenMode from "./Components/shared/FullScreenMode";
 import GlobalOverlay from "./Components/shared/GlobalOverlay";
-import ScrollBottomTop from "./Components/shared/ScrollBottomTop";
 import { useGlobalContext } from "./Context/GlobalContext";
 
 function App() {
-  const { isFocusModeActive, toggleIsFocusModeActive } = useGlobalContext();
+  const { isFocusModeActive } = useGlobalContext();
 
   return (
     <>
