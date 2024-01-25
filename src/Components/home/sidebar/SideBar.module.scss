@@ -5,6 +5,7 @@
   height: 100vh;
   user-select: none;
   z-index: 100;
+  transition: left .5s ease-in-out;
 }
 
 .sidebarWrapper.hide {
@@ -12,12 +13,16 @@
 }
 
 .sidebarWrapper.active {
-  transition:  left .5s ease-in-out;
   left: 0;
   background-color: #151c27;
 }
 
-.sidebarWrapper:hover .closeSideBarButton {
+.sidebarWrapper:not(.hide).extend {
+  left: -290px;
+}
+
+.sidebarWrapper:hover .closeSideBarButton,
+.sidebarWrapper .closeSideBarButton.active {
   opacity: 1;
 }
 
@@ -98,24 +103,25 @@
   margin: 30px 0 40px;
 }
 
-.sidebar .dragLine {
-  position: fixed;
-  // height: 100%;
-  // width: 4px;
-  // background-color: #040404;
-  // left: 350px;
-  // top: 0;
-  // cursor: -webkit-grab;
-  // transition: background-color .1s;
+.dragLine {
+  position: absolute;
+  height: 100%;
+  width: 8px;
+  background-color: #363a45;
+  left: 290px;
+  top: 0;
+  transition: background-color .2s;
+  z-index: 102;
+  cursor: pointer;
 
-  // &:hover {
-  //   background-color: royalblue;
-  // }
-
-  // &:active {
-  //   cursor: -webkit-grabbing;
-  // }
+  &:hover {
+    background-color: #4b4f5a;
+  }
 }
+
+// .sidebarWrapper:not(.hide).extend {
+//   left: -290px;
+// }
 
 .closeSideBarButton {
   position: absolute;

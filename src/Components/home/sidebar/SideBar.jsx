@@ -2,6 +2,7 @@ import { memo, useEffect, useRef } from "react";
 import { useGlobalContext } from "../../../Context/GlobalContext";
 import { handleDownloadAllHooks } from "../../../Functions/projectFunctions";
 import useGetResizeWindow from "../../../Hooks/useGetResizeWindow";
+import useToggle from "../../../Hooks/useToggle";
 import ActiveHooksMenu from "./ActiveHooksMenu";
 import styles from "./SideBar.module.scss";
 
@@ -12,8 +13,8 @@ const SideBar = () => {
   const { width: windowWidth } = windowSizes;
   const screenSize = 1200;
   const isSmallThanScreen = windowWidth < screenSize;
-  const dragLineRef = useRef();
   const sidebarRef = useRef();
+  const [isSideBarExtended, toggleIsSideVarExtended] = useToggle();
 
   function handleOpenSideBarButton() {
     setIsSideBarActive(true);
@@ -45,6 +46,7 @@ const SideBar = () => {
         className={`${styles.sidebarWrapper} ${
           isSmallThanScreen ? styles.hide : ""
         } ${isSideBarActive ? styles.active : ""}
+        ${isSideBarExtended ? styles.extend : ""}
     `}
       >
         <div className={`${styles.sidebar}`} ref={sidebarRef}>
@@ -72,13 +74,29 @@ const SideBar = () => {
           </button>
 
           <ActiveHooksMenu />
-          <div className={styles.dragLine} ref={dragLineRef}></div>
         </div>
 
         {!isSmallThanScreen && (
-          <button type="button" className={styles.closeSideBarButton}>
-            <i className="fa-solid fa-angles-left"></i>
+          <button
+            type="button"
+            className={`${styles.closeSideBarButton} ${
+              isSideBarExtended ? styles.active : ""
+            }`}
+            onClick={toggleIsSideVarExtended}
+          >
+            {isSideBarExtended ? (
+              <i className="fa-solid fa-angles-left"></i>
+            ) : (
+              <i className="fa-solid fa-angles-right"></i>
+            )}
           </button>
+        )}
+
+        {isSideBarExtended && (
+          <div
+            className={styles.dragLine}
+            onClick={toggleIsSideVarExtended}
+          ></div>
         )}
       </aside>
     </>
