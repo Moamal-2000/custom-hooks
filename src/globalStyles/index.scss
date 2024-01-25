@@ -19,6 +19,7 @@ body {
   color: var(--text);
   font-family: 'Roboto', sans-serif;
   padding-left: 292px;
+  transition: padding .5s ease-in-out;
 }
 
 @include large {

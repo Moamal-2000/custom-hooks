@@ -2,7 +2,6 @@ import { memo, useEffect, useRef } from "react";
 import { useGlobalContext } from "../../../Context/GlobalContext";
 import { handleDownloadAllHooks } from "../../../Functions/projectFunctions";
 import useGetResizeWindow from "../../../Hooks/useGetResizeWindow";
-import useToggle from "../../../Hooks/useToggle";
 import ActiveHooksMenu from "./ActiveHooksMenu";
 import styles from "./SideBar.module.scss";
 
@@ -32,6 +31,10 @@ const SideBar = () => {
       setIsOverlayActive(false);
     }
   }, [windowWidth]);
+
+  useEffect(() => {
+    document.body.style.padding = isSideBarExtended ? "0" : ""
+  }, [isSideBarExtended])
 
   return (
     <>
