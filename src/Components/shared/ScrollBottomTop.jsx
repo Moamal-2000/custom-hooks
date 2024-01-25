@@ -1,34 +1,23 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import {
+  handleFlipScrollIcon,
+  scrollCalculations,
+} from "../../Functions/projectFunctions";
 import useEventListener from "../../Hooks/useEventListener";
 import styles from "./ScrollBottomTop.module.scss";
 
 const ScrollBottomTop = () => {
   const buttonIconRef = useRef();
-  useEventListener(window, "scroll", handleFlipScrollIcon);
-
-  function handleFlipScrollIcon() {
-    const { isUserScrolledToTop } = scrollCalculations();
-    buttonIconRef.current.style.transform = `rotate(${
-      isUserScrolledToTop ? ".5" : "0"
-    }turn)`;
-  }
-
-  function scrollCalculations() {
-    const documentHeight = Number.parseInt(
-      document.documentElement.offsetHeight.toFixed(0)
-    );
-    const halfDocumentHeight = documentHeight / 2;
-    const scrollY = Number.parseInt(window.scrollY.toFixed(0));
-    const isUserScrolledToTop = halfDocumentHeight > scrollY;
-    const scrollToY = isUserScrolledToTop ? documentHeight : 0;
-
-    return { scrollToY, isUserScrolledToTop };
-  }
+  useEventListener(window, "scroll", handleFlipScrollIcon(buttonIconRef));
 
   function handleScrollButton() {
     const { scrollToY } = scrollCalculations();
     window.scrollTo({ behavior: "smooth" }, scrollToY, 0);
   }
+
+  useEffect(() => {
+    handleFlipScrollIcon(buttonIconRef);
+  }, []);
 
   return (
     <button

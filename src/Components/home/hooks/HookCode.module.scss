@@ -34,7 +34,6 @@
 
 .code>div {
   width: 100%;
-  border-radius: inherit;
   overflow: hidden;
 }
 
@@ -151,6 +150,7 @@
 @include medium {
   .languageJs>span {
     height: 16px;
+
     &:hover {
       background-color: transparent;
     }

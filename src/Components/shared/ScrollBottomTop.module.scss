@@ -6,8 +6,7 @@
   border: solid 2px var(--text);
   border-radius: 4px;
   opacity: .7;
-  transition: opacity 0.2s;
-  transform: rotate(1turn);
+  transition: opacity .2s;
 
   &:hover {
     opacity: 1;
@@ -19,6 +18,6 @@
   color: var(--text);
   padding: 6px;
   cursor: pointer;
-  transition: opacity 0.2s;
+  transition: opacity .2s;
   z-index: 100;
 }
