@@ -34,3 +34,12 @@ export function scrollCalculations() {
 
   return { scrollToY, isUserScrolledToTop };
 }
+
+export function enterFullScreen() {
+  const htmlElement = document.documentElement;
+
+  if (htmlElement.requestFullscreen) htmlElement.requestFullscreen()
+  else if (htmlElement.mozRequestFullScreen) htmlElement.mozRequestFullScreen();
+  else if (htmlElement.webkitRequestFullscreen) htmlElement.webkitRequestFullscreen();
+  else if (htmlElement.msRequestFullscreen) htmlElement.msRequestFullscreen()
+}

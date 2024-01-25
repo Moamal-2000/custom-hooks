@@ -26,6 +26,10 @@ body.focusMode::-webkit-scrollbar {
   width: 0;
 }
 
+body.sidebarExtend {
+  padding: 0;
+}
+
 @include large {
   body {
     padding-left: 0;

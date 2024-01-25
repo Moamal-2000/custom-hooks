@@ -34,7 +34,9 @@ const SideBar = () => {
   }, [windowWidth]);
 
   useEffect(() => {
-    document.body.style.padding = isSideBarExtended ? "0" : "";
+    document.body.classList[isSideBarExtended ? "add" : "remove"](
+      "sidebarExtend"
+    );
   }, [isSideBarExtended]);
 
   return (

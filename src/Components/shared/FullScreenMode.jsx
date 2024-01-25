@@ -1,3 +1,4 @@
+import { enterFullScreen } from "../../Functions/projectFunctions";
 import useToggle from "../../Hooks/useToggle";
 import styles from "./FullScreenMode.module.scss";
 
@@ -5,7 +6,6 @@ const FullScreenMode = () => {
   const [isFullScreen, toggleIsFullScreen] = useToggle(false);
 
   function handleFullScreen() {
-    const htmlElement = document.documentElement;
     toggleIsFullScreen();
 
     if (document.fullscreenElement) {
@@ -13,10 +13,7 @@ const FullScreenMode = () => {
       return;
     }
 
-    if (htmlElement.requestFullscreen) htmlElement.requestFullscreen()
-    else if (htmlElement.mozRequestFullScreen) htmlElement.mozRequestFullScreen();
-    else if (htmlElement.webkitRequestFullscreen) htmlElement.webkitRequestFullscreen();
-    else if (htmlElement.msRequestFullscreen) htmlElement.msRequestFullscreen()
+    enterFullScreen()
   }
 
   return (
