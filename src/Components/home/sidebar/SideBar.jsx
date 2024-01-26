@@ -1,5 +1,7 @@
 import { memo, useEffect, useRef } from "react";
 import { useGlobalContext } from "../../../Context/GlobalContext";
+import { hooksData } from "../../../Data/hooksData";
+import { saveInRAR } from "../../../Functions/helper";
 import useFunctionOnKey from "../../../Hooks/useFunctionOnKey";
 import useGetResizeWindow from "../../../Hooks/useGetResizeWindow";
 import ActiveHooksMenu from "./ActiveHooksMenu";
@@ -80,7 +82,11 @@ const SideBar = () => {
             </button>
           )}
 
-          <button type="button" className={styles.downloadAllButton}>
+          <button
+            type="button"
+            className={styles.downloadAllButton}
+            onClick={() => saveInRAR(hooksData)}
+          >
             <span>Download Hooks</span>
             <i className="fa-solid fa-arrow-down"></i>
           </button>
@@ -98,7 +104,7 @@ const SideBar = () => {
           >
             {isSideBarExtended ? (
               <i className="fa-solid fa-angles-right"></i>
-              ) : (
+            ) : (
               <i className="fa-solid fa-angles-left"></i>
             )}
           </button>

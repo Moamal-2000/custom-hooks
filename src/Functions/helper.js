@@ -1,4 +1,4 @@
-import JSZip from "jszip";
+import JSZip, { file } from "jszip";
 
 export function saveInFile(nameFile, contentFile) {
   const blob = new Blob([contentFile], { type: "text/plain" });
@@ -15,7 +15,7 @@ export function download(blob, nameFile) {
 export async function saveInRAR(files) {
   const zip = new JSZip();
 
-  files.forEach((file) => zip.file(file.name, file.content));
+  files.forEach((file) => zip.file(file.name, file.code));
 
   const blob = await zip.generateAsync({ type: "blob" });
   download(blob, "custom-hooks.rar");
