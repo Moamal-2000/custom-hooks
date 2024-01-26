@@ -1,5 +1,5 @@
-import Footer from "./Components/Footer/Footer";
-import Home from "./Components/Home/Home";
+import Footer from "./Components/footer/Footer";
+import Home from "./Components/home/Home";
 import GlobalOverlay from "./Components/Shared/GlobalOverlay";
 import { useGlobalContext } from "./Context/GlobalContext";
 import ScrollBottomTop from "./Components/Shared/Features/ScrollBottomTop";
