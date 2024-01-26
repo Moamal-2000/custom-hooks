@@ -1,4 +1,4 @@
-import { memo, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useGlobalContext } from "../../../Context/GlobalContext";
 import { hooksData } from "../../../Data/hooksData";
 import { saveInRAR } from "../../../Functions/helper";
@@ -120,4 +120,4 @@ const SideBar = () => {
     </>
   );
 };
-export default memo(SideBar);
+export default SideBar;

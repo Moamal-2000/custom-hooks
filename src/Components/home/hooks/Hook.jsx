@@ -8,12 +8,17 @@ import HookInputsOutputs from "./HookInputsOutputs";
 
 const Hook = ({ hookData }) => {
   const { name, explanation, liveCode, inputs, outputs, id } = hookData;
-  const { scrolledHook, setScrolledHook } = useGlobalContext();
+  const { setScrolledHook } = useGlobalContext();
   const hookTitleRef = useRef();
   const isVisible = useOnScreen(hookTitleRef);
 
   useEffect(() => {
-    if (isVisible) setScrolledHook(hookData.name);
+    let timerId;
+    clearTimeout(timerId);
+
+    timerId = setTimeout(() => isVisible && setScrolledHook(name), 400);
+
+    return () => clearTimeout(timerId);
   }, [isVisible]);
 
   return (
