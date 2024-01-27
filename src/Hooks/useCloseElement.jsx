@@ -28,7 +28,7 @@ const useCloseElement = (toggleEleRef, switcherEleRef, exceptElementRef) => {
     };
   }, []);
 
-  return { isElementClose, setIsElementClose };
+  return [ isElementClose, setIsElementClose ];
 };
 export default useCloseElement;
 

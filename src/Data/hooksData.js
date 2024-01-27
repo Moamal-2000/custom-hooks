@@ -161,7 +161,8 @@ export default useArray;`,
       `
         The useCloseElement hook manages the state of an element's visibility based on clicks outside designated elements.
         It takes three refs - toggleEleRef, switcherEleRef, and exceptElementRef to control the toggle behavior.
-        The hook uses a helper function, compareAbsoluteParentEle, to determine if an element or its parent is an absolute parent.`,
+        The hook no longer uses isStrictMode.
+      `,
     ],
     inputs: [
       [
@@ -177,8 +178,6 @@ export default useArray;`,
           Ref for an optional element that should not trigger the close behavior.`,
       ],
     ],
-    outputsText:
-      "The useCloseElement hook returns an object with the following properties:",
     outputs: [
       [
         `isElementClose (Boolean):
@@ -191,58 +190,53 @@ export default useArray;`,
     ],
     liveCode: "https://codesandbox.io/p/sandbox/usecloseelement-z49szj?file=%2Fsrc%2FTest.jsx",
     id: 2,
-    code: `import { useEffect, useRef, useState } from "react";
-
-const useCloseElement = (toggleEleRef, switcherEleRef, exceptElementRef, isStrictMode = false) => {
-  const [isElementClose, setIsElementClose] = useState(false);
-  const isMount = useRef(false);
-
-  function handleDocumentClick(e) {
-    if (isStrictMode)
-      if (!isMount.current) isMount.current = true;
-      else {
-        isMount.current = false;
-        return;
-      }
-
-    if (!toggleEleRef.current || !switcherEleRef.current) return;
-
-    const target = e.target;
-    const isSwitcherEle = target === switcherEleRef.current;
-    const isExceptEle = target === exceptElementRef?.current;
-    const isInsideToggle = compareAbsoluteParentEle(target, toggleEleRef.current);
-    const closeElementCondition = (!isSwitcherEle && !isInsideToggle) || isExceptEle;
-
-    if (closeElementCondition) setIsElementClose(false);
-    else if (isSwitcherEle) setIsElementClose((prevState) => !prevState);
-  }
-
-  useEffect(() => {
-    window.addEventListener("click", (e) => handleDocumentClick(e));
-
-    return () => {
-      window.removeEventListener("click", (e) => handleDocumentClick(e));
-    };
-  }, []);
-
-  return [isElementClose, setIsElementClose];
-};
-
-export default useCloseElement;
-
-/* Helper function */
-function compareAbsoluteParentEle (element, requiredEle) {
-  let parentElement = element.parentElement;
-
-  while (
-    parentElement &&
-    requiredEle !== parentElement &&
-    requiredEle !== element
-  )
-    parentElement = parentElement.parentElement;
-
-  return !!parentElement;
-};`,
+    code: `import { useEffect, useState } from "react";
+  
+  const useCloseElement = (toggleEleRef, switcherEleRef, exceptElementRef) => {
+    const [isElementClose, setIsElementClose] = useState(false);
+  
+    function handleDocumentClick(e) {
+      if (!toggleEleRef.current || !switcherEleRef.current) return;
+  
+      const target = e.target;
+      const isSwitcherEle = target === switcherEleRef.current;
+      const isExceptEle = target === exceptElementRef?.current;
+      const isInsideToggle = compareAbsoluteParentEle(
+        target,
+        toggleEleRef.current
+      );
+      const closeElementCondition =
+        (!isSwitcherEle && !isInsideToggle) || isExceptEle;
+  
+      if (closeElementCondition) setIsElementClose(true);
+      else if (isSwitcherEle) setIsElementClose((prevState) => !prevState);
+    }
+  
+    useEffect(() => {
+      window.addEventListener("click", (e) => handleDocumentClick(e));
+  
+      return () => {
+        window.removeEventListener("click", (e) => handleDocumentClick(e));
+      };
+    }, []);
+  
+    return { isElementClose, setIsElementClose };
+  };
+  export default useCloseElement;
+  
+  // Helper function
+  const compareAbsoluteParentEle = (element, requiredEle) => {
+    let parentElement = element.parentElement;
+  
+    while (
+      parentElement &&
+      requiredEle !== parentElement &&
+      requiredEle !== element
+    )
+      parentElement = parentElement.parentElement;
+  
+    return !!parentElement;
+  };`,
   },
 
   {

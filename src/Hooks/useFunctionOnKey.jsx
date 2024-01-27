@@ -11,4 +11,5 @@ const useFunctionOnKey = (callback, keyName) => {
     }
   }, [pressedKey]);
 };
+
 export default useFunctionOnKey;
