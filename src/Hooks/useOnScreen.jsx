@@ -8,7 +8,7 @@ function useOnScreen(ref, rootMargin = "0px") {
 
     const observer = new IntersectionObserver(
       ([entry]) => setIsVisible(entry.isIntersecting),
-      { rootMargin: rootMargin }
+      { rootMargin: rootMargin, threshold: 1 },
     );
 
     observer.observe(ref.current);
