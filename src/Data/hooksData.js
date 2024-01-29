@@ -112,7 +112,8 @@ export default useToggle;`,
           Usage: filter(callback).`,
       ],
     ],
-    liveCode: "https://codesandbox.io/p/sandbox/usearray-rxj3p5?file=%2Fsrc%2FTest.jsx",
+    liveCode:
+      "https://codesandbox.io/p/sandbox/usearray-rxj3p5?file=%2Fsrc%2FTest.jsx",
     id: 1,
     code: `import { useState } from "react";
 
@@ -188,55 +189,55 @@ export default useArray;`,
           Function to manually set the state of isElementClose.`,
       ],
     ],
-    liveCode: "https://codesandbox.io/p/sandbox/usecloseelement-z49szj?file=%2Fsrc%2FTest.jsx",
+    liveCode:
+      "https://codesandbox.io/p/sandbox/usecloseelement-z49szj?file=%2Fsrc%2FTest.jsx",
     id: 2,
     code: `import { useEffect, useState } from "react";
-  
-  const useCloseElement = (toggleEleRef, switcherEleRef, exceptElementRef) => {
-    const [isElementClose, setIsElementClose] = useState(false);
-  
-    function handleDocumentClick(e) {
+
+const useCloseElement = (toggleEleRef, switcherEleRef, exceptElementRef) => {
+  const [isElementClose, setIsElementClose] = useState(false);
+
+  useEffect(() => {
+    const handleDocumentClick = (e) => {
       if (!toggleEleRef.current || !switcherEleRef.current) return;
-  
+
       const target = e.target;
-      const isSwitcherEle = target === switcherEleRef.current;
+      const isSwitcherEle = target === switcherEleRef?.current;
       const isExceptEle = target === exceptElementRef?.current;
       const isInsideToggle = compareAbsoluteParentEle(
         target,
-        toggleEleRef.current
+        toggleEleRef?.current
       );
       const closeElementCondition =
         (!isSwitcherEle && !isInsideToggle) || isExceptEle;
-  
-      if (closeElementCondition) setIsElementClose(true);
+
+      if (closeElementCondition) setIsElementClose(false);
       else if (isSwitcherEle) setIsElementClose((prevState) => !prevState);
-    }
-  
-    useEffect(() => {
-      window.addEventListener("click", (e) => handleDocumentClick(e));
-  
-      return () => {
-        window.removeEventListener("click", (e) => handleDocumentClick(e));
-      };
-    }, []);
-  
-    return { isElementClose, setIsElementClose };
-  };
-  export default useCloseElement;
-  
-  // Helper function
-  const compareAbsoluteParentEle = (element, requiredEle) => {
-    let parentElement = element.parentElement;
-  
-    while (
-      parentElement &&
-      requiredEle !== parentElement &&
-      requiredEle !== element
-    )
-      parentElement = parentElement.parentElement;
-  
-    return !!parentElement;
-  };`,
+    };
+
+    window.addEventListener("click", handleDocumentClick);
+
+    return () => window.removeEventListener("click", handleDocumentClick);
+  }, [toggleEleRef, switcherEleRef, exceptElementRef]);
+
+  return [isElementClose, setIsElementClose];
+};
+
+export default useCloseElement;
+
+// Helper function
+const compareAbsoluteParentEle = (element, requiredEle) => {
+  let parentElement = element.parentElement;
+
+  while (
+    parentElement &&
+    requiredEle !== parentElement &&
+    requiredEle !== element
+  )
+    parentElement = parentElement.parentElement;
+
+  return !!parentElement;
+};`,
   },
 
   {
@@ -363,61 +364,18 @@ export default useElementData;`,
     id: 5,
     code: `import { useEffect } from "react";
 
-const useEventListener = (element, eventName, callback) => {
+const useEventListener = (ref, eventName, callback) => {
   useEffect(() => {
-    element.addEventListener(eventName, callback);
+    const element = ref.current ? ref.current : ref;
 
-    return () => {
-      element.removeEventListener(eventName, callback);
-    };
+    element?.addEventListener(eventName, callback);
+
+    return () => element?.removeEventListener(eventName, callback);
   }, []);
 };
 
 export default useEventListener;`,
   },
-
-  //   {
-  //     name: "useFetchDataFrom",
-  //     explanation: [
-  //       `
-  //         The useFetchDataFrom hook fetches data from a specified URL using the Axios library.`,
-  //     ],
-  //     inputs: [
-  //       [
-  //         `url (String):
-  //           The URL from which to fetch data.`,
-  //       ],
-  //     ],
-  //     outputsText: "The useFetchDataFrom hook returns the fetched data.",
-  //     outputs: [
-  //       [
-  //         `data (Any):
-  //           The fetched data from the specified URL.`,
-  //       ],
-  //     ],
-  //     id: 6,
-  //     code: `import { useEffect, useState } from "react";
-  // import axios from "axios";
-
-  // export default function useFetchDataFrom(url) {
-  //   const [data, setData] = useState(null);
-
-  //   useEffect(() => {
-  //     const getData = async () => {
-  //       try {
-  //         const res = await axios.get(url);
-  //         setData(res.data);
-  //       } catch (err) {
-  //         console.log(err);
-  //       }
-  //     };
-
-  //     getData();
-  //   }, [url]);
-
-  //   return data;
-  // }`,
-  //   },
 
   {
     name: "useFilter",
@@ -451,8 +409,9 @@ export default useEventListener;`,
           Function to manually set the filtered array.`,
       ],
     ],
-    liveCode: "https://codesandbox.io/p/sandbox/usefilter-qjd5tl?file=%2Fsrc%2FTest.jsx",
-    id: 7,
+    liveCode:
+      "https://codesandbox.io/p/sandbox/usefilter-qjd5tl?file=%2Fsrc%2FTest.jsx",
+    id: 6,
     code: `import { useEffect, useState } from "react";
 
 const useFilter = (array, searchValue, key) => {
@@ -488,22 +447,22 @@ export default useFilter;`,
       ],
     ],
     liveCode: "#",
-    id: 8,
+    id: 7,
     code: `const useGetParams = () => {
-const url = location?.href;
-const paramsStr = url?.split("?")[1];
-const params = paramsStr?.split("&");
-let allParams = {};
+  const url = location?.href;
+  const paramsStr = url?.split("?")[1];
+  const params = paramsStr?.split("&");
+  let allParams = {};
 
-params?.forEach((param) => {
-  const splitParam = param?.split("=");
-  const paramKey = splitParam[0];
-  const paramValue = splitParam[1];
+  params?.forEach((param) => {
+    const splitParam = param?.split("=");
+    const paramKey = splitParam[0];
+    const paramValue = splitParam[1];
 
-  allParams = { ...allParams, [paramKey]: paramValue };
-});
+    allParams = { ...allParams, [paramKey]: paramValue };
+  });
 
-return { allParams };
+  return allParams;
 };
 
 export default useGetParams;`,
@@ -513,36 +472,44 @@ export default useGetParams;`,
     name: "useGetResizeWindow",
     explanation: [
       `
-        The useGetResizeWindow hook provides the current dimensions of the window and updates them on window resize.`,
+        The useGetResizeWindow hook tracks the window resize event and returns an object containing the current width and height of the viewport's browser window in pixels.
+      `,
     ],
     inputs: [],
-    outputsText:
-      "The useGetResizeWindow hook returns an object with the current window dimensions.",
     outputs: [
       [
         `sizes (Object):
-          An object containing the current window dimensions (width and height).`,
+          An object containing the current width and height of the viewport's browser window.`,
       ],
     ],
-    liveCode: "#",
-    id: 9,
+    liveCode: "",
+    id: 8,
     code: `import { useEffect, useState } from "react";
 
 const useGetResizeWindow = () => {
-  const [sizes, setSizes] = useState({});
-
-  function handleResize() {
-    setSizes({
-      width: innerWidth,
-      height: innerHeight,
-    });
-  }
+  const [sizes, setSizes] = useState({
+    width: innerWidth,
+    height: innerHeight,
+  });
 
   useEffect(() => {
-    handleResize();
-    window.addEventListener("resize", () => handleResize());
+    let timerId;
 
-    return () => window.removeEventListener("resize", () => handleResize());
+    function handleResize() {
+      clearTimeout(timerId);
+
+      timerId = setTimeout(() => {
+        setSizes({
+          width: innerWidth,
+          height: innerHeight,
+        });
+      }, 300);
+    }
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return sizes;
@@ -550,27 +517,31 @@ const useGetResizeWindow = () => {
 
 export default useGetResizeWindow;`,
   },
+
   {
     name: "useKeyPress",
     explanation: [
       `
-        The useKeyPress hook detects key presses and provides information about the pressed key.`,
+        The useKeyPress hook tracks keypress events and provides the key code and event object.
+      `,
     ],
     inputs: [],
-    outputsText:
-      "The useKeyPress hook returns an array with the pressed key and the related event object.",
     outputs: [
       [
         `key (String):
-          The code of the pressed key.`,
+          Represents the key code of the pressed key.`,
+      ],
+      [
+        `setKey (Function):
+          Function to manually set the key code.`,
       ],
       [
         `event (Object):
-          The event object related to the key press.`,
+          Represents the event object of the keypress event.`,
       ],
     ],
-    liveCode: "#",
-    id: 10,
+    liveCode: "",
+    id: 9,
     code: `import { useEffect, useState } from "react";
 
 const useKeyPress = () => {
@@ -583,51 +554,64 @@ const useKeyPress = () => {
   }
 
   useEffect(() => {
-    window.addEventListener("keydown", (e) => handleKeyPress(e));
+    window.addEventListener("keydown", handleKeyPress);
 
     return () => {
-      window.removeEventListener("keydown", (e) => handleKeyPress(e));
+      window.removeEventListener("keydown", handleKeyPress);
     };
   }, []);
 
-  return [key, event];
+  return [key, setKey, event];
 };
 
 export default useKeyPress;`,
   },
+
   {
     name: "useLocalStorage",
     explanation: [
       `
-        The useLocalStorage hook provides a way to interact with the browser's localStorage.`,
+        The useLocalStorage hook provides a way to store and retrieve data in the browser's local storage.
+        It takes a key name and initial data as inputs and returns the stored data along with a function to update it in the local storage.
+      `,
     ],
     inputs: [
       [
         `keyName (String):
-          The key under which the data is stored in localStorage.`,
+          The name under which the data will be stored in the local storage.`,
       ],
       [
-        `data (Any):
-          The data to be stored in localStorage. If not provided, the hook retrieves the stored data.`,
+        `initialData (Any):
+          The initial data to be stored if no data exists in the local storage under the given key name.`,
       ],
     ],
-    outputsText:
-      "The useLocalStorage hook returns the stored data from localStorage.",
     outputs: [
       [
-        `storedData (Any):
-          The data retrieved from localStorage.`,
+        `data (Any):
+          The data retrieved from the local storage.`,
+      ],
+      [
+        `setDataFun (Function):
+          A function to update the data in the local storage.`,
       ],
     ],
-    liveCode: "#",
-    id: 11,
-    code: `const useLocalStorage = (keyName, data) => {
-  const localData = localStorage.getItem(keyName)
-  if (!data) return JSON.parse(localData)
+    liveCode: "",
+    id: 10,
+    code: `import { useState } from "react";
 
-  localStorage.setItem(keyName, JSON.stringify(data))
-  return JSON.parse(localData)
-}
+const useLocalStorage = (keyName, initialData) => {
+  const localData = localStorage.getItem(keyName);
+  const [data, setData] = useState(
+    !localData ? initialData : JSON.parse(localData)
+  );
+
+  function setDataFun(getData) {
+    localStorage.setItem(keyName, JSON.stringify(getData));
+    setData(getData);
+  }
+
+  return [data, setDataFun];
+};
 
 export default useLocalStorage;`,
   },
@@ -654,7 +638,7 @@ export default useLocalStorage;`,
     outputs: [],
     liveCode:
       "https://codesandbox.io/p/sandbox/usemouseeffect-qwj9qt?file=%2Fsrc%2FTest.jsx",
-    id: 12,
+    id: 11,
     code: `import { useEffect } from "react";
 
 const useMouseEffect = (
@@ -718,7 +702,7 @@ export default useMouseEffect;`,
       ],
     ],
     liveCode: "#",
-    id: 13,
+    id: 12,
     code: `import { useEffect, useState } from "react";
 
 const useOnlineStatus = () => {
@@ -774,7 +758,7 @@ export default useOnlineStatus;`,
       ],
     ],
     liveCode: "#",
-    id: 14,
+    id: 13,
     code: `import { useEffect, useState } from "react";
 
 function useOnScreen(ref, rootMargin = "0px") {
@@ -817,7 +801,7 @@ export default useOnScreen;`,
           True if the page is scrolled to the bottom, false otherwise.`,
       ],
     ],
-    id: 15,
+    id: 14,
     code: `import { useEffect, useState } from "react";
 
 const usePageBottom = () => {
@@ -869,7 +853,7 @@ export default usePageBottom;`,
       ],
     ],
     liveCode: "#",
-    id: 16,
+    id: 15,
     code: `import { useEffect, useRef } from "react";
 
 const usePreviousState = (state) => {
@@ -914,8 +898,9 @@ export default usePreviousState;
           Function to manually set the value of the text input field. Usage: setValue(newValue).`,
       ],
     ],
-    liveCode: "https://codesandbox.io/p/sandbox/usetextinput-ss44cm?file=%2Fsrc%2FTest.jsx%3A10%2C4",
-    id: 17,
+    liveCode:
+      "https://codesandbox.io/p/sandbox/usetextinput-ss44cm?file=%2Fsrc%2FTest.jsx%3A10%2C4",
+    id: 16,
     code: `import { useState } from "react";
 
 const useTextInput = (initialValue = "") => {
@@ -961,7 +946,7 @@ export default useTextInput;`,
       ],
     ],
     liveCode: "#",
-    id: 18,
+    id: 17,
     code: `import { useEffect, useState } from "react";
 
 const useRandomNumber = (min, max) => {
@@ -981,5 +966,118 @@ const useRandomNumber = (min, max) => {
 };
 
 export default useRandomNumber;`,
+  },
+
+  {
+    name: "useMouseEffect",
+    explanation: [
+      `
+        The useMouseEffect hook applies effects related to mouse movements on a specified element.
+        It allows adding a custom class when the mouse is active, positioning the element based on mouse coordinates,
+        and toggling a class on specified elements when the mouse hovers over them.
+      `,
+    ],
+    inputs: [
+      [
+        `ref (React ref):
+          Ref for the element on which mouse effects will be applied.`,
+      ],
+      [
+        `options (Object):
+          An object containing optional parameters:
+          - activeClass (String, default: "active"): Class to be added when the mouse is active.
+          - isActiveOnHover (Boolean, default: false): Determines if the activeClass should be applied on hover.
+          - hoverElements (Array, default: []): Array of tag names on which hover effects should be applied.`,
+      ],
+    ],
+    outputs: [],
+    liveCode: "",
+    id: 18,
+    code: `import { useEffect } from "react";
+
+const useMouseEffect = (
+  ref,
+  { activeClass = "active", isActiveOnHover = false, hoverElements = [] }
+) => {
+  function handleMouseMove(e) {
+    if (!ref.current?.classList?.contains(activeClass))
+      setTimeout(() => ref.current?.classList?.add(activeClass), 500);
+
+    const element = ref.current;
+    const clientX = e.clientX;
+    const clientY = e.clientY;
+    const halfWidthRef = ref.current?.clientWidth / 2;
+    const halfHeightRef = ref.current?.clientHeight / 2;
+
+    element.style.position = "absolute";
+    element.style.left = clientX - halfWidthRef + "px";
+    element.style.top = clientY - halfHeightRef + "px";
+    element.style.pointerEvent = "none";
+
+    if (hoverElements.length === 0 || !isActiveOnHover) return;
+    handleHoverOnElements(e);
+  }
+
+  function handleHoverOnElements(e) {
+    const hoveredElementName = e.target.tagName.toLowerCase();
+    const isHoveredOnSpecificTags =
+      hoverElements.filter((tagName) => tagName === hoveredElementName)
+        .length !== 0;
+
+    ref.current?.classList?.[isHoveredOnSpecificTags ? "add" : "remove"](
+      "mouse-hover"
+    );
+  }
+
+  useEffect(() => {
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
+  return null; // Since there are no outputs, returning null
+};
+
+export default useMouseEffect;
+`,
+  },
+
+  {
+    name: "useFunctionOnKey",
+    explanation: [
+      `
+        The useFunctionOnKey hook listens for a specific key press and triggers a callback function when that key is pressed.
+      `,
+    ],
+    inputs: [
+      [
+        `callback (Function):
+          The function to be called when the specified key is pressed.`,
+      ],
+      [
+        `keyName (String):
+          The name of the key to listen for.`,
+      ],
+    ],
+    outputs: [],
+    liveCode: "",
+    id: 19,
+    code: `import { useEffect } from "react";
+import useKeyPress from "./useKeyPress";
+
+const useFunctionOnKey = (callback, keyName) => {
+  const [pressedKey, setKey] = useKeyPress();
+
+  useEffect(() => {
+    if (pressedKey === keyName) {
+      callback();
+      setKey("");
+    }
+  }, [pressedKey]);
+};
+
+export default useFunctionOnKey;`,
   },
 ];

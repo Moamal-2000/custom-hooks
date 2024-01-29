@@ -12,7 +12,7 @@ const useGetParams = () => {
     allParams = { ...allParams, [paramKey]: paramValue };
   });
 
-  return { allParams };
+  return allParams;
 };
 
 export default useGetParams;
