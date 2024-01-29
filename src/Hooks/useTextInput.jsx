@@ -10,4 +10,5 @@ const useTextInput = (initialValue = "") => {
 
   return [value, attributes, setValue];
 };
+
 export default useTextInput;

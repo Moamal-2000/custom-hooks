@@ -25,4 +25,5 @@ const usePageBottom = () => {
 
   return isScrolledToBottom;
 };
+
 export default usePageBottom;

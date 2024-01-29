@@ -18,10 +18,11 @@ const useOnlineStatus = () => {
 
     return () => {
       document.removeEventListener("online", checkOnlineStatus);
-      document.removeEventListener("online", checkOfflineStatus);
+      document.removeEventListener("offline", checkOfflineStatus);
     };
   }, []);
 
   return isOnline;
 };
+
 export default useOnlineStatus;

@@ -3,10 +3,22 @@ import { useState } from "react";
 const useArray = (initArray) => {
   const [array, setArray] = useState(initArray);
   const copiedArray = array;
-  const clear = () => setArray([]);
-  const set = (newArray) => setArray([...newArray]);
-  const push = (item) => setArray((oldArr) => [...oldArr, item]);
-  const filter = (callback) => setArray([...array.filter(callback)]);
+
+  function clear() {
+    setArray([]);
+  }
+
+  function set(newArray) {
+    setArray([...newArray]);
+  }
+
+  function push(item) {
+    setArray((oldArr) => [...oldArr, item]);
+  }
+
+  function filter(callback) {
+    setArray([...array.filter(callback)]);
+  }
 
   function update(oldValue, newValue) {
     const requiredIndex = array.indexOf(

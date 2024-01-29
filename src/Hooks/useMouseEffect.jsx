@@ -8,17 +8,16 @@ const useMouseEffect = (
     if (!ref.current?.classList?.contains(activeClass))
       setTimeout(() => ref.current?.classList?.add(activeClass), 500);
 
+    const element = ref.current;
     const clientX = e.clientX;
     const clientY = e.clientY;
     const halfWidthRef = ref.current?.clientWidth / 2;
     const halfHeightRef = ref.current?.clientHeight / 2;
 
-    ref.current.style.cssText = `
-      position: absolute;
-      left: ${clientX - halfWidthRef}px;
-      top: ${clientY - halfHeightRef}px;
-      pointer-events: none;
-    `;
+    element.style.position = "absolute";
+    element.style.left = clientX - halfWidthRef + "px";
+    element.style.top = clientY - halfHeightRef + "px";
+    element.style.pointerEvent = "none";
 
     if (hoverElements.length === 0 || !isActiveOnHover) return;
     handleHoverOnElements(e);
@@ -43,4 +42,5 @@ const useMouseEffect = (
     };
   }, []);
 };
+
 export default useMouseEffect;

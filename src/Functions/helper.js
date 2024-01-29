@@ -30,3 +30,15 @@ export function getMoreData(entireData, currentDataNumber, neededDataNumber) {
 
   return returnedData;
 }
+
+export const scrollToElement = (scrollToEle, scrollBehavior = "instant") => {
+  if (!scrollToEle.current) return;
+
+  const scrollEleRect = scrollToEle.current.getBoundingClientRect();
+  const scrollEleY = scrollEleRect.y;
+
+  window.scrollTo({
+    top: scrollEleY + window.scrollY,
+    behavior: scrollBehavior,
+  });
+};

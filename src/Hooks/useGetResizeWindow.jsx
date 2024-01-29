@@ -10,7 +10,7 @@ const useGetResizeWindow = () => {
     let timerId;
 
     function handleResize() {
-      clearTimeout(timerId)
+      clearTimeout(timerId);
 
       timerId = setTimeout(() => {
         setSizes({
@@ -28,4 +28,5 @@ const useGetResizeWindow = () => {
 
   return sizes;
 };
+
 export default useGetResizeWindow;

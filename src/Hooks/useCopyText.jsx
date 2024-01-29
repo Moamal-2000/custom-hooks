@@ -10,4 +10,5 @@ const useCopyText = () => {
 
   return [copiedText, setCopy];
 };
+
 export default useCopyText;
