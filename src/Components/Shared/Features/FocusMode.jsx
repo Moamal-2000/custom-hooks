@@ -3,18 +3,22 @@ import useFunctionOnKey from "../../../Hooks/useFunctionOnKey";
 import styles from "./FocusMode.module.scss";
 
 const FocusMode = () => {
-  const { isFocusModeActive, toggleIsFocusModeActive, setIsSideBarExtended } =
-    useGlobalContext();
+  const {
+    isFocusModeActiveLocal,
+    setIsFocusModeActive,
+    setIsSideBarExtended,
+  } = useGlobalContext();
 
   function handleFocusModeButton() {
-    toggleIsFocusModeActive();
+    console.log(isFocusModeActiveLocal);
+    setIsFocusModeActive(!isFocusModeActiveLocal);
 
-    if (isFocusModeActive) {
+    if (isFocusModeActiveLocal) {
       setIsSideBarExtended(false);
-      document.body.classList.remove("focusMode")
+      document.body.classList.remove("focusMode");
     } else {
       setIsSideBarExtended(true);
-      document.body.classList.add("focusMode")
+      document.body.classList.add("focusMode");
     }
   }
 
@@ -24,11 +28,11 @@ const FocusMode = () => {
     <button
       type="button"
       className={`${styles.focusModeButton} ${
-        isFocusModeActive ? styles.focusMode : ""
+        isFocusModeActiveLocal ? styles.focusMode : ""
       }`}
       onClick={handleFocusModeButton}
     >
-      {isFocusModeActive ? (
+      {isFocusModeActiveLocal ? (
         <i className={`fa-regular fa-eye-slash ${styles.eyeSlashIcon}`}></i>
       ) : (
         <i className="fa-regular fa-eye"></i>

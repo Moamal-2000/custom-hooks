@@ -7,8 +7,13 @@ const useLocalStorage = (keyName, initialData) => {
   );
 
   function setDataFun(getData) {
-    localStorage.setItem(keyName, JSON.stringify(getData));
-    setData(JSON.stringify(getData));
+    let stringifyData = JSON.stringify(getData)
+
+    if (stringifyData === "true") stringifyData = true
+    else if (stringifyData === "false") stringifyData = false
+
+    localStorage.setItem(keyName, stringifyData);
+    setData(stringifyData);
   }
 
   return [data, setDataFun];

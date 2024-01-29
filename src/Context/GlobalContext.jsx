@@ -1,6 +1,7 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { hooksData } from "../Data/hooksData";
 import useToggle from "../Hooks/useToggle";
+import useLocalStorage from "../Hooks/useLocalStorage";
 
 const GlobalContextProvider = ({ children }) => {
   const [scrolledHook, setScrolledHook] = useState(hooksData[0].name);
@@ -8,7 +9,7 @@ const GlobalContextProvider = ({ children }) => {
   const [isOverlayActive, setIsOverlayActive] = useState(false);
   const [isSideBarExtended, toggleIsSideBarExtended, setIsSideBarExtended] =
     useToggle();
-  const [isFocusModeActive, toggleIsFocusModeActive] = useToggle();
+  const [isFocusModeActiveLocal, setIsFocusModeActive] = useLocalStorage("focus-mode");
   const numberOfHooks = hooksData.length;
 
   const data = {
@@ -22,8 +23,8 @@ const GlobalContextProvider = ({ children }) => {
     isSideBarExtended,
     toggleIsSideBarExtended,
     setIsSideBarExtended,
-    isFocusModeActive,
-    toggleIsFocusModeActive,
+    isFocusModeActiveLocal,
+    setIsFocusModeActive,
   };
 
   return (

@@ -7,7 +7,7 @@ import Home from "./Components/home/Home";
 import { useGlobalContext } from "./Context/GlobalContext";
 
 function App() {
-  const { isFocusModeActive } = useGlobalContext();
+  const { isFocusModeActiveLocal } = useGlobalContext();
 
   return (
     <>
@@ -17,7 +17,7 @@ function App() {
         <Footer />
       </div>
 
-      {!isFocusModeActive && (
+      {!isFocusModeActiveLocal && (
         <>
           <ScrollBottomTop />
           <FullScreenMode />
