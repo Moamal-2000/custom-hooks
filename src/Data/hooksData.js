@@ -153,6 +153,7 @@ const useArray = (initArray) => {
 
   return { array, push, update, set, remove, clear, filter };
 };
+
 export default useArray;`,
   },
 
@@ -225,7 +226,7 @@ const useCloseElement = (toggleEleRef, switcherEleRef, exceptElementRef) => {
 
 export default useCloseElement;
 
-// Helper function
+/* Helper function */
 const compareAbsoluteParentEle = (element, requiredEle) => {
   let parentElement = element.parentElement;
 
@@ -260,7 +261,8 @@ const compareAbsoluteParentEle = (element, requiredEle) => {
           Function to copy text to the clipboard. Usage: setCopy(text).`,
       ],
     ],
-    liveCode: "https://codesandbox.io/p/sandbox/usecopytext-fcqtfr?file=%2Fsrc%2FuseCopyText.jsx%3A6%2C12",
+    liveCode:
+      "https://codesandbox.io/p/sandbox/usecopytext-fcqtfr?file=%2Fsrc%2FuseCopyText.jsx%3A6%2C12",
     id: 3,
     code: `import { useState } from "react";
 
@@ -360,7 +362,8 @@ export default useElementData;`,
       ],
     ],
     outputs: [],
-    liveCode: "https://codesandbox.io/p/sandbox/useeventlistener-9tcp7n?file=%2Fsrc%2FuseEventListener.jsx%3A1%2C5",
+    liveCode:
+      "https://codesandbox.io/p/sandbox/useeventlistener-9tcp7n?file=%2Fsrc%2FuseEventListener.jsx%3A1%2C5",
     id: 5,
     code: `import { useEffect } from "react";
 
@@ -482,7 +485,8 @@ export default useGetParams;`,
           An object containing the current width and height of the viewport's browser window.`,
       ],
     ],
-    liveCode: "https://codesandbox.io/p/sandbox/usegetresizewindow-nj9n9p?file=%2Fsrc%2FuseGetResizeWindow.jsx%3A3%2C15",
+    liveCode:
+      "https://codesandbox.io/p/sandbox/usegetresizewindow-nj9n9p?file=%2Fsrc%2FuseGetResizeWindow.jsx%3A3%2C15",
     id: 8,
     code: `import { useEffect, useState } from "react";
 
@@ -540,7 +544,8 @@ export default useGetResizeWindow;`,
           Represents the event object of the keypress event.`,
       ],
     ],
-    liveCode: "https://codesandbox.io/p/sandbox/usekeypress-dzgxxj?file=%2Fsrc%2FuseKeyPress.jsx%3A3%2C22",
+    liveCode:
+      "https://codesandbox.io/p/sandbox/usekeypress-dzgxxj?file=%2Fsrc%2FuseKeyPress.jsx%3A3%2C22",
     id: 9,
     code: `import { useEffect, useState } from "react";
 
@@ -595,7 +600,8 @@ export default useKeyPress;`,
           A function to update the data in the local storage.`,
       ],
     ],
-    liveCode: "https://codesandbox.io/p/sandbox/uselocalstorage-6hy7w2?file=%2Fsrc%2FTest.jsx%3A2%2C8",
+    liveCode:
+      "https://codesandbox.io/p/sandbox/uselocalstorage-6hy7w2?file=%2Fsrc%2FTest.jsx%3A2%2C8",
     id: 10,
     code: `import { useState } from "react";
 
@@ -616,75 +622,75 @@ const useLocalStorage = (keyName, initialData) => {
 export default useLocalStorage;`,
   },
 
-//   {
-//     name: "useMouseEffect",
-//     explanation: [
-//       `
-//           The useMouseEffect hook adds visual effects to a DOM element based on mouse movement.`,
-//     ],
-//     inputs: [
-//       [
-//         `ref (React ref):
-//             Ref of the DOM element to which the mouse effect will be applied.`,
-//       ],
-//       [
-//         `options (Object):
-//             Object containing options for the mouse effect:
-//             - activeClass (String): Class added to the element during the mouse effect.
-//             - isActiveOnHover (Boolean): Flag to activate the effect only on hover.
-//             - hoverElements (Array): Array of HTML tag names on which to trigger the hover effect.`,
-//       ],
-//     ],
-//     outputs: [],
-//     liveCode:
-//       "https://codesandbox.io/p/sandbox/usemouseeffect-t4mzrz?file=%2Fsrc%2FuseMouseEffect.jsx%3A1%2C13",
-//     id: 11,
-//     code: `import { useEffect } from "react";
+  //   {
+  //     name: "useMouseEffect",
+  //     explanation: [
+  //       `
+  //           The useMouseEffect hook adds visual effects to a DOM element based on mouse movement.`,
+  //     ],
+  //     inputs: [
+  //       [
+  //         `ref (React ref):
+  //             Ref of the DOM element to which the mouse effect will be applied.`,
+  //       ],
+  //       [
+  //         `options (Object):
+  //             Object containing options for the mouse effect:
+  //             - activeClass (String): Class added to the element during the mouse effect.
+  //             - isActiveOnHover (Boolean): Flag to activate the effect only on hover.
+  //             - hoverElements (Array): Array of HTML tag names on which to trigger the hover effect.`,
+  //       ],
+  //     ],
+  //     outputs: [],
+  //     liveCode:
+  //       "https://codesandbox.io/p/sandbox/usemouseeffect-t4mzrz?file=%2Fsrc%2FuseMouseEffect.jsx%3A1%2C13",
+  //     id: 11,
+  //     code: `import { useEffect } from "react";
 
-// const useMouseEffect = (
-//   ref,
-//   { activeClass = "active", isActiveOnHover = false, hoverElements = [] }
-// ) => {
-//   function handleMouseMove(e) {
-//     if (!ref.current?.classList?.contains(activeClass))
-//       setTimeout(() => ref.current?.classList?.add(activeClass), 500);
+  // const useMouseEffect = (
+  //   ref,
+  //   { activeClass = "active", isActiveOnHover = false, hoverElements = [] }
+  // ) => {
+  //   function handleMouseMove(e) {
+  //     if (!ref.current?.classList?.contains(activeClass))
+  //       setTimeout(() => ref.current?.classList?.add(activeClass), 500);
 
-//     const element = ref.current;
-//     const clientX = e.clientX;
-//     const clientY = e.clientY;
-//     const halfWidthRef = ref.current?.clientWidth / 2;
-//     const halfHeightRef = ref.current?.clientHeight / 2;
+  //     const element = ref.current;
+  //     const clientX = e.clientX;
+  //     const clientY = e.clientY;
+  //     const halfWidthRef = ref.current?.clientWidth / 2;
+  //     const halfHeightRef = ref.current?.clientHeight / 2;
 
-//     element.style.position = "absolute";
-//     element.style.left = clientX - halfWidthRef + "px";
-//     element.style.top = clientY - halfHeightRef + "px";
-//     element.style.pointerEvent = "none";
+  //     element.style.position = "absolute";
+  //     element.style.left = clientX - halfWidthRef + "px";
+  //     element.style.top = clientY - halfHeightRef + "px";
+  //     element.style.pointerEvent = "none";
 
-//     if (hoverElements.length === 0 || !isActiveOnHover) return;
-//     handleHoverOnElements(e);
-//   }
+  //     if (hoverElements.length === 0 || !isActiveOnHover) return;
+  //     handleHoverOnElements(e);
+  //   }
 
-//   function handleHoverOnElements(e) {
-//     const hoveredElementName = e.target.tagName.toLowerCase();
-//     const isHoveredOnSpecificTags =
-//       hoverElements.filter((tagName) => tagName === hoveredElementName)
-//         .length !== 0;
+  //   function handleHoverOnElements(e) {
+  //     const hoveredElementName = e.target.tagName.toLowerCase();
+  //     const isHoveredOnSpecificTags =
+  //       hoverElements.filter((tagName) => tagName === hoveredElementName)
+  //         .length !== 0;
 
-//     ref.current?.classList?.[isHoveredOnSpecificTags ? "add" : "remove"](
-//       "mouse-hover"
-//     );
-//   }
+  //     ref.current?.classList?.[isHoveredOnSpecificTags ? "add" : "remove"](
+  //       "mouse-hover"
+  //     );
+  //   }
 
-//   useEffect(() => {
-//     window.addEventListener("mousemove", (e) => handleMouseMove(e));
+  //   useEffect(() => {
+  //     window.addEventListener("mousemove", (e) => handleMouseMove(e));
 
-//     return () => {
-//       window.removeEventListener("mousemove", (e) => handleMouseMove(e));
-//     };
-//   }, []);
-// };
-// export default useMouseEffect;`,
-//   },
+  //     return () => {
+  //       window.removeEventListener("mousemove", (e) => handleMouseMove(e));
+  //     };
+  //   }, []);
+  // };
+  // export default useMouseEffect;`,
+  //   },
 
   {
     name: "useOnlineStatus",
@@ -701,7 +707,8 @@ export default useLocalStorage;`,
           True if the device is online, false if it is offline.`,
       ],
     ],
-    liveCode: "https://codesandbox.io/p/sandbox/useonlinestatus-49z4lv?file=%2Fsrc%2FuseOnlineStatus.jsx%3A5%2C1",
+    liveCode:
+      "https://codesandbox.io/p/sandbox/useonlinestatus-49z4lv?file=%2Fsrc%2FuseOnlineStatus.jsx%3A5%2C1",
     id: 12,
     code: `import { useEffect, useState } from "react";
 
@@ -757,11 +764,12 @@ export default useOnlineStatus;`,
           True if the observed element is visible, false otherwise.`,
       ],
     ],
-    liveCode: "https://codesandbox.io/p/sandbox/useonscreen-zkvlhy?file=%2Fsrc%2FuseOnScreen.jsx%3A5%2C1",
+    liveCode:
+      "https://codesandbox.io/p/sandbox/useonscreen-zkvlhy?file=%2Fsrc%2FuseOnScreen.jsx%3A5%2C1",
     id: 13,
     code: `import { useEffect, useState } from "react";
 
-function useOnScreen(ref, rootMargin = "0px") {
+const useOnScreen = (ref, rootMargin = "0px") => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -801,7 +809,8 @@ export default useOnScreen;`,
           True if the page is scrolled to the bottom, false otherwise.`,
       ],
     ],
-    liveCode: "https://codesandbox.io/p/sandbox/usepagebottom-lg2clp?file=%2Fsrc%2FTest.jsx%3A5%2C1",
+    liveCode:
+      "https://codesandbox.io/p/sandbox/usepagebottom-lg2clp?file=%2Fsrc%2FTest.jsx%3A5%2C1",
     id: 14,
     code: `import { useEffect, useState } from "react";
 
@@ -853,7 +862,8 @@ export default usePageBottom;`,
           The previous state of the component.`,
       ],
     ],
-    liveCode: "https://codesandbox.io/p/sandbox/usepreviousstate-yns2hn?file=%2Fsrc%2FusePreviousState.jsx%3A1%2C9",
+    liveCode:
+      "https://codesandbox.io/p/sandbox/usepreviousstate-yns2hn?file=%2Fsrc%2FusePreviousState.jsx%3A1%2C9",
     id: 15,
     code: `import { useEffect, useRef } from "react";
 
@@ -946,7 +956,8 @@ export default useTextInput;`,
           Function to change the random number within the specified range. Usage: changeRandomNumber(newMin, newMax).`,
       ],
     ],
-    liveCode: "https://codesandbox.io/p/sandbox/userandomnumber-cfhdkv?file=%2Fsrc%2FTest.jsx",
+    liveCode:
+      "https://codesandbox.io/p/sandbox/userandomnumber-cfhdkv?file=%2Fsrc%2FTest.jsx",
     id: 17,
     code: `import { useEffect, useState } from "react";
 
@@ -992,7 +1003,8 @@ export default useRandomNumber;`,
       ],
     ],
     outputs: [],
-    liveCode: "https://codesandbox.io/p/sandbox/usemouseeffect-t4mzrz?file=%2Fsrc%2FuseMouseEffect.jsx%3A1%2C13",
+    liveCode:
+      "https://codesandbox.io/p/sandbox/usemouseeffect-t4mzrz?file=%2Fsrc%2FuseMouseEffect.jsx%3A1%2C13",
     id: 18,
     code: `import { useEffect } from "react";
 
@@ -1037,8 +1049,6 @@ const useMouseEffect = (
       window.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
-
-  return null; // Since there are no outputs, returning null
 };
 
 export default useMouseEffect;`,
@@ -1062,7 +1072,8 @@ export default useMouseEffect;`,
       ],
     ],
     outputs: [],
-    liveCode: "https://codesandbox.io/p/sandbox/usefunctiononkey-mfpznn?file=%2Fsrc%2FuseKeyPress.jsx%3A6%2C1",
+    liveCode:
+      "https://codesandbox.io/p/sandbox/usefunctiononkey-mfpznn?file=%2Fsrc%2FuseKeyPress.jsx%3A6%2C1",
     id: 19,
     code: `import { useEffect } from "react";
 import useKeyPress from "./useKeyPress";
