@@ -5,6 +5,7 @@ import FullScreenMode from "../Components/Shared/Features/FullScreenMode";
 import ScrollBottomTop from "../Components/Shared/Features/ScrollBottomTop";
 import GlobalOverlay from "../Components/Shared/GlobalOverlay";
 import { useGlobalContext } from "../Context/GlobalContext";
+import HooksNavigator from "../Components/Shared/MiniComponents/HooksNavigator";
 
 const RouteLayout = () => {
   const { isFocusModeActiveLocal } = useGlobalContext();
@@ -12,6 +13,7 @@ const RouteLayout = () => {
   return (
     <>
       <Outlet />
+      <HooksNavigator />
 
       <div className="container">
         <Footer />

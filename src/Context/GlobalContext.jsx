@@ -11,6 +11,9 @@ const GlobalContextProvider = ({ children }) => {
   const [isFocusModeActiveLocal, setIsFocusModeActive] =
     useLocalStorage("focus-mode");
   const numberOfHooks = hooksData.length;
+  const numbersOfPages = [
+    ...new Set(hooksData.map((hookData) => hookData.page)),
+  ];
 
   const data = {
     scrolledHook,
@@ -24,6 +27,7 @@ const GlobalContextProvider = ({ children }) => {
     setIsSideBarExtended,
     isFocusModeActiveLocal,
     setIsFocusModeActive,
+    numbersOfPages,
   };
 
   return (

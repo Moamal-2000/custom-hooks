@@ -1,39 +1,26 @@
 import {
+  Navigate,
   Route,
   RouterProvider,
   createBrowserRouter,
   createRoutesFromChildren,
-  useLocation,
 } from "react-router-dom";
 import Home from "../Components/Home/Home";
 import HookPage from "../Components/Home/Hooks/HookPage";
-import { hooksData } from "../Data/hooksData";
+import { useGlobalContext } from "../Context/GlobalContext";
 import RouteLayout from "./RouteLayout";
-import { useEffect, useRef } from "react";
 
 const AppRoutes = () => {
-  const pathname = window.location.pathname
-  const numbersOfPages = [
-    ...new Set(hooksData.map((hookData) => hookData.page)),
-  ];
-
-  useEffect(() => {
-    if (pathname === "/")
-    window.location.href = '/pages';
-  }, []);
+  const { numbersOfPages } = useGlobalContext();
+  const hooksPagesRoutes = numbersOfPages.map((pageNumber) => (
+    <Route key={pageNumber} path=":id" element={<HookPage />} />
+  ));
 
   const routes = createRoutesFromChildren(
     <Route path="/" element={<RouteLayout />}>
-      <Route path="/pages" element={<Home />}>
-        {numbersOfPages.map((pageNumber) => {
-          if (pageNumber === 1) {
-            return (
-              <Route index key={pageNumber} path=":id" element={<HookPage />} />
-            );
-          }
-
-          return <Route key={pageNumber} path=":id" element={<HookPage />} />;
-        })}
+      <Route path="/" element={<Home />}>
+        <Route index element={<Navigate to="/1" />} />
+        {hooksPagesRoutes}
       </Route>
     </Route>
   );
