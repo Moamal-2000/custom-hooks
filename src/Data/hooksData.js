@@ -1,6 +1,7 @@
 export const hooksData = [
   {
     name: "useToggle",
+    page: 1,
     explanation: [
       `
         The useToggle hook manages a boolean state, providing functions to toggle between true and false.
@@ -54,6 +55,7 @@ export default useToggle;`,
 
   {
     name: "useArray",
+    page: 1,
     explanation: [
       `
         The useArray hook provides a set of functions to manage and manipulate an array state 
@@ -163,6 +165,7 @@ export default useArray;`,
 
   {
     name: "useCloseElement",
+    page: 1,
     explanation: [
       `
         The useCloseElement hook manages the state of an element's visibility based on clicks outside designated elements.
@@ -247,6 +250,7 @@ const compareAbsoluteParentEle = (element, requiredEle) => {
 
   {
     name: "useCopyText",
+    page: 1,
     explanation: [
       `
         The useCopyText hook facilitates copying text to the clipboard. It utilizes the Clipboard API 
@@ -286,6 +290,7 @@ export default useCopyText;`,
 
   {
     name: "useElementData",
+    page: 1,
     explanation: [
       `
         The useElementData hook provides functionality to gather data about a given DOM element.
@@ -346,6 +351,7 @@ export default useElementData;`,
 
   {
     name: "useEventListener",
+    page: 2,
     explanation: [
       `
         The useEventListener hook allows attaching and removing event listeners to a specified DOM element.
@@ -386,6 +392,7 @@ export default useEventListener;`,
 
   {
     name: "useFilter",
+    page: 2,
     explanation: [
       `
         The useFilter hook filters an array of objects based on a specified search value and key.`,
@@ -440,6 +447,7 @@ export default useFilter;`,
 
   {
     name: "useGetParams",
+    page: 2,
     explanation: [
       `
         The useGetParams hook extracts query parameters from the current URL.`,
@@ -477,6 +485,7 @@ export default useGetParams;`,
 
   {
     name: "useGetResizeWindow",
+    page: 2,
     explanation: [
       `
         The useGetResizeWindow hook tracks the window resize event and returns an object containing the current width and height of the viewport's browser window in pixels.
@@ -528,6 +537,7 @@ export default useGetResizeWindow;`,
 
   {
     name: "useKeyPress",
+    page: 2,
     explanation: [
       `
         The useKeyPress hook tracks keypress events and provides the key code and event object.
@@ -577,6 +587,7 @@ export default useKeyPress;`,
 
   {
     name: "useLocalStorage",
+    page: 3,
     explanation: [
       `
         The useLocalStorage hook provides a way to store and retrieve data in the browser's local storage.
@@ -632,6 +643,7 @@ export default useLocalStorage;`,
 
   {
     name: "useOnlineStatus",
+    page: 3,
     explanation: [
       `
         The useOnlineStatus hook detects the online/offline status of the user's device.`,
@@ -680,6 +692,7 @@ export default useOnlineStatus;`,
 
   {
     name: "useOnScreen",
+    page: 3,
     explanation: [
       "The useOnScreen hook detects whether a specified DOM element is visible on the screen.",
     ],
@@ -732,6 +745,7 @@ export default useOnScreen;`,
 
   {
     name: "usePageBottom",
+    page: 3,
     explanation: [
       "The usePageBottom hook detects whether the user has scrolled to the bottom of the page.",
     ],
@@ -781,6 +795,7 @@ export default usePageBottom;`,
 
   {
     name: "usePreviousState",
+    page: 3,
     explanation: [
       `
         The usePreviousState hook tracks the previous state of a component.`,
@@ -819,6 +834,7 @@ export default usePreviousState;
 
   {
     name: "useTextInput",
+    page: 4,
     explanation: [
       `
         The useTextInput hook manages the state of a text input field.`,
@@ -866,6 +882,7 @@ export default useTextInput;`,
 
   {
     name: "useRandomNumber",
+    page: 4,
     explanation: [
       `
         The useRandomNumber hook generates a random number within a specified range.`,
@@ -918,6 +935,7 @@ export default useRandomNumber;`,
 
   {
     name: "useMouseEffect",
+    page: 4,
     explanation: [
       "The useMouseEffect hook applies effects related to mouse movements on a specified element.",
       "It allows adding a custom class when the mouse is active, positioning the element based on mouse coordinates,",
@@ -990,6 +1008,7 @@ export default useMouseEffect;`,
 
   {
     name: "useFunctionOnKey",
+    page: 4,
     explanation: [
       `
         The useFunctionOnKey hook listens for a specific key press and triggers a callback function when that key is pressed.
