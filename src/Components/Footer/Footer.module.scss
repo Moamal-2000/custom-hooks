@@ -1,0 +1,32 @@
+@import "../../Sass/mixins";
+
+.footer {
+  padding: 20px 0 40px;
+}
+
+.footer>p {
+  width: fit-content;
+  color: var(--text);
+  padding: 10px 0;
+
+  & span {
+    opacity: .7;
+  }
+}
+
+@include medium {
+  .footer>p {
+    font-size: .9rem;
+  }
+}
+
+.footer>p>a {
+  color: var(--text);
+  padding: 4px;
+  transition: opacity .2s;
+  opacity: .7;
+
+  &:hover {
+    opacity: 1;
+  }
+}
