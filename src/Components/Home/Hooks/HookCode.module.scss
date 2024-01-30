@@ -1,0 +1,158 @@
+@import "../../../Sass/mixins";
+
+.code {
+  display: flex;
+  font-size: 1.2rem;
+  background-color: #0d1017;
+  position: relative;
+  border: solid 2px #0d1017;
+  border-radius: 10px;
+  padding: 20px 0 0 0;
+  width: 100%;
+  transition: border-color .2s;
+
+  &:hover {
+    border-color: #5c5e62;
+  }
+}
+
+@include medium {
+  .code {
+    font-size: .8rem;
+  }
+}
+
+.code.fullscreen {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 101;
+  overflow-y: auto;
+}
+
+.code>div {
+  width: 100%;
+  overflow: hidden;
+}
+
+.code:hover .buttons {
+  opacity: 1;
+}
+
+.code .buttons {
+  position: absolute;
+  right: 14px;
+  top: 16px;
+  width: fit-content;
+  transition: opacity .2s .1s;
+  opacity: 0;
+}
+
+.code.fullscreen .buttons {
+  right: 26px;
+  position: fixed;
+}
+
+.code .buttons>button {
+  cursor: pointer;
+  border: none;
+  padding: 8px 10px;
+  background-color: #696969;
+  border-radius: 4px;
+  transition: background-color .2s, transform .1s ease;
+
+  &:hover {
+    background-color: #313131;
+  }
+
+  &:active {
+    transform: scale(.93);
+  }
+
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+}
+
+@include medium {
+  .code .buttons>button {
+    padding: 6px 8px;
+  }
+}
+
+.code .buttons>button>i {
+  font-size: .8rem;
+  color: var(--text);
+}
+
+.code pre {
+  width: 100%;
+  overflow: hidden;
+}
+
+.code.fullscreen pre {
+  overflow: visible;
+  height: 100%;
+}
+
+.numbering {
+  font-size: 1.1rem;
+  line-height: 1.2783;
+  color: #5a606d;
+  border-radius: inherit;
+  padding: 0 20px;
+  user-select: none;
+}
+
+@include medium {
+  .numbering {
+    font-size: .85rem;
+    line-height: 1.177;
+  }
+}
+
+.languageJs {
+  background-color: #0d1017 !important;
+  padding: 0 !important;
+  padding-bottom: 20px !important;
+  border-radius: 10px;
+  overflow-x: auto !important;
+}
+
+.languageJs::-webkit-scrollbar {
+  background-color: rgba(0, 0, 0, .186);
+  height: 8px;
+}
+
+.languageJs::-webkit-scrollbar-thumb {
+  background-color: rgba(186, 186, 186, .237);
+  border-radius: 10px;
+
+  &:hover {
+    background-color: rgba(186, 186, 186, .5);
+  }
+}
+
+.languageJs>span {
+  display: block;
+  height: 22.4px;
+  width: 100%;
+  transition: background-color .05s;
+
+  &:hover,
+  &[class=focus] {
+    background-color: #0e2238;
+  }
+}
+
+@include medium {
+  .languageJs>span {
+    height: 16px;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+}

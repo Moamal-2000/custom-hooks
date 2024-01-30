@@ -1,0 +1,26 @@
+@import "../../../Sass/mixins";
+
+.explanation {
+
+}
+
+.hookParagraph {
+  margin: 0 0 30px;
+}
+
+@include medium {
+  .hookParagraph {
+    font-size: .9rem;
+  }
+}
+
+.explanation>p + a {
+  font-size: 1.2rem;
+  padding-left: 0;
+}
+
+@include medium {
+  .explanation>p + a {
+    font-size: .9rem;
+  }
+}
