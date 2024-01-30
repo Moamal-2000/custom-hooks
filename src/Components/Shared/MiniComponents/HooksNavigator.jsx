@@ -12,10 +12,21 @@ const HooksNavigator = () => {
 
   function handleNextPage() {
     if (isLastPage) navigateTo(`${+currentPage + 1}`);
+    scrollToBottom();
   }
 
   function handlePreviousPage() {
     if (isFirstPage) navigateTo(`${+currentPage - 1}`);
+    scrollToBottom();
+  }
+
+  function scrollToBottom() {
+    setTimeout(() => {
+      window.scrollTo({
+        behavior: "instant",
+        top: 10000000,
+      });
+    }, 100);
   }
 
   return (
