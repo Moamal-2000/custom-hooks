@@ -4,8 +4,12 @@ import useFunctionOnKey from "../../../Hooks/useFunctionOnKey";
 import styles from "./FocusMode.module.scss";
 
 const FocusMode = () => {
-  const { isFocusModeActiveLocal, setIsFocusModeActive, setIsSideBarExtended } =
-    useGlobalContext();
+  const {
+    isFocusModeActiveLocal,
+    setIsFocusModeActive,
+    isSideBarExtended,
+    setIsSideBarExtended,
+  } = useGlobalContext();
 
   useEffect(() => {
     if (isFocusModeActiveLocal) {
@@ -14,7 +18,7 @@ const FocusMode = () => {
       return;
     }
 
-    setIsSideBarExtended(false);
+    if (isSideBarExtended) setIsSideBarExtended(false);
     document.body.classList.remove("focusMode");
   }, [isFocusModeActiveLocal]);
 
