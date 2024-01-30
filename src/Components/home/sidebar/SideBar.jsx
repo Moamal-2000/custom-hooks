@@ -1,22 +1,28 @@
 import { useEffect, useRef } from "react";
 import { useGlobalContext } from "../../../Context/GlobalContext";
-import { hooksData } from "../../../Data/hooksData";
-import { saveInRAR } from "../../../Functions/helper";
 import useFunctionOnKey from "../../../Hooks/useFunctionOnKey";
 import useGetResizeWindow from "../../../Hooks/useGetResizeWindow";
 import ActiveHooksMenu from "./ActiveHooksMenu";
+import DownloadHooksButton from "./DownloadHooksButton";
 import styles from "./SideBar.module.scss";
 
 const SideBar = () => {
-  const { isSideBarActive, setIsSideBarActive, setIsOverlayActive } =
-    useGlobalContext();
-  const windowSizes = useGetResizeWindow();
-  const { width: windowWidth } = windowSizes;
-  const screenSize = 1200;
-  const isSmallThanScreen = windowWidth < screenSize;
+  const {
+    isSideBarActive,
+    setIsSideBarActive,
+    setIsOverlayActive,
+    isSideBarExtendedLocal,
+    setIsSideBarExtended,
+    isFocusModeActiveLocal,
+  } = useGlobalContext();
   const sidebarRef = useRef();
-  const { isSideBarExtended, toggleIsSideBarExtended, isFocusModeActiveLocal } =
-    useGlobalContext();
+  const requiredScreenWidth = 1200;
+  const { width: windowWidth } = useGetResizeWindow();
+  const isSmallThanScreen = windowWidth < requiredScreenWidth;
+  const hideClass = isSmallThanScreen ? styles.hide : "";
+  const activeClass = isSideBarActive ? styles.active : "";
+  const extendClass = isSideBarExtendedLocal ? styles.extend : "";
+  const focusModeClass = isFocusModeActiveLocal ? styles.focusMode : "";
 
   function handleOpenSideBarButton() {
     setIsSideBarActive(true);
@@ -33,21 +39,52 @@ const SideBar = () => {
       isSideBarActive ? handleCloseSideBarButton() : handleOpenSideBarButton();
   }
 
+  function toggleExtendSideBar() {
+    console.log('Toggle');
+    setIsSideBarExtended(!isSideBarExtendedLocal);
+  }
+
   useEffect(() => {
-    if (windowWidth > screenSize) {
+    if (windowWidth > requiredScreenWidth) {
       setIsSideBarActive(false);
       setIsOverlayActive(false);
     }
   }, [windowWidth]);
 
   useEffect(() => {
-    document.body.classList[isSideBarExtended ? "add" : "remove"](
+    document.body.classList[isSideBarExtendedLocal ? "add" : "remove"](
       "sidebarExtend"
     );
-  }, [isSideBarExtended]);
+  }, [isSideBarExtendedLocal]);
 
   useFunctionOnKey(toggleSideBar, "KeyM");
-  useFunctionOnKey(toggleIsSideBarExtended, "KeyE");
+  useFunctionOnKey(toggleExtendSideBar, "KeyE");
+
+  const extendSideBarButton = (
+    <button
+      type="button"
+      className={`${styles.closeSideBarButton} ${
+        isSideBarExtendedLocal ? styles.active : ""
+      }`}
+      onClick={toggleExtendSideBar}
+    >
+      <i
+        className={`fa-solid fa-angles-${
+          isSideBarExtendedLocal ? "right" : "left"
+        }`}
+      ></i>
+    </button>
+  );
+
+  const closeSideBarButton = (
+    <button
+      type="button"
+      className={`${styles.closeNavButton} ${activeClass}`}
+      title="Close sidebar"
+    >
+      <i onClick={handleCloseSideBarButton} className="fa-solid fa-xmark"></i>
+    </button>
+  );
 
   return (
     <>
@@ -59,65 +96,22 @@ const SideBar = () => {
       )}
 
       <aside
-        className={`${styles.sidebarWrapper} ${
-          isSmallThanScreen ? styles.hide : ""
-        } ${isSideBarActive ? styles.active : ""}
-        ${isSideBarExtended ? styles.extend : ""}
-        ${isFocusModeActiveLocal ? styles.focusMode : ""}
-    `}
+        className={`${styles.sidebarWrapper} ${hideClass} ${activeClass} ${extendClass} ${focusModeClass}`}
       >
         <div className={`${styles.sidebar}`} ref={sidebarRef}>
-          {isSmallThanScreen && (
-            <button
-              type="button"
-              className={`${styles.closeNavButton} ${
-                isSideBarActive ? styles.active : ""
-              }`}
-              title="Close sidebar"
-            >
-              <i
-                onClick={handleCloseSideBarButton}
-                className="fa-solid fa-xmark"
-              ></i>
-            </button>
-          )}
-
-          <button
-            type="button"
-            className={styles.downloadAllButton}
-            onClick={() => saveInRAR(hooksData)}
-          >
-            <span>Download Hooks</span>
-            <i className="fa-solid fa-arrow-down"></i>
-          </button>
-
+          {isSmallThanScreen && closeSideBarButton}
+          <DownloadHooksButton />
           <ActiveHooksMenu />
         </div>
 
-        {!isSmallThanScreen && (
-          <button
-            type="button"
-            className={`${styles.closeSideBarButton} ${
-              isSideBarExtended ? styles.active : ""
-            }`}
-            onClick={toggleIsSideBarExtended}
-          >
-            {isSideBarExtended ? (
-              <i className="fa-solid fa-angles-right"></i>
-            ) : (
-              <i className="fa-solid fa-angles-left"></i>
-            )}
-          </button>
-        )}
+        {!isSmallThanScreen && extendSideBarButton}
 
-        {isSideBarExtended && (
-          <div
-            className={styles.dragLine}
-            onClick={toggleIsSideBarExtended}
-          ></div>
+        {isSideBarExtendedLocal && (
+          <div className={styles.dragLine} onClick={toggleExtendSideBar}></div>
         )}
       </aside>
     </>
   );
 };
+
 export default SideBar;
