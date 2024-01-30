@@ -15,7 +15,7 @@ const SideBar = () => {
   const screenSize = 1200;
   const isSmallThanScreen = windowWidth < screenSize;
   const sidebarRef = useRef();
-  const { isSideBarExtended, toggleIsSideBarExtended, isFocusModeActive } =
+  const { isSideBarExtended, toggleIsSideBarExtended, isFocusModeActiveLocal } =
     useGlobalContext();
 
   function handleOpenSideBarButton() {
@@ -51,7 +51,7 @@ const SideBar = () => {
 
   return (
     <>
-      {isSmallThanScreen && !isFocusModeActive && (
+      {isSmallThanScreen && !isFocusModeActiveLocal && (
         <i
           onClick={handleOpenSideBarButton}
           className={`fa-solid fa-bars ${styles.sidebarIcon}`}
@@ -63,7 +63,7 @@ const SideBar = () => {
           isSmallThanScreen ? styles.hide : ""
         } ${isSideBarActive ? styles.active : ""}
         ${isSideBarExtended ? styles.extend : ""}
-        ${isFocusModeActive ? styles.focusMode : ""}
+        ${isFocusModeActiveLocal ? styles.focusMode : ""}
     `}
       >
         <div className={`${styles.sidebar}`} ref={sidebarRef}>
