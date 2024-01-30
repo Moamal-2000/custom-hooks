@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const usePageBottom = () => {
+const usePageBottom = (marginBottom = 1) => {
   const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
 
   function handleScroll() {
@@ -12,15 +12,13 @@ const usePageBottom = () => {
       htmlElement.scrollHeight,
       htmlElement.offsetHeight
     );
-    setIsScrolledToBottom(documentHeight - windowHeight <= scrollPosition + 1);
+    setIsScrolledToBottom(documentHeight - windowHeight <= scrollPosition + marginBottom);
   }
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return isScrolledToBottom;

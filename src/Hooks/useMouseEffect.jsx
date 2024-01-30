@@ -1,45 +1,47 @@
 import { useEffect } from "react";
 
 const useMouseEffect = (
-  ref,
-  { activeClass = "active", isActiveOnHover = false, hoverElements = [] }
+  mouseEffectRef,
+  activeClass = "active",
+  hoverElements = [],
+  activeTime = 500
 ) => {
   function handleMouseMove(e) {
-    if (!ref.current?.classList?.contains(activeClass))
-      setTimeout(() => ref.current?.classList?.add(activeClass), 500);
-
-    const element = ref.current;
+    const mouseEffectEle = mouseEffectRef.current;
     const clientX = e.clientX;
     const clientY = e.clientY;
-    const halfWidthRef = ref.current?.clientWidth / 2;
-    const halfHeightRef = ref.current?.clientHeight / 2;
+    const halfWidthRef = mouseEffectEle.clientWidth / 2;
+    const halfHeightRef = mouseEffectEle.clientHeight / 2;
+    const isContainsActiveClass =
+      !mouseEffectEle.classList.contains(activeClass);
 
-    element.style.position = "absolute";
-    element.style.left = clientX - halfWidthRef + "px";
-    element.style.top = clientY - halfHeightRef + "px";
-    element.style.pointerEvent = "none";
+    if (isContainsActiveClass)
+      setTimeout(() => mouseEffectEle.classList.add(activeClass), activeTime);
 
-    if (hoverElements.length === 0 || !isActiveOnHover) return;
+    mouseEffectEle.style.left = clientX - halfWidthRef + "px";
+    mouseEffectEle.style.top = clientY - halfHeightRef + "px";
+
+    if (hoverElements.length === 0) return;
     handleHoverOnElements(e);
   }
 
   function handleHoverOnElements(e) {
     const hoveredElementName = e.target.tagName.toLowerCase();
-    const isHoveredOnSpecificTags =
-      hoverElements.filter((tagName) => tagName === hoveredElementName)
-        .length !== 0;
-
-    ref.current?.classList?.[isHoveredOnSpecificTags ? "add" : "remove"](
-      "mouse-hover"
+    const hoveredElements = hoverElements.filter(
+      (tagName) => tagName === hoveredElementName
     );
+    const isHoveredOnSpecificTags = hoveredElements.length !== 0;
+
+    mouseEffectRef.current.classList[
+      isHoveredOnSpecificTags ? "add" : "remove"
+    ]("mouseHover");
   }
 
   useEffect(() => {
     window.addEventListener("mousemove", (e) => handleMouseMove(e));
 
-    return () => {
+    return () =>
       window.removeEventListener("mousemove", (e) => handleMouseMove(e));
-    };
   }, []);
 };
 

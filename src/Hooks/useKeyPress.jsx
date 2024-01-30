@@ -12,9 +12,8 @@ const useKeyPress = () => {
   useEffect(() => {
     window.addEventListener("keydown", (e) => handleKeyPress(e));
 
-    return () => {
+    return () =>
       window.removeEventListener("keydown", (e) => handleKeyPress(e));
-    };
   }, []);
 
   return [key, setKey, event];

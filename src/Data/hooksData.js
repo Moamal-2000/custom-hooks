@@ -668,7 +668,7 @@ const useOnlineStatus = () => {
 
     return () => {
       document.removeEventListener("online", checkOnlineStatus);
-      document.removeEventListener("online", checkOfflineStatus);
+      document.removeEventListener("offline", checkOfflineStatus);
     };
   }, []);
 
@@ -681,25 +681,23 @@ export default useOnlineStatus;`,
   {
     name: "useOnScreen",
     explanation: [
-      `
-        The useOnScreen hook detects whether a specified DOM element is visible on the screen.`,
+      "The useOnScreen hook detects whether a specified DOM element is visible on the screen.",
     ],
     inputs: [
       [
-        `ref (React ref):
-          Ref of the DOM element to be observed for visibility.`,
+        "ref (React ref): Ref of the DOM element to be observed for visibility.",
       ],
       [
-        `rootMargin (String):
-          The margin around the root (viewport) to consider when triggering visibility changes.`,
+        "options (Object): Optional object with configuration options for the IntersectionObserver.",
+        " - rootMargin (String): The margin around the root (viewport) to consider when triggering visibility changes.",
+        " - threshold (Number or Array of Numbers): A single number or an array of numbers between 0 and 1 indicating at what percentage of the target's visibility the observer's callback should be executed.",
       ],
     ],
     outputsText:
       "The useOnScreen hook returns a boolean indicating whether the element is visible.",
     outputs: [
       [
-        `isVisible (Boolean):
-          True if the observed element is visible, false otherwise.`,
+        "isVisible (Boolean): True if the observed element is visible, false otherwise.",
       ],
     ],
     liveCode:
@@ -707,7 +705,7 @@ export default useOnlineStatus;`,
     id: 13,
     code: `import { useEffect, useState } from "react";
 
-const useOnScreen = (ref, rootMargin = "0px") => {
+function useOnScreen(ref, options = { rootMargin: "0px", threshold: 1 }) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -715,7 +713,7 @@ const useOnScreen = (ref, rootMargin = "0px") => {
 
     const observer = new IntersectionObserver(
       ([entry]) => setIsVisible(entry.isIntersecting),
-      { rootMargin: rootMargin }
+      options
     );
 
     observer.observe(ref.current);
@@ -735,16 +733,18 @@ export default useOnScreen;`,
   {
     name: "usePageBottom",
     explanation: [
-      `
-        The usePageBottom hook detects whether the user has scrolled to the bottom of the page.`,
+      "The usePageBottom hook detects whether the user has scrolled to the bottom of the page.",
     ],
-    inputs: [],
+    inputs: [
+      [
+        "marginBottom (Number): Optional margin from the bottom of the page to consider when determining if scrolled to the bottom. Default is 1.",
+      ],
+    ],
     outputsText:
       "The usePageBottom hook returns a boolean indicating whether the page is scrolled to the bottom.",
     outputs: [
       [
-        `isScrolledToBottom (Boolean):
-          True if the page is scrolled to the bottom, false otherwise.`,
+        "isScrolledToBottom (Boolean): True if the page is scrolled to the bottom, false otherwise.",
       ],
     ],
     liveCode:
@@ -752,7 +752,7 @@ export default useOnScreen;`,
     id: 14,
     code: `import { useEffect, useState } from "react";
 
-const usePageBottom = () => {
+const usePageBottom = (marginBottom = 1) => {
   const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
 
   function handleScroll() {
@@ -764,15 +764,13 @@ const usePageBottom = () => {
       htmlElement.scrollHeight,
       htmlElement.offsetHeight
     );
-    setIsScrolledToBottom(documentHeight - windowHeight <= scrollPosition + 1);
+    setIsScrolledToBottom(documentHeight - windowHeight <= scrollPosition + marginBottom);
   }
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return isScrolledToBottom;
@@ -921,23 +919,19 @@ export default useRandomNumber;`,
   {
     name: "useMouseEffect",
     explanation: [
-      `
-        The useMouseEffect hook applies effects related to mouse movements on a specified element.
-        It allows adding a custom class when the mouse is active, positioning the element based on mouse coordinates,
-        and toggling a class on specified elements when the mouse hovers over them.
-      `,
+      "The useMouseEffect hook applies effects related to mouse movements on a specified element.",
+      "It allows adding a custom class when the mouse is active, positioning the element based on mouse coordinates,",
+      "and toggling a class on specified elements when the mouse hovers over them.",
     ],
     inputs: [
       [
-        `ref (React ref):
-          Ref for the element on which mouse effects will be applied.`,
+        "mouseEffectRef (React ref): Ref for the element on which mouse effects will be applied.",
       ],
       [
-        `options (Object):
-          An object containing optional parameters:
-          - activeClass (String, default: "active"): Class to be added when the mouse is active.
-          - isActiveOnHover (Boolean, default: false): Determines if the activeClass should be applied on hover.
-          - hoverElements (Array, default: []): Array of tag names on which hover effects should be applied.`,
+        "options (Object): An object containing optional parameters:",
+        "- activeClass (String, default: 'active'): Class to be added when the mouse is active.",
+        "- isActiveOnHover (Boolean, default: false): Determines if the activeClass should be applied on hover.",
+        "- hoverElements (Array, default: []): Array of tag names on which hover effects should be applied.",
       ],
     ],
     outputs: [],
@@ -947,45 +941,47 @@ export default useRandomNumber;`,
     code: `import { useEffect } from "react";
 
 const useMouseEffect = (
-  ref,
-  { activeClass = "active", isActiveOnHover = false, hoverElements = [] }
+  mouseEffectRef,
+  activeClass = "active",
+  hoverElements = [],
+  activeTime = 500
 ) => {
   function handleMouseMove(e) {
-    if (!ref.current?.classList?.contains(activeClass))
-      setTimeout(() => ref.current?.classList?.add(activeClass), 500);
-
-    const element = ref.current;
+    const mouseEffectEle = mouseEffectRef.current;
     const clientX = e.clientX;
     const clientY = e.clientY;
-    const halfWidthRef = ref.current?.clientWidth / 2;
-    const halfHeightRef = ref.current?.clientHeight / 2;
+    const halfWidthRef = mouseEffectEle.clientWidth / 2;
+    const halfHeightRef = mouseEffectEle.clientHeight / 2;
+    const isContainsActiveClass =
+      !mouseEffectEle.classList.contains(activeClass);
 
-    element.style.position = "absolute";
-    element.style.left = clientX - halfWidthRef + "px";
-    element.style.top = clientY - halfHeightRef + "px";
-    element.style.pointerEvent = "none";
+    if (isContainsActiveClass)
+      setTimeout(() => mouseEffectEle.classList.add(activeClass), activeTime);
 
-    if (hoverElements.length === 0 || !isActiveOnHover) return;
+    mouseEffectEle.style.left = clientX - halfWidthRef + "px";
+    mouseEffectEle.style.top = clientY - halfHeightRef + "px";
+
+    if (hoverElements.length === 0) return;
     handleHoverOnElements(e);
   }
 
   function handleHoverOnElements(e) {
     const hoveredElementName = e.target.tagName.toLowerCase();
-    const isHoveredOnSpecificTags =
-      hoverElements.filter((tagName) => tagName === hoveredElementName)
-        .length !== 0;
-
-    ref.current?.classList?.[isHoveredOnSpecificTags ? "add" : "remove"](
-      "mouse-hover"
+    const hoveredElements = hoverElements.filter(
+      (tagName) => tagName === hoveredElementName
     );
+    const isHoveredOnSpecificTags = hoveredElements.length !== 0;
+
+    mouseEffectRef.current.classList[
+      isHoveredOnSpecificTags ? "add" : "remove"
+    ]("mouseHover");
   }
 
   useEffect(() => {
-    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", (e) => handleMouseMove(e));
 
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
+    return () =>
+      window.removeEventListener("mousemove", (e) => handleMouseMove(e));
   }, []);
 };
 
