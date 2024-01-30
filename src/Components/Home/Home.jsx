@@ -1,7 +1,7 @@
 import styles from "./Home.module.scss";
 import Introduction from "./Introduction/Introduction";
 import HooksLayout from "./Hooks/HooksLayout";
-import SideBar from "./sidebar/SideBar";
+import SideBar from "./Sidebar/SideBar";
 
 const Home = () => {
   return (
