@@ -38,9 +38,13 @@ export const hooksData = [
 const useToggle = (initState = false) => {
   const [state, setState] = useState(initState);
 
-  const toggle = () => setState((prevState) => !prevState);
+  function toggle() {
+    setState((prevState) => !prevState);
+  }
 
-  const customToggle = (value) => setState(value);
+  function customToggle(value) {
+    setState(value);
+  }
 
   return [state, toggle, customToggle];
 };
@@ -561,9 +565,8 @@ const useKeyPress = () => {
   useEffect(() => {
     window.addEventListener("keydown", handleKeyPress);
 
-    return () => {
-      window.removeEventListener("keydown", handleKeyPress);
-    };
+    return () =>
+      window.removeEventListener("keydown", (e) => handleKeyPress(e));
   }, []);
 
   return [key, setKey, event];
@@ -612,8 +615,13 @@ const useLocalStorage = (keyName, initialData) => {
   );
 
   function setDataFun(getData) {
-    localStorage.setItem(keyName, JSON.stringify(getData));
-    setData(getData);
+    let stringifyData = JSON.stringify(getData)
+
+    if (stringifyData === "true") stringifyData = true
+    else if (stringifyData === "false") stringifyData = false
+
+    localStorage.setItem(keyName, stringifyData);
+    setData(stringifyData);
   }
 
   return [data, setDataFun];
@@ -621,76 +629,6 @@ const useLocalStorage = (keyName, initialData) => {
 
 export default useLocalStorage;`,
   },
-
-  //   {
-  //     name: "useMouseEffect",
-  //     explanation: [
-  //       `
-  //           The useMouseEffect hook adds visual effects to a DOM element based on mouse movement.`,
-  //     ],
-  //     inputs: [
-  //       [
-  //         `ref (React ref):
-  //             Ref of the DOM element to which the mouse effect will be applied.`,
-  //       ],
-  //       [
-  //         `options (Object):
-  //             Object containing options for the mouse effect:
-  //             - activeClass (String): Class added to the element during the mouse effect.
-  //             - isActiveOnHover (Boolean): Flag to activate the effect only on hover.
-  //             - hoverElements (Array): Array of HTML tag names on which to trigger the hover effect.`,
-  //       ],
-  //     ],
-  //     outputs: [],
-  //     liveCode:
-  //       "https://codesandbox.io/p/sandbox/usemouseeffect-t4mzrz?file=%2Fsrc%2FuseMouseEffect.jsx%3A1%2C13",
-  //     id: 11,
-  //     code: `import { useEffect } from "react";
-
-  // const useMouseEffect = (
-  //   ref,
-  //   { activeClass = "active", isActiveOnHover = false, hoverElements = [] }
-  // ) => {
-  //   function handleMouseMove(e) {
-  //     if (!ref.current?.classList?.contains(activeClass))
-  //       setTimeout(() => ref.current?.classList?.add(activeClass), 500);
-
-  //     const element = ref.current;
-  //     const clientX = e.clientX;
-  //     const clientY = e.clientY;
-  //     const halfWidthRef = ref.current?.clientWidth / 2;
-  //     const halfHeightRef = ref.current?.clientHeight / 2;
-
-  //     element.style.position = "absolute";
-  //     element.style.left = clientX - halfWidthRef + "px";
-  //     element.style.top = clientY - halfHeightRef + "px";
-  //     element.style.pointerEvent = "none";
-
-  //     if (hoverElements.length === 0 || !isActiveOnHover) return;
-  //     handleHoverOnElements(e);
-  //   }
-
-  //   function handleHoverOnElements(e) {
-  //     const hoveredElementName = e.target.tagName.toLowerCase();
-  //     const isHoveredOnSpecificTags =
-  //       hoverElements.filter((tagName) => tagName === hoveredElementName)
-  //         .length !== 0;
-
-  //     ref.current?.classList?.[isHoveredOnSpecificTags ? "add" : "remove"](
-  //       "mouse-hover"
-  //     );
-  //   }
-
-  //   useEffect(() => {
-  //     window.addEventListener("mousemove", (e) => handleMouseMove(e));
-
-  //     return () => {
-  //       window.removeEventListener("mousemove", (e) => handleMouseMove(e));
-  //     };
-  //   }, []);
-  // };
-  // export default useMouseEffect;`,
-  //   },
 
   {
     name: "useOnlineStatus",
