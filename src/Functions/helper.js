@@ -42,3 +42,12 @@ export const scrollToElement = (scrollToEle, scrollBehavior = "instant") => {
     behavior: scrollBehavior,
   });
 };
+
+export function scrollToBottom() {
+  setTimeout(() => {
+    window.scrollTo({
+      behavior: "instant",
+      top: 10000000,
+    });
+  }, 100);
+}

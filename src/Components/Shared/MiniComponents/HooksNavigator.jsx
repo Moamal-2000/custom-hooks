@@ -1,5 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../../../Context/GlobalContext";
+import { scrollToBottom } from "../../../Functions/helper";
 
 const HooksNavigator = () => {
   const { numbersOfPages } = useGlobalContext();
@@ -18,15 +19,6 @@ const HooksNavigator = () => {
   function handlePreviousPage() {
     if (isFirstPage) navigateTo(`${+currentPage - 1}`);
     scrollToBottom();
-  }
-
-  function scrollToBottom() {
-    setTimeout(() => {
-      window.scrollTo({
-        behavior: "instant",
-        top: 10000000,
-      });
-    }, 100);
   }
 
   return (

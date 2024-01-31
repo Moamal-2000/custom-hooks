@@ -29,4 +29,5 @@ const AppRoutes = () => {
 
   return <RouterProvider router={router} />;
 };
+
 export default AppRoutes;
