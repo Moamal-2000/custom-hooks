@@ -22,11 +22,6 @@
   left: -290px;
 }
 
-.sidebarWrapper:hover .closeSideBarButton,
-.sidebarWrapper .closeSideBarButton.active {
-  opacity: 1;
-}
-
 .sidebarWrapper.focusMode {
   transition: left .5s ease-in-out, opacity .5s .5s;
   pointer-events: none;
@@ -142,6 +137,7 @@
   z-index: -1;
   transition: opacity .2s .1s, background-color .2s;
   opacity: 0;
+  z-index: 103;
 
   &:hover {
     background-color: #70768f;
@@ -150,4 +146,13 @@
   &:focus-visible {
     outline: solid 2px #fff;
   }
+}
+
+.sidebarWrapper:hover .closeSideBarButton,
+.sidebarWrapper .closeSideBarButton.active {
+  opacity: 1;
+}
+
+.sidebarWrapper.extend .closeSideBarButton {
+  left: 290px;
 }

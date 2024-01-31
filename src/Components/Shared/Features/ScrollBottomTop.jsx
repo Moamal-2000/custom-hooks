@@ -14,6 +14,7 @@ const ScrollBottomTop = () => {
   function handleScrollButton() {
     const { scrollToY } = scrollCalculations();
     window.scrollTo({ behavior: "smooth" }, scrollToY, 0);
+    setTimeout(() => handleFlipScrollIcon(arrowIconRef), 700);
   }
 
   useFunctionOnKey(handleScrollButton, "KeyS");
