@@ -16,6 +16,10 @@
   background-color: #1b54fe;
 }
 
+.downloadAllButton:focus {
+  outline: solid 2px #fff;
+}
+
 .downloadAllButton>span {
   padding: 10px 16px;
   text-align: center;

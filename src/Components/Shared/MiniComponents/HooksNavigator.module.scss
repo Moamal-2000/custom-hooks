@@ -20,6 +20,10 @@
   cursor: pointer;
 }
 
+.wrapper>button:not(:disabled):focus-visible {
+  outline: solid 2px #fff;
+}
+
 .wrapper>button:disabled {
   background-color: #292a2e;
 }

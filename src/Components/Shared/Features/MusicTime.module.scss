@@ -6,10 +6,14 @@
   border: solid 2px var(--text);
   border-radius: 4px;
   opacity: .7;
-  transition: opacity .2s;
+  transition: opacity .2s, border-color .2s;
 
   &:hover {
     opacity: 1;
+  }
+
+  &:focus-visible {
+    border-color: #2483ff;
   }
 }
 
@@ -20,6 +24,10 @@
   cursor: pointer;
   transition: opacity .2s;
   z-index: 100;
+}
+
+.musicButton:focus-visible>i {
+  color: #2483ff;
 }
 
 .musicButton .pauseIcon {

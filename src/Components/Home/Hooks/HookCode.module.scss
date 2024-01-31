@@ -11,7 +11,8 @@
   width: 100%;
   transition: border-color .2s;
 
-  &:hover {
+  &:hover,
+  &:focus-within {
     border-color: #5c5e62;
   }
 }
@@ -37,7 +38,8 @@
   overflow: hidden;
 }
 
-.code:hover .buttons {
+.code:hover .buttons,
+.code:focus-within .buttons {
   opacity: 1;
 }
 
@@ -63,7 +65,8 @@
   border-radius: 4px;
   transition: background-color .2s, transform .1s ease;
 
-  &:hover {
+  &:hover,
+  &:focus-within {
     background-color: #313131;
   }
 

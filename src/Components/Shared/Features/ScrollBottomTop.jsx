@@ -28,6 +28,7 @@ const ScrollBottomTop = () => {
       className={styles.scrollToTopButton}
       onClick={handleScrollButton}
       title="Scroll to top/bottom"
+      tabIndex="5"
     >
       <i ref={buttonIconRef} className="fa-solid fa-chevron-up"></i>
     </button>

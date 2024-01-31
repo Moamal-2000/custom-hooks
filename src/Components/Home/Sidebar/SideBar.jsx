@@ -40,7 +40,6 @@ const SideBar = () => {
   }
 
   function toggleExtendSideBar() {
-    console.log('Toggle');
     setIsSideBarExtended(!isSideBarExtendedLocal);
   }
 
@@ -62,6 +61,7 @@ const SideBar = () => {
 
   const extendSideBarButton = (
     <button
+      tabIndex="0"
       type="button"
       className={`${styles.closeSideBarButton} ${
         isSideBarExtendedLocal ? styles.active : ""
@@ -80,20 +80,27 @@ const SideBar = () => {
     <button
       type="button"
       className={`${styles.closeNavButton} ${activeClass}`}
+      onClick={handleCloseSideBarButton}
       title="Close sidebar"
     >
-      <i onClick={handleCloseSideBarButton} className="fa-solid fa-xmark"></i>
+      <i className="fa-solid fa-xmark"></i>
+    </button>
+  );
+
+  const sidebarButton = (
+    <button
+      type="button"
+      className={styles.sidebarButton}
+      onClick={handleOpenSideBarButton}
+      tabIndex="1"
+    >
+      <i className="fa-solid fa-bars"></i>
     </button>
   );
 
   return (
     <>
-      {isSmallThanScreen && !isFocusModeActiveLocal && (
-        <i
-          onClick={handleOpenSideBarButton}
-          className={`fa-solid fa-bars ${styles.sidebarIcon}`}
-        ></i>
-      )}
+      {isSmallThanScreen && !isFocusModeActiveLocal && sidebarButton}
 
       <aside
         className={`${styles.sidebarWrapper} ${hideClass} ${activeClass} ${extendClass} ${focusModeClass}`}
