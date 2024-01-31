@@ -1,6 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../../../Context/GlobalContext";
 import { scrollToBottom } from "../../../Functions/helper";
+import styles from "./HooksNavigator.module.scss";
 
 const HooksNavigator = () => {
   const { numbersOfPages } = useGlobalContext();
@@ -12,7 +13,7 @@ const HooksNavigator = () => {
   const isFirstPage = +currentPage > 1;
 
   function handleNextPage() {
-    if (!currentPage) currentPage = 1
+    if (!currentPage) currentPage = 1;
     if (isLastPage) navigateTo(`${+currentPage + 1}`);
     scrollToBottom();
   }
@@ -23,18 +24,24 @@ const HooksNavigator = () => {
   }
 
   return (
-    <div className="wrapper">
-      {isFirstPage && (
-        <button type="button" onClick={handlePreviousPage}>
-          Previous
-        </button>
-      )}
+    <div className={styles.wrapper}>
+      <button
+        type="button"
+        className={styles.prevButton}
+        onClick={handlePreviousPage}
+        disabled={!isFirstPage}
+      >
+        Previous page
+      </button>
 
-      {isLastPage && (
-        <button type="button" onClick={handleNextPage}>
-          Next
-        </button>
-      )}
+      <button
+        type="button"
+        className={styles.nextButton}
+        onClick={handleNextPage}
+        disabled={!isLastPage}
+      >
+        Next page
+      </button>
     </div>
   );
 };

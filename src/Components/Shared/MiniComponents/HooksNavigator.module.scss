@@ -1,0 +1,41 @@
+.wrapper {
+  width: fit-content;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.wrapper>button {
+  z-index: 1;
+  position: relative;
+  font-size: inherit;
+  font-family: inherit;
+  color: #fff;
+  padding: .5em 1em;
+  outline: none;
+  border: none;
+  background-color: #2d3058;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.wrapper>button:disabled {
+  background-color: #292a2e;
+}
+
+.wrapper>button::after {
+  content: '';
+  z-index: -1;
+  background-color: rgba(255, 255, 255, .2);
+  position: absolute;
+  top: -200px;
+  bottom: -100%;
+  width: 1.25em;
+  transform: translate3d(-525%, 0, 0) rotate(35deg);
+}
+
+.wrapper>button:not(:disabled):hover::after {
+  transition: transform .45s ease-in-out;
+  transform: translate3d(450%, 0, 0) rotate(35deg);
+}
