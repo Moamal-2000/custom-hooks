@@ -3,7 +3,9 @@ import { hooksData } from "../../../Data/hooksData";
 import Hook from "./Hook";
 
 const HookPage = () => {
-  const { id } = useParams();
+  let { id } = useParams();
+  if (!id) id = 1
+
   const pageHooksData = hooksData.filter((hookData) => hookData?.page === +id);
 
   return pageHooksData?.map(

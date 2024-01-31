@@ -1,5 +1,4 @@
 import {
-  Navigate,
   Route,
   RouterProvider,
   createBrowserRouter,
@@ -8,7 +7,7 @@ import {
 import Home from "../Components/Home/Home";
 import HookPage from "../Components/Home/Hooks/HookPage";
 import { useGlobalContext } from "../Context/GlobalContext";
-import RouteLayout from "./RouteLayout";
+import RootLayout from "./RootLayout";
 
 const AppRoutes = () => {
   const { numbersOfPages } = useGlobalContext();
@@ -17,10 +16,10 @@ const AppRoutes = () => {
   ));
 
   const routes = createRoutesFromChildren(
-    <Route path="/" element={<RouteLayout />}>
+    <Route path="/" element={<RootLayout />}>
       <Route path="/" element={<Home />}>
-        <Route index element={<Navigate to="/1" />} />
         {hooksPagesRoutes}
+        <Route path="/" element={<HookPage />} />;
       </Route>
     </Route>
   );
