@@ -1,4 +1,4 @@
-import JSZip, { file } from "jszip";
+import JSZip from "jszip";
 
 export function saveInFile(nameFile, contentFile) {
   const blob = new Blob([contentFile], { type: "text/plain" });

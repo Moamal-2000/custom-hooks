@@ -6,18 +6,25 @@ import styles from "./MusicTime.module.scss";
 const MusicTime = () => {
   const [isMusicOn, setIsMusicOn] = useState(false);
   const musicRef = useRef(new Audio(audioPath));
+  const music = musicRef.current;
   const { isFocusModeActiveLocal } = useGlobalContext();
 
   function toggleMusic() {
-    const music = musicRef.current;
     setIsMusicOn((prevState) => !prevState);
     music[music.paused ? "play" : "pause"]();
   }
 
+  function stopMusic() {
+    music.pause();
+    setIsMusicOn(false);
+  }
+
   useEffect(() => {
+    music.addEventListener("ended", stopMusic);
+
     return () => {
-      musicRef.current.pause();
-      setIsMusicOn(false);
+      music.removeEventListener("ended", stopMusic);
+      stopMusic();
     };
   }, []);
 

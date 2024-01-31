@@ -8,8 +8,8 @@ import useFunctionOnKey from "../../../Hooks/useFunctionOnKey";
 import styles from "./ScrollBottomTop.module.scss";
 
 const ScrollBottomTop = () => {
-  const buttonIconRef = useRef();
-  useEventListener(window, "scroll", handleFlipScrollIcon(buttonIconRef));
+  const arrowIconRef = useRef();
+  useEventListener(window, "scroll", handleFlipScrollIcon(arrowIconRef));
 
   function handleScrollButton() {
     const { scrollToY } = scrollCalculations();
@@ -19,7 +19,7 @@ const ScrollBottomTop = () => {
   useFunctionOnKey(handleScrollButton, "KeyS");
 
   useEffect(() => {
-    handleFlipScrollIcon(buttonIconRef);
+    handleFlipScrollIcon(arrowIconRef);
   }, []);
 
   return (
@@ -30,7 +30,7 @@ const ScrollBottomTop = () => {
       title="Scroll to top/bottom"
       tabIndex="5"
     >
-      <i ref={buttonIconRef} className="fa-solid fa-chevron-up"></i>
+      <i ref={arrowIconRef} className="fa-solid fa-chevron-up"></i>
     </button>
   );
 };

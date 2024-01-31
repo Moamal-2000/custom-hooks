@@ -1,23 +1,8 @@
-import { hooksData } from "../Data/hooksData";
-import { saveInRAR } from "./helper";
-
-export function handleDownloadAllHooks() {
-  const files = [];
-
-  hooksData.forEach((hookData) =>
-    files.push({
-      name: `${hookData.name}.jsx`,
-      content: hookData.code,
-    })
-  );
-
-  saveInRAR(files);
-}
-
 export function handleFlipScrollIcon(buttonIconRef) {
-  if (!buttonIconRef.current) return
+  if (!buttonIconRef.current) return;
 
   const { isUserScrolledToTop } = scrollCalculations();
+
   buttonIconRef.current.style.transform = `rotate(${
     isUserScrolledToTop ? ".5" : "5.0"
   }turn)`;
@@ -38,8 +23,9 @@ export function scrollCalculations() {
 export function enterFullScreen() {
   const htmlElement = document.documentElement;
 
-  if (htmlElement.requestFullscreen) htmlElement.requestFullscreen()
+  if (htmlElement.requestFullscreen) htmlElement.requestFullscreen();
   else if (htmlElement.mozRequestFullScreen) htmlElement.mozRequestFullScreen();
-  else if (htmlElement.webkitRequestFullscreen) htmlElement.webkitRequestFullscreen();
-  else if (htmlElement.msRequestFullscreen) htmlElement.msRequestFullscreen()
+  else if (htmlElement.webkitRequestFullscreen)
+    htmlElement.webkitRequestFullscreen();
+  else if (htmlElement.msRequestFullscreen) htmlElement.msRequestFullscreen();
 }
