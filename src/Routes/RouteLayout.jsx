@@ -6,6 +6,7 @@ import ScrollBottomTop from "../Components/Shared/Features/ScrollBottomTop";
 import GlobalOverlay from "../Components/Shared/GlobalOverlay";
 import { useGlobalContext } from "../Context/GlobalContext";
 import HooksNavigator from "../Components/Shared/MiniComponents/HooksNavigator";
+import MusicTime from "../Components/Shared/Features/MusicTime";
 
 const RouteLayout = () => {
   const { isFocusModeActiveLocal } = useGlobalContext();
@@ -26,6 +27,7 @@ const RouteLayout = () => {
         </>
       )}
 
+      <MusicTime />
       <FocusMode />
       <GlobalOverlay />
     </>

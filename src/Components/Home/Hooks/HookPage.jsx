@@ -10,4 +10,5 @@ const HookPage = () => {
     (hookData) => hookData && <Hook key={hookData.id} hookData={hookData} />
   );
 };
+
 export default HookPage;
