@@ -11,7 +11,9 @@ const Introduction = () => {
         <strong>Exploring {numberOfHooks} Custom Hooks in React</strong>
       </h1>
 
-      <img src={introImage} alt="React custom hook image." />
+      <div className={styles.introImageWrapper}>
+        <img src={introImage} alt="React custom hook image." />
+      </div>
 
       <article>
         <h2>

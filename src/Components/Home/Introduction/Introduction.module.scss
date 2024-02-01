@@ -21,8 +21,29 @@
   }
 }
 
-.introduction>img {
+.introImageWrapper {
   margin: 40px 0;
+  width: 100%;
+  cursor: wait;
+  animation: loading-img infinite ease-in .6s alternate;
+  display: flex;
+}
+
+.introImageWrapper>img {
+  min-height: 330px;
+  cursor: auto;
+}
+
+@include medium {
+  .introImageWrapper>img {
+    min-height: 250px;
+  }
+}
+
+@include small {
+  .introImageWrapper>img {
+    min-height: 140px;
+  }
 }
 
 .introduction>article:not(:last-child) {
@@ -38,5 +59,15 @@
   .introduction>article>h2 {
     margin: 40px 0 14px;
     font-size: 1.7rem;
+  }
+}
+
+@keyframes loading-img {
+  0% {
+    background-color: #6d6d6d;
+  }
+
+  100% {
+    background-color: #7f7f7f;
   }
 }

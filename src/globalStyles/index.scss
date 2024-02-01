@@ -100,8 +100,16 @@ p {
     background-color: #2483ff;
   }
 
+  &:focus::before {
+    height: 2px;
+  }
+
   &:hover {
     color: #398fff;
+  }
+
+  &:focus {
+    outline: none;
   }
 
   &:hover::before {
