@@ -1,0 +1,142 @@
+@import "../Sass/mixins";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::selection {
+  background-color: #0e2238 !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  font-family: 'Roboto', sans-serif;
+  padding-left: 292px;
+  transition: padding .5s ease-in-out;
+}
+
+body.focusMode::-webkit-scrollbar {
+  width: 0;
+}
+
+body.sidebarExtend {
+  padding: 0;
+}
+
+@include large {
+  body {
+    padding-left: 0;
+  }
+}
+
+:root {
+  --background: #0a1119;
+  --text: #fff;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+button {
+  outline: none;
+  border: none;
+}
+
+p {
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+@include medium {
+  p {
+    font-size: 1rem;
+  }
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+@include medium {
+  .container {
+    width: 92%;
+  }
+}
+
+.linkStyle1 {
+  text-decoration: none;
+  color: #2483ff;
+  position: relative;
+  cursor: pointer;
+  transition: color .3s;
+  padding: 0 5px;
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: calc(100% - 5px);
+    height: 0;
+    background-color: #2483ff;
+  }
+
+  &:focus::before {
+    height: 2px;
+  }
+
+  &:hover {
+    color: #398fff;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover::before {
+    height: 2px;
+  }
+}
+
+.skip-content {
+  background-color: var(--background);
+  color: var(--text);
+  text-decoration: none;
+  border-radius: 6px;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -70px;
+  z-index: 10000;
+  padding: 10px;
+  margin: 2px;
+  transition: top .2s;
+}
+
+.skip-content:focus {
+  left: 50%;
+  top: 0;
+}
+
+.hljs-comment {
+  color: #97a1ab;
+}
