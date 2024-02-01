@@ -51,9 +51,15 @@ const HookCode = ({ hookData }) => {
     if (spans.length === 0) return;
 
     codeBlockEle.addEventListener("mouseup", () => (mouseDown.current = false));
-    codeBlockEle.addEventListener("mousedown", () => (mouseDown.current = true));
-    codeBlockEle.addEventListener("mousemove", () => 
-      mouseDown.current && spans.forEach((span) => span.classList.remove("focus"))
+    codeBlockEle.addEventListener(
+      "mousedown",
+      () => (mouseDown.current = true)
+    );
+    codeBlockEle.addEventListener(
+      "mousemove",
+      () =>
+        mouseDown.current &&
+        spans.forEach((span) => span.classList.remove("focus"))
     );
 
     function handleFocusSpan(span) {
@@ -69,7 +75,7 @@ const HookCode = ({ hookData }) => {
       spans.forEach((span) =>
         span.removeEventListener("click", () => handleFocusSpan(span))
       );
-    }
+    };
   }, [codeState]);
 
   return (
