@@ -5,6 +5,7 @@ import useGetResizeWindow from "../../../Hooks/useGetResizeWindow";
 import ActiveHooksMenu from "./ActiveHooksMenu";
 import DownloadHooksButton from "./DownloadHooksButton";
 import styles from "./SideBar.module.scss";
+import SearchHooksInput from "./SearchHooksInput";
 
 const SideBar = () => {
   const {
@@ -106,6 +107,7 @@ const SideBar = () => {
       >
         <div className={`${styles.sidebar}`} ref={sidebarRef}>
           {isSmallThanScreen && closeSideBarButton}
+          <SearchHooksInput />
           <DownloadHooksButton />
           <ActiveHooksMenu />
         </div>

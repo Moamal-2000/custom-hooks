@@ -59,6 +59,9 @@
   overflow-y: scroll;
   position: relative;
   z-index: 102;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .sidebar.active {
