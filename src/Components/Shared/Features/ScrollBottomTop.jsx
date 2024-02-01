@@ -17,7 +17,7 @@ const ScrollBottomTop = () => {
     setTimeout(() => handleFlipScrollIcon(arrowIconRef), 700);
   }
 
-  useFunctionOnKey(handleScrollButton, "KeyS");
+  useFunctionOnKey(handleScrollButton, "KeyS", true);
 
   useEffect(() => {
     handleFlipScrollIcon(arrowIconRef);

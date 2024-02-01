@@ -20,7 +20,6 @@ const AppRoutes = () => {
       <Route path="/" element={<Home />}>
         {hooksPagesRoutes}
         <Route path="/" element={<HookPage />} />
-        <Route path="*" element={<h2>Not found</h2>} />
       </Route>
     </Route>
   );

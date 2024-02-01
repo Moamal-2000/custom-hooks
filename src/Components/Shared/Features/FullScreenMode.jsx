@@ -6,16 +6,16 @@ import styles from "./FullScreenMode.module.scss";
 const FullScreenMode = () => {
   const [isFullScreen, toggleIsFullScreen] = useToggle();
 
-  useFunctionOnKey(handleFullScreen, "KeyF");
+  useFunctionOnKey(handleFullScreen, "KeyF", true);
 
   function handleFullScreen() {
     toggleIsFullScreen();
-
+    
     if (document.fullscreenElement) {
       document.exitFullscreen();
       return;
     }
-
+    
     enterFullScreen();
   }
 

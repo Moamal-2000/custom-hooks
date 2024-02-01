@@ -56,8 +56,8 @@ const SideBar = () => {
     );
   }, [isSideBarExtendedLocal]);
 
-  useFunctionOnKey(toggleSideBar, "KeyM");
-  useFunctionOnKey(toggleExtendSideBar, "KeyE");
+  useFunctionOnKey(toggleSideBar, "KeyM", true);
+  useFunctionOnKey(toggleExtendSideBar, "KeyE", true);
 
   const extendSideBarButton = (
     <button

@@ -22,7 +22,7 @@ const FocusMode = () => {
     document.body.classList.remove("focusMode");
   }, [isFocusModeActiveLocal]);
 
-  useFunctionOnKey(() => setIsFocusModeActive(!isFocusModeActiveLocal), "KeyG");
+  useFunctionOnKey(() => setIsFocusModeActive(!isFocusModeActiveLocal), "KeyG", true);
 
   return (
     <button
