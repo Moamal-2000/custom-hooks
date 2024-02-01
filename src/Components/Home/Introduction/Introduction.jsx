@@ -36,11 +36,11 @@ const Introduction = () => {
           <a
             href="https://react.dev/reference/react/Component"
             target="_blank"
-            className="linkStyle1"
+            className="linkStyle1 noMarginRight"
           >
             components
           </a>
-          ,making your code more modular and maintainable. They are functions
+          , making your code more modular and maintainable. They are functions
           that can encapsulate complex behavior and be shared across different
           components.
         </p>

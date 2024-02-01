@@ -45,6 +45,7 @@
   width: 16px;
   height: 16px;
   margin-right: 10px;
+  border-radius: 50%;
 }
 
 .code.fullscreen {
@@ -63,7 +64,7 @@
 }
 
 .code:hover .buttons,
-.code:focus-within .buttons {
+.code:focus-visible .buttons {
   opacity: 1;
 }
 
@@ -90,7 +91,7 @@
   transition: background-color .2s, transform .1s ease;
 
   &:hover,
-  &:focus-within {
+  &:focus-visible {
     background-color: #313131;
   }
 

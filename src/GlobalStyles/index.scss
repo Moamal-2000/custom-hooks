@@ -79,42 +79,44 @@ p {
 }
 
 .linkStyle1 {
+  display: inline-block;
   text-decoration: none;
-  color: #2483ff;
   position: relative;
   cursor: pointer;
   transition: color .3s;
-  padding: 0 5px;
+  padding: 0;
+  margin: 0 4px;
+  color: #2483ff;
+  outline: none;
 
   &:first-child {
-    padding-left: 0;
+    margin-left: 0;
   }
 
-  &::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -1px;
-    width: calc(100% - 5px);
-    height: 0;
-    background-color: #2483ff;
+  &.noMarginRight {
+    margin-right: 0;
   }
 
-  &:focus::before {
-    height: 2px;
+  &:focus-visible {
+    outline: solid 2px #2483ff;
   }
+}
 
-  &:hover {
-    color: #398fff;
-  }
+.linkStyle1::before {
+  content: '';
+  position: absolute;
+  left: -1px;
+  bottom: -2px;
+  width: calc(100% + 2px);
+  height: 2px;
+  background-color: #2483ff;
+  transition: height .3s, opacity .2s .2s;
+}
 
-  &:focus {
-    outline: none;
-  }
-
-  &:hover::before {
-    height: 2px;
-  }
+.linkStyle1:hover::before {
+  height: calc(100% + 2px);
+  opacity: .3;
+  transition: height .2s, opacity .2s;
 }
 
 .skip-content {
