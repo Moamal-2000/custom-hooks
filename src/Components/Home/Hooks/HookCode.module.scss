@@ -70,15 +70,15 @@
 .code .buttons {
   position: absolute;
   right: 14px;
-  top: 16px;
+  top: 50px;
   width: fit-content;
   transition: opacity .2s .1s;
   opacity: 0;
 }
 
 .code.fullscreen .buttons {
-  right: 26px;
   position: fixed;
+  right: 26px;
 }
 
 .code .buttons>button {
@@ -142,6 +142,10 @@
     font-size: .85rem;
     line-height: 1.177;
   }
+}
+
+.codeBlock {
+  width: 100%;
 }
 
 .languageJs {
