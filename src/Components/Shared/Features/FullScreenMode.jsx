@@ -25,7 +25,6 @@ const FullScreenMode = () => {
       title="Full Screen mode"
       className={styles.fullScreenButton}
       onClick={handleFullScreen}
-      tabIndex="3"
     >
       <i className={`fa-solid fa-${isFullScreen ? "compress" : "expand"}`}></i>
     </button>

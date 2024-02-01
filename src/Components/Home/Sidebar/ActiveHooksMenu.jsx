@@ -10,17 +10,20 @@ const ActiveHooksMenu = () => {
     setIsSideBarActive,
   } = useGlobalContext();
 
+  function handleClickLink(hookName) {
+    setScrolledHook(hookName);
+    setIsSideBarActive(false);
+    setIsOverlayActive(false);
+  }
+
   return (
     <ul className={styles.hooksMenu}>
       {hooksData.map(({ name, id }) => (
-        <li key={id} onClick={() => setIsOverlayActive(false)}>
+        <li key={id}>
           <a
             href={`#${name}-hook`}
             className={scrolledHook === name ? styles.active : ""}
-            onClick={() => {
-              setScrolledHook(name);
-              setIsSideBarActive(false);
-            }}
+            onClick={() => handleClickLink(name)}
           >
             {name}
           </a>

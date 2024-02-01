@@ -31,7 +31,7 @@ const FocusMode = () => {
         isFocusModeActiveLocal ? styles.focusMode : ""
       }`}
       onClick={() => setIsFocusModeActive(!isFocusModeActiveLocal)}
-      tabIndex="2"
+      title="Focus Mode"
     >
       <i
         className={

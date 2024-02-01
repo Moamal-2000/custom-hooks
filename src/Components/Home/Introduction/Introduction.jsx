@@ -12,7 +12,11 @@ const Introduction = () => {
       </h1>
 
       <div className={styles.introImageWrapper}>
-        <img src={introImage} alt="React custom hook image." />
+        <img
+          fetchpriority="high"
+          src={introImage}
+          alt="React custom hooks image."
+        />
       </div>
 
       <article>

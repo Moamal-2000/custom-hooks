@@ -61,7 +61,6 @@ const SideBar = () => {
 
   const extendSideBarButton = (
     <button
-      tabIndex="0"
       type="button"
       className={`${styles.closeSideBarButton} ${
         isSideBarExtendedLocal ? styles.active : ""
@@ -92,7 +91,7 @@ const SideBar = () => {
       type="button"
       className={styles.sidebarButton}
       onClick={handleOpenSideBarButton}
-      tabIndex="1"
+      title="Sidebar Menu"
     >
       <i className="fa-solid fa-bars"></i>
     </button>
