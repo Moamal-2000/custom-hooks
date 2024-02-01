@@ -1,13 +1,11 @@
 @import "../../../Sass/mixins";
 
 .code {
-  display: flex;
   font-size: 1.2rem;
   background-color: #0d1017;
   position: relative;
   border: solid 2px #0d1017;
   border-radius: 10px;
-  padding: 20px 0 0 0;
   width: 100%;
   transition: border-color .2s;
 
@@ -21,6 +19,32 @@
   .code {
     font-size: .8rem;
   }
+}
+
+.code>header {
+  border-bottom: solid 1px #475264;
+  margin-bottom: 20px;
+}
+
+.code>header .fileName {
+  padding: 8px 16px;
+  font-size: 1rem;
+  background-color: transparent;
+  border: solid 1px #475264;
+  border-bottom: solid 2px rgb(0, 119, 255);
+  color: #cccccc;
+  display: flex;
+  align-items: center;
+
+  &:first-child {
+    border-top-left-radius: 8px;
+  }
+}
+
+.fileName>img {
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
 }
 
 .code.fullscreen {
@@ -88,6 +112,10 @@
 .code .buttons>button>i {
   font-size: .8rem;
   color: var(--text);
+}
+
+.code .codeArea {
+  display: flex;
 }
 
 .code pre {

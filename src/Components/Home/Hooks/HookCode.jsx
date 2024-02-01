@@ -4,6 +4,7 @@ import { saveInFile } from "../../../Functions/helper";
 import useCopyText from "../../../Hooks/useCopyText";
 import useToggle from "../../../Hooks/useToggle";
 import styles from "./HookCode.module.scss";
+import reactIcon from "../../../Assets/Images/react-icon.svg"
 
 const HookCode = ({ hookData }) => {
   const { code, name } = hookData;
@@ -80,6 +81,13 @@ const HookCode = ({ hookData }) => {
 
   return (
     <div className={`${styles.code} ${isFullScreen ? styles.fullscreen : ""}`}>
+      <header>
+        <button type="button" className={styles.fileName}>
+          <img src={reactIcon} alt="React Logo" />
+          <span>{name}.jsx</span>
+        </button>
+      </header>
+
       <div className={styles.buttons}>
         <button type="button" title="Copy Code" onClick={handleCopyButton}>
           {isCopied ? (
@@ -114,6 +122,7 @@ const HookCode = ({ hookData }) => {
         </button>
       </div>
 
+      <div className={styles.codeArea}>
       <ul className={styles.numbering}>
         {numbersOfLines.map((num) => (
           <li key={num}>{num}</li>
@@ -124,6 +133,7 @@ const HookCode = ({ hookData }) => {
         <HighlightElement className={`${styles.languageJs} js`}>
           {codeState}
         </HighlightElement>
+      </div>
       </div>
     </div>
   );
