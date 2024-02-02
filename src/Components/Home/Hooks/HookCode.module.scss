@@ -9,8 +9,7 @@
   width: 100%;
   transition: border-color .2s;
 
-  &:hover,
-  &:focus-within {
+  &:not(.fullscreen):where(:focus-within, :hover) {
     border-color: #5c5e62;
   }
 }
@@ -19,6 +18,15 @@
   .code {
     font-size: .8rem;
   }
+}
+
+.code.fullscreen {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 101;
 }
 
 .code>header {
@@ -32,12 +40,12 @@
   }
 }
 
-.code>header .fileName {
+.fileName {
   padding: 8px 16px;
   font-size: 1rem;
   background-color: transparent;
   border: solid 1px #475264;
-  border-bottom: solid 2px rgb(0, 119, 255);
+  border-bottom: solid 2px #0077ff;
   color: #cccccc;
   display: flex;
   align-items: center;
@@ -48,7 +56,7 @@
 }
 
 @include medium {
-  .code>header .fileName {
+  .fileName {
     font-size: .8rem;
   }
 }
@@ -67,20 +75,6 @@
   }
 }
 
-.code.fullscreen {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 101;
-}
-
-.code:hover .buttons,
-.code:focus-visible .buttons {
-  opacity: 1;
-}
-
 .code .buttons {
   position: absolute;
   right: 14px;
@@ -95,7 +89,12 @@
   right: 20px;
 }
 
-.code .buttons>button {
+.code:hover .buttons,
+.code:focus-visible .buttons {
+  opacity: 1;
+}
+
+.buttons>button {
   cursor: pointer;
   border: none;
   padding: 8px 10px;
@@ -118,17 +117,17 @@
 }
 
 @include medium {
-  .code .buttons>button {
+  .buttons>button {
     padding: 6px 8px;
   }
 }
 
-.code .buttons>button>i {
+.buttons>button>i {
   font-size: .8rem;
   color: var(--text);
 }
 
-.code .codeArea {
+.codeArea {
   display: flex;
 }
 
@@ -154,11 +153,7 @@
   }
 }
 
-// .codeBlock {
-//   width: calc(100% - 40px); // 60px is numbering width - 20px padding
-// }
-
-.languageJs {
+.preElement {
   background: #07090c !important;
   padding: 0 20px 20px 0 !important;
   margin-top: 0 !important;
@@ -166,16 +161,22 @@
   width: calc(100% - 20px) !important;
 }
 
-.code.fullscreen .languageJs {
+@include small {
+  .preElement {
+    padding: 0 10px 10px 0 !important;
+  }
+}
+
+.code.fullscreen .preElement {
   height: 100vh !important;
 }
 
-.languageJs::-webkit-scrollbar {
+.preElement::-webkit-scrollbar {
   background-color: rgba(0, 0, 0, .186);
   height: 8px;
 }
 
-.languageJs::-webkit-scrollbar-thumb {
+.preElement::-webkit-scrollbar-thumb {
   background-color: rgba(186, 186, 186, .237);
   border-radius: 10px;
 
@@ -184,7 +185,7 @@
   }
 }
 
-.languageJs>code {
+.preElement>code {
   font-size: 1.2rem !important;
   line-height: 1.163 !important;
   width: auto !important;
@@ -193,14 +194,8 @@
 }
 
 @include medium {
-  .languageJs>code {
+  .preElement>code {
     font-size: .85rem !important;
     line-height: 1.175 !important;
-  }
-}
-
-@include small {
-  .languageJs {
-    padding: 0 10px 10px 0 !important;
   }
 }

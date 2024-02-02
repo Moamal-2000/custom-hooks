@@ -1,6 +1,5 @@
 import React, { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
-import "../node_modules/highlight.js/styles/hybrid.css";
 import App from "./App";
 import GlobalContextProvider from "./Context/GlobalContext";
 import "./GlobalStyles/index.scss";

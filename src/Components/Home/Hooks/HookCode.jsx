@@ -1,5 +1,5 @@
 import { memo, useEffect, useState } from "react";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { Prism as Highlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import reactIcon from "../../../Assets/Images/react-icon.svg";
 import useToggle from "../../../Hooks/useToggle";
@@ -46,13 +46,13 @@ const HookCode = ({ hookData }) => {
           ))}
         </ul>
 
-        <SyntaxHighlighter
-          className={`${styles.languageJs} js`}
+        <Highlighter
+          className={`${styles.preElement}`}
           language="javascript"
           style={vscDarkPlus}
         >
           {code}
-        </SyntaxHighlighter>
+        </Highlighter>
       </div>
     </div>
   );

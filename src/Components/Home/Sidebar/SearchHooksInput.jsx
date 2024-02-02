@@ -13,7 +13,7 @@ const SearchHooksInput = () => {
     e.preventDefault();
 
     const filteredResults = hooksData.filter((hookData) =>
-      hookData.name.startsWith(searchInp)
+      hookData.name.toLowerCase().startsWith(searchInp.toLowerCase())
     );
 
     if (filteredResults === 0) return;
