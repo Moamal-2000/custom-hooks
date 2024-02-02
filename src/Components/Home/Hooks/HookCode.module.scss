@@ -154,9 +154,9 @@
   }
 }
 
-.codeBlock {
-  width: calc(100% - 40px); // 60px is numbering width - 20px padding
-}
+// .codeBlock {
+//   width: calc(100% - 40px); // 60px is numbering width - 20px padding
+// }
 
 .languageJs {
   background: #07090c !important;
@@ -167,8 +167,7 @@
 }
 
 .code.fullscreen .languageJs {
-  overflow: visible !important;
-  height: 100% !important;
+  height: 100vh !important;
 }
 
 .languageJs::-webkit-scrollbar {
