@@ -1,4 +1,4 @@
-import introImage from "../../../Assets/introduction-image.webp";
+import introImage from "../../../Assets/Images/introduction-image.webp";
 import { useGlobalContext } from "../../../Context/GlobalContext";
 import styles from "./Introduction.module.scss";
 
