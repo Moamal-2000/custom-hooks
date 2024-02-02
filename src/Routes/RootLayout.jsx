@@ -7,12 +7,14 @@ import ScrollBottomTop from "../Components/Shared/Features/ScrollBottomTop";
 import GlobalOverlay from "../Components/Shared/GlobalOverlay";
 import HooksNavigator from "../Components/Shared/MiniComponents/HooksNavigator";
 import { useGlobalContext } from "../Context/GlobalContext";
+import SideBar from "../Components/Home/Sidebar/SideBar";
 
 const RootLayout = () => {
   const { isFocusModeActiveLocal } = useGlobalContext();
 
   return (
     <>
+      <SideBar />
       <Outlet />
       <HooksNavigator />
 

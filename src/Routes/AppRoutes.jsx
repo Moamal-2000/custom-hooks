@@ -12,14 +12,14 @@ import RootLayout from "./RootLayout";
 const AppRoutes = () => {
   const { numbersOfPages } = useGlobalContext();
   const hooksPagesRoutes = numbersOfPages.map((pageNumber) => (
-    <Route key={pageNumber} exact path="/:id" element={<HookPage />} />
+    <Route key={pageNumber} path="/:id" element={<HookPage />} />
   ));
 
   const routes = createRoutesFromChildren(
     <Route path="/" element={<RootLayout />}>
       <Route path="/" element={<Home />}>
         {hooksPagesRoutes}
-        <Route exact path="/" element={<HookPage />} />
+        <Route path="/" element={<HookPage />} />
       </Route>
     </Route>
   );

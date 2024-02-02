@@ -19,7 +19,7 @@ const SearchHooksInput = () => {
     if (filteredResults === 0) return;
 
     if (filteredResults.length === 1) {
-      navigateTo(`/${filteredResults[0].page}`);
+      navigateTo(`/?page=${filteredResults[0].page}`);
     }
 
     if (filteredResults.length > 1) {
