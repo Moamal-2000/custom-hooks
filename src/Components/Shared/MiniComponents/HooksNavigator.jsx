@@ -1,25 +1,32 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import React from "react";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../../../Context/GlobalContext";
 import { scrollToBottom } from "../../../Functions/helper";
 import styles from "./HooksNavigator.module.scss";
 
 const HooksNavigator = () => {
   const { numbersOfPages } = useGlobalContext();
-  const location = useLocation();
-  let currentPage = location.pathname.slice(1, 2);
+  const [params, setParams] = useSearchParams();
   const navigateTo = useNavigate();
-  const lengthPages = numbersOfPages?.length;
-  const isLastPage = lengthPages !== +currentPage;
-  const isFirstPage = +currentPage > 1;
+  const currentPage = parseInt(params.get("page")) || 1;
+  const isLastPage = currentPage === numbersOfPages.length;
+  const isFirstPage = currentPage === 1;
 
   function handleNextPage() {
-    if (!currentPage) currentPage = 1;
-    if (isLastPage) navigateTo(`${+currentPage + 1}`);
+    if (isLastPage) return;
+
+    const nextPage = currentPage + 1;
+    setParams({ page: nextPage });
+    navigateTo(`/?page=${nextPage}`);
     scrollToBottom();
   }
 
   function handlePreviousPage() {
-    if (isFirstPage) navigateTo(`${+currentPage - 1}`);
+    if (isFirstPage) return;
+
+    const previousPage = currentPage - 1;
+    setParams({ page: previousPage });
+    navigateTo(`/?page=${previousPage}`);
     scrollToBottom();
   }
 
@@ -29,7 +36,7 @@ const HooksNavigator = () => {
         type="button"
         className={styles.prevButton}
         onClick={handlePreviousPage}
-        disabled={!isFirstPage}
+        disabled={isFirstPage}
       >
         Previous page
       </button>
@@ -38,11 +45,12 @@ const HooksNavigator = () => {
         type="button"
         className={styles.nextButton}
         onClick={handleNextPage}
-        disabled={!isLastPage}
+        disabled={isLastPage}
       >
         Next page
       </button>
     </div>
   );
 };
+
 export default HooksNavigator;
