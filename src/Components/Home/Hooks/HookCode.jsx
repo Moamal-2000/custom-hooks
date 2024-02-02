@@ -1,10 +1,11 @@
 import { memo, useEffect, useRef, useState } from "react";
-import HighlightElement from "react-highlight";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
+import reactIcon from "../../../Assets/Images/react-icon.svg";
 import { saveInFile } from "../../../Functions/helper";
 import useCopyText from "../../../Hooks/useCopyText";
 import useToggle from "../../../Hooks/useToggle";
 import styles from "./HookCode.module.scss";
-import reactIcon from "../../../Assets/Images/react-icon.svg"
 
 const HookCode = ({ hookData }) => {
   const { code, name } = hookData;
@@ -37,47 +38,7 @@ const HookCode = ({ hookData }) => {
   useEffect(() => {
     let lines = code?.split("\n");
     setNumberOfLines(lines?.length);
-
-    const codeWithSpanOnEachLine = lines.map((line, i) => (
-      <span key={i}>{line}</span>
-    ));
-
-    setCodeState(codeWithSpanOnEachLine);
   }, [isCopied, isDownloaded, isFullScreen]);
-
-  useEffect(() => {
-    const codeBlockEle = codeBlockRef.current?.querySelector("code");
-    const spans = [...codeBlockEle?.children];
-
-    if (spans.length === 0) return;
-
-    codeBlockEle.addEventListener("mouseup", () => (mouseDown.current = false));
-    codeBlockEle.addEventListener(
-      "mousedown",
-      () => (mouseDown.current = true)
-    );
-    codeBlockEle.addEventListener(
-      "mousemove",
-      () =>
-        mouseDown.current &&
-        spans.forEach((span) => span.classList.remove("focus"))
-    );
-
-    function handleFocusSpan(span) {
-      spans.forEach((span) => span.classList.remove("focus"));
-      span.classList.add("focus");
-    }
-
-    spans.forEach((span) =>
-      span.addEventListener("click", () => handleFocusSpan(span))
-    );
-
-    return () => {
-      spans.forEach((span) =>
-        span.removeEventListener("click", () => handleFocusSpan(span))
-      );
-    };
-  }, [codeState]);
 
   return (
     <div className={`${styles.code} ${isFullScreen ? styles.fullscreen : ""}`}>
@@ -123,19 +84,24 @@ const HookCode = ({ hookData }) => {
       </div>
 
       <div className={styles.codeArea}>
-      <ul className={styles.numbering}>
-        {numbersOfLines.map((num) => (
-          <li key={num}>{num}</li>
-        ))}
-      </ul>
+        <ul className={styles.numbering}>
+          {numbersOfLines.map((num) => (
+            <li key={num}>{num}</li>
+          ))}
+        </ul>
 
-      <div className={styles.codeBlock} ref={codeBlockRef}>
-        <HighlightElement className={`${styles.languageJs} js`}>
-          {codeState}
-        </HighlightElement>
-      </div>
+        <div className={styles.codeBlock} ref={codeBlockRef}>
+          <SyntaxHighlighter
+            className={`${styles.languageJs} js`}
+            language="javascript"
+            style={vscDarkPlus}
+          >
+            {codeState}
+          </SyntaxHighlighter>
+        </div>
       </div>
     </div>
   );
 };
+
 export default memo(HookCode);

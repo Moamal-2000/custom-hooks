@@ -2,9 +2,9 @@
 
 .code {
   font-size: 1.2rem;
-  background-color: #0d1017;
+  background-color: #07090c;
   position: relative;
-  border: solid 2px #0d1017;
+  border: solid 2px #090b0f;
   border-radius: 10px;
   width: 100%;
   transition: border-color .2s;
@@ -26,6 +26,12 @@
   margin-bottom: 20px;
 }
 
+@include small {
+  .code>header {
+    margin-bottom: 10px;
+  }
+}
+
 .code>header .fileName {
   padding: 8px 16px;
   font-size: 1rem;
@@ -41,11 +47,24 @@
   }
 }
 
+@include medium {
+  .code>header .fileName {
+    font-size: .8rem;
+  }
+}
+
 .fileName>img {
   width: 16px;
   height: 16px;
   margin-right: 10px;
   border-radius: 50%;
+}
+
+@include medium {
+  .fileName>img {
+    width: 12px;
+    height: 12px;
+  }
 }
 
 .code.fullscreen {
@@ -55,12 +74,6 @@
   width: 100vw;
   height: 100vh;
   z-index: 101;
-  overflow-y: auto;
-}
-
-.code>div {
-  width: 100%;
-  overflow: hidden;
 }
 
 .code:hover .buttons,
@@ -71,7 +84,7 @@
 .code .buttons {
   position: absolute;
   right: 14px;
-  top: 50px;
+  top: 22px;
   width: fit-content;
   transition: opacity .2s .1s;
   opacity: 0;
@@ -79,7 +92,7 @@
 
 .code.fullscreen .buttons {
   position: fixed;
-  right: 26px;
+  right: 20px;
 }
 
 .code .buttons>button {
@@ -119,19 +132,9 @@
   display: flex;
 }
 
-.code pre {
-  width: 100%;
-  overflow: hidden;
-}
-
-.code.fullscreen pre {
-  overflow: visible;
-  height: 100%;
-}
-
 .numbering {
   font-size: 1.1rem;
-  line-height: 1.2783;
+  line-height: 1.2727;
   color: #7f8799;
   border-radius: inherit;
   padding: 0 20px;
@@ -145,16 +148,27 @@
   }
 }
 
+@include small {
+  .numbering {
+    padding: 0 10px;
+  }
+}
+
 .codeBlock {
-  width: 100%;
+  width: calc(100% - 40px); // 60px is numbering width - 20px padding
 }
 
 .languageJs {
-  background-color: #0d1017 !important;
-  padding: 0 !important;
-  padding-bottom: 20px !important;
+  background: #07090c !important;
+  padding: 0 20px 20px 0 !important;
+  margin-top: 0 !important;
   border-radius: 10px;
-  overflow-x: auto !important;
+  width: calc(100% - 20px) !important;
+}
+
+.code.fullscreen .languageJs {
+  overflow: visible !important;
+  height: 100% !important;
 }
 
 .languageJs::-webkit-scrollbar {
@@ -171,24 +185,23 @@
   }
 }
 
-.languageJs>span {
-  display: block;
-  height: 22.4px;
-  width: 100%;
-  transition: background-color .05s;
-
-  &:hover,
-  &[class=focus] {
-    background-color: #0e2238;
-  }
+.languageJs>code {
+  font-size: 1.2rem !important;
+  line-height: 1.163 !important;
+  width: auto !important;
+  display: inline-block !important;
+  background: #07090c !important;
 }
 
 @include medium {
-  .languageJs>span {
-    height: 16px;
+  .languageJs>code {
+    font-size: .85rem !important;
+    line-height: 1.175 !important;
+  }
+}
 
-    &:hover {
-      background-color: transparent;
-    }
+@include small {
+  .languageJs {
+    padding: 0 10px 10px 0 !important;
   }
 }
