@@ -9,9 +9,11 @@ const HookExplanation = ({ name, explanation, liveCode }) => {
         </p>
       ))}
 
-      <a href={liveCode} target="_blank" className="linkStyle1">
-        Explore an interactive demo of {name}.
-      </a>
+      {!liveCode && (
+        <a href={liveCode} target="_blank" className="linkStyle1">
+          Explore an interactive demo of {name}.
+        </a>
+      )}
     </div>
   );
 };
