@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useFilter = (array, searchValue, key) => {
+const useFilteredObjects = (array, searchValue, key) => {
   const [filteredArr, setFilteredArr] = useState(array);
 
   useEffect(() => {
@@ -14,4 +14,4 @@ const useFilter = (array, searchValue, key) => {
   return [filteredArr, setFilteredArr];
 };
 
-export default useFilter;
+export default useFilteredObjects;

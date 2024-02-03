@@ -328,11 +328,11 @@ export default useEventListener;`,
   },
 
   {
-    name: "useFilter",
+    name: "useFilteredObjects",
     page: 2,
     explanation: [
       `
-        The useFilter hook filters an array of objects based on a specified search value and key.`,
+        The useFilteredObjects hook filters an array of objects based on a specified search value and key.`,
     ],
     inputs: [
       [
@@ -349,7 +349,7 @@ export default useEventListener;`,
       ],
     ],
     outputsText:
-      "The useFilter hook returns an array with the filtered objects.",
+      "The useFilteredObjects hook returns an array with the filtered objects.",
     outputs: [
       [
         `filteredArr (Array):
@@ -361,11 +361,11 @@ export default useEventListener;`,
       ],
     ],
     liveCode:
-      "https://codesandbox.io/p/sandbox/usefilter-qjd5tl?file=%2Fsrc%2FTest.jsx%3A3%2C1",
+      "https://codesandbox.io/p/sandbox/usefilteredobjects-qjd5tl?file=%2Fsrc%2FTest.jsx%3A3%2C1",
     id: 6,
     code: `import { useEffect, useState } from "react";
 
-const useFilter = (array, searchValue, key) => {
+const useFilteredObjects = (array, searchValue, key) => {
   const [filteredArr, setFilteredArr] = useState(array);
 
   useEffect(() => {
@@ -379,7 +379,7 @@ const useFilter = (array, searchValue, key) => {
   return [filteredArr, setFilteredArr];
 };
 
-export default useFilter;`,
+export default useFilteredObjects;`,
   },
 
   {
