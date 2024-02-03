@@ -7,7 +7,8 @@ import styles from "./SearchHooksInput.module.scss";
 const SearchHooksInput = () => {
   const [searchInp, setSearchInp] = useState("");
   const navigateTo = useNavigate();
-  const { setIsSideBarActive, setIsOverlayActive } = useGlobalContext();
+  const { setIsSideBarActive, setIsOverlayActive } =
+    useGlobalContext();
 
   function handleSearch(e) {
     e.preventDefault();
@@ -20,6 +21,18 @@ const SearchHooksInput = () => {
 
     if (filteredResults.length === 1) {
       navigateTo(`/?page=${filteredResults[0].page}`);
+
+      setTimeout(() => {
+        const sidebarLinksHooks =
+          document.querySelectorAll("aside>div>ul>li>a");
+
+        sidebarLinksHooks.forEach((hookLink) => {
+          if (hookLink.textContent === filteredResults[0].name)
+            hookLink.click();
+        });
+      }, 200);
+
+      setSearchInp("")
     }
 
     if (filteredResults.length > 1) {

@@ -40,4 +40,5 @@ const ActiveHooksMenu = () => {
     </ul>
   );
 };
+
 export default ActiveHooksMenu;
