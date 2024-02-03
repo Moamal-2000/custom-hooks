@@ -10,18 +10,15 @@ const useFunctionOnKey = (
   const [pressedKey, setKey, keyPressEvent] = useKeyPress();
 
   useEffect(() => {
-    const shiftKeyPressed = keyPressEvent.shiftKey;
-    const altKeyPressed = keyPressEvent.altKey;
-    const ctrlKeyPressed = keyPressEvent.ctrlKey;
-    const isOneOfMainKeysPressed =
-      shiftKeyPressed || altKeyPressed || ctrlKeyPressed;
-    const focusElementTagName = document.activeElement?.tagName;
-    const isFocusOnInput =
-      focusElementTagName === "INPUT" || focusElementTagName === "TEXTAREA";
+    const { shiftKey, altKey, ctrlKey } = keyPressEvent;
+    const isOneOfMainKeysPressed = shiftKey || altKey || ctrlKey;
+    const focusElement = document.activeElement?.tagName;
+    const isFocusOnInput = /^(input|textarea)$/i.test(focusElement);
+    const shouldRejectExecution =
+      (disableMainKeys || disableOnFocus) &&
+      (isOneOfMainKeysPressed || isFocusOnInput);
 
-    if (disableMainKeys || disableOnFocus) {
-      if (isOneOfMainKeysPressed || isFocusOnInput) return;
-    }
+    if (shouldRejectExecution) return;
 
     if (pressedKey === keyName) {
       callback();

@@ -1017,6 +1017,7 @@ export default useMouseEffect;`,
     explanation: [
       `
         The useFunctionOnKey hook listens for a specific key press and triggers a callback function when that key is pressed.
+        It also allows disabling the callback when certain conditions are met.
       `,
     ],
     inputs: [
@@ -1028,23 +1029,46 @@ export default useMouseEffect;`,
         `keyName (String):
           The name of the key to listen for.`,
       ],
+      [
+        `disableMainKeys (Boolean):
+          Flag to disable the callback when one of the main keys (Shift, Alt, Ctrl) is pressed. Default is false.`,
+      ],
+      [
+        `disableOnFocus (Boolean):
+          Flag to disable the callback when focus is on an input or textarea element. Default is false.`,
+      ],
     ],
     outputs: [],
     liveCode:
-      "https://codesandbox.io/p/sandbox/usefunctiononkey-mfpznn?file=%2Fsrc%2FuseKeyPress.jsx%3A6%2C1",
+      "https://codesandbox.io/s/sandbox-usefunctiononkey-mfpznn?file=/src/useKeyPress.jsx:6:1",
     id: 19,
     code: `import { useEffect } from "react";
 import useKeyPress from "./useKeyPress";
 
-const useFunctionOnKey = (callback, keyName) => {
-  const [pressedKey, setKey] = useKeyPress();
+const useFunctionOnKey = (
+  callback,
+  keyName,
+  disableMainKeys = false,
+  disableOnFocus = false
+) => {
+  const [pressedKey, setKey, keyPressEvent] = useKeyPress();
 
   useEffect(() => {
+    const { shiftKey, altKey, ctrlKey } = keyPressEvent;
+    const isOneOfMainKeysPressed = shiftKey || altKey || ctrlKey;
+    const focusElement = document.activeElement?.tagName;
+    const isFocusOnInput = /^(input|textarea)$/i.test(focusElement);
+    const shouldRejectExecution =
+      (disableMainKeys || disableOnFocus) &&
+      (isOneOfMainKeysPressed || isFocusOnInput);
+
+    if (shouldRejectExecution) return;
+
     if (pressedKey === keyName) {
       callback();
       setKey("");
     }
-  }, [pressedKey]);
+  }, [pressedKey, keyPressEvent]);
 };
 
 export default useFunctionOnKey;`,
