@@ -65,3 +65,36 @@
     border: solid 2px #57bd84;
   }
 }
+
+.suggestionMenu {
+  background-color: #1e1e1e;
+  width: 100%;
+  border-radius: 4px;
+  user-select: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: .2s opacity;
+
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+.searchItem {
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &:hover {
+    background-color: #0d263e;
+  }
+}
+
+
+.searchItem>i {
+  margin-right: 10px;
+  font-size: .7rem;
+}
