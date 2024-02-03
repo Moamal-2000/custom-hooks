@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useGlobalContext } from "../../../Context/GlobalContext";
-import { hooksData } from "../../../Data/hooksData";
+import { useGlobalContext } from "../../Context/GlobalContext";
+import { hooksData } from "../../Data/hooksData";
 import styles from "./SearchHooksInput.module.scss";
 
 const SearchHooksInput = () => {
@@ -23,7 +23,6 @@ const SearchHooksInput = () => {
     }
 
     if (filteredResults.length > 1) {
-      
     }
 
     setIsOverlayActive(false);

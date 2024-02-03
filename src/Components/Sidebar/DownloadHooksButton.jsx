@@ -1,6 +1,6 @@
-import { hooksData } from "../../../Data/hooksData";
-import { saveInRAR } from "../../../Functions/helper";
-import styles from "./DownloadHooksButton.module.scss"
+import { hooksData } from "../../Data/hooksData";
+import { saveInRAR } from "../../Functions/helper";
+import styles from "./DownloadHooksButton.module.scss";
 
 const DownloadHooksButton = () => {
   return (

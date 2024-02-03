@@ -1,13 +1,15 @@
 import { useSearchParams } from "react-router-dom";
-import { useGlobalContext } from "../../../Context/GlobalContext";
-import { hooksData } from "../../../Data/hooksData";
+import { useGlobalContext } from "../../Context/GlobalContext";
+import { hooksData } from "../../Data/hooksData";
 import styles from "./ActiveHooksMenu.module.scss";
 
 const ActiveHooksMenu = () => {
-  const [params] = useSearchParams()
-  const pageId = parseInt(params.get("page")) || 1
+  const [params] = useSearchParams();
+  const pageId = parseInt(params.get("page")) || 1;
 
-  const pageHooksData = hooksData.filter((hookData) => hookData?.page === pageId);
+  const pageHooksData = hooksData.filter(
+    (hookData) => hookData?.page === pageId
+  );
 
   const {
     scrolledHook,

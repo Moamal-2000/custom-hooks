@@ -1,11 +1,11 @@
 import { useEffect, useRef } from "react";
-import { useGlobalContext } from "../../../Context/GlobalContext";
-import useFunctionOnKey from "../../../Hooks/useFunctionOnKey";
-import useGetResizeWindow from "../../../Hooks/useGetResizeWindow";
+import { useGlobalContext } from "../../Context/GlobalContext";
+import useFunctionOnKey from "../../Hooks/useFunctionOnKey";
+import useGetResizeWindow from "../../Hooks/useGetResizeWindow";
 import ActiveHooksMenu from "./ActiveHooksMenu";
 import DownloadHooksButton from "./DownloadHooksButton";
-import styles from "./SideBar.module.scss";
 import SearchHooksInput from "./SearchHooksInput";
+import styles from "./SideBar.module.scss";
 
 const SideBar = () => {
   const {
