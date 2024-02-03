@@ -205,24 +205,21 @@ export default useArray;`,
 const useCloseElement = (toggleEleRef, switcherEleRef, exceptElementRef) => {
   const [isElementClose, setIsElementClose] = useState(false);
 
+  function handleDocumentClick(e) {
+    if (!toggleEleRef.current || !switcherEleRef.current) return;
+
+    const target = e.target;
+    const isSwitcherEle = target === switcherEleRef?.current;
+    const isExceptEle = target === exceptElementRef?.current;
+    const isInsideToggle = isParentOfElement(target, toggleEleRef?.current);
+    const shouldCloseElement =
+      (!isSwitcherEle && !isInsideToggle) || isExceptEle;
+
+    if (shouldCloseElement) setIsElementClose(false);
+    else if (isSwitcherEle) setIsElementClose((prevState) => !prevState);
+  }
+
   useEffect(() => {
-    const handleDocumentClick = (e) => {
-      if (!toggleEleRef.current || !switcherEleRef.current) return;
-
-      const target = e.target;
-      const isSwitcherEle = target === switcherEleRef?.current;
-      const isExceptEle = target === exceptElementRef?.current;
-      const isInsideToggle = compareAbsoluteParentEle(
-        target,
-        toggleEleRef?.current
-      );
-      const closeElementCondition =
-        (!isSwitcherEle && !isInsideToggle) || isExceptEle;
-
-      if (closeElementCondition) setIsElementClose(false);
-      else if (isSwitcherEle) setIsElementClose((prevState) => !prevState);
-    };
-
     window.addEventListener("click", handleDocumentClick);
 
     return () => window.removeEventListener("click", handleDocumentClick);
@@ -233,16 +230,17 @@ const useCloseElement = (toggleEleRef, switcherEleRef, exceptElementRef) => {
 
 export default useCloseElement;
 
-/* Helper function */
-const compareAbsoluteParentEle = (element, requiredEle) => {
+/* Helper Function */
+const isParentOfElement = (element, requiredEle) => {
   let parentElement = element.parentElement;
 
   while (
     parentElement &&
     requiredEle !== parentElement &&
     requiredEle !== element
-  )
+  ) {
     parentElement = parentElement.parentElement;
+  }
 
   return !!parentElement;
 };`,
