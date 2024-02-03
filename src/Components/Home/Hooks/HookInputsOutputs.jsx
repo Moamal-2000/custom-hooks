@@ -19,17 +19,17 @@ const HookInputsOutputs = ({ data: { inputs, outputs } }) => {
   return (
     <div className={styles.inputsOutputs}>
       {isInputsExist && (
-        <>
+        <section>
           <h3>Inputs:</h3>
           <ul className={styles.inputs}>{inputsList}</ul>
-        </>
+        </section>
       )}
 
       {isOutputsExist && (
-        <>
+        <section>
           <h3>Outputs:</h3>
           <ul className={styles.outputs}>{outputsList}</ul>
-        </>
+        </section>
       )}
     </div>
   );
