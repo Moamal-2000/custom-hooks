@@ -898,7 +898,7 @@ export default useTextInput;`,
       ],
     ],
     outputsText:
-      "The useRandomNumber hook returns an object with the current random number and a function to change the random number within the specified range.",
+      "The useRandomNumber hook returns an array containing the current random number and a function to change the random number within the specified range.",
     outputs: [
       [
         `randomNumber (Number):
@@ -910,27 +910,32 @@ export default useTextInput;`,
       ],
     ],
     liveCode:
-      "https://codesandbox.io/p/sandbox/userandomnumber-cfhdkv?file=%2Fsrc%2FTest.jsx",
+      "https://codesandbox.io/s/sandbox-userandomnumber-cfhdkv?file=/src/Test.jsx",
     id: 17,
-    code: `import { useEffect, useState } from "react";
+    code: `import { useState } from "react";
 
-const useRandomNumber = (min, max) => {
-  const [randomNumber, setRandomNumber] = useState(0);
+const useRandomNumber = (min = 0, max = 1000) => {
+  const [randomNumber, setRandomNumber] = useState(generateRandomNumber(min, max));
 
-  function changeRandomNumber(getMin = min, getMax = max) {
-    ++getMax;
-    setRandomNumber(Math.floor(Math.random() * (getMin - getMax) + getMax));
+  function changeRandomNumber(newMin = min, newMax = max) {
+    let newRandomNumber = generateRandomNumber(newMin, newMax);
+
+    while (newRandomNumber === randomNumber) {
+      newRandomNumber = generateRandomNumber(newMin, newMax);
+    }
+
+    setRandomNumber(newRandomNumber);
   }
 
-  useEffect(() => {
-    ++max;
-    setRandomNumber(Math.floor(Math.random() * (min - max) + max));
-  }, []);
-
-  return { randomNumber, changeRandomNumber };
+  return [randomNumber, changeRandomNumber];
 };
 
-export default useRandomNumber;`,
+export default useRandomNumber;
+
+/* Helper Function */
+function generateRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}`,
   },
 
   {

@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Footer from "../Components/Footer/Footer";
+import SideBar from "../Components/Home/Sidebar/SideBar";
 import FocusMode from "../Components/Shared/Features/FocusMode";
 import FullScreenMode from "../Components/Shared/Features/FullScreenMode";
 import MusicTime from "../Components/Shared/Features/MusicTime";
@@ -7,7 +8,6 @@ import ScrollBottomTop from "../Components/Shared/Features/ScrollBottomTop";
 import GlobalOverlay from "../Components/Shared/GlobalOverlay";
 import HooksNavigator from "../Components/Shared/MiniComponents/HooksNavigator";
 import { useGlobalContext } from "../Context/GlobalContext";
-import SideBar from "../Components/Home/Sidebar/SideBar";
 
 const RootLayout = () => {
   const { isFocusModeActiveLocal } = useGlobalContext();
