@@ -98,13 +98,17 @@
   cursor: pointer;
   border: none;
   padding: 8px 10px;
-  background-color: #696969;
+  background-color: #383838;
   border-radius: 4px;
   transition: background-color .2s, transform .1s ease;
 
-  &:hover,
+  &:hover {
+    background-color: #222222;
+  }
+
   &:focus-visible {
-    background-color: #313131;
+    background-color: #222222;
+    outline: solid 2px #57bd84;
   }
 
   &:active {
@@ -125,6 +129,10 @@
 .buttons>button>i {
   font-size: .8rem;
   color: var(--text);
+}
+
+.buttons>button:focus-visible>i {
+  color: #57bd84;
 }
 
 .codeArea {
@@ -188,7 +196,7 @@
 .preElement>code {
   font-size: 1.2rem !important;
   line-height: 1.163 !important;
-  width: auto !important;
+  width: 100% !important;
   display: inline-block !important;
   background: #07090c !important;
 }
