@@ -289,67 +289,6 @@ export default useCopyText;`,
   },
 
   {
-    name: "useElementData",
-    page: 1,
-    explanation: [
-      `
-        The useElementData hook provides functionality to gather data about a given DOM element.
-        It utilizes the useOnScreen hook to determine if the element is currently visible on the screen.
-        The element data includes its dimensions and visibility.`,
-    ],
-    inputs: [
-      [
-        `ref (React ref):
-          Ref of the element for which data needs to be gathered.`,
-      ],
-    ],
-    outputsText:
-      "The useElementData hook returns an array with the following elements:",
-    outputs: [
-      [
-        `element (DOM element):
-          The DOM element corresponding to the provided ref.`,
-      ],
-      [
-        `elementData (Object):
-          An object containing data about the element, including dimensions and visibility.`,
-      ],
-      [
-        `setRenders (Function):
-          Function to increment the renders count, triggering a re-evaluation of element data.`,
-      ],
-    ],
-    liveCode: "#",
-    id: 4,
-    code: `import { useEffect, useState } from "react";
-import useOnScreen from "./useOnScreen";
-
-const useElementData = (ref) => {
-  const [elementData, setElementData] = useState({});
-  const [renders, setRenders] = useState(0);
-  const isVisible = useOnScreen(ref);
-
-  function updateData() {
-    const elementRectData = ref.current.getBoundingClientRect();
-    const data = Object.assign(elementRectData, { isVisible });
-    setElementData(data);
-  }
-
-  useEffect(() => {
-    updateData();
-  }, []);
-
-  useEffect(() => {
-    updateData();
-  }, [renders, isVisible]);
-
-  return [ref.current, elementData, setRenders];
-};
-
-export default useElementData;`,
-  },
-
-  {
     name: "useEventListener",
     page: 2,
     explanation: [
