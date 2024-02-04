@@ -2,7 +2,7 @@ import styles from "./HookExplanation.module.scss";
 import HookName from "./HookName";
 
 const HookExplanation = ({ hookData }) => {
-  const { explanation, liveCode } = hookData;
+  const { explanation, liveCode, name } = hookData;
 
   return (
     <div className={styles.explanation}>

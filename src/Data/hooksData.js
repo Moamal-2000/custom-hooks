@@ -15,8 +15,6 @@ export const hooksData = [
           The initial state for the toggle. Default is false.`,
       ],
     ],
-    outputsText:
-      "The useToggle hook returns an array with the following elements:",
     outputs: [
       [
         `state (Boolean):
@@ -70,8 +68,6 @@ export default useToggle;`,
           The initial array with which the state is initialized.`,
       ],
     ],
-    outputsText:
-      "The useArray hook returns an object with the following methods:",
     outputs: [
       [
         `array (Array):
@@ -170,7 +166,6 @@ export default useArray;`,
       `
         The useCloseElement hook manages the state of an element's visibility based on clicks outside designated elements.
         It takes three refs - toggleEleRef, switcherEleRef, and exceptElementRef to control the toggle behavior.
-        The hook no longer uses isStrictMode.
       `,
     ],
     inputs: [
@@ -255,8 +250,6 @@ const isParentOfElement = (element, requiredEle) => {
         to write the provided text to the clipboard and keeps track of the last copied text.`,
     ],
     inputs: [],
-    outputsText:
-      "The useCopyText hook returns an array with the following elements:",
     outputs: [
       [
         `copiedText (String):
@@ -348,8 +341,6 @@ export default useEventListener;`,
           The key in the objects to be used for filtering.`,
       ],
     ],
-    outputsText:
-      "The useFilteredObjects hook returns an array with the filtered objects.",
     outputs: [
       [
         `filteredArr (Array):
@@ -390,8 +381,6 @@ export default useFilteredObjects;`,
         The useGetParams hook extracts query parameters from the current URL.`,
     ],
     inputs: [],
-    outputsText:
-      "The useGetParams hook returns an object with all extracted query parameters.",
     outputs: [
       [
         `allParams (Object):
@@ -425,7 +414,8 @@ export default useGetParams;`,
     page: 2,
     explanation: [
       `
-        The useGetResizeWindow hook tracks the window resize event and returns an object containing the current width and height of the viewport's browser window in pixels.
+        The useGetResizeWindow hook tracks the window resize event and returns an object containing 
+        the current width and height of the viewport's browser window in pixels.
       `,
     ],
     inputs: [],
@@ -477,7 +467,9 @@ export default useGetResizeWindow;`,
     page: 2,
     explanation: [
       `
-        The useKeyPress hook tracks keypress events and provides the key code and event object.
+      The useKeyPress hook is a custom React hook designed to facilitate the tracking of keypress events 
+      within a React application. This hook encapsulates the logic necessary to monitor keypress events and 
+      provides convenient access to both the key code and the associated event object.
       `,
     ],
     inputs: [],
@@ -528,7 +520,8 @@ export default useKeyPress;`,
     explanation: [
       `
         The useLocalStorage hook provides a way to store and retrieve data in the browser's local storage.
-        It takes a key name and initial data as inputs and returns the stored data along with a function to update it in the local storage.
+        It takes a key name and initial data as inputs and returns the stored data along with a function 
+        to update it in the local storage.
       `,
     ],
     inputs: [
@@ -586,8 +579,6 @@ export default useLocalStorage;`,
         The useOnlineStatus hook detects the online/offline status of the user's device.`,
     ],
     inputs: [],
-    outputsText:
-      "The useOnlineStatus hook returns a boolean indicating the online status.",
     outputs: [
       [
         `isOnline (Boolean):
@@ -643,8 +634,6 @@ export default useOnlineStatus;`,
         " - threshold (Number or Array of Numbers): A single number or an array of numbers between 0 and 1 indicating at what percentage of the target's visibility the observer's callback should be executed.",
       ],
     ],
-    outputsText:
-      "The useOnScreen hook returns a boolean indicating whether the element is visible.",
     outputs: [
       [
         "isVisible (Boolean): True if the observed element is visible, false otherwise.",
@@ -691,8 +680,6 @@ export default useOnScreen;`,
         "marginBottom (Number): Optional margin from the bottom of the page to consider when determining if scrolled to the bottom. Default is 1.",
       ],
     ],
-    outputsText:
-      "The usePageBottom hook returns a boolean indicating whether the page is scrolled to the bottom.",
     outputs: [
       [
         "isScrolledToBottom (Boolean): True if the page is scrolled to the bottom, false otherwise.",
@@ -743,7 +730,6 @@ export default usePageBottom;`,
           The current state that needs to be tracked.`,
       ],
     ],
-    outputsText: "The usePreviousState hook returns the previous state.",
     outputs: [
       [
         `oldState (Any):
@@ -782,8 +768,6 @@ export default usePreviousState;
           The initial value of the text input field. Default is an empty string.`,
       ],
     ],
-    outputsText:
-      "The useTextInput hook returns an array with the current value, input attributes, and a function to set the value.",
     outputs: [
       [
         `value (String):
@@ -822,7 +806,9 @@ export default useTextInput;`,
     page: 4,
     explanation: [
       `
-        The useRandomNumber hook generates a random number within a specified range.`,
+      The useRandomNumber hook is a custom React hook designed to generate and manage random numbers 
+      within a specified range. It encapsulates the logic for generating random numbers and provides functionality to change the generated number within the specified range.
+      `,
     ],
     inputs: [
       [
@@ -834,8 +820,6 @@ export default useTextInput;`,
           The maximum value of the random number range.`,
       ],
     ],
-    outputsText:
-      "The useRandomNumber hook returns an array containing the current random number and a function to change the random number within the specified range.",
     outputs: [
       [
         `randomNumber (Number):
