@@ -26,6 +26,7 @@
   top: 0;
   width: 100vw;
   height: 100vh;
+  overflow-y: auto;
   z-index: 101;
 }
 
@@ -38,6 +39,12 @@
   .code>header {
     margin-bottom: 10px;
   }
+}
+
+.code.fullscreen>header {
+  position: sticky;
+  top: 0;
+  background-color: #07090c;
 }
 
 .fileName {
@@ -167,6 +174,7 @@
   margin-top: 0 !important;
   border-radius: 10px;
   width: calc(100% - 20px) !important;
+  overflow: visible !important;
 }
 
 @include small {
@@ -177,6 +185,11 @@
 
 .code.fullscreen .preElement {
   height: 100vh !important;
+}
+
+.preElement>code::selection,
+  .preElement>code>span::selection {
+  background-color: #0e2238 !important;
 }
 
 .preElement::-webkit-scrollbar {

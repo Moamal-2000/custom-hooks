@@ -7,7 +7,7 @@
 }
 
 ::selection {
-  background-color: #0e2238 !important;
+  background-color: rgba(69, 69, 69, 0.54);
 }
 
 html {
@@ -132,13 +132,9 @@ p {
   padding: 10px;
   margin: 2px;
   transition: top .2s;
-}
 
-.skip-content:focus {
-  left: 50%;
-  top: 0;
-}
-
-.hljs-comment {
-  color: #97a1ab;
+  &:focus {
+    left: 50%;
+    top: 0;
+  }
 }
