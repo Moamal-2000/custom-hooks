@@ -378,32 +378,45 @@ export default useFilteredObjects;`,
     page: 2,
     explanation: [
       `
-        The useGetParams hook extracts query parameters from the current URL.`,
+        The useGetParams hook extracts and manages query parameters from the current URL, updating them whenever the URL changes.`,
     ],
     inputs: [],
     outputs: [
       [
-        `allParams (Object):
+        `params (Object):
           An object containing all the extracted query parameters.`,
       ],
     ],
     liveCode: "",
     id: 7,
-    code: `const useGetParams = () => {
-  const url = location?.href;
-  const paramsStr = url?.split("?")[1];
-  const params = paramsStr?.split("&");
-  let allParams = {};
+    code: `import { useEffect, useState } from "react";
 
-  params?.forEach((param) => {
-    const splitParam = param?.split("=");
-    const paramKey = splitParam[0];
-    const paramValue = splitParam[1];
+const useGetParams = () => {
+  const [params, setParams] = useState({});
 
-    allParams = { ...allParams, [paramKey]: paramValue };
-  });
+  useEffect(() => {
+    const updateParams = () => {
+      const url = window.location.href;
+      const paramsStr = url.split("?")[1];
+      const paramsArray = paramsStr ? paramsStr.split("&") : [];
+      let allParams = {};
 
-  return allParams;
+      paramsArray.forEach((param) => {
+        const [paramKey, paramValue] = param.split("=");
+        allParams = { ...allParams, [paramKey]: paramValue };
+      });
+
+      setParams(allParams);
+    };
+
+    updateParams();
+
+    window.addEventListener("popstate", updateParams);
+
+    return () => window.removeEventListener("popstate", updateParams);
+  }, []);
+
+  return params;
 };
 
 export default useGetParams;`,
