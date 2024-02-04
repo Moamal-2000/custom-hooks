@@ -398,7 +398,7 @@ export default useFilteredObjects;`,
           An object containing all the extracted query parameters.`,
       ],
     ],
-    liveCode: "#",
+    liveCode: "",
     id: 7,
     code: `const useGetParams = () => {
   const url = location?.href;
