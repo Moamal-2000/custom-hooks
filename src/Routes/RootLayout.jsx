@@ -9,6 +9,7 @@ import HooksNavigator from "../Components/Shared/MiniComponents/HooksNavigator";
 import { useGlobalContext } from "../Context/GlobalContext";
 import SideBar from "../Components/Sidebar/SideBar";
 import SkipContentLink from "../Components/Shared/MiniComponents/SkipContentLink";
+import DarkMode from "../Components/Shared/Features/DarkMode";
 
 const RootLayout = () => {
   const { isFocusModeActiveLocal } = useGlobalContext();
@@ -33,6 +34,7 @@ const RootLayout = () => {
 
       <MusicTime />
       <FocusMode />
+      <DarkMode />
       <GlobalOverlay />
     </>
   );

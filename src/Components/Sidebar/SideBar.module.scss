@@ -15,7 +15,7 @@
 
 .sidebarWrapper.active {
   left: 0;
-  background-color: #151c27;
+  background-color: var(--dark-blue);
 }
 
 .sidebarWrapper:not(.hide).extend {
@@ -43,14 +43,14 @@
   }
 
   &:focus-visible {
-    outline: solid 2px orange;
+    outline: solid 2px var(--orange);
     border-radius: 6px;
   }
 }
 
 .sidebarButton>i {
   font-size: 1.4rem;
-  color: var(--text);
+  color: var(--white);
 }
 
 .sidebar {
@@ -75,7 +75,7 @@
   left: 6px;
   transform: translateX(240px);
   font-size: 1.4rem;
-  color: var(--text);
+  color: var(--white);
   padding: 4px 8px;
   cursor: pointer;
   z-index: 2;
@@ -87,7 +87,7 @@
   }
 
   &:focus-visible {
-    outline: solid 2px orange;
+    outline: solid 2px var(--orange);
     border-radius: 4px;
   }
 }
@@ -98,16 +98,16 @@
 }
 
 .sidebar::-webkit-scrollbar {
-  background-color: rgba(0, 0, 0, .186);
+  background-color: var(--black-opacity18);
   width: 8px;
 }
 
 .sidebar::-webkit-scrollbar-thumb {
-  background-color: rgba(186, 186, 186, .237);
+  background-color: var(--gray-opacity23);
   border-radius: 10px;
 
   &:hover {
-    background-color: rgba(186, 186, 186, .5);
+    background-color: var(--gray-opacity5);
   }
 }
 
@@ -115,7 +115,7 @@
   position: absolute;
   height: 100%;
   width: 8px;
-  background-color: #363a45;
+  background-color: var(--light-dark-blue);
   left: 290px;
   top: 0;
   transition: background-color .2s;
@@ -134,7 +134,7 @@
   padding: 5px 6px;
   background-color: transparent;
   background-color: #575c71;
-  color: var(--text);
+  color: var(--white);
   border-radius: 0 4px 4px 0;
   cursor: pointer;
   z-index: -1;
@@ -147,7 +147,7 @@
   }
 
   &:focus-visible {
-    outline: solid 2px #fff;
+    outline: solid 2px var(--white);
   }
 }
 

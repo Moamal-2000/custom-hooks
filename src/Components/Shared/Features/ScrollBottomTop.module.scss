@@ -3,7 +3,7 @@
   right: 15px;
   bottom: 40px;
   background-color: transparent;
-  border: solid 2px var(--text);
+  border: solid 2px var(--white);
   border-radius: 4px;
   opacity: .7;
   transition: opacity .2s, border-color .2s;
@@ -13,13 +13,13 @@
   }
 
   &:focus-visible {
-    border-color: #2483ff;
+    border-color: var(--cyan-blue);
   }
 }
 
 .scrollToTopButton>i {
   font-size: 1.1rem;
-  color: var(--text);
+  color: var(--white);
   padding: 6px;
   cursor: pointer;
   transition: opacity .2s;
@@ -27,5 +27,5 @@
 }
 
 .scrollToTopButton:focus-visible>i {
-  color: #2483ff;
+  color: var(--cyan-blue);
 }

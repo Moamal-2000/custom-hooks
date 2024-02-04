@@ -11,27 +11,27 @@
   position: relative;
   font-size: inherit;
   font-family: inherit;
-  color: #fff;
+  color: var(--white);
   padding: .5em 1em;
   outline: none;
   border: none;
-  background-color: #2d3058;
+  background-color: var(--very-dark-purple);
   overflow: hidden;
   cursor: pointer;
 }
 
 .wrapper>button:not(:disabled):focus-visible {
-  outline: solid 2px #fff;
+  outline: solid 2px var(--white);
 }
 
 .wrapper>button:disabled {
-  background-color: #292a2e;
+  background-color: var(--dark-gray);
 }
 
 .wrapper>button::after {
   content: '';
   z-index: -1;
-  background-color: rgba(255, 255, 255, .2);
+  background-color: var(--gray-opacity2);
   position: absolute;
   top: -200px;
   bottom: -100%;

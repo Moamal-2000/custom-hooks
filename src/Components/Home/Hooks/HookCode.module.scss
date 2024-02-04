@@ -115,7 +115,7 @@
 
   &:focus-visible {
     background-color: #222222;
-    outline: solid 2px #57bd84;
+    outline: solid 2px var(--light-green);
   }
 
   &:active {
@@ -135,11 +135,11 @@
 
 .buttons>button>i {
   font-size: .8rem;
-  color: var(--text);
+  color: var(--white);
 }
 
 .buttons>button:focus-visible>i {
-  color: #57bd84;
+  color: var(--light-green);
 }
 
 .codeArea {
@@ -188,21 +188,21 @@
 }
 
 .preElement>code::selection,
-  .preElement>code>span::selection {
+.preElement>code>span::selection {
   background-color: #0e2238 !important;
 }
 
 .preElement::-webkit-scrollbar {
-  background-color: rgba(0, 0, 0, .186);
+  background-color: var(--black-opacity18);
   height: 8px;
 }
 
 .preElement::-webkit-scrollbar-thumb {
-  background-color: rgba(186, 186, 186, .237);
+  background-color: var(--gray-opacity23);
   border-radius: 10px;
 
   &:hover {
-    background-color: rgba(186, 186, 186, .5);
+    background-color: var(--gray-opacity5);
   }
 }
 

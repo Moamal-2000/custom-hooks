@@ -1,7 +1,6 @@
-
 .downloadAllButton {
   display: flex;
-  background-color: #275efe;
+  background-color: var(--cyan-blue2);
   border-radius: 5px;
   margin: 20px 0 20px;
   cursor: pointer;
@@ -13,11 +12,11 @@
 }
 
 .downloadAllButton:hover {
-  background-color: #1b54fe;
+  background-color: var(--cyan-blue-hover);
 }
 
 .downloadAllButton:focus {
-  outline: solid 2px #fff;
+  outline: solid 2px var(--white);
 }
 
 .downloadAllButton>span {
@@ -30,8 +29,8 @@
 }
 
 .downloadAllButton>i {
-  background-color: #184fee;
-  color: #fff;
+  background-color: var(--dark-cyan);
+  color: #fff;;
   padding: 16px 18px;
   font-size: 1rem;
   border-radius: 0 5px 5px 0;
@@ -39,5 +38,5 @@
 }
 
 .downloadAllButton:hover>i {
-  background-color: #0e44e8;
+  background-color: var(--dark-cyan-hover);
 }

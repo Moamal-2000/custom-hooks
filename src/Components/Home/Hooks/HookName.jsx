@@ -11,7 +11,6 @@ const HookName = ({ hookData: { name, id } }) => {
   useEffect(() => {
     let timerId;
     clearTimeout(timerId);
-
     timerId = setTimeout(() => isVisible && setScrolledHook(name), 400);
 
     return () => clearTimeout(timerId);

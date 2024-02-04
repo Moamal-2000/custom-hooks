@@ -6,18 +6,19 @@
 }
 
 .introduction>h1 {
-  font-size: 3rem;
+  font-size: 3.4rem;
+  text-wrap: balance;
 }
 
-@media (max-width: 1000px) {
+@include large {
   .introduction>h1 {
-    font-size: 2.3rem;
+    font-size: 2.8rem;
   }
 }
 
 @include medium {
   .introduction>h1 {
-    font-size: 2.3rem;
+    font-size: 2.5rem;
   }
 }
 

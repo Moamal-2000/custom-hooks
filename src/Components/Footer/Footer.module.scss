@@ -6,7 +6,7 @@
 
 .footer>p {
   width: fit-content;
-  color: var(--text);
+  color: var(--white);
   padding: 10px 0;
 
   & span {
@@ -21,7 +21,7 @@
 }
 
 .footer>p>a {
-  color: var(--text);
+  color: var(--white);
   padding: 4px;
   transition: opacity .2s, color .2s;
   opacity: .7;
@@ -31,7 +31,7 @@
   }
 
   &:focus {
-    color: #0088ff;
+    color: var(--very-cyan-blue);
     outline: none;
   }
 }

@@ -1,7 +1,7 @@
 .SearchForm {
   position: relative;
   width: 202px;
-  background-color: #fff;
+  background-color: var(--white);
   border-radius: 6px;
   z-index: 2;
 }
@@ -11,31 +11,31 @@
   height: 40px;
   font-family: 'Lato', sans-serif;
   border: none;
-  color: #fff;
+  color: var(--white);
   font-size: 1rem;
 }
 
 .SearchForm input {
   width: 100%;
-  background-color: #2f2f2f;
-  border: solid 2px #2f2f2f;
-  color: #fff;
+  background-color: var(--black2);
+  border: solid 2px #2b2b2b;
+  color: var(--white);
   font-size: .9rem;
   padding: 0 10px;
   border-radius: 6px;
   appearance: none;
-  transition: all .3s cubic-bezier(0, 0, 0.43, 1.49);
+  transition: all .3s cubic-bezier(0, 0, .43, 1.49);
   transition-property: width, border-radius;
   z-index: 1;
   position: relative;
 
   &:focus {
     outline: none;
-    border-color: #fff;
+    border-color: var(--white);
   }
 
   &::placeholder {
-    color: #fff;
+    color: var(--white);
   }
 }
 
@@ -56,12 +56,13 @@
   font-weight: bold;
   font-size: 1rem;
   width: 50px;
-  color: #2f2f2f;
+  color: var(--black2);
+  background-color: var(--very-light-gray);
   border-radius: 0 6px 6px 0;
   cursor: pointer;
 
   &:focus {
     outline: none;
-    border: solid 2px #57bd84;
+    border: solid 2px var(--light-green);
   }
 }
