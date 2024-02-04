@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import audioPath from "../../../Assets/Sounds/deep-show.mp3";
 import { useGlobalContext } from "../../../Context/GlobalContext";
 import styles from "./MusicTime.module.scss";
+import useFunctionOnKey from "../../../Hooks/useFunctionOnKey";
 
 const MusicTime = () => {
   const [isMusicOn, setIsMusicOn] = useState(false);
@@ -28,6 +29,8 @@ const MusicTime = () => {
     };
   }, []);
 
+  useFunctionOnKey(toggleMusic, "KeyM", true, true);
+
   return (
     !isFocusModeActiveLocal && (
       <button
@@ -35,7 +38,7 @@ const MusicTime = () => {
         className={styles.musicButton}
         title="music icon"
         onClick={toggleMusic}
-      tabIndex="4"
+        tabIndex="4"
       >
         <i
           className={`fa-solid fa-${
