@@ -1,3 +1,5 @@
+const htmlElement = document.documentElement;
+
 export function handleFlipScrollIcon(buttonIconRef) {
   if (!buttonIconRef.current) return;
 
@@ -9,9 +11,7 @@ export function handleFlipScrollIcon(buttonIconRef) {
 }
 
 export function scrollCalculations() {
-  const documentHeight = Number.parseInt(
-    document.documentElement.offsetHeight.toFixed(0)
-  );
+  const documentHeight = Number.parseInt(htmlElement.offsetHeight.toFixed(0));
   const halfDocumentHeight = documentHeight / 2;
   const scrollY = Number.parseInt(window.scrollY.toFixed(0));
   const isUserScrolledToTop = halfDocumentHeight > scrollY;
@@ -21,11 +21,23 @@ export function scrollCalculations() {
 }
 
 export function enterFullScreen() {
-  const htmlElement = document.documentElement;
-
   if (htmlElement.requestFullscreen) htmlElement.requestFullscreen();
   else if (htmlElement.mozRequestFullScreen) htmlElement.mozRequestFullScreen();
   else if (htmlElement.webkitRequestFullscreen)
     htmlElement.webkitRequestFullscreen();
   else if (htmlElement.msRequestFullscreen) htmlElement.msRequestFullscreen();
+}
+
+export function toggleDarkModeColors(isDarkMode) {
+  if (isDarkMode) {
+    htmlElement.style.setProperty("--extra-dark-blue", "#eee");
+    htmlElement.style.setProperty("--white", "#070b10");
+    htmlElement.style.setProperty("--black2", "#fff");
+    htmlElement.style.setProperty("--very-light-gray", "#2b2b2b");
+  } else {
+    htmlElement.style.setProperty("--extra-dark-blue", "#0a1119");
+    htmlElement.style.setProperty("--white", "#fff");
+    htmlElement.style.setProperty("--black2", "#2b2b2b");
+    htmlElement.style.setProperty("--very-light-gray", "#f0f0f0");
+  }
 }
