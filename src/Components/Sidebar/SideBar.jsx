@@ -67,6 +67,8 @@ const SideBar = () => {
         isSideBarExtendedLocal ? styles.active : ""
       }`}
       onClick={toggleExtendSideBar}
+      title="Extend Sidebar"
+      tabIndex="6"
     >
       <i
         className={`fa-solid fa-angles-${

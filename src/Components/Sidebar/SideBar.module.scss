@@ -152,7 +152,8 @@
 }
 
 .sidebarWrapper:hover .closeSideBarButton,
-.sidebarWrapper .closeSideBarButton.active {
+.sidebarWrapper .closeSideBarButton.active,
+.sidebarWrapper:has(:focus-visible) .closeSideBarButton {
   opacity: 1;
 }
 

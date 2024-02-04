@@ -35,6 +35,7 @@ const MusicTime = () => {
         className={styles.musicButton}
         title="music icon"
         onClick={toggleMusic}
+      tabIndex="4"
       >
         <i
           className={`fa-solid fa-${

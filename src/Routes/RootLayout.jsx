@@ -8,12 +8,14 @@ import GlobalOverlay from "../Components/Shared/GlobalOverlay";
 import HooksNavigator from "../Components/Shared/MiniComponents/HooksNavigator";
 import { useGlobalContext } from "../Context/GlobalContext";
 import SideBar from "../Components/Sidebar/SideBar";
+import SkipContentLink from "../Components/Shared/MiniComponents/SkipContentLink";
 
 const RootLayout = () => {
   const { isFocusModeActiveLocal } = useGlobalContext();
 
   return (
     <>
+      <SkipContentLink scrollTo="main-content" />
       <SideBar />
       <Outlet />
       <HooksNavigator />
