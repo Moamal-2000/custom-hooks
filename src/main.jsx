@@ -6,9 +6,7 @@ import "./GlobalStyles/colors.scss";
 import "./GlobalStyles/index.scss";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <StrictMode>
     <GlobalContextProvider>
       <App />
     </GlobalContextProvider>
-  </StrictMode>
 );

@@ -34,10 +34,11 @@ export function toggleDarkModeColors(isDarkMode) {
     htmlElement.style.setProperty("--white", "#070b10");
     htmlElement.style.setProperty("--black2", "#fff");
     htmlElement.style.setProperty("--very-light-gray", "#2b2b2b");
-  } else {
-    htmlElement.style.setProperty("--extra-dark-blue", "#0a1119");
-    htmlElement.style.setProperty("--white", "#fff");
-    htmlElement.style.setProperty("--black2", "#2b2b2b");
-    htmlElement.style.setProperty("--very-light-gray", "#f0f0f0");
+    return;
   }
+
+  htmlElement.style.setProperty("--extra-dark-blue", "#0a1119");
+  htmlElement.style.setProperty("--white", "#fff");
+  htmlElement.style.setProperty("--black2", "#2b2b2b");
+  htmlElement.style.setProperty("--very-light-gray", "#f0f0f0");
 }

@@ -49,9 +49,14 @@ const SuggestionsMenu = ({ suggestionsData }) => {
         isSuggestionMenuActive ? styles.active : ""
       }`}
     >
-      {searchItems?.map((item) => (
-        <SearchItem item={item} onClick={() => handleSuggestionItem(item)} />
-      ))}
+      {searchItems.length > 0 &&
+        searchItems?.map((item) => (
+          <SearchItem
+            item={item}
+            key={`search-${item.id}`}
+            onClick={() => handleSuggestionItem(item)}
+          />
+        ))}
     </ul>
   );
 };
@@ -59,7 +64,7 @@ const SuggestionsMenu = ({ suggestionsData }) => {
 export default SuggestionsMenu;
 
 const SearchItem = ({ item, onClick }) => (
-  <li key={`search-${item.id}`} className={styles.searchItem} onClick={onClick}>
+  <li className={styles.searchItem} onClick={onClick}>
     <span>{item.name}</span>
     <i className="fa-solid fa-magnifying-glass"></i>
   </li>

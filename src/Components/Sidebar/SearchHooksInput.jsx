@@ -39,6 +39,7 @@ const SearchHooksInput = () => {
     if (filteredResults.length > 1) {
       setSuggestionsActive(true);
       setSearchItems(filteredResults);
+      return
     }
 
     setIsOverlayActive(false);
