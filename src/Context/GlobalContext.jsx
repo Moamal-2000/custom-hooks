@@ -14,6 +14,7 @@ const GlobalContextProvider = ({ children }) => {
   const numbersOfPages = [
     ...new Set(hooksData.map((hookData) => hookData.page)),
   ];
+  const [isNotFoundPageShown, setIsNotFoundPageShown] = useState(false);
 
   const data = {
     scrolledHook,
@@ -28,6 +29,8 @@ const GlobalContextProvider = ({ children }) => {
     isFocusModeActiveLocal,
     setIsFocusModeActive,
     numbersOfPages,
+    isNotFoundPageShown,
+    setIsNotFoundPageShown,
   };
 
   return (

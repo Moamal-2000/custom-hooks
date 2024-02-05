@@ -11,7 +11,7 @@ const SuggestionsMenu = ({ suggestionsData }) => {
   } = suggestionsData;
   const suggestionMenuRef = useRef();
 
-  function handleSuggestionItem(item) {
+  function suggestionItemOnClick(item) {
     navigateToItem(item);
     clearSearchItems();
     setSuggestionsActive(false);
@@ -54,7 +54,7 @@ const SuggestionsMenu = ({ suggestionsData }) => {
           <SearchItem
             item={item}
             key={`search-${item.id}`}
-            onClick={() => handleSuggestionItem(item)}
+            onClick={() => suggestionItemOnClick(item)}
           />
         ))}
     </ul>

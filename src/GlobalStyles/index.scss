@@ -56,6 +56,10 @@ p {
   line-height: 1.4;
 }
 
+main {
+  min-height: 100vh;
+}
+
 @include medium {
   p {
     font-size: 1rem;

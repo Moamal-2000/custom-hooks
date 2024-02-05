@@ -6,21 +6,17 @@ import {
 } from "react-router-dom";
 import Home from "../Components/Home/Home";
 import HookPage from "../Components/Home/Hooks/HookPage";
-import { useGlobalContext } from "../Context/GlobalContext";
+import NotFoundPage from "../Components/Shared/NotFoundPage";
 import RootLayout from "./RootLayout";
 
 const AppRoutes = () => {
-  const { numbersOfPages } = useGlobalContext();
-  const hooksPagesRoutes = numbersOfPages.map((pageNumber) => (
-    <Route key={pageNumber} path="/:id" element={<HookPage />} />
-  ));
-
   const routes = createRoutesFromChildren(
-    <Route path="/" element={<RootLayout />}>
-      <Route path="/" element={<Home />}>
-        {hooksPagesRoutes}
+    <Route exact path="/" element={<RootLayout />}>
+      <Route exact path="/" element={<Home />}>
         <Route path="/" element={<HookPage />} />
       </Route>
+
+      <Route path="*" element={<NotFoundPage />} />
     </Route>
   );
 
