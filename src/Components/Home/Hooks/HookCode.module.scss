@@ -175,7 +175,7 @@
   margin-top: 0 !important;
   border-radius: 10px;
   width: calc(100% - 20px) !important;
-  overflow: visible !important;
+  overflow: visible auto !important;
 }
 
 @include small {
@@ -196,6 +196,7 @@
 .preElement::-webkit-scrollbar {
   background-color: var(--black-opacity18);
   height: 8px;
+  width: 8px;
 }
 
 .preElement::-webkit-scrollbar-thumb {
