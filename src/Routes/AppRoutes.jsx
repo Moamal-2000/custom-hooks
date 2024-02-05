@@ -11,8 +11,8 @@ import RootLayout from "./RootLayout";
 
 const AppRoutes = () => {
   const routes = createRoutesFromChildren(
-    <Route exact path="/" element={<RootLayout />}>
-      <Route exact path="/" element={<Home />}>
+    <Route path="/" element={<RootLayout />}>
+      <Route path="/" element={<Home />}>
         <Route path="/" element={<HookPage />} />
       </Route>
 
