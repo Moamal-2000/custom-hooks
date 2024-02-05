@@ -70,7 +70,7 @@
 
 .closeNavButton {
   background-color: transparent;
-  position: fixed;
+  position: absolute;
   top: 26px;
   left: 6px;
   transform: translateX(240px);
@@ -127,20 +127,21 @@
   }
 }
 
-.closeSideBarButton {
+.extendSideBarButton {
   position: absolute;
   left: 298px;
   top: 50px;
+  min-width: 20px;
+  min-height: 20px;
   padding: 5px 6px;
   background-color: transparent;
   background-color: #575c71;
   color: var(--white);
   border-radius: 0 4px 4px 0;
   cursor: pointer;
-  z-index: -1;
+  z-index: 103;
   transition: opacity .2s .1s, background-color .2s;
   opacity: 0;
-  z-index: 103;
 
   &:hover {
     background-color: #70768f;
@@ -151,12 +152,12 @@
   }
 }
 
-.sidebarWrapper:hover .closeSideBarButton,
-.sidebarWrapper .closeSideBarButton.active,
-.sidebarWrapper:has(:focus-visible) .closeSideBarButton {
+.sidebarWrapper:hover .extendSideBarButton,
+.sidebarWrapper .extendSideBarButton.active,
+.sidebarWrapper:has(:focus-visible) .extendSideBarButton {
   opacity: 1;
 }
 
-.sidebarWrapper.extend .closeSideBarButton {
+.sidebarWrapper.extend .extendSideBarButton {
   left: 290px;
 }

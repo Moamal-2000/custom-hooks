@@ -24,7 +24,12 @@ const SideBar = () => {
   const activeClass = isSideBarActive ? styles.active : "";
   const extendClass = isSideBarExtendedLocal ? styles.extend : "";
   const focusModeClass = isFocusModeActiveLocal ? styles.focusMode : "";
+  const asideClasses = `${hideClass} ${activeClass} ${extendClass} ${focusModeClass}`;
 
+  useFunctionOnKey(toggleSideBar, "KeyM", true);
+  useFunctionOnKey(toggleExtendSideBar, "KeyE", true);
+
+  // Functions
   function handleOpenSideBarButton() {
     setIsSideBarActive(true);
     setIsOverlayActive(true);
@@ -44,6 +49,7 @@ const SideBar = () => {
     setIsSideBarExtended(!isSideBarExtendedLocal);
   }
 
+  // UseEffects
   useEffect(() => {
     if (windowWidth > requiredScreenWidth) {
       setIsSideBarActive(false);
@@ -52,33 +58,29 @@ const SideBar = () => {
   }, [windowWidth]);
 
   useEffect(() => {
-    document.body.classList[isSideBarExtendedLocal ? "add" : "remove"](
-      "sidebarExtend"
-    );
+    const method = isSideBarExtendedLocal ? "add" : "remove";
+    document.body.classList[method]("sidebarExtend");
   }, [isSideBarExtendedLocal]);
 
-  useFunctionOnKey(toggleSideBar, "KeyM", true);
-  useFunctionOnKey(toggleExtendSideBar, "KeyE", true);
+  // Components
+  const ExtendSideBarButton = () => {
+    const activeClass = isSideBarExtendedLocal ? styles.active : "";
+    const arrowDirection = isSideBarExtendedLocal ? "right" : "left";
 
-  const extendSideBarButton = (
-    <button
-      type="button"
-      className={`${styles.closeSideBarButton} ${
-        isSideBarExtendedLocal ? styles.active : ""
-      }`}
-      onClick={toggleExtendSideBar}
-      title="Extend Sidebar"
-      tabIndex="6"
-    >
-      <i
-        className={`fa-solid fa-angles-${
-          isSideBarExtendedLocal ? "right" : "left"
-        }`}
-      ></i>
-    </button>
-  );
+    return (
+      <button
+        type="button"
+        className={`${styles.extendSideBarButton} ${activeClass}`}
+        onClick={toggleExtendSideBar}
+        title="Extend Sidebar"
+        tabIndex="6"
+      >
+        <i className={`fa-solid fa-angles-${arrowDirection}`}></i>
+      </button>
+    );
+  };
 
-  const closeSideBarButton = (
+  const CloseSideBarButton = () => (
     <button
       type="button"
       className={`${styles.closeNavButton} ${activeClass}`}
@@ -89,7 +91,7 @@ const SideBar = () => {
     </button>
   );
 
-  const sidebarButton = (
+  const SidebarButton = () => (
     <button
       type="button"
       className={styles.sidebarButton}
@@ -102,19 +104,17 @@ const SideBar = () => {
 
   return (
     <>
-      {isSmallThanScreen && !isFocusModeActiveLocal && sidebarButton}
+      {isSmallThanScreen && !isFocusModeActiveLocal && <SidebarButton />}
 
-      <aside
-        className={`${styles.sidebarWrapper} ${hideClass} ${activeClass} ${extendClass} ${focusModeClass}`}
-      >
+      <aside className={`${styles.sidebarWrapper} ${asideClasses}`}>
         <div className={`${styles.sidebar}`} ref={sidebarRef}>
-          {isSmallThanScreen && closeSideBarButton}
+          {isSmallThanScreen && <CloseSideBarButton />}
           <SearchHooksInput />
           <DownloadHooksButton />
           <ActiveHooksMenu />
         </div>
 
-        {!isSmallThanScreen && extendSideBarButton}
+        {!isSmallThanScreen && <ExtendSideBarButton />}
 
         {isSideBarExtendedLocal && (
           <div className={styles.dragLine} onClick={toggleExtendSideBar}></div>

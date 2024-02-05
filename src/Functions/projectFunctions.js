@@ -2,20 +2,18 @@ const htmlElement = document.documentElement;
 
 export function handleFlipScrollIcon(buttonIconRef) {
   if (!buttonIconRef.current) return;
-
   const { isUserScrolledToTop } = scrollCalculations();
+  const turnValue = isUserScrolledToTop ? ".5" : "5.0"
 
-  buttonIconRef.current.style.transform = `rotate(${
-    isUserScrolledToTop ? ".5" : "5.0"
-  }turn)`;
+  buttonIconRef.current.style.transform = `rotate(${turnValue}turn)`;
 }
 
 export function scrollCalculations() {
-  const documentHeight = Number.parseInt(htmlElement.offsetHeight.toFixed(0));
-  const halfDocumentHeight = documentHeight / 2;
-  const scrollY = Number.parseInt(window.scrollY.toFixed(0));
-  const isUserScrolledToTop = halfDocumentHeight > scrollY;
-  const scrollToY = isUserScrolledToTop ? documentHeight : 0;
+  const documentHeight = Number.parseInt(htmlElement.offsetHeight.toFixed(0)),
+    halfDocumentHeight = documentHeight / 2,
+    scrollY = Number.parseInt(window.scrollY.toFixed(0)),
+    isUserScrolledToTop = halfDocumentHeight > scrollY,
+    scrollToY = isUserScrolledToTop ? documentHeight : 0;
 
   return { scrollToY, isUserScrolledToTop };
 }
@@ -23,8 +21,7 @@ export function scrollCalculations() {
 export function enterFullScreen() {
   if (htmlElement.requestFullscreen) htmlElement.requestFullscreen();
   else if (htmlElement.mozRequestFullScreen) htmlElement.mozRequestFullScreen();
-  else if (htmlElement.webkitRequestFullscreen)
-    htmlElement.webkitRequestFullscreen();
+  else if (htmlElement.webkitRequestFullscreen) htmlElement.webkitRequestFullscreen();
   else if (htmlElement.msRequestFullscreen) htmlElement.msRequestFullscreen();
 }
 

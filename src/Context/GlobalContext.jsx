@@ -6,15 +6,13 @@ const GlobalContextProvider = ({ children }) => {
   const [scrolledHook, setScrolledHook] = useState(hooksData[0].name);
   const [isSideBarActive, setIsSideBarActive] = useState(false);
   const [isOverlayActive, setIsOverlayActive] = useState(false);
-  const [isSideBarExtendedLocal, setIsSideBarExtended] =
-    useLocalStorage("sidebar-extend");
-  const [isFocusModeActiveLocal, setIsFocusModeActive] =
-    useLocalStorage("focus-mode");
+  const [isNotFoundPageShown, setIsNotFoundPageShown] = useState(false);
+  const [isSideBarExtendedLocal, setIsSideBarExtended] = useLocalStorage("sidebar-extend");
+  const [isFocusModeActiveLocal, setIsFocusModeActive] = useLocalStorage("focus-mode");
   const numberOfHooks = hooksData.length;
   const numbersOfPages = [
     ...new Set(hooksData.map((hookData) => hookData.page)),
   ];
-  const [isNotFoundPageShown, setIsNotFoundPageShown] = useState(false);
 
   const data = {
     scrolledHook,

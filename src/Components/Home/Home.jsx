@@ -12,16 +12,14 @@ const Home = () => {
   }, []);
 
   return (
-    <div className={styles.home}>
-      <div className="container">
-        <main className={styles.content} id="main-content">
-          <Introduction />
+    <div className="container">
+      <main className={styles.content} id="main-content">
+        <Introduction />
 
-          <section className={styles.hooks}>
-            <Outlet />
-          </section>
-        </main>
-      </div>
+        <article className={styles.hooks}>
+          <Outlet />
+        </article>
+      </main>
     </div>
   );
 };

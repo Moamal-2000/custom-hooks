@@ -2,12 +2,12 @@
 
 .footer {
   padding: 20px 0 40px;
+  margin-top: 40px;
 }
 
 .footer>p {
   width: fit-content;
   color: var(--white);
-  padding: 10px 0;
 
   & span {
     opacity: .7;

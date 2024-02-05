@@ -10,30 +10,18 @@ export function download(blob, nameFile) {
   link.download = nameFile;
   link.href = window.URL.createObjectURL(blob);
   link.click();
+  link.remove();
 }
 
 export async function saveInRAR(files) {
   const zip = new JSZip();
-
   files.forEach((file) => zip.file(file.name, file.code));
-
   const blob = await zip.generateAsync({ type: "blob" });
   download(blob, "custom-hooks.rar");
 }
 
-export function getMoreData(entireData, currentDataNumber, neededDataNumber) {
-  const returnedData = [];
-
-  for (let i = currentDataNumber; i < neededDataNumber; i++) {
-    if (entireData?.[i]) returnedData.push(entireData?.[i]);
-  }
-
-  return returnedData;
-}
-
 export const scrollToElement = (scrollToEle, scrollBehavior = "instant") => {
   if (!scrollToEle.current) return;
-
   const scrollEleRect = scrollToEle.current.getBoundingClientRect();
   const scrollEleY = scrollEleRect.y;
 
@@ -47,7 +35,7 @@ export function scrollToBottom() {
   setTimeout(() => {
     window.scrollTo({
       behavior: "instant",
-      top: 10000000,
+      top: 1000000,
     });
   }, 100);
 }
