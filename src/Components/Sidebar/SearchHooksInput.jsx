@@ -9,6 +9,7 @@ import SuggestionsMenu from "./SuggestionsMenu";
 
 const SearchHooksInput = () => {
   const searchInpRef = useRef();
+  const searchInpEle = searchInpRef.current
   const navigateTo = useNavigate();
   const { setIsSideBarActive, setIsOverlayActive } = useGlobalContext();
   const [isSuggestionMenuActive, _, setSuggestionsActive] = useToggle();
@@ -19,11 +20,10 @@ const SearchHooksInput = () => {
   } = useArray([]);
 
   function filterSearchData() {
-    const searchValue = searchInpRef.current?.value?.toLowerCase();
+    const searchValue = searchInpEle.value.toLowerCase();
     const filteredData = hooksData.filter((hookData) =>
       hookData.name.toLowerCase().startsWith(searchValue)
     );
-
     return filteredData;
   }
 
@@ -31,15 +31,28 @@ const SearchHooksInput = () => {
     e.preventDefault();
 
     const filteredResults = filterSearchData();
-    const isNotFound = filteredResults === 0;
-    const isFound = filteredResults.length === 1;
+    const isNotFound = filteredResults.length === 0;
+    const isFoundOneItem = filteredResults.length === 1;
+    const isFoundMoreThanOneItem = filteredResults.length > 1;
+    const isEmptyInput = searchInpEle.value === "";
 
-    if (isNotFound) return;
-    if (isFound) navigateToItem(filteredResults[0]);
-    if (filteredResults.length > 1) {
+    if (isEmptyInput) {
+      setSuggestionsActive(false);
+      clearSearchItems();
+      return;
+    }
+
+    if (isFoundOneItem) navigateToItem(filteredResults[0]);
+
+    if (isFoundMoreThanOneItem) {
       setSuggestionsActive(true);
       setSearchItems(filteredResults);
-      return
+      return;
+    }
+
+    if (isNotFound) {
+      clearSearchItems();
+      return;
     }
 
     setIsOverlayActive(false);
@@ -57,7 +70,7 @@ const SearchHooksInput = () => {
       });
     }, 200);
 
-    searchInpRef.current.value = "";
+    searchInpEle.value = "";
   }
 
   return (

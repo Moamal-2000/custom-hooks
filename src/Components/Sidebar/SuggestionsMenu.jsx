@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import styles from "./SuggestionsMenu.module.scss";
 
 const SuggestionsMenu = ({ suggestionsData }) => {
@@ -9,23 +9,23 @@ const SuggestionsMenu = ({ suggestionsData }) => {
     isSuggestionMenuActive,
     setSuggestionsActive,
   } = suggestionsData;
-  const suggestionMenuRef = useRef();
+  const activeClass = isSuggestionMenuActive ? styles.active : "";
 
-  function suggestionItemOnClick(item) {
+  function handleSuggestionItem(item) {
     navigateToItem(item);
     clearSearchItems();
     setSuggestionsActive(false);
   }
 
   useEffect(() => {
-    function handleSuggestionMenuAppearance(e) {
+    function handleSuggestionsMenuAppearance(e) {
       const isSearchInp = e.target?.id === "search";
       const isSearchButton = e.target.textContent === "Go";
-      const shouldActiveSuggestionMenu =
+      const shouldActiveSuggestionsMenu =
         isSearchInp && !isSuggestionMenuActive && searchItems.length > 0;
 
       if (isSearchInp || isSearchButton) {
-        if (shouldActiveSuggestionMenu) setSuggestionsActive(true);
+        if (shouldActiveSuggestionsMenu) setSuggestionsActive(true);
         return;
       }
 
@@ -33,28 +33,23 @@ const SuggestionsMenu = ({ suggestionsData }) => {
     }
 
     document.addEventListener("click", (e) =>
-      handleSuggestionMenuAppearance(e)
+      handleSuggestionsMenuAppearance(e)
     );
 
     return () =>
       document.removeEventListener("click", (e) =>
-        handleSuggestionMenuAppearance(e)
+        handleSuggestionsMenuAppearance(e)
       );
   }, [isSuggestionMenuActive]);
 
   return (
-    <ul
-      ref={suggestionMenuRef}
-      className={`${styles.suggestionMenu} ${
-        isSuggestionMenuActive ? styles.active : ""
-      }`}
-    >
+    <ul className={`${styles.suggestionMenu} ${activeClass}`}>
       {searchItems.length > 0 &&
         searchItems?.map((item) => (
           <SearchItem
             item={item}
             key={`search-${item.id}`}
-            onClick={() => suggestionItemOnClick(item)}
+            onClick={() => handleSuggestionItem(item)}
           />
         ))}
     </ul>

@@ -47,17 +47,17 @@
   }
 }
 
-.introduction>article:not(:last-child) {
+.introduction>section:not(:last-child) {
   margin-bottom: 70px;
 }
 
-.introduction>article>h2 {
+.introduction>section>h2 {
   margin: 40px 0 14px;
   font-size: 2rem;
 }
 
 @include medium {
-  .introduction>article>h2 {
+  .introduction>section>h2 {
     margin: 40px 0 14px;
     font-size: 1.7rem;
   }

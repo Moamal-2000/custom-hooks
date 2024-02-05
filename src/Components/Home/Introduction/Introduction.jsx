@@ -6,7 +6,7 @@ const Introduction = () => {
   const { numberOfHooks } = useGlobalContext();
 
   return (
-    <section className={styles.introduction}>
+    <article className={styles.introduction}>
       <h1>
         <strong>Exploring {numberOfHooks} Custom Hooks in React</strong>
       </h1>
@@ -15,15 +15,14 @@ const Introduction = () => {
         <img
           fetchpriority="high"
           src={introImage}
-          alt="React custom hooks image."
+          alt="an image showing react logo at the right side and text at the right side. the text is Custom Hook useFetch"
         />
       </div>
 
-      <article>
+      <section>
         <h2>
           <strong>What are Custom Hooks?</strong>
         </h2>
-
         <p>
           <a
             href="https://react.dev/learn/reusing-logic-with-custom-hooks"
@@ -44,19 +43,18 @@ const Introduction = () => {
           that can encapsulate complex behavior and be shared across different
           components.
         </p>
-      </article>
+      </section>
 
-      <article>
+      <section>
         <h2>Navigating the Hooks</h2>
-
         <p>
           Navigating the Hooks Here, we present {numberOfHooks} custom hooks
           designed to enhance your React development experience. Each hook
           addresses specific use cases, providing solutions to common challenges
           in building robust and efficient React applications.
         </p>
-      </article>
-    </section>
+      </section>
+    </article>
   );
 };
 export default Introduction;
