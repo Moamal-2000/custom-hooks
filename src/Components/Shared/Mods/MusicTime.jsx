@@ -1,23 +1,25 @@
 import { useEffect, useRef, useState } from "react";
-import audioPath from "../../../Assets/Sounds/deep-show.mp3";
+import musicPath from "../../../Assets/Sounds/deep-show.mp3";
 import { useGlobalContext } from "../../../Context/GlobalContext";
-import styles from "./MusicTime.module.scss";
 import useFunctionOnKey from "../../../Hooks/useFunctionOnKey";
+import styles from "./MusicTime.module.scss";
 
 const MusicTime = () => {
   const [isMusicOn, setIsMusicOn] = useState(false);
-  const musicRef = useRef(new Audio(audioPath));
+  const musicRef = useRef(new Audio(musicPath));
   const music = musicRef.current;
   const { isFocusModeActiveLocal } = useGlobalContext();
+  useFunctionOnKey(toggleMusic, "KeyM", true, true);
 
   function toggleMusic() {
+    const method = music.paused ? "play" : "pause";
     setIsMusicOn((prevState) => !prevState);
-    music[music.paused ? "play" : "pause"]();
+    music[method]();
   }
 
   function stopMusic() {
-    music.pause();
     setIsMusicOn(false);
+    music.pause();
   }
 
   useEffect(() => {
@@ -29,7 +31,13 @@ const MusicTime = () => {
     };
   }, []);
 
-  useFunctionOnKey(toggleMusic, "KeyM", true, true);
+  const buttonIcon = (
+    <i
+      className={`fa-solid fa-${
+        isMusicOn ? `pause ${styles.pauseIcon}` : "play"
+      }`}
+    ></i>
+  );
 
   return (
     !isFocusModeActiveLocal && (
@@ -40,11 +48,7 @@ const MusicTime = () => {
         onClick={toggleMusic}
         tabIndex="4"
       >
-        <i
-          className={`fa-solid fa-${
-            isMusicOn ? `pause ${styles.pauseIcon}` : "play"
-          }`}
-        ></i>
+        {buttonIcon}
       </button>
     )
   );

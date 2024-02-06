@@ -29,12 +29,12 @@ const RootLayout = () => {
         <>
           <ScrollBottomTop />
           <FullScreenMode />
+          <DarkMode />
         </>
       )}
 
       <MusicTime />
       <FocusMode />
-      <DarkMode />
       <GlobalOverlay />
     </>
   );

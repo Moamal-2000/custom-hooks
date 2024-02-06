@@ -1,0 +1,17 @@
+@import "../../../Sass/mixins";
+
+.section>ul {
+  margin-bottom: 30px;
+}
+
+.section>ul>li {
+  margin: 6px 0;
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+@include medium {
+  .section>ul>li {
+    font-size: .9rem;
+  }
+}

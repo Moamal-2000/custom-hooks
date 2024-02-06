@@ -18,7 +18,7 @@ const HookName = ({ hookData: { name, id } }) => {
 
   return (
     <h2 ref={hookTitleRef} className={styles.hookName}>
-      {id + 1}- <strong>{name}</strong> Hook
+      {id + 1}- <strong>{name} Hook</strong> 
     </h2>
   );
 };

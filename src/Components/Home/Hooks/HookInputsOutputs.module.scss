@@ -14,19 +14,3 @@
     font-size: 1.2rem;
   }
 }
-
-.inputsOutputs>ul {
-  margin-bottom: 30px;
-}
-
-.inputsOutputs>ul>li {
-  margin: 6px 0;
-  font-size: 1.2rem;
-  line-height: 1.4;
-}
-
-@include medium {
-  .inputsOutputs>ul>li {
-    font-size: .9rem;
-  }
-}

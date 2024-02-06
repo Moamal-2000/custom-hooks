@@ -6,8 +6,9 @@ const DownloadButton = ({ name, code }) => {
 
   function handleDownloadButton() {
     if (isDownloaded) return;
-    saveInFile(`${name}.jsx`, code);
+
     toggleIsDownloaded();
+    saveInFile(`${name}.jsx`, code);
     setTimeout(() => toggleIsDownloaded(), 1000);
   }
 

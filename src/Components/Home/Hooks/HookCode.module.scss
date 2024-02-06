@@ -26,14 +26,13 @@
   top: 0;
   width: 100vw;
   height: 100vh;
-  overflow-y: auto;
+  overflow: hidden;
   z-index: 101;
   border-radius: 0;
 }
 
 .code>header {
   border-bottom: solid 1px #475264;
-  margin-bottom: 20px;
 }
 
 @include small {
@@ -147,50 +146,22 @@
   display: flex;
 }
 
-.numbering {
-  font-size: 1.1rem;
-  line-height: 1.2727;
-  color: #7f8799;
-  border-radius: inherit;
-  padding: 0 20px;
-  user-select: none;
-}
-
-@include medium {
-  .numbering {
-    font-size: .85rem;
-    line-height: 1.177;
-  }
-}
-
-@include small {
-  .numbering {
-    padding: 0 10px;
-  }
+.code.fullscreen .codeArea {
+  height: calc(100vh - 40px) !important;
 }
 
 .preElement {
   background: #07090c !important;
-  padding: 0 20px 20px 0 !important;
-  margin-top: 0 !important;
   border-radius: 10px;
-  width: calc(100% - 20px) !important;
-  overflow: visible auto !important;
-}
-
-@include small {
-  .preElement {
-    padding: 0 10px 10px 0 !important;
-  }
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 20px !important;
+  overflow: auto visible !important;
 }
 
 .code.fullscreen .preElement {
-  height: 100vh !important;
-}
-
-.preElement>code::selection,
-.preElement>code>span::selection {
-  background-color: #0e2238 !important;
+  overflow: auto !important;
+  margin: 10px 0px 10px 10px !important;
 }
 
 .preElement::-webkit-scrollbar {
@@ -206,6 +177,11 @@
   &:hover {
     background-color: var(--gray-opacity5);
   }
+}
+
+.preElement>code::selection,
+.preElement>code>span::selection {
+  background-color: #0e2238 !important;
 }
 
 .preElement>code {

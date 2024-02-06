@@ -5,7 +5,7 @@ import styles from "./FullScreenMode.module.scss";
 
 const FullScreenMode = () => {
   const [isFullScreen, toggleIsFullScreen] = useToggle();
-
+  const iconName = isFullScreen ? "compress" : "expand";
   useFunctionOnKey(handleFullScreen, "KeyF", true);
 
   function handleFullScreen() {
@@ -22,12 +22,12 @@ const FullScreenMode = () => {
   return (
     <button
       type="button"
-      title="Full Screen mode"
+      title="Full Screen Mode"
       className={styles.fullScreenButton}
       onClick={handleFullScreen}
       tabIndex="3"
     >
-      <i className={`fa-solid fa-${isFullScreen ? "compress" : "expand"}`}></i>
+      <i className={`fa-solid fa-${iconName}`}></i>
     </button>
   );
 };

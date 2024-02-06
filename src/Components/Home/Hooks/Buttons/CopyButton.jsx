@@ -12,13 +12,15 @@ const CopyButton = ({ code }) => {
     setTimeout(() => toggleIsCopied(), 1000);
   }
 
+  const buttonIcon = isCopied ? (
+    <i className="fa-solid fa-check"></i>
+  ) : (
+    <i className="fa-regular fa-copy"></i>
+  );
+
   return (
     <button type="button" title="Copy Code" onClick={handleCopyButton}>
-      {isCopied ? (
-        <i className="fa-solid fa-check"></i>
-      ) : (
-        <i className="fa-regular fa-copy"></i>
-      )}
+      {buttonIcon}
     </button>
   );
 };

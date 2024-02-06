@@ -5,7 +5,7 @@ const HookExplanation = ({ hookData }) => {
   const { explanation, liveCode, name } = hookData;
 
   return (
-    <div className={styles.explanation}>
+    <section className={styles.explanation}>
       <HookName hookData={hookData} />
 
       {explanation?.map((explain, i) => (
@@ -16,10 +16,10 @@ const HookExplanation = ({ hookData }) => {
 
       {liveCode && (
         <a href={liveCode} target="_blank" className="linkStyle1">
-          Explore an interactive demo of {name}.
+          Explore an interactive demo of {name} hook.
         </a>
       )}
-    </div>
+    </section>
   );
 };
 export default HookExplanation;

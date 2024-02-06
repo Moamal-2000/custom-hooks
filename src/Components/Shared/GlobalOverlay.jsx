@@ -3,6 +3,7 @@ import styles from "./GlobalOverlay.module.scss";
 
 const GlobalOverlay = () => {
   const { isOverlayActive, setIsOverlayActive, setIsSideBarActive } = useGlobalContext();
+  const activeClass = isOverlayActive ? styles.active : ""
 
   function handleOverlayClick() {
     setIsOverlayActive(false)
@@ -12,7 +13,7 @@ const GlobalOverlay = () => {
   return (
     <div
       onClick={handleOverlayClick}
-      className={`${styles.overlay} ${isOverlayActive ? styles.active : ""}`}
+      className={`${styles.overlay} ${activeClass}`}
     ></div>
   );
 };

@@ -1,7 +1,9 @@
 const FullscreenButton = ({ isFullScreen, toggleIsFullScreen }) => {
+  const iconName = isFullScreen ? "compress" : "expand";
+
   return (
-    <button type="button" title="Full Screen code" onClick={toggleIsFullScreen}>
-      <i className={`fa-solid fa-${isFullScreen ? "compress" : "expand"}`}></i>
+    <button type="button" title="Full Screen Code" onClick={toggleIsFullScreen}>
+      <i className={`fa-solid fa-${iconName}`}></i>
     </button>
   );
 };

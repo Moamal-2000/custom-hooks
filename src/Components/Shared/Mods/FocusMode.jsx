@@ -4,12 +4,14 @@ import useFunctionOnKey from "../../../Hooks/useFunctionOnKey";
 import styles from "./FocusMode.module.scss";
 
 const FocusMode = () => {
-  const {
-    isFocusModeActiveLocal,
-    setIsFocusModeActive,
-    isSideBarExtended,
-    setIsSideBarExtended,
-  } = useGlobalContext();
+  const { isFocusModeActiveLocal, setIsFocusModeActive, setIsSideBarExtended } =
+    useGlobalContext();
+  const focusModeClass = isFocusModeActiveLocal ? styles.focusMode : "";
+  useFunctionOnKey(
+    () => setIsFocusModeActive(!isFocusModeActiveLocal),
+    "KeyG",
+    true
+  );
 
   useEffect(() => {
     if (isFocusModeActiveLocal) {
@@ -18,29 +20,29 @@ const FocusMode = () => {
       return;
     }
 
-    if (isSideBarExtended) setIsSideBarExtended(false);
+    setIsSideBarExtended(false);
     document.body.classList.remove("focusMode");
   }, [isFocusModeActiveLocal]);
 
-  useFunctionOnKey(() => setIsFocusModeActive(!isFocusModeActiveLocal), "KeyG", true);
+  const buttonIcon = (
+    <i
+      className={
+        isFocusModeActiveLocal
+          ? `fa-regular fa-eye-slash ${styles.eyeSlashIcon}`
+          : "fa-regular fa-eye"
+      }
+    ></i>
+  );
 
   return (
     <button
       type="button"
-      className={`${styles.focusModeButton} ${
-        isFocusModeActiveLocal ? styles.focusMode : ""
-      }`}
+      className={`${styles.focusModeButton} ${focusModeClass}`}
       onClick={() => setIsFocusModeActive(!isFocusModeActiveLocal)}
       title="Focus Mode"
       tabIndex="2"
     >
-      <i
-        className={
-          isFocusModeActiveLocal
-            ? `fa-regular fa-eye-slash ${styles.eyeSlashIcon}`
-            : "fa-regular fa-eye"
-        }
-      ></i>
+      {buttonIcon}
     </button>
   );
 };

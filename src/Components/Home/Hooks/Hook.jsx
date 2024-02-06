@@ -10,7 +10,6 @@ const Hook = ({ hookData }) => {
   return (
     <section className={styles.hook} id={`${name}-hook`}>
       <HookExplanation hookData={hookData} />
-
       <HookInputsOutputs data={{ inputs, outputs }} />
       <HookCode hookData={hookData} />
     </section>
