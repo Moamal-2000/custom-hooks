@@ -8,6 +8,11 @@
 
 ::selection {
   background-color: var(--dark-gray-opacity5);
+  color: var(--white);
+}
+
+a::selection {
+  background-color: rgba(69, 69, 69, .5);
 }
 
 html {
@@ -22,18 +27,18 @@ body {
   transition: padding .5s ease-in-out;
 }
 
+@include large {
+  body {
+    padding-left: 0;
+  }
+}
+
 body.focusMode {
   overflow: hidden;
 }
 
 body.sidebarExtend {
   padding: 0;
-}
-
-@include large {
-  body {
-    padding-left: 0;
-  }
 }
 
 li {

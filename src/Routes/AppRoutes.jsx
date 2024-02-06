@@ -6,8 +6,8 @@ import {
 } from "react-router-dom";
 import Home from "../Components/Home/Home";
 import HookPage from "../Components/Home/Hooks/HookPage";
-import NotFoundPage from "../Components/Shared/NotFoundPage";
 import RootLayout from "./RootLayout";
+import NotFoundPage from "../Components/Shared/NotFoundPage/NotFoundPage";
 
 const AppRoutes = () => {
   const routes = createRoutesFromChildren(

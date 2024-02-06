@@ -8,11 +8,11 @@ const Hook = ({ hookData }) => {
   const { name, inputs, outputs } = hookData;
 
   return (
-    <section className={styles.hook} id={`${name}-hook`}>
+    <article className={styles.hook} id={`${name}-hook`}>
       <HookExplanation hookData={hookData} />
       <HookInputsOutputs data={{ inputs, outputs }} />
       <HookCode hookData={hookData} />
-    </section>
+    </article>
   );
 };
 export default memo(Hook);

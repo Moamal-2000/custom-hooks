@@ -1,0 +1,200 @@
+@import "../../../Sass/mixins";
+
+.errorContainer {
+  width: 100%;
+  @include center-x-y;
+  flex-direction: column;
+  user-select: none;
+}
+
+.errorContainer .error404 {
+  display: flex;
+  gap: 30px;
+}
+
+@media (max-width: 660px) {
+  .errorContainer .error404 {
+    transform: scale(.60);
+  }
+}
+
+.error404 .numberFour {
+  color: var(--error-guy-color);
+  font-size: 13rem;
+  font-weight: bold;
+}
+
+.cuteGuyContainer {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-top: 30px;
+}
+
+.head {
+  background-color: #fff;
+  border: solid 4px var(--error-guy-color);
+  border-bottom: none;
+  border-radius: 10px;
+  width: 120px;
+  height: 60px;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, 17px);
+  border-radius: 10px 10px 0 0;
+  z-index: 1;
+}
+
+.head::before,
+.head::after {
+  content: '';
+  position: absolute;
+  transform: rotate(45deg);
+}
+
+.head::before {
+  background-color: #2b2b2b;
+  right: -5px;
+  top: 3px;
+  width: 19px;
+  height: 4px;
+}
+
+.head::after {
+  background-color: var(--extra-dark-blue);
+  right: -14px;
+  top: -6px;
+  width: 24px;
+  height: 13px;
+}
+
+.head .eyes {
+  position: absolute;
+  left: 25px;
+  top: 29px;
+  background-color: var(--error-guy-color);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation: eyes 4s infinite ease-in-out;
+}
+
+.head .eyes::before {
+  content: '';
+  position: absolute;
+  left: 50px;
+  top: 0;
+  background-color: inherit;
+  width: inherit;
+  border-radius: inherit;
+  animation: eyes 4s infinite ease-in-out;
+}
+
+.head .chucks {
+  position: absolute;
+  left: 15px;
+  top: 48px;
+  background-color: #ffa2b2;
+  width: 10px;
+  height: 2px;
+  border-radius: 50%;
+}
+
+.head .chucks::before {
+  content: '';
+  position: absolute;
+  left: 73px;
+  top: 0;
+  background-color: inherit;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+}
+
+.head .mouth {
+  background-color: var(--error-guy-color);
+  width: 20px;
+  height: 2px;
+  position: absolute;
+  left: 50%;
+  top: 70px;
+  transform: translate(-50%, 0);
+}
+
+.numberZero {
+  width: 150px;
+  height: 150px;
+  font-size: 13rem;
+  font-weight: bold;
+  background-color: var(--error-guy-color);
+  border: solid 4px var(--error-guy-color);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cuteGuy {
+  border: solid 4px var(--error-guy-color);
+  background-color: #fff;
+  width: 120px;
+  height: 170px;
+  transform: translate(0, -20px);
+}
+
+.errorContainer p {
+  color: var(--white);
+  margin-top: 30px;
+  margin-bottom: 40px;
+  user-select: text;
+}
+
+@media (max-width: 660px) {
+  .errorContainer p {
+    margin: 0;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 376px) {
+  .errorContainer p {
+    font-size: .8rem;
+  }
+}
+
+.errorContainer .homeButton {
+  border: none;
+  background-color: #01c394;
+  color: #fff;
+  font-size: 1rem;
+  padding: 10px 30px;
+  cursor: pointer;
+  transition: opacity .3s;
+}
+
+.errorContainer .homeButton:hover {
+  background-color: #009f78;
+}
+
+@keyframes eyes {
+  0% {
+    height: .8rem
+  }
+
+  50% {
+    height: .8rem
+  }
+
+  52% {
+    height: .1rem
+  }
+
+  54% {
+    height: .8rem
+  }
+
+  100% {
+    height: .8rem
+  }
+}
