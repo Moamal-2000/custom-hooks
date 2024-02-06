@@ -25,7 +25,11 @@ const DarkMode = () => {
       onClick={handleDarkMode}
       title="Dark Mode"
     >
-      {isDarkModeLocal ? <i></i> : <i></i>}
+      <i
+        className={`fa-regular fa-${
+          isDarkModeLocal ? `sun ${styles.sunIcon}` : "moon"
+        }`}
+      ></i>
     </button>
   );
 };
