@@ -1,7 +1,7 @@
-.scrollToTopButton {
+.musicButton {
   position: fixed;
   right: 15px;
-  bottom: 40px;
+  top: 140px;
   min-width: 30px;
   min-height: 30px;
   background-color: transparent;
@@ -19,15 +19,18 @@
   }
 }
 
-.scrollToTopButton>i {
-  font-size: 1.1rem;
+.musicButton>i {
+  font-size: 1rem;
   color: var(--white);
-  padding: 6px;
+  padding: 6.4px 8.4px;
   cursor: pointer;
   transition: opacity .2s;
-  z-index: 100;
 }
 
-.scrollToTopButton:focus-visible>i {
+.musicButton:focus-visible>i {
   color: var(--cyan-blue);
+}
+
+.musicButton .pauseIcon {
+  padding: 6.4px 9.4px;
 }

@@ -9,15 +9,14 @@ import styles from "./ScrollBottomTop.module.scss";
 
 const ScrollBottomTop = () => {
   const arrowIconRef = useRef();
-  useEventListener(window, "scroll", handleFlipScrollIcon(arrowIconRef));
+  useEventListener(window, "scroll", () => handleFlipScrollIcon(arrowIconRef));
+  useFunctionOnKey(handleScrollButton, "KeyS", true);
 
   function handleScrollButton() {
     const { scrollToY } = scrollCalculations();
     window.scrollTo({ behavior: "smooth" }, scrollToY, 0);
     setTimeout(() => handleFlipScrollIcon(arrowIconRef), 700);
   }
-
-  useFunctionOnKey(handleScrollButton, "KeyS", true);
 
   useEffect(() => {
     handleFlipScrollIcon(arrowIconRef);

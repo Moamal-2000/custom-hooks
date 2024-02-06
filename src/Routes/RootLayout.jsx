@@ -1,10 +1,10 @@
 import { Outlet } from "react-router-dom";
 import Footer from "../Components/Footer/Footer";
-import DarkMode from "../Components/Shared/Features/DarkMode";
-import FocusMode from "../Components/Shared/Features/FocusMode";
-import FullScreenMode from "../Components/Shared/Features/FullScreenMode";
-import MusicTime from "../Components/Shared/Features/MusicTime";
-import ScrollBottomTop from "../Components/Shared/Features/ScrollBottomTop";
+import DarkMode from "../Components/Shared/Mods/DarkMode";
+import FocusMode from "../Components/Shared/Mods/FocusMode";
+import FullScreenMode from "../Components/Shared/Mods/FullScreenMode";
+import MusicTime from "../Components/Shared/Mods/MusicTime";
+import ScrollBottomTop from "../Components/Shared/Mods/ScrollBottomTop";
 import GlobalOverlay from "../Components/Shared/GlobalOverlay";
 import HooksNavigator from "../Components/Shared/MiniComponents/HooksNavigator";
 import SkipContentLink from "../Components/Shared/MiniComponents/SkipContentLink";

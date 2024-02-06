@@ -1,7 +1,7 @@
-.darkModeButton {
+.focusModeButton {
   position: fixed;
   right: 15px;
-  top: 180px;
+  top: 40px;
   min-width: 30px;
   min-height: 30px;
   background-color: transparent;
@@ -19,7 +19,7 @@
   }
 }
 
-.darkModeButton.focusMode {
+.focusModeButton.focusMode {
   opacity: .2;
   transition: opacity .2s;
 
@@ -29,20 +29,19 @@
 }
 
 
-.darkModeButton>i {
+.focusModeButton>i {
   font-size: 1rem;
   color: var(--white);
   padding: 7px 6px;
   cursor: pointer;
   transition: opacity .2s, border-color .2s;
-  z-index: 100;
 }
 
-.darkModeButton:focus-visible>i {
+.focusModeButton:focus-visible>i {
   color: var(--cyan-blue);
 }
 
-.darkModeButton .eyeSlashIcon {
+.focusModeButton .eyeSlashIcon {
   padding: 7.3px 6px;
   font-size: .9rem;
 }

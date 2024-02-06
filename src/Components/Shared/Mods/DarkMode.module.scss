@@ -1,14 +1,14 @@
-.musicButton {
+.darkModeButton {
   position: fixed;
   right: 15px;
-  top: 140px;
+  top: 180px;
   min-width: 30px;
   min-height: 30px;
   background-color: transparent;
   border: solid 2px var(--white);
   border-radius: 4px;
   opacity: .7;
-  transition: opacity .2s, border-color .2s;
+  transition: opacity .2s;
 
   &:hover {
     opacity: 1;
@@ -19,19 +19,29 @@
   }
 }
 
-.musicButton>i {
-  font-size: 1rem;
-  color: var(--white);
-  padding: 6.4px 8.4px;
-  cursor: pointer;
+.darkModeButton.focusMode {
+  opacity: .2;
   transition: opacity .2s;
-  z-index: 100;
+
+  &:hover {
+    opacity: 1;
+  }
 }
 
-.musicButton:focus-visible>i {
+
+.darkModeButton>i {
+  font-size: 1rem;
+  color: var(--white);
+  padding: 7px 6px;
+  cursor: pointer;
+  transition: opacity .2s, border-color .2s;
+}
+
+.darkModeButton:focus-visible>i {
   color: var(--cyan-blue);
 }
 
-.musicButton .pauseIcon {
-  padding: 6.4px 9.4px;
+.darkModeButton .eyeSlashIcon {
+  padding: 7.3px 6px;
+  font-size: .9rem;
 }
