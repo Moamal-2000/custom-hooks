@@ -33,7 +33,7 @@
   position: fixed;
   left: 10px;
   top: 30px;
-  padding: 10px;
+  padding: 8px 10px;
   cursor: pointer;
   z-index: 100;
   transition: opacity .2s;
@@ -45,6 +45,10 @@
   &:focus-visible {
     outline: solid 2px var(--orange);
     border-radius: 6px;
+
+    &>i {
+      color: var(--orange);
+    }
   }
 }
 

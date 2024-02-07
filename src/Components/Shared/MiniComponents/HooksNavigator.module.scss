@@ -11,6 +11,7 @@
   position: relative;
   font-size: inherit;
   font-family: inherit;
+  min-width: 132px;
   color: #fff;
   padding: .5em 1em;
   border-radius: 4px;
@@ -42,5 +43,5 @@
 
 .wrapper>button:not(:disabled):hover::after {
   transition: transform .45s ease-in-out;
-  transform: translate3d(450%, 0, 0) rotate(35deg);
+  transform: translate3d(500%, 0, 0) rotate(35deg);
 }
