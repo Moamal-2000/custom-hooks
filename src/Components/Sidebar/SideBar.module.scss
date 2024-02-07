@@ -75,11 +75,11 @@
   left: 6px;
   transform: translateX(240px);
   font-size: 1.4rem;
-  color: var(--white);
+  color: #fff;
   padding: 4px 8px;
   cursor: pointer;
   z-index: 2;
-  transition: opacity 0 0;
+  transition: opacity .2s;
   opacity: 0;
 
   &.active:hover {
@@ -93,7 +93,6 @@
 }
 
 .closeNavButton.active {
-  transition: opacity .2s .5s;
   opacity: 1;
 }
 

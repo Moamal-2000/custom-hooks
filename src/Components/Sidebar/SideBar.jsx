@@ -80,18 +80,18 @@ const SideBar = () => {
     );
   };
 
-  const CloseSideBarButton = () => (
+  const closeSideBarButton = (
     <button
       type="button"
       className={`${styles.closeNavButton} ${activeClass}`}
       onClick={handleCloseSideBarButton}
-      title="Close sidebar"
+      title="Close Sidebar"
     >
       <i className="fa-solid fa-xmark"></i>
     </button>
   );
 
-  const SidebarButton = () => (
+  const sidebarButton = (
     <button
       type="button"
       className={styles.sidebarButton}
@@ -104,11 +104,11 @@ const SideBar = () => {
 
   return (
     <>
-      {isSmallThanScreen && !isFocusModeActiveLocal && <SidebarButton />}
+      {isSmallThanScreen && !isFocusModeActiveLocal && sidebarButton}
 
       <aside className={`${styles.sidebarWrapper} ${asideClasses}`}>
         <div className={`${styles.sidebar}`} ref={sidebarRef}>
-          {isSmallThanScreen && <CloseSideBarButton />}
+          {isSmallThanScreen && closeSideBarButton}
           <SearchHooksInput />
           <DownloadHooksButton />
           <ActiveHooksMenu />

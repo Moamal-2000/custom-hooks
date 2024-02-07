@@ -106,12 +106,12 @@
   cursor: pointer;
   border: none;
   padding: 8px 10px;
-  background-color: #383838;
+  background-color: var(--third-black);
   border-radius: 4px;
   transition: background-color .2s, transform .1s ease;
 
   &:hover {
-    background-color: #222222;
+    background-color: var(--secondary-black);
   }
 
   &:focus-visible {
