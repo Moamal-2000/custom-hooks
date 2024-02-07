@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { toggleDarkModeColors } from "../../../Functions/projectFunctions";
 import useLocalStorage from "../../../Hooks/useLocalStorage";
 
 const DarkMode = () => {
@@ -10,11 +9,11 @@ const DarkMode = () => {
 
   function handleDarkMode() {
     setIsDarkModeLocal(!isDarkModeLocal);
-    toggleDarkModeColors(!isDarkModeLocal);
   }
 
   useEffect(() => {
-    toggleDarkModeColors(isDarkModeLocal);
+    const method = isDarkModeLocal ? "add" : "remove"
+    document.documentElement.classList[method]("dark")
   }, [isDarkModeLocal]);
 
   return (
