@@ -2,6 +2,10 @@
   --black: #070b10;
   --secondary-black: #2b2b2b;
   --third-black: #383838;
+  --codeBlockBgColor: #07090c;
+  --codeBlockBorderColor: #090b0f;
+  --codeBlockSelectionColor: #0e2238;
+  --codeBlockSelectionTextColor: inherit;
   --extra-dark-blue: #0a1119;
   --dark-blue: #151c27;
   --light-dark-blue: #363a45;
@@ -18,6 +22,8 @@
   --error-guy-color2: #2b2b2b;
   --gray-purple: #575c71;
   --gray-purple-secondary: #70768f;
+  --codeBlockLinesNumbersColor: #7f8799;
+  --gray: #cccccc;
   --very-light-gray: #f0f0f0;
   --white: #fff;
   --secondary-white: #eee;
@@ -36,10 +42,16 @@
   --very-light-gray: #2b2b2b;
   --secondary-white: #2b2b2b;
   --light-green: #070b10;
-  --gray-purple: #959ab0;
+  --gray: #363636;
+  --codeBlockLinesNumbersColor: #383a42;
   --gray-purple-secondary: #7e8399;
-  --extra-dark-blue: #eee;
+  --gray-purple: #959ab0;
+  --codeBlockBorderColor: #f2f2f2;
+  --codeBlockBgColor: #f2f2f2;
+  --extra-dark-blue: #fff;
   --secondary-black: #fff;
   --third-black: #fff;
+  --codeBlockSelectionTextColor: #fff;
   --dark-gray-opacity5: #2483ff;
+  --codeBlockSelectionColor: #2483ff;
 }

@@ -144,9 +144,10 @@ main {
 }
 
 .linenumber {
-  color: #7f8799 !important;
+  color: var(--codeBlockLinesNumbersColor) !important;
   min-width: 20px !important;
   padding-right: 30px !important;
+  font-style: normal !important;
 }
 
 @include medium {

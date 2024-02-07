@@ -1,7 +1,11 @@
 import { memo, useEffect } from "react";
 import { Prism as Highlighter } from "react-syntax-highlighter";
-import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
+import {
+  oneLight,
+  vscDarkPlus,
+} from "react-syntax-highlighter/dist/esm/styles/prism";
 import reactIcon from "../../../Assets/Images/react-icon.svg";
+import { useGlobalContext } from "../../../Context/GlobalContext";
 import useToggle from "../../../Hooks/useToggle";
 import CopyButton from "./Buttons/CopyButton";
 import DownloadButton from "./Buttons/DownloadButton";
@@ -9,12 +13,14 @@ import FullscreenButton from "./Buttons/FullscreenButton";
 import styles from "./HookCode.module.scss";
 
 const HookCode = ({ hookData: { code, name } }) => {
+  const { isDarkModeLocal } = useGlobalContext();
   const [isFullScreen, toggleIsFullScreen] = useToggle(false);
+  const codeBlockTheme = isDarkModeLocal ? oneLight : vscDarkPlus;
 
   useEffect(() => {
-    const method = isFullScreen ? "add" : "remove"
-    document.body.classList[method]("focusMode")
-  }, [isFullScreen])
+    const method = isFullScreen ? "add" : "remove";
+    document.body.classList[method]("focusMode");
+  }, [isFullScreen]);
 
   return (
     <div className={`${styles.code} ${isFullScreen ? styles.fullscreen : ""}`}>
@@ -38,7 +44,7 @@ const HookCode = ({ hookData: { code, name } }) => {
         <Highlighter
           className={`${styles.preElement}`}
           language="javascript"
-          style={vscDarkPlus}
+          style={codeBlockTheme}
           showLineNumbers={true}
         >
           {code}

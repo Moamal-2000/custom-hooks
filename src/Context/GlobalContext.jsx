@@ -9,6 +9,7 @@ const GlobalContextProvider = ({ children }) => {
   const [isNotFoundPageShown, setIsNotFoundPageShown] = useState(false);
   const [isSideBarExtendedLocal, setIsSideBarExtended] = useLocalStorage("sidebar-extend");
   const [isFocusModeActiveLocal, setIsFocusModeActive] = useLocalStorage("focus-mode");
+  const [isDarkModeLocal, setIsDarkModeLocal] = useLocalStorage("dark-mode", false);
   const numberOfHooks = hooksData.length;
   const numbersOfPages = [
     ...new Set(hooksData.map((hookData) => hookData.page)),
@@ -26,6 +27,8 @@ const GlobalContextProvider = ({ children }) => {
     setIsSideBarExtended,
     isFocusModeActiveLocal,
     setIsFocusModeActive,
+    isDarkModeLocal,
+    setIsDarkModeLocal,
     numbersOfPages,
     isNotFoundPageShown,
     setIsNotFoundPageShown,

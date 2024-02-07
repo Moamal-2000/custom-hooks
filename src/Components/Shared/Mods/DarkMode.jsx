@@ -1,12 +1,9 @@
 import { useEffect } from "react";
+import { useGlobalContext } from "../../../Context/GlobalContext";
 import useFunctionOnKey from "../../../Hooks/useFunctionOnKey";
-import useLocalStorage from "../../../Hooks/useLocalStorage";
 
 const DarkMode = () => {
-  const [isDarkModeLocal, setIsDarkModeLocal] = useLocalStorage(
-    "dark-mode",
-    false
-  );
+  const { isDarkModeLocal, setIsDarkModeLocal } = useGlobalContext();
   useFunctionOnKey(toggleDarkMode, "KeyD", true, true);
   let noun = isDarkModeLocal ? "Dark" : "Light";
 

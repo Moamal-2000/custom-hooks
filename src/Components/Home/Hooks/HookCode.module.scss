@@ -2,9 +2,9 @@
 
 .code {
   font-size: 1.2rem;
-  background-color: #07090c;
+  background-color: var(--codeBlockBgColor);
   position: relative;
-  border: solid 2px #090b0f;
+  border: solid 2px var(--codeBlockBorderColor);
   border-radius: 10px;
   width: 100%;
   transition: border-color .2s;
@@ -44,7 +44,7 @@
 .code.fullscreen>header {
   position: sticky;
   top: 0;
-  background-color: #07090c;
+  background-color: var(--codeBlockBgColor);
 }
 
 .fileName {
@@ -53,7 +53,7 @@
   background-color: transparent;
   border: solid 1px #475264;
   border-bottom: solid 2px #0077ff;
-  color: #cccccc;
+  color: var(--gray);
   display: flex;
   align-items: center;
 
@@ -152,7 +152,7 @@
 }
 
 .preElement {
-  background: #07090c !important;
+  background: var(--codeBlockBgColor) !important;
   border-radius: 10px;
   width: 100% !important;
   padding: 0 !important;
@@ -182,8 +182,8 @@
 
 .preElement>code::selection,
 .preElement>code>span::selection {
-  background-color: #0e2238 !important;
-  color: #fff !important;
+  background-color: var(--codeBlockSelectionColor) !important;
+  color: var(--codeBlockSelectionTextColor) !important;
 }
 
 .preElement>code {
@@ -191,7 +191,7 @@
   line-height: 1.16545 !important;
   width: 100% !important;
   display: inline-block !important;
-  background: #07090c !important;
+  background: var(--codeBlockBgColor) !important;
 }
 
 @include medium {
