@@ -40,8 +40,8 @@ export default SocialMedia;
 
 const SocialMediaIcon = ({ classIcon, href, title }) => {
   return (
-    <button className={styles.buttonIcon} title={title}>
-      <a href={href} target="_blank" tabIndex="-1">
+    <button className={styles.buttonIcon}>
+      <a href={href} target="_blank" tabIndex="-1" title={title}>
         <i className={classIcon}></i>
       </a>
     </button>
