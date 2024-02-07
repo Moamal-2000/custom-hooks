@@ -97,7 +97,8 @@
 }
 
 .code:hover .buttons,
-.code:focus-visible .buttons {
+.code:focus-visible .buttons,
+.code:has(:focus-visible) .buttons {
   opacity: 1;
 }
 
@@ -114,7 +115,7 @@
   }
 
   &:focus-visible {
-    background-color: #222222;
+    background-color: transparent;
     outline: solid 2px var(--light-green);
   }
 

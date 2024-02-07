@@ -34,6 +34,7 @@ export function toggleDarkModeColors(isDarkMode) {
     htmlElement.style.setProperty("--very-light-gray", "#2b2b2b");
     htmlElement.style.setProperty("--dark-gray-opacity5", "#2483ff");
     htmlElement.style.setProperty("--secondary-white", "#2b2b2b");
+    htmlElement.style.setProperty("--light-green", "#008365");
     return;
   }
 
@@ -43,4 +44,5 @@ export function toggleDarkModeColors(isDarkMode) {
   htmlElement.style.setProperty("--very-light-gray", "#f0f0f0");
   htmlElement.style.setProperty("--dark-gray-opacity5", "rgba(69, 69, 69, .5)");
   htmlElement.style.setProperty("--secondary-white", "#eee");
+  htmlElement.style.setProperty("--light-green", "#64ffda");
 }

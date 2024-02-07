@@ -28,6 +28,11 @@
     background-color: var(--secondary-black);
     color: var(--white);
   }
+
+  &:focus-visible {
+    outline: none;
+    border-color: var(--light-green);
+  }
 }
 
 @include large {

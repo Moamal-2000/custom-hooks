@@ -15,7 +15,7 @@
   background-color: var(--cyan-blue-hover);
 }
 
-.downloadAllButton:focus {
+.downloadAllButton:focus-visible {
   outline: solid 2px var(--white);
 }
 
@@ -30,7 +30,8 @@
 
 .downloadAllButton>i {
   background-color: var(--dark-cyan);
-  color: #fff;;
+  color: #fff;
+  ;
   min-width: 47px;
   min-height: 100%;
   padding: 16px 18px;

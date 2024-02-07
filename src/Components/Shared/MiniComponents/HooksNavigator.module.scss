@@ -13,6 +13,7 @@
   font-family: inherit;
   color: #fff;
   padding: .5em 1em;
+  border-radius: 4px;
   outline: none;
   border: none;
   background-color: var(--very-dark-purple);
@@ -21,7 +22,7 @@
 }
 
 .wrapper>button:not(:disabled):focus-visible {
-  outline: solid 2px var(--white);
+  outline: solid 2px var(--light-green);
 }
 
 .wrapper>button:disabled {
