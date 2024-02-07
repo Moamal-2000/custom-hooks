@@ -1,13 +1,5 @@
 const htmlElement = document.documentElement;
 
-export function handleFlipScrollIcon(buttonIconRef) {
-  if (!buttonIconRef.current) return;
-  const { isUserScrolledToTop } = scrollCalculations();
-  const turnValue = isUserScrolledToTop ? ".5" : "5.0";
-
-  buttonIconRef.current.style.transform = `rotate(${turnValue}turn)`;
-}
-
 export function scrollCalculations() {
   const documentHeight = Number.parseInt(htmlElement.offsetHeight.toFixed(0)),
     halfDocumentHeight = documentHeight / 2,

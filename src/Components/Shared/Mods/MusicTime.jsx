@@ -8,6 +8,7 @@ const MusicTime = () => {
   const musicRef = useRef(new Audio(musicPath));
   const music = musicRef.current;
   const { isFocusModeActiveLocal } = useGlobalContext();
+  const noun = isMusicOn ? "Pause" : "Play";
   useFunctionOnKey(toggleMusic, "KeyM", true, true);
 
   function toggleMusic() {
@@ -32,7 +33,7 @@ const MusicTime = () => {
 
   return (
     !isFocusModeActiveLocal && (
-      <button type="button" title="music icon" onClick={toggleMusic}>
+      <button type="button" title={`${noun} Music`} onClick={toggleMusic}>
         <i className={`fa-solid fa-${isMusicOn ? "pause" : "play"}`}></i>
       </button>
     )

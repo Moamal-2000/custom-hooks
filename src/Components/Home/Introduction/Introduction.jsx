@@ -15,6 +15,8 @@ const Introduction = () => {
         <img
           fetchpriority="high"
           src={introImage}
+          width="875"
+          height="365"
           alt="an image showing react logo at the right side and text at the right side. the text is Custom Hook useFetch"
         />
       </div>

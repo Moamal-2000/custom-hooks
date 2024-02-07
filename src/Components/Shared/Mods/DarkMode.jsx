@@ -8,6 +8,7 @@ const DarkMode = () => {
     false
   );
   useFunctionOnKey(toggleDarkMode, "KeyD", true, true);
+  let noun = isDarkModeLocal ? "Dark" : "Light";
 
   function toggleDarkMode() {
     setIsDarkModeLocal(!isDarkModeLocal);
@@ -19,8 +20,8 @@ const DarkMode = () => {
   }, [isDarkModeLocal]);
 
   return (
-    <button type="button" onClick={toggleDarkMode} title="Dark Mode">
-      <i className={`fa-regular fa-${isDarkModeLocal ? "sun" : "moon"}`}></i>
+    <button type="button" onClick={toggleDarkMode} title={`${noun} Mode`}>
+      <i className={`fa-regular fa-${isDarkModeLocal ? "moon" : "sun"}`}></i>
     </button>
   );
 };
