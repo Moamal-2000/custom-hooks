@@ -44,7 +44,8 @@
   }
 
   &:focus {
-    color: var(--very-cyan-blue);
+    color: var(--light-green);
     outline: none;
+    opacity: 1;
   }
 }

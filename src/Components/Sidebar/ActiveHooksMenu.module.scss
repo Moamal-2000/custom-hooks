@@ -20,13 +20,13 @@
   transition: background-color .2s;
 
   &:hover {
-    background-color: var(--secondary-black);
-    color: var(--white);
+    background-color: #2b2b2b;
+    color: #fff;
   }
 
   &.active {
-    background-color: var(--secondary-black);
-    color: var(--white);
+    background-color: #fff;
+    color: #000;
   }
 
   &:focus-visible {

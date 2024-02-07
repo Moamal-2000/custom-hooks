@@ -23,7 +23,7 @@
   border-radius: 4px;
 
   &:focus-visible {
-    outline: solid 2px #64ffda;
+    outline: solid 2px var(--light-green);
   }
 }
 
@@ -42,7 +42,7 @@
 }
 
 .buttonIcon:focus-visible a {
-  color: #64ffda;
+  color: var(--light-green);
 }
 
 .buttonIcon i {
@@ -51,5 +51,5 @@
 
 .buttonIcon:hover i {
   transform: scale(1.06);
-  color: #64ffda;
+  color: var(--light-green);
 }
