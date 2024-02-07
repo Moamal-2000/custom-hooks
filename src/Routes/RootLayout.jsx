@@ -1,23 +1,20 @@
 import { Outlet } from "react-router-dom";
 import Footer from "../Components/Footer/Footer";
-import DarkMode from "../Components/Shared/Mods/DarkMode";
-import FocusMode from "../Components/Shared/Mods/FocusMode";
-import FullScreenMode from "../Components/Shared/Mods/FullScreenMode";
-import MusicTime from "../Components/Shared/Mods/MusicTime";
-import ScrollBottomTop from "../Components/Shared/Mods/ScrollBottomTop";
 import GlobalOverlay from "../Components/Shared/GlobalOverlay";
 import HooksNavigator from "../Components/Shared/MiniComponents/HooksNavigator";
 import SkipContentLink from "../Components/Shared/MiniComponents/SkipContentLink";
 import SideBar from "../Components/Sidebar/SideBar";
 import { useGlobalContext } from "../Context/GlobalContext";
+import Mods from "../Components/Shared/Mods/Mods";
 
 const RootLayout = () => {
-  const { isFocusModeActiveLocal, isNotFoundPageShown } = useGlobalContext();
+  const { isNotFoundPageShown } = useGlobalContext();
 
   return (
     <>
       <SkipContentLink scrollTo="main-content" />
       <SideBar />
+      <Mods />
       <Outlet />
       {!isNotFoundPageShown && <HooksNavigator />}
 
@@ -25,16 +22,6 @@ const RootLayout = () => {
         <Footer />
       </div>
 
-      {!isFocusModeActiveLocal && (
-        <>
-          <ScrollBottomTop />
-          <FullScreenMode />
-          <DarkMode />
-        </>
-      )}
-
-      <MusicTime />
-      <FocusMode />
       <GlobalOverlay />
     </>
   );

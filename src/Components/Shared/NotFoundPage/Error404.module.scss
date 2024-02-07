@@ -170,7 +170,11 @@
   font-size: 1rem;
   padding: 10px 30px;
   cursor: pointer;
-  transition: opacity .3s;
+  transition: background-color .3s;
+
+  &:focus-within {
+    outline: dashed 2px #fff;
+  }
 }
 
 .errorContainer .homeButton:hover {

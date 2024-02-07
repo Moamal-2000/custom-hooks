@@ -5,7 +5,6 @@ import {
 } from "../../../Functions/projectFunctions";
 import useEventListener from "../../../Hooks/useEventListener";
 import useFunctionOnKey from "../../../Hooks/useFunctionOnKey";
-import styles from "./ScrollBottomTop.module.scss";
 
 const ScrollBottomTop = () => {
   const arrowIconRef = useRef();
@@ -25,10 +24,8 @@ const ScrollBottomTop = () => {
   return (
     <button
       type="button"
-      className={styles.scrollToTopButton}
       onClick={handleScrollButton}
       title="Scroll to top/bottom"
-      tabIndex="5"
     >
       <i ref={arrowIconRef} className="fa-solid fa-chevron-up"></i>
     </button>

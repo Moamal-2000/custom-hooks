@@ -73,7 +73,7 @@ const SideBar = () => {
         className={`${styles.extendSideBarButton} ${activeClass}`}
         onClick={toggleExtendSideBar}
         title="Extend Sidebar"
-        tabIndex="6"
+        tabIndex="-1"
       >
         <i className={`fa-solid fa-angles-${arrowDirection}`}></i>
       </button>

@@ -40,7 +40,6 @@ const FocusMode = () => {
       className={`${styles.focusModeButton} ${focusModeClass}`}
       onClick={() => setIsFocusModeActive(!isFocusModeActiveLocal)}
       title="Focus Mode"
-      tabIndex="2"
     >
       {buttonIcon}
     </button>

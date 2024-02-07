@@ -146,10 +146,6 @@
   &:hover {
     background-color: #70768f;
   }
-
-  &:focus-visible {
-    outline: solid 2px var(--white);
-  }
 }
 
 .sidebarWrapper:hover .extendSideBarButton,

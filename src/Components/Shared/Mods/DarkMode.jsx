@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { toggleDarkModeColors } from "../../../Functions/projectFunctions";
 import useLocalStorage from "../../../Hooks/useLocalStorage";
-import styles from "./DarkMode.module.scss";
 
 const DarkMode = () => {
   const [isDarkModeLocal, setIsDarkModeLocal] = useLocalStorage(
@@ -19,17 +18,8 @@ const DarkMode = () => {
   }, [isDarkModeLocal]);
 
   return (
-    <button
-      type="button"
-      className={styles.darkModeButton}
-      onClick={handleDarkMode}
-      title="Dark Mode"
-    >
-      <i
-        className={`fa-regular fa-${
-          isDarkModeLocal ? `sun ${styles.sunIcon}` : "moon"
-        }`}
-      ></i>
+    <button type="button" onClick={handleDarkMode} title="Dark Mode">
+      <i className={`fa-regular fa-${isDarkModeLocal ? "sun" : "moon"}`}></i>
     </button>
   );
 };
