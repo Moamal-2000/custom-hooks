@@ -1,0 +1,55 @@
+.SocialMedia {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0 50px;
+  height: fit-content;
+  position: relative;
+  right: 0;
+  top: 8px;
+}
+
+@media (max-width: 1285px) {
+  .SocialMedia {
+    top: 0;
+    margin-bottom: 6px;
+  }
+}
+
+.buttonIcon {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+
+  &:focus-visible {
+    outline: solid 2px #64ffda;
+  }
+}
+
+.buttonIcon a {
+  display: block;
+  text-decoration: none;
+  border: none;
+  color: #78819a;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonIcon:focus-visible a {
+  color: #64ffda;
+}
+
+.buttonIcon i {
+  transition: color .2s, transform .2s;
+}
+
+.buttonIcon:hover i {
+  transform: scale(1.06);
+  color: #64ffda;
+}

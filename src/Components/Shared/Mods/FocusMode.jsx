@@ -27,9 +27,7 @@ const FocusMode = () => {
   const buttonIcon = (
     <i
       className={
-        isFocusModeActiveLocal
-          ? `fa-regular fa-eye-slash ${styles.eyeSlashIcon}`
-          : "fa-regular fa-eye"
+        isFocusModeActiveLocal ? `fa-regular fa-eye-slash` : "fa-regular fa-eye"
       }
     ></i>
   );

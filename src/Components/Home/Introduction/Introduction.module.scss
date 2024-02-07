@@ -6,6 +6,7 @@
 }
 
 .introduction>h1 {
+  color: var(--white);
   font-size: 3.4rem;
   text-wrap: balance;
 }
@@ -61,6 +62,10 @@
     margin: 40px 0 14px;
     font-size: 1.7rem;
   }
+}
+
+.introduction>section p {
+  color: var(--secondary-white);
 }
 
 @keyframes loading-img {

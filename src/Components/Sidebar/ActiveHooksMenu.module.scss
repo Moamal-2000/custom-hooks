@@ -20,12 +20,12 @@
   transition: background-color .2s;
 
   &:hover {
-    background-color: var(--black2);
+    background-color: var(--secondary-black);
     color: var(--white);
   }
 
   &.active {
-    background-color: var(--black2);
+    background-color: var(--secondary-black);
     color: var(--white);
   }
 }

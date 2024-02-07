@@ -1,26 +1,39 @@
 @import "../../Sass/mixins";
 
 .footer {
-  padding: 20px 0 40px;
+  padding: 150px 0 40px;
   margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
 }
 
-.footer>p {
-  width: fit-content;
+@media (max-width: 1285px) {
+  .footer {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.text>p {
+  width: 100%;
   color: var(--white);
+  text-wrap: balance;
+  font-size: .9rem;
 
   & span {
     opacity: .7;
   }
 }
 
-@include medium {
-  .footer>p {
-    font-size: .9rem;
+@media (max-width: 1285px) {
+  .text {
+    text-align: center;
   }
 }
 
-.footer>p>a {
+.text>p>a {
   color: var(--white);
   padding: 4px;
   transition: opacity .2s, color .2s;
