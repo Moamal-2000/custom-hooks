@@ -4,6 +4,7 @@
   src: url('../Fonts/Roboto/Roboto-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -11,6 +12,7 @@
   src: url('../Fonts/Roboto/Roboto-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -18,6 +20,7 @@
   src: url('../Fonts/Roboto/Roboto-Bold.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -25,4 +28,5 @@
   src: url('../Fonts/Roboto/Roboto-Black.ttf') format('truetype');
   font-weight: 900;
   font-style: normal;
+  font-display: swap;
 }
