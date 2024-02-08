@@ -22,6 +22,10 @@ const HookCode = ({ hookData: { code, name } }) => {
     document.body.classList[method]("focusMode");
   }, [isFullScreen]);
 
+  if (typeof code !== "string") {
+    throw Error(`The following code at ${name} is not string, ${code}`)
+  }
+
   return (
     <div className={`${styles.code} ${isFullScreen ? styles.fullscreen : ""}`}>
       <header>
