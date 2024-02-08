@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useGlobalContext } from "../../../Context/GlobalContext";
 import useFunctionOnKey from "../../../Hooks/useFunctionOnKey";
+import SvgIcon from "../MiniComponents/SvgIcon";
 
 const DarkMode = () => {
   const { isDarkModeLocal, setIsDarkModeLocal } = useGlobalContext();
@@ -18,7 +19,7 @@ const DarkMode = () => {
 
   return (
     <button type="button" onClick={toggleDarkMode} title={`${noun} Mode`}>
-      <i className={`fa-regular fa-${isDarkModeLocal ? "moon" : "sun"}`}></i>
+      <SvgIcon name={isDarkModeLocal ? "moon" : "sun"} />
     </button>
   );
 };

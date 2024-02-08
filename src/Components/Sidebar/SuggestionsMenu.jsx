@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import SvgIcon from "../Shared/MiniComponents/SvgIcon";
 import styles from "./SuggestionsMenu.module.scss";
 
 const SuggestionsMenu = ({ suggestionsData }) => {
@@ -61,6 +62,6 @@ export default SuggestionsMenu;
 const SearchItem = ({ item, onClick }) => (
   <li className={styles.searchItem} onClick={onClick}>
     <span>{item.name}</span>
-    <i className="fa-solid fa-magnifying-glass"></i>
+    <SvgIcon name="search" />
   </li>
 );

@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { useGlobalContext } from "../../Context/GlobalContext";
 import useFunctionOnKey from "../../Hooks/useFunctionOnKey";
 import useGetResizeWindow from "../../Hooks/useGetResizeWindow";
+import SvgIcon from "../Shared/MiniComponents/SvgIcon";
 import ActiveHooksMenu from "./ActiveHooksMenu";
 import DownloadHooksButton from "./DownloadHooksButton";
 import SearchHooksInput from "./SearchHooksInput";
@@ -65,7 +66,7 @@ const SideBar = () => {
   // Components
   const ExtendSideBarButton = () => {
     const activeClass = isSideBarExtendedLocal ? styles.active : "";
-    const arrowDirection = isSideBarExtendedLocal ? "right" : "left";
+    const arrowDirection = isSideBarExtendedLocal ? "Right" : "Left";
 
     return (
       <button
@@ -76,6 +77,7 @@ const SideBar = () => {
         tabIndex="-1"
       >
         <i className={`fa-solid fa-angles-${arrowDirection}`}></i>
+        <SvgIcon name={`double${arrowDirection}Arrow`} />
       </button>
     );
   };
@@ -87,7 +89,7 @@ const SideBar = () => {
       onClick={handleCloseSideBarButton}
       title="Close Sidebar"
     >
-      <i className="fa-solid fa-xmark"></i>
+      <SvgIcon name="xMark" />
     </button>
   );
 
@@ -98,7 +100,7 @@ const SideBar = () => {
       onClick={handleOpenSideBarButton}
       title="Sidebar Menu"
     >
-      <i className="fa-solid fa-bars"></i>
+      <SvgIcon name="burgerMenu" />
     </button>
   );
 

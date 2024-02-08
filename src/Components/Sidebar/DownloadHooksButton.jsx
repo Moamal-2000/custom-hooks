@@ -1,5 +1,6 @@
 import { hooksData } from "../../Data/hooksData";
 import { saveInRAR } from "../../Functions/helper";
+import SvgIcon from "../Shared/MiniComponents/SvgIcon";
 import styles from "./DownloadHooksButton.module.scss";
 
 const DownloadHooksButton = () => {
@@ -10,7 +11,9 @@ const DownloadHooksButton = () => {
       onClick={() => saveInRAR(hooksData)}
     >
       <span>Download Hooks</span>
-      <i className="fa-solid fa-arrow-down"></i>
+      <div className={styles.iconWrapper}>
+        <SvgIcon name="arrowDown" />
+      </div>
     </button>
   );
 };

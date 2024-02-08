@@ -1,9 +1,9 @@
-const FullscreenButton = ({ isFullScreen, toggleIsFullScreen }) => {
-  const iconName = isFullScreen ? "compress" : "expand";
+import SvgIcon from "../../../Shared/MiniComponents/SvgIcon";
 
+const FullscreenButton = ({ isFullScreen, toggleIsFullScreen }) => {
   return (
     <button type="button" title="Full Screen Code" onClick={toggleIsFullScreen}>
-      <i className={`fa-solid fa-${iconName}`}></i>
+      <SvgIcon name={isFullScreen ? "compress" : "expand"} />
     </button>
   );
 };

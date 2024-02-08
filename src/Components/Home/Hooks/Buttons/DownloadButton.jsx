@@ -1,5 +1,6 @@
 import { saveInFile } from "../../../../Functions/helper";
 import useToggle from "../../../../Hooks/useToggle";
+import SvgIcon from "../../../Shared/MiniComponents/SvgIcon";
 
 const DownloadButton = ({ name, code }) => {
   const [isDownloaded, toggleIsDownloaded] = useToggle(false);
@@ -14,7 +15,7 @@ const DownloadButton = ({ name, code }) => {
 
   return (
     <button type="button" title="Download Code" onClick={handleDownloadButton}>
-      <i className={`fa-solid fa-${isDownloaded ? "check" : "download"}`}></i>
+      <SvgIcon name={isDownloaded ? "checked" : "download"} />
     </button>
   );
 };

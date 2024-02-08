@@ -4,6 +4,7 @@
   border-radius: 5px;
   margin: 20px 0 20px;
   cursor: pointer;
+  overflow: hidden;
   transition: background-color .2s, transform .2s;
 
   &:active {
@@ -28,18 +29,23 @@
   color: #fff;
 }
 
-.downloadAllButton>i {
+.iconWrapper {
   background-color: var(--dark-cyan);
-  color: #fff;
-  ;
-  min-width: 47px;
-  min-height: 100%;
-  padding: 16px 18px;
-  font-size: 1rem;
-  border-radius: 0 5px 5px 0;
   transition: background-color .2s;
+  min-width: 47px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.downloadAllButton:hover>i {
+.downloadAllButton svg {
+  fill: #fff;
+  width: 20px;
+  height: 20px;
+  border-radius: 0 5px 5px 0;
+}
+
+.downloadAllButton:hover .iconWrapper {
   background-color: var(--dark-cyan-hover);
 }

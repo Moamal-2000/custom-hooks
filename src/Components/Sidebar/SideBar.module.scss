@@ -33,7 +33,7 @@
   position: fixed;
   left: 10px;
   top: 30px;
-  padding: 8px 10px;
+  padding: 10px;
   cursor: pointer;
   z-index: 100;
   transition: opacity .2s;
@@ -45,16 +45,13 @@
   &:focus-visible {
     outline: solid 2px var(--orange);
     border-radius: 6px;
-
-    &>i {
-      color: var(--orange);
-    }
   }
 }
 
-.sidebarButton>i {
-  font-size: 1.4rem;
-  color: var(--white);
+.sidebarButton>svg {
+  fill: var(--white);
+  width: 26px;
+  height: 26px;
 }
 
 .sidebar {
@@ -75,12 +72,10 @@
 .closeNavButton {
   background-color: transparent;
   position: absolute;
-  top: 26px;
+  top: 21px;
   left: 6px;
   transform: translateX(240px);
-  font-size: 1.4rem;
-  color: #fff;
-  padding: 4px 8px;
+  padding: 8px;
   cursor: pointer;
   z-index: 2;
   transition: opacity .2s;
@@ -98,6 +93,12 @@
 
 .closeNavButton.active {
   opacity: 1;
+}
+
+.closeNavButton svg {
+  width: 22px;
+  height: 22px;
+  fill: #fff;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -134,21 +135,27 @@
   position: absolute;
   left: 300px;
   top: 50px;
-  min-width: 20px;
-  min-height: 20px;
-  padding: 5px 6px;
-  background-color: transparent;
+  min-width: 26px;
+  min-height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--gray-purple);
-  color: #fff;
   border-radius: 0 4px 4px 0;
   cursor: pointer;
   z-index: 103;
-  transition: opacity .2s .1s, background-color .2s;
   opacity: 0;
+  transition: opacity .2s .1s, background-color .2s;
 
   &:hover {
     background-color: var(--gray-purple-secondary);
   }
+}
+
+.extendSideBarButton svg {
+  width: 14px;
+  height: 14px;
+  fill: #fff;
 }
 
 .sidebarWrapper:hover .extendSideBarButton,

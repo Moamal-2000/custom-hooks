@@ -67,6 +67,10 @@ main {
   min-height: 100vh;
 }
 
+svg {
+  @include center-x-y;
+}
+
 @include medium {
   p {
     font-size: 1rem;

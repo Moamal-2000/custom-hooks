@@ -2,10 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import { scrollCalculations } from "../../../Functions/projectFunctions";
 import useEventListener from "../../../Hooks/useEventListener";
 import useFunctionOnKey from "../../../Hooks/useFunctionOnKey";
+import SvgIcon from "../MiniComponents/SvgIcon";
 
 const ScrollBottomTop = () => {
-  const arrowIconRef = useRef();
-  useEventListener(window, "scroll", () => handleFlipScrollIcon(arrowIconRef));
+  const arrowButtonRef = useRef();
+  useEventListener(window, "scroll", () => handleFlipScrollIcon(arrowButtonRef));
   useFunctionOnKey(handleScrollButton, "KeyS", true);
   const [noun, setNoun] = useState("Bottom");
 
@@ -21,20 +22,21 @@ const ScrollBottomTop = () => {
   function handleScrollButton() {
     const { scrollToY } = scrollCalculations();
     window.scrollTo({ behavior: "smooth" }, scrollToY, 0);
-    setTimeout(() => handleFlipScrollIcon(arrowIconRef), 700);
+    setTimeout(() => handleFlipScrollIcon(arrowButtonRef), 700);
   }
 
   useEffect(() => {
-    handleFlipScrollIcon(arrowIconRef);
+    handleFlipScrollIcon(arrowButtonRef);
   }, []);
 
   return (
     <button
+      ref={arrowButtonRef}
       type="button"
       onClick={handleScrollButton}
       title={`Scroll to ${noun}`}
     >
-      <i ref={arrowIconRef} className="fa-solid fa-chevron-up"></i>
+      <SvgIcon name="chevronUp" />
     </button>
   );
 };

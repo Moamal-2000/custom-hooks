@@ -34,6 +34,10 @@
   background-color: transparent;
   border: solid 2px var(--white);
   border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
   opacity: .7;
   transition: opacity .2s;
 
@@ -55,16 +59,16 @@
   }
 }
 
-.modsContainer button>i {
-  font-size: 1rem;
-  color: var(--white);
-  padding: 7px 6px;
+.modsContainer button svg {
+  width: 17px;
+  height: 17px;
   cursor: pointer;
-  transition: opacity .2s, border-color .2s;
+  fill: var(--white);
+  transition: opacity .2s, border-color .2s, fill .2s;
 }
 
-.modsContainer button:focus-visible>i {
-  color: var(--cyan-blue);
+.modsContainer button:focus-visible svg {
+  fill: var(--cyan-blue);
 }
 
 .modsContainer button .eyeSlashIcon {

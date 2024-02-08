@@ -4,9 +4,9 @@ import {
   oneLight,
   vscDarkPlus,
 } from "react-syntax-highlighter/dist/esm/styles/prism";
-import reactIcon from "../../../Assets/Images/react-icon.svg";
 import { useGlobalContext } from "../../../Context/GlobalContext";
 import useToggle from "../../../Hooks/useToggle";
+import SvgIcon from "../../Shared/MiniComponents/SvgIcon";
 import CopyButton from "./Buttons/CopyButton";
 import DownloadButton from "./Buttons/DownloadButton";
 import FullscreenButton from "./Buttons/FullscreenButton";
@@ -23,14 +23,14 @@ const HookCode = ({ hookData: { code, name } }) => {
   }, [isFullScreen]);
 
   if (typeof code !== "string") {
-    throw Error(`The following code at ${name} is not string, ${code}`)
+    throw Error(`The following code at ${name} is not string, ${code}`);
   }
 
   return (
     <div className={`${styles.code} ${isFullScreen ? styles.fullscreen : ""}`}>
       <header>
         <button type="button" className={styles.fileName}>
-          <img src={reactIcon} alt="React Logo" />
+          <SvgIcon name="react" />
           <span>{name}.jsx</span>
         </button>
       </header>

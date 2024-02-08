@@ -68,7 +68,7 @@
   }
 }
 
-.fileName>img {
+.fileName>svg {
   width: 16px;
   height: 16px;
   margin-right: 10px;
@@ -76,7 +76,7 @@
 }
 
 @include medium {
-  .fileName>img {
+  .fileName>svg {
     width: 12px;
     height: 12px;
   }
@@ -87,6 +87,7 @@
   right: 14px;
   top: 22px;
   width: fit-content;
+  display: flex;
   transition: opacity .2s .1s;
   opacity: 0;
 }
@@ -105,7 +106,9 @@
 .buttons>button {
   cursor: pointer;
   border: none;
-  padding: 8px 10px;
+  width: 33px;
+  height: 33px;
+  @include center-x-y;
   background-color: var(--third-black);
   border-radius: 4px;
   transition: background-color .2s, transform .1s ease;
@@ -130,17 +133,26 @@
 
 @include medium {
   .buttons>button {
-    padding: 6px 8px;
+    width: 29px;
+    height: 29px;
   }
 }
 
-.buttons>button>i {
-  font-size: .8rem;
-  color: var(--white);
+.buttons>button>svg {
+  width: 14px;
+  height: 14px;
+  fill: var(--white);
 }
 
-.buttons>button:focus-visible>i {
-  color: var(--light-green);
+@include medium {
+  .buttons>button>svg {
+    width: 11px;
+    height: 11px;
+  }
+}
+
+.buttons>button:focus-visible>svg {
+  fill: var(--light-green);
 }
 
 .codeArea {

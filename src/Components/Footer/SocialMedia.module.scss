@@ -20,7 +20,9 @@
   background-color: transparent;
   border: none;
   outline: none;
+  cursor: pointer;
   border-radius: 4px;
+  padding: 14px;
 
   &:focus-visible {
     outline: solid 2px var(--light-green);
@@ -28,28 +30,25 @@
 }
 
 .buttonIcon a {
-  display: block;
   text-decoration: none;
   border: none;
-  color: #78819a;
-  width: 50px;
-  height: 50px;
-  font-size: 1.5rem;
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.buttonIcon:focus-visible a {
-  color: var(--light-green);
+.buttonIcon:focus-visible svg {
+  fill: var(--light-green);
 }
 
-.buttonIcon i {
-  transition: color .2s, transform .2s;
+.buttonIcon svg {
+  fill: #78819a;
+  width: 23px;
+  height: 23px;
+  transition: fill .2s, transform .2s;
 }
 
-.buttonIcon:hover i {
+.buttonIcon:hover svg {
   transform: scale(1.06);
-  color: var(--light-green);
+  fill: var(--light-green);
 }

@@ -1,5 +1,6 @@
 import useCopyText from "../../../../Hooks/useCopyText";
 import useToggle from "../../../../Hooks/useToggle";
+import SvgIcon from "../../../Shared/MiniComponents/SvgIcon";
 
 const CopyButton = ({ code }) => {
   const [copiedText, copyText] = useCopyText();
@@ -12,15 +13,9 @@ const CopyButton = ({ code }) => {
     setTimeout(() => toggleIsCopied(), 1000);
   }
 
-  const buttonIcon = isCopied ? (
-    <i className="fa-solid fa-check"></i>
-  ) : (
-    <i className="fa-regular fa-copy"></i>
-  );
-
   return (
     <button type="button" title="Copy Code" onClick={handleCopyButton}>
-      {buttonIcon}
+      {<SvgIcon name={isCopied ? "checked" : "copy"} />}
     </button>
   );
 };

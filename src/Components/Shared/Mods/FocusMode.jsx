@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useGlobalContext } from "../../../Context/GlobalContext";
 import useFunctionOnKey from "../../../Hooks/useFunctionOnKey";
+import SvgIcon from "../MiniComponents/SvgIcon";
 import styles from "./FocusMode.module.scss";
 
 const FocusMode = () => {
@@ -24,14 +25,6 @@ const FocusMode = () => {
     document.body.classList.remove("focusMode");
   }, [isFocusModeActiveLocal]);
 
-  const buttonIcon = (
-    <i
-      className={
-        isFocusModeActiveLocal ? `fa-regular fa-eye-slash` : "fa-regular fa-eye"
-      }
-    ></i>
-  );
-
   return (
     <button
       type="button"
@@ -39,7 +32,7 @@ const FocusMode = () => {
       onClick={() => setIsFocusModeActive(!isFocusModeActiveLocal)}
       title="Focus Mode"
     >
-      {buttonIcon}
+      <SvgIcon name={isFocusModeActiveLocal ? "eyeSlash" : "eye"} />
     </button>
   );
 };

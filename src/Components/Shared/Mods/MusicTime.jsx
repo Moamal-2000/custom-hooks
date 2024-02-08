@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import musicPath from "../../../Assets/Sounds/deep-show.mp3";
 import { useGlobalContext } from "../../../Context/GlobalContext";
 import useFunctionOnKey from "../../../Hooks/useFunctionOnKey";
+import SvgIcon from "../MiniComponents/SvgIcon";
 
 const MusicTime = () => {
   const [isMusicOn, setIsMusicOn] = useState(false);
@@ -34,7 +35,7 @@ const MusicTime = () => {
   return (
     !isFocusModeActiveLocal && (
       <button type="button" title={`${noun} Music`} onClick={toggleMusic}>
-        <i className={`fa-solid fa-${isMusicOn ? "pause" : "play"}`}></i>
+        <SvgIcon name={isMusicOn ? "pause" : "play"} />
       </button>
     )
   );
