@@ -8,19 +8,18 @@ import ScrollBottomTop from "./ScrollBottomTop";
 
 const Mods = () => {
   const { isFocusModeActiveLocal } = useGlobalContext();
+  const focusModeClass = isFocusModeActiveLocal ? styles.focusMode : "";
 
   return (
     <nav className={styles.modsContainer}>
       <div className={styles.buttonsWrapper}>
         <FocusMode />
 
-        {!isFocusModeActiveLocal && (
-          <>
-            <FullScreenMode />
-            <MusicTime />
-            <DarkMode />
-          </>
-        )}
+        <div className={`${styles.hidedButtonsOnFocusMode} ${focusModeClass}`}>
+          <FullScreenMode />
+          <MusicTime />
+          <DarkMode />
+        </div>
       </div>
 
       {!isFocusModeActiveLocal && <ScrollBottomTop />}

@@ -17,6 +17,17 @@
   gap: 20px;
 }
 
+.hidedButtonsOnFocusMode {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.focusMode {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .modsContainer button {
   width: 32px;
   height: 32px;
