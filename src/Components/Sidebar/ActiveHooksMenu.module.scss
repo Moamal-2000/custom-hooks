@@ -3,7 +3,10 @@
 .hooksMenu {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+}
+
+.hooksMenu>li:not(:last-child) {
+  margin-bottom: 14px;
 }
 
 .hooksMenu>li>a {

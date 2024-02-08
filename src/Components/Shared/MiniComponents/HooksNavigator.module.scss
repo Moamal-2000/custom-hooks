@@ -3,7 +3,6 @@
   margin-inline: auto;
   display: flex;
   align-items: center;
-  gap: 20px;
 }
 
 .wrapper>button {
@@ -20,6 +19,10 @@
   background-color: var(--very-dark-purple);
   overflow: hidden;
   cursor: pointer;
+
+  &:not(:last-child) {
+    margin-right: 20px;
+  }
 }
 
 .wrapper>button:not(:disabled):focus-visible {

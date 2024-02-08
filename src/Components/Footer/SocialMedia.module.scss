@@ -1,7 +1,6 @@
 .SocialMedia {
   display: flex;
   align-items: center;
-  gap: 4px;
   margin: 0 50px;
   height: fit-content;
   position: relative;
@@ -26,6 +25,10 @@
 
   &:focus-visible {
     outline: solid 2px var(--light-green);
+  }
+
+  &:not(:last-child) {
+    margin-right: 4px;
   }
 }
 
