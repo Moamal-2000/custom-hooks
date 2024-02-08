@@ -1,4 +1,4 @@
-@import "../Sass/mixins";
+@import "../Styles/mixins";
 
 * {
   margin: 0;
@@ -23,6 +23,7 @@ body {
   background-color: var(--extra-dark-blue);
   color: var(--white);
   font-family: 'Roboto', sans-serif;
+  // font-family: 'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', -apple-system, system-ui, sans-serif;
   padding-left: 292px;
   transition: padding .5s ease-in-out;
 }
