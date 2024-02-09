@@ -1079,7 +1079,8 @@ export default useFunctionOnKey;`,
           Custom toggle function that sets the state to a specific value. Usage: customToggle(value).`,
       ],
     ],
-    liveCode: "https://codesandbox.io/s/usetoggle-dxg958?file=/src/Test.jsx",
+    liveCode:
+      "https://codesandbox.io/p/sandbox/useformdata-vcdd4w?file=%2Fsrc%2FTest.jsx%3A1%2C27",
     id: 20,
     code: `import { useState } from "react";
 
@@ -1098,5 +1099,96 @@ const useToggle = (initState = false) => {
 };
 
 export default useToggle;`,
+  },
+
+  {
+    name: "usePagination",
+    page: 5,
+    explanation: [
+      `
+        The usePagination hook manages pagination state for a list of items.
+        It calculates the current page, total pages, start index, and end index based on the total number of items and items per page.
+        It provides functions to navigate between pages: nextPage, prevPage, and goToPage.
+      `,
+    ],
+    inputs: [
+      [
+        `totalItems (Number):
+          The total number of items.`,
+        `itemsPerPage (Number):
+          The number of items to display per page.`,
+        `pageNumber (Number):
+          The initial page number. Default is 1.`,
+      ],
+    ],
+    outputs: [
+      [
+        `currentPage (Number):
+          Represents the current page.`,
+      ],
+      [
+        `totalPages (Number):
+          Represents the total number of pages.`,
+      ],
+      [
+        `nextPage (Function):
+          Advances to the next page if available.`,
+      ],
+      [
+        `prevPage (Function):
+          Goes to the previous page if available.`,
+      ],
+      [
+        `goToPage (Function):
+          Navigates to the specified page.`,
+      ],
+      [
+        `startIndex (Number):
+          Represents the start index of items on the current page.`,
+      ],
+      [
+        `endIndex (Number):
+          Represents the end index of items on the current page.`,
+      ],
+    ],
+    liveCode:
+      "https://codesandbox.io/p/sandbox/usepagination-jsx-jx9p99?file=%2Fsrc%2FTest.jsx%3A1%2C28",
+    id: 21,
+    code: `import { useState } from "react";
+
+const usePagination = (totalItems, itemsPerPage, pageNumber = 1) => {
+  const [currentPage, setCurrentPage] = useState(pageNumber);
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+  function nextPage() {
+    setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
+  }
+
+  function prevPage() {
+    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
+  }
+
+  function goToPage(page) {
+    const pageNumber = Math.max(1, Math.min(page, totalPages));
+    setCurrentPage(pageNumber);
+  }
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = Math.min(startIndex + itemsPerPage - 1, totalItems - 1);
+
+  const paginationInfo = {
+    currentPage,
+    totalPages,
+    nextPage,
+    prevPage,
+    goToPage,
+    startIndex,
+    endIndex,
+  };
+
+  return paginationInfo;
+};
+
+export default usePagination;`,
   },
 ];
