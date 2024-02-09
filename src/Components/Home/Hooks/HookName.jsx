@@ -3,7 +3,7 @@ import { useGlobalContext } from "../../../Context/GlobalContext";
 import useOnScreen from "../../../Hooks/useOnScreen";
 import styles from "./HookName.module.scss"
 
-const HookName = ({ hookData: { name, id } }) => {
+const HookName = ({ hookData: { name, index } }) => {
   const { setScrolledHook } = useGlobalContext();
   const hookTitleRef = useRef();
   const isVisible = useOnScreen(hookTitleRef);
@@ -18,7 +18,7 @@ const HookName = ({ hookData: { name, id } }) => {
 
   return (
     <h2 ref={hookTitleRef} className={styles.hookName}>
-      {id + 1}- <strong>{name} Hook</strong> 
+      {index}- <strong>{name} Hook</strong> 
     </h2>
   );
 };

@@ -1,4 +1,80 @@
-export const hooksData = [
+const originalHooksData = [
+  {
+    name: "usePreviousState",
+    page: 1,
+    explanation: [
+      `
+        The usePreviousState hook tracks the previous state of a component.`,
+    ],
+    inputs: [
+      [
+        `state (Any):
+          The current state that needs to be tracked.`,
+      ],
+    ],
+    outputs: [
+      [
+        `oldState (Any):
+          The previous state of the component.`,
+      ],
+    ],
+    liveCode:
+      "https://codesandbox.io/p/sandbox/usepreviousstate-yns2hn?file=%2Fsrc%2FusePreviousState.jsx%3A1%2C9",
+    id: 30,
+    code: `import { useEffect, useRef } from "react";
+
+const usePreviousState = (state) => {
+  const oldState = useRef(state);
+
+  useEffect(() => {
+    oldState.current = state;
+  }, [state]);
+
+  return oldState.current;
+};
+
+export default usePreviousState;
+`,
+  },
+
+  {
+    name: "useCopyText",
+    page: 1,
+    explanation: [
+      `
+        The useCopyText hook facilitates copying text to the clipboard. It utilizes the Clipboard API 
+        to write the provided text to the clipboard and keeps track of the last copied text.`,
+    ],
+    inputs: [],
+    outputs: [
+      [
+        `copiedText (String):
+          Represents the last text that was copied to the clipboard.`,
+      ],
+      [
+        `setCopy (Function):
+          Function to copy text to the clipboard. Usage: setCopy(text).`,
+      ],
+    ],
+    liveCode:
+      "https://codesandbox.io/p/sandbox/usecopytext-fcqtfr?file=%2Fsrc%2FuseCopyText.jsx%3A6%2C12",
+    id: 40,
+    code: `import { useState } from "react";
+
+const useCopyText = () => {
+  const [copiedText, setCopiedText] = useState("");
+
+  function setCopy(text) {
+    navigator.clipboard.writeText(text);
+    setCopiedText(text);
+  }
+
+  return [copiedText, setCopy];
+};
+
+export default useCopyText;`,
+  },
+
   {
     name: "useToggle",
     page: 1,
@@ -239,44 +315,6 @@ const isParentOfElement = (element, requiredEle) => {
 
   return !!parentElement;
 };`,
-  },
-
-  {
-    name: "useCopyText",
-    page: 1,
-    explanation: [
-      `
-        The useCopyText hook facilitates copying text to the clipboard. It utilizes the Clipboard API 
-        to write the provided text to the clipboard and keeps track of the last copied text.`,
-    ],
-    inputs: [],
-    outputs: [
-      [
-        `copiedText (String):
-          Represents the last text that was copied to the clipboard.`,
-      ],
-      [
-        `setCopy (Function):
-          Function to copy text to the clipboard. Usage: setCopy(text).`,
-      ],
-    ],
-    liveCode:
-      "https://codesandbox.io/p/sandbox/usecopytext-fcqtfr?file=%2Fsrc%2FuseCopyText.jsx%3A6%2C12",
-    id: 3,
-    code: `import { useState } from "react";
-
-const useCopyText = () => {
-  const [copiedText, setCopiedText] = useState("");
-
-  function setCopy(text) {
-    navigator.clipboard.writeText(text);
-    setCopiedText(text);
-  }
-
-  return [copiedText, setCopy];
-};
-
-export default useCopyText;`,
   },
 
   {
@@ -772,44 +810,6 @@ export default usePageBottom;`,
   },
 
   {
-    name: "usePreviousState",
-    page: 3,
-    explanation: [
-      `
-        The usePreviousState hook tracks the previous state of a component.`,
-    ],
-    inputs: [
-      [
-        `state (Any):
-          The current state that needs to be tracked.`,
-      ],
-    ],
-    outputs: [
-      [
-        `oldState (Any):
-          The previous state of the component.`,
-      ],
-    ],
-    liveCode:
-      "https://codesandbox.io/p/sandbox/usepreviousstate-yns2hn?file=%2Fsrc%2FusePreviousState.jsx%3A1%2C9",
-    id: 15,
-    code: `import { useEffect, useRef } from "react";
-
-const usePreviousState = (state) => {
-  const oldState = useRef(state);
-
-  useEffect(() => {
-    oldState.current = state;
-  }, [state]);
-
-  return oldState.current;
-};
-
-export default usePreviousState;
-`,
-  },
-
-  {
     name: "useTextInput",
     page: 4,
     explanation: [
@@ -1252,3 +1252,13 @@ const useUndo = (initialValue) => {
 export default useUndo;`,
   },
 ];
+
+const sortedDataByCodeLength = originalHooksData.sort(
+  (a, b) => a.code.length - b.code.length
+);
+
+sortedDataByCodeLength.forEach((c) => {
+  // console.log(c.name)
+});
+
+export const hooksData = sortedDataByCodeLength;

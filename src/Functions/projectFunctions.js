@@ -1,3 +1,5 @@
+import { filterFromToIndex } from "./helper";
+
 const htmlElement = document.documentElement;
 
 export function scrollCalculations() {
@@ -16,4 +18,16 @@ export function enterFullScreen() {
   else if (htmlElement.webkitRequestFullscreen)
     htmlElement.webkitRequestFullscreen();
   else if (htmlElement.msRequestFullscreen) htmlElement.msRequestFullscreen();
+}
+
+export function getPageData(data, pageNumber, itemsPerPage = 5) {
+  const totalHooks = data.length;
+  const startIndex = (pageNumber - 1) * itemsPerPage;
+  const endIndex = Math.min(startIndex + itemsPerPage - 1, totalHooks - 1);
+  const { data: pageData, indexes } = filterFromToIndex(
+    startIndex,
+    endIndex,
+    data
+  );
+  return { pageData, indexes };
 }

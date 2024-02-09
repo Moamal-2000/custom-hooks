@@ -39,3 +39,17 @@ export function scrollToBottom() {
     });
   }, 100);
 }
+
+export function filterFromToIndex(startIndex, endIndex, entireData) {
+  const data = [];
+  const indexes = [];
+
+  for (let i = startIndex; i <= endIndex + 1; i++) {
+    if (i <= endIndex) {
+      data.push(entireData[i]);
+      indexes.push(i + 1);
+    }
+  }
+
+  return { data, indexes };
+}

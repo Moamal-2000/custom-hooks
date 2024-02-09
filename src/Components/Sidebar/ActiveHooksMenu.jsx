@@ -1,6 +1,7 @@
 import { useSearchParams } from "react-router-dom";
 import { useGlobalContext } from "../../Context/GlobalContext";
 import { hooksData } from "../../Data/hooksData";
+import { getPageData } from "../../Functions/projectFunctions";
 import styles from "./ActiveHooksMenu.module.scss";
 
 const ActiveHooksMenu = () => {
@@ -13,10 +14,7 @@ const ActiveHooksMenu = () => {
   const [params] = useSearchParams();
   const pageId = parseInt(params.get("page")) || 1;
   const { isNotFoundPageShown } = useGlobalContext();
-
-  const pageHooksData = hooksData.filter(
-    (hookData) => hookData?.page === pageId
-  );
+  const { pageData: pageHooksData } = getPageData(hooksData, pageId, 5);
 
   function handleClickLink(hookName) {
     setScrolledHook(hookName);
