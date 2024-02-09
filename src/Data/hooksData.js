@@ -1191,4 +1191,57 @@ const usePagination = (totalItems, itemsPerPage, pageNumber = 1) => {
 
 export default usePagination;`,
   },
+
+  {
+    name: "useUndo",
+    page: 5,
+    explanation: [
+      `
+        The useUndo hook provides undo functionality for managing state changes.
+        It allows reverting to the previous state and saving the current state for future undo actions.
+      `,
+    ],
+    inputs: [
+      [
+        `initialValue (Any):
+          The initial value for the state.`,
+      ],
+    ],
+    outputs: [
+      [
+        `value (Any):
+          Represents the current state.`,
+      ],
+      [
+        `set (Function):
+          Sets the current state to a new value.`,
+      ],
+      [
+        `undo (Function):
+          Reverts the current state to the previous value.`,
+      ],
+    ],
+    liveCode:
+      "https://codesandbox.io/p/sandbox/useundo-jsx-x8kq6k?file=%2Fsrc%2FTest.jsx%3A17%2C1",
+    id: 22,
+    code: `import { useState } from "react";
+
+const useUndo = (initialValue) => {
+  const [value, setValue] = useState(initialValue);
+  const [undoValue, setUndoValue] = useState(null);
+
+  const undo = () => {
+    setValue(undoValue);
+  };
+
+  const set = (newValue) => {
+    setUndoValue(value);
+    setValue(newValue);
+  };
+
+  return [value, set, undo];
+};
+
+export default useUndo;`,
+  },
 ];
