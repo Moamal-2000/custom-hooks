@@ -1048,4 +1048,55 @@ const useFunctionOnKey = (
 
 export default useFunctionOnKey;`,
   },
+
+  {
+    name: "useToggle",
+    page: 4,
+    explanation: [
+      `
+        The useToggle hook manages a boolean state, providing functions to toggle between true and false.
+        It initializes with an optional initial state (default is false).
+        It returns the current state, a toggle function, and a custom toggle function.
+      `,
+    ],
+    inputs: [
+      [
+        `initState (Boolean):
+          The initial state for the toggle. Default is false.`,
+      ],
+    ],
+    outputs: [
+      [
+        `state (Boolean):
+          Represents the current state of the toggle.`,
+      ],
+      [
+        `toggle (Function):
+          Toggles the state between true and false.`,
+      ],
+      [
+        `customToggle (Function):
+          Custom toggle function that sets the state to a specific value. Usage: customToggle(value).`,
+      ],
+    ],
+    liveCode: "https://codesandbox.io/s/usetoggle-dxg958?file=/src/Test.jsx",
+    id: 20,
+    code: `import { useState } from "react";
+
+const useToggle = (initState = false) => {
+  const [state, setState] = useState(initState);
+
+  function toggle() {
+    setState((prevState) => !prevState);
+  }
+
+  function customToggle(value) {
+    setState(value);
+  }
+
+  return [state, toggle, customToggle];
+};
+
+export default useToggle;`,
+  },
 ];
