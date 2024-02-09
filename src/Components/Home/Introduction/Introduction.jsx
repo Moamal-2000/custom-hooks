@@ -8,7 +8,7 @@ const Introduction = () => {
   return (
     <article className={styles.introduction}>
       <h1>
-        <strong>Exploring {numberOfHooks} Custom Hooks in React</strong>
+        <strong>Explore {numberOfHooks} Custom Hooks in React!</strong>
       </h1>
 
       <div className={styles.introImageWrapper}>
