@@ -11,9 +11,8 @@ const GlobalContextProvider = ({ children }) => {
   const [isFocusModeActiveLocal, setIsFocusModeActive] = useLocalStorage("focus-mode");
   const [isDarkModeLocal, setIsDarkModeLocal] = useLocalStorage("dark-mode", false);
   const numberOfHooks = hooksData.length;
-  const numbersOfPages = [
-    ...new Set(hooksData.map((hookData) => hookData.page)),
-  ];
+  const hooksPerPage = 5
+  const numbersOfPages = Math.ceil(numberOfHooks / hooksPerPage)
 
   const data = {
     scrolledHook,
@@ -29,6 +28,7 @@ const GlobalContextProvider = ({ children }) => {
     setIsFocusModeActive,
     isDarkModeLocal,
     setIsDarkModeLocal,
+    hooksPerPage,
     numbersOfPages,
     isNotFoundPageShown,
     setIsNotFoundPageShown,

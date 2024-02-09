@@ -29,5 +29,6 @@ export function getPageData(data, pageNumber, itemsPerPage = 5) {
     endIndex,
     data
   );
+
   return { pageData, indexes };
 }

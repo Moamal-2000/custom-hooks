@@ -1,7 +1,6 @@
 const originalHooksData = [
   {
     name: "usePreviousState",
-    page: 1,
     explanation: [
       `
         The usePreviousState hook tracks the previous state of a component.`,
@@ -20,7 +19,7 @@ const originalHooksData = [
     ],
     liveCode:
       "https://codesandbox.io/p/sandbox/usepreviousstate-yns2hn?file=%2Fsrc%2FusePreviousState.jsx%3A1%2C9",
-    id: 30,
+    id: 0,
     code: `import { useEffect, useRef } from "react";
 
 const usePreviousState = (state) => {
@@ -39,7 +38,6 @@ export default usePreviousState;
 
   {
     name: "useCopyText",
-    page: 1,
     explanation: [
       `
         The useCopyText hook facilitates copying text to the clipboard. It utilizes the Clipboard API 
@@ -58,7 +56,7 @@ export default usePreviousState;
     ],
     liveCode:
       "https://codesandbox.io/p/sandbox/usecopytext-fcqtfr?file=%2Fsrc%2FuseCopyText.jsx%3A6%2C12",
-    id: 40,
+    id: 1,
     code: `import { useState } from "react";
 
 const useCopyText = () => {
@@ -77,7 +75,6 @@ export default useCopyText;`,
 
   {
     name: "useToggle",
-    page: 1,
     explanation: [
       `
         The useToggle hook manages a boolean state, providing functions to toggle between true and false.
@@ -107,7 +104,7 @@ export default useCopyText;`,
     ],
     liveCode:
       "https://codesandbox.io/p/sandbox/usetoggle-dxg958?file=%2Fsrc%2FTest.jsx%3A10%2C11",
-    id: 0,
+    id: 2,
     code: `import { useState } from "react";
 
 const useToggle = (initState = false) => {
@@ -129,7 +126,6 @@ export default useToggle;`,
 
   {
     name: "useArray",
-    page: 1,
     explanation: [
       `
         The useArray hook provides a set of functions to manage and manipulate an array state 
@@ -192,7 +188,7 @@ export default useToggle;`,
     ],
     liveCode:
       "https://codesandbox.io/p/sandbox/usearray-rxj3p5?file=%2Fsrc%2FTest.jsx%3A7%2C1",
-    id: 1,
+    id: 3,
     code: `import { useState } from "react";
 
 const useArray = (initArray) => {
@@ -237,7 +233,6 @@ export default useArray;`,
 
   {
     name: "useCloseElement",
-    page: 1,
     explanation: [
       `
         The useCloseElement hook manages the state of an element's visibility based on clicks outside designated elements.
@@ -270,7 +265,7 @@ export default useArray;`,
     ],
     liveCode:
       "https://codesandbox.io/p/sandbox/usecloseelement-z49szj?file=%2Fsrc%2FTest.jsx%3A8%2C14",
-    id: 2,
+    id: 4,
     code: `import { useEffect, useState } from "react";
 
 const useCloseElement = (toggleEleRef, switcherEleRef, exceptElementRef) => {
@@ -319,7 +314,6 @@ const isParentOfElement = (element, requiredEle) => {
 
   {
     name: "useUpdateEffect",
-    page: 1,
     explanation: [
       `
         The useUpdateEffect hook is similar to useEffect, but it skips its initial execution.
@@ -339,7 +333,7 @@ const isParentOfElement = (element, requiredEle) => {
     outputs: [],
     liveCode:
       "https://codesandbox.io/p/sandbox/useupdateeffect-jsx-j7pkck?file=%2Fsrc%2FTest.jsx",
-    id: 4,
+    id: 5,
     code: `import { useEffect, useRef } from "react";
 
 const useUpdateEffect = (callback, dependencies) => {
@@ -360,7 +354,6 @@ export default useUpdateEffect;`,
 
   {
     name: "useEventListener",
-    page: 2,
     explanation: [
       `
         The useEventListener hook allows attaching and removing event listeners to a specified DOM element.
@@ -383,7 +376,7 @@ export default useUpdateEffect;`,
     outputs: [],
     liveCode:
       "https://codesandbox.io/p/sandbox/useeventlistener-9tcp7n?file=%2Fsrc%2FuseEventListener.jsx%3A1%2C5",
-    id: 5,
+    id: 6,
     code: `import { useEffect } from "react";
 
 const useEventListener = (ref, eventName, callback) => {
@@ -401,7 +394,6 @@ export default useEventListener;`,
 
   {
     name: "useFilteredObjects",
-    page: 2,
     explanation: [
       `
         The useFilteredObjects hook filters an array of objects based on a specified search value and key.`,
@@ -432,7 +424,7 @@ export default useEventListener;`,
     ],
     liveCode:
       "https://codesandbox.io/p/sandbox/usefilteredobjects-qjd5tl?file=%2Fsrc%2FTest.jsx%3A3%2C1",
-    id: 6,
+    id: 7,
     code: `import { useEffect, useState } from "react";
 
 const useFilteredObjects = (array, searchValue, key) => {
@@ -454,7 +446,6 @@ export default useFilteredObjects;`,
 
   {
     name: "useGetParams",
-    page: 2,
     explanation: [
       `
         The useGetParams hook extracts and manages query parameters from the current URL, updating them whenever the URL changes.`,
@@ -467,7 +458,7 @@ export default useFilteredObjects;`,
       ],
     ],
     liveCode: "",
-    id: 7,
+    id: 8,
     code: `import { useEffect, useState } from "react";
 
 const useGetParams = () => {
@@ -503,7 +494,6 @@ export default useGetParams;`,
 
   {
     name: "useGetResizeWindow",
-    page: 2,
     explanation: [
       `
         The useGetResizeWindow hook tracks the window resize event and returns an object containing 
@@ -519,7 +509,7 @@ export default useGetParams;`,
     ],
     liveCode:
       "https://codesandbox.io/p/sandbox/usegetresizewindow-nj9n9p?file=%2Fsrc%2FuseGetResizeWindow.jsx%3A3%2C15",
-    id: 8,
+    id: 9,
     code: `import { useEffect, useState } from "react";
 
 const useGetResizeWindow = () => {
@@ -556,7 +546,6 @@ export default useGetResizeWindow;`,
 
   {
     name: "useKeyPress",
-    page: 2,
     explanation: [
       `
       The useKeyPress hook is a custom React hook designed to facilitate the tracking of keypress events 
@@ -581,7 +570,7 @@ export default useGetResizeWindow;`,
     ],
     liveCode:
       "https://codesandbox.io/p/sandbox/usekeypress-dzgxxj?file=%2Fsrc%2FuseKeyPress.jsx%3A3%2C22",
-    id: 9,
+    id: 10,
     code: `import { useEffect, useState } from "react";
 
 const useKeyPress = () => {
@@ -608,7 +597,6 @@ export default useKeyPress;`,
 
   {
     name: "useLocalStorage",
-    page: 3,
     explanation: [
       `
         The useLocalStorage hook provides a way to store and retrieve data in the browser's local storage.
@@ -638,7 +626,7 @@ export default useKeyPress;`,
     ],
     liveCode:
       "https://codesandbox.io/p/sandbox/uselocalstorage-6hy7w2?file=%2Fsrc%2FTest.jsx%3A2%2C8",
-    id: 10,
+    id: 11,
     code: `import { useState } from "react";
 
 const useLocalStorage = (keyName, initialData) => {
@@ -665,7 +653,6 @@ export default useLocalStorage;`,
 
   {
     name: "useOnlineStatus",
-    page: 3,
     explanation: [
       `
         The useOnlineStatus hook detects the online/offline status of the user's device.`,
@@ -712,7 +699,6 @@ export default useOnlineStatus;`,
 
   {
     name: "useOnScreen",
-    page: 3,
     explanation: [
       "The useOnScreen hook detects whether a specified DOM element is visible on the screen.",
     ],
@@ -763,7 +749,6 @@ export default useOnScreen;`,
 
   {
     name: "usePageBottom",
-    page: 3,
     explanation: [
       "The usePageBottom hook detects whether the user has scrolled to the bottom of the page.",
     ],
@@ -811,7 +796,6 @@ export default usePageBottom;`,
 
   {
     name: "useTextInput",
-    page: 4,
     explanation: [
       `
         The useTextInput hook manages the state of a text input field.`,
@@ -838,7 +822,7 @@ export default usePageBottom;`,
     ],
     liveCode:
       "https://codesandbox.io/p/sandbox/usetextinput-ss44cm?file=%2Fsrc%2FTest.jsx%3A10%2C4",
-    id: 16,
+    id: 15,
     code: `import { useState } from "react";
 
 const useTextInput = (initialValue = "") => {
@@ -857,7 +841,6 @@ export default useTextInput;`,
 
   {
     name: "useRandomNumber",
-    page: 4,
     explanation: [
       `
       The useRandomNumber hook is a custom React hook designed to generate and manage random numbers 
@@ -886,7 +869,7 @@ export default useTextInput;`,
     ],
     liveCode:
       "https://codesandbox.io/s/sandbox-userandomnumber-cfhdkv?file=/src/Test.jsx",
-    id: 17,
+    id: 16,
     code: `import { useState } from "react";
 
 const useRandomNumber = (min = 0, max = 1000) => {
@@ -915,7 +898,6 @@ function generateRandomNumber(min, max) {
 
   {
     name: "useMouseEffect",
-    page: 4,
     explanation: [
       "The useMouseEffect hook applies effects related to mouse movements on a specified element.",
       "It allows adding a custom class when the mouse is active, positioning the element based on mouse coordinates,",
@@ -935,7 +917,7 @@ function generateRandomNumber(min, max) {
     outputs: [],
     liveCode:
       "https://codesandbox.io/p/sandbox/usemouseeffect-t4mzrz?file=%2Fsrc%2FuseMouseEffect.jsx%3A1%2C13",
-    id: 18,
+    id: 17,
     code: `import { useEffect } from "react";
 
 const useMouseEffect = (
@@ -988,7 +970,6 @@ export default useMouseEffect;`,
 
   {
     name: "useFunctionOnKey",
-    page: 4,
     explanation: [
       `
         The useFunctionOnKey hook listens for a specific key press and triggers a callback function when that key is pressed.
@@ -1016,7 +997,7 @@ export default useMouseEffect;`,
     outputs: [],
     liveCode:
       "https://codesandbox.io/s/sandbox-usefunctiononkey-mfpznn?file=/src/useKeyPress.jsx:6:1",
-    id: 19,
+    id: 18,
     code: `import { useEffect } from "react";
 import useKeyPress from "./useKeyPress";
 
@@ -1051,7 +1032,6 @@ export default useFunctionOnKey;`,
 
   {
     name: "useFormData",
-    page: 4,
     explanation: [
       `
         The useFormData hook facilitates managing form data by providing functions to handle form changes and submission.
@@ -1082,7 +1062,7 @@ export default useFunctionOnKey;`,
     ],
     liveCode:
       "https://codesandbox.io/s/sandbox/useformdata-jsx-vvdsq?file=/src/Test.jsx:17:1",
-    id: 20,
+    id: 19,
     code: `import { useState } from "react";
 
 const useFormData = ({ initialValues, onSubmit }) => {
@@ -1110,7 +1090,6 @@ export default useFormData;`,
 
   {
     name: "usePagination",
-    page: 5,
     explanation: [
       `
         The usePagination hook manages pagination state for a list of items.
@@ -1160,7 +1139,7 @@ export default useFormData;`,
     ],
     liveCode:
       "https://codesandbox.io/p/sandbox/usepagination-jsx-jx9p99?file=%2Fsrc%2FTest.jsx%3A1%2C28",
-    id: 21,
+    id: 20,
     code: `import { useState } from "react";
 
 const usePagination = (totalItems, itemsPerPage, pageNumber = 1) => {
@@ -1201,7 +1180,6 @@ export default usePagination;`,
 
   {
     name: "useUndo",
-    page: 5,
     explanation: [
       `
         The useUndo hook provides undo functionality for managing state changes.
@@ -1230,7 +1208,7 @@ export default usePagination;`,
     ],
     liveCode:
       "https://codesandbox.io/p/sandbox/useundo-jsx-x8kq6k?file=%2Fsrc%2FTest.jsx%3A17%2C1",
-    id: 22,
+    id: 21,
     code: `import { useState } from "react";
 
 const useUndo = (initialValue) => {
@@ -1256,9 +1234,5 @@ export default useUndo;`,
 const sortedDataByCodeLength = originalHooksData.sort(
   (a, b) => a.code.length - b.code.length
 );
-
-sortedDataByCodeLength.forEach((c) => {
-  // console.log(c.name)
-});
 
 export const hooksData = sortedDataByCodeLength;

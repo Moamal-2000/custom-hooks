@@ -10,11 +10,16 @@ const ActiveHooksMenu = () => {
     setIsOverlayActive,
     setScrolledHook,
     setIsSideBarActive,
+    hooksPerPage,
   } = useGlobalContext();
   const [params] = useSearchParams();
   const pageId = parseInt(params.get("page")) || 1;
   const { isNotFoundPageShown } = useGlobalContext();
-  const { pageData: pageHooksData } = getPageData(hooksData, pageId, 5);
+  const { pageData: pageHooksData } = getPageData(
+    hooksData,
+    pageId,
+    hooksPerPage
+  );
 
   function handleClickLink(hookName) {
     setScrolledHook(hookName);

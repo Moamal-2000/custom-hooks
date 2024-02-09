@@ -9,7 +9,7 @@ const HooksNavigator = () => {
   const [params, setParams] = useSearchParams();
   const navigateTo = useNavigate();
   const currentPage = parseInt(params.get("page")) || 1;
-  const isLastPage = currentPage === numbersOfPages.length;
+  const isLastPage = currentPage === numbersOfPages;
   const isFirstPage = currentPage === 1;
 
   function handleNextPage() {
