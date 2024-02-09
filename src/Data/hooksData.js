@@ -280,6 +280,47 @@ export default useCopyText;`,
   },
 
   {
+    name: "useUpdateEffect",
+    page: 1,
+    explanation: [
+      `
+        The useUpdateEffect hook is similar to useEffect, but it skips its initial execution.
+        It runs the effect only on subsequent re-renders, excluding the initial render.
+      `,
+    ],
+    inputs: [
+      [
+        `callback (Function):
+          The function to run when the effect is triggered on update.`,
+      ],
+      [
+        `dependencies (Array):
+          An array of dependencies to watch for changes and trigger the effect accordingly.`,
+      ],
+    ],
+    outputs: [],
+    liveCode:
+      "https://codesandbox.io/p/sandbox/useupdateeffect-jsx-j7pkck?file=%2Fsrc%2FTest.jsx",
+    id: 4,
+    code: `import { useEffect, useRef } from "react";
+
+const useUpdateEffect = (callback, dependencies) => {
+  const mount = useRef(false);
+
+  useEffect(() => {
+    if (!mount.current) {
+      mount.current = true;
+      return;
+    }
+
+    return callback;
+  }, dependencies);
+};
+
+export default useUpdateEffect;`,
+  },
+
+  {
     name: "useEventListener",
     page: 2,
     explanation: [
