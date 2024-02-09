@@ -1050,55 +1050,62 @@ export default useFunctionOnKey;`,
   },
 
   {
-    name: "useToggle",
+    name: "useFormData",
     page: 4,
     explanation: [
       `
-        The useToggle hook manages a boolean state, providing functions to toggle between true and false.
-        It initializes with an optional initial state (default is false).
-        It returns the current state, a toggle function, and a custom toggle function.
+        The useFormData hook facilitates managing form data by providing functions to handle form changes and submission.
+        It enables tracking form values and executing a callback function upon form submission.
       `,
     ],
     inputs: [
       [
-        `initState (Boolean):
-          The initial state for the toggle. Default is false.`,
+        `initialValues (Object):
+          An object containing the initial values for the form fields.`,
+        `onSubmit (Function):
+          A function to be called when the form is submitted. It receives the current form values as its argument.`,
       ],
     ],
     outputs: [
       [
-        `state (Boolean):
-          Represents the current state of the toggle.`,
+        `values (Object):
+          Represents the current values of the form fields.`,
       ],
       [
-        `toggle (Function):
-          Toggles the state between true and false.`,
+        `handleChange (Function):
+          A function to handle changes in form fields. It updates the corresponding value in the form data.`,
       ],
       [
-        `customToggle (Function):
-          Custom toggle function that sets the state to a specific value. Usage: customToggle(value).`,
+        `handleSubmit (Function):
+          A function to handle form submission. It prevents the default form submission behavior and invokes the onSubmit callback with the current form values.`,
       ],
     ],
     liveCode:
-      "https://codesandbox.io/p/sandbox/useformdata-vcdd4w?file=%2Fsrc%2FTest.jsx%3A1%2C27",
+      "https://codesandbox.io/s/sandbox/useformdata-jsx-vvdsq?file=/src/Test.jsx:17:1",
     id: 20,
     code: `import { useState } from "react";
 
-const useToggle = (initState = false) => {
-  const [state, setState] = useState(initState);
+const useFormData = ({ initialValues, onSubmit }) => {
+  const [values, setValues] = useState(initialValues);
 
-  function toggle() {
-    setState((prevState) => !prevState);
-  }
+  const handleChange = (event) => {
+    const { name, value } = event.target;
 
-  function customToggle(value) {
-    setState(value);
-  }
+    setValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
+  };
 
-  return [state, toggle, customToggle];
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onSubmit(values);
+  };
+
+  return { values, handleChange, handleSubmit };
 };
 
-export default useToggle;`,
+export default useFormData;`,
   },
 
   {
