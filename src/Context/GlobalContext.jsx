@@ -10,9 +10,9 @@ const GlobalContextProvider = ({ children }) => {
   const [isSideBarExtendedLocal, setIsSideBarExtended] = useLocalStorage("sidebar-extend");
   const [isFocusModeActiveLocal, setIsFocusModeActive] = useLocalStorage("focus-mode");
   const [isDarkModeLocal, setIsDarkModeLocal] = useLocalStorage("dark-mode", false);
-  const numberOfHooks = hooksData.length;
+  const lengthHooks = hooksData.length;
   const hooksPerPage = 5
-  const numbersOfPages = Math.ceil(numberOfHooks / hooksPerPage)
+  const numbersOfPages = Math.ceil(lengthHooks / hooksPerPage)
 
   const data = {
     scrolledHook,
@@ -21,7 +21,7 @@ const GlobalContextProvider = ({ children }) => {
     setIsSideBarActive,
     isOverlayActive,
     setIsOverlayActive,
-    numberOfHooks,
+    numberOfHooks: lengthHooks,
     isSideBarExtendedLocal,
     setIsSideBarExtended,
     isFocusModeActiveLocal,
