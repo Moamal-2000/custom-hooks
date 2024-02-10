@@ -6,31 +6,39 @@ import SvgIcon from "../MiniComponents/SvgIcon";
 
 const MusicTime = () => {
   const [isMusicOn, setIsMusicOn] = useState(false);
-  const musicRef = useRef(new Audio(musicPath));
-  const music = musicRef.current;
+  const [musicLoaded, setMusicLoaded] = useState(false);
+  const musicRef = useRef(null);
   const { isFocusModeActiveLocal } = useGlobalContext();
   const noun = isMusicOn ? "Pause" : "Play";
   useFunctionOnKey(toggleMusic, "KeyM", true, true);
 
   function toggleMusic() {
-    const method = music.paused ? "play" : "pause";
+    if (!musicLoaded) {
+      musicRef.current = new Audio();
+      musicRef.current.src = musicPath;
+      setMusicLoaded(true);
+    }
+
+    const method = musicRef.current.paused ? "play" : "pause";
     setIsMusicOn((prevState) => !prevState);
-    music[method]();
+    musicRef.current[method]();
   }
 
   function stopMusic() {
     setIsMusicOn(false);
-    music.pause();
+    musicRef.current.pause();
   }
 
   useEffect(() => {
-    music.addEventListener("ended", stopMusic);
+    if (musicLoaded) {
+      musicRef.current.addEventListener("ended", stopMusic);
 
-    return () => {
-      music.removeEventListener("ended", stopMusic);
-      stopMusic();
-    };
-  }, []);
+      return () => {
+        musicRef.current.removeEventListener("ended", stopMusic);
+        stopMusic();
+      };
+    }
+  }, [musicLoaded]);
 
   return (
     !isFocusModeActiveLocal && (
