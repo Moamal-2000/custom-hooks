@@ -1,24 +1,20 @@
 import { enterFullScreen } from "../../../Functions/projectFunctions";
-import useDebounce from "../../../Hooks/useDebounce";
 import useFunctionOnKey from "../../../Hooks/useFunctionOnKey";
 import useToggle from "../../../Hooks/useToggle";
 import SvgIcon from "../MiniComponents/SvgIcon";
 
 const FullScreenMode = () => {
   const [isFullScreen, toggleIsFullScreen] = useToggle(false);
-  const { debounceFun } = useDebounce(200);
-  useFunctionOnKey(toggleFullScreen, "KeyF", true);
+  useFunctionOnKey(toggleFullScreen, "KeyF", 200, true);
 
   function toggleFullScreen() {
-    debounceFun(() => {
-      toggleIsFullScreen();
+    toggleIsFullScreen();
 
-      if (document.fullscreenElement) document.exitFullscreen()
+    if (document.fullscreenElement) document.exitFullscreen();
 
-      enterFullScreen();
-      const method = !isFullScreen ? "add" : "remove";
-      document.body.classList[method]("focusMode");
-    });
+    enterFullScreen();
+    const method = !isFullScreen ? "add" : "remove";
+    document.body.classList[method]("focusMode");
   }
 
   return (

@@ -1226,79 +1226,6 @@ export default useUndo;`,
     name: "useDebounce",
     explanation: [
       `
-        The useDebounce hook provides functionality for debouncing function calls.
-        It delays invoking a function until after a certain amount of time has passed since the last call.
-      `,
-    ],
-    inputs: [
-      [
-        `delay (Number):
-          The delay in milliseconds before invoking the function.`,
-      ],
-    ],
-    outputs: [
-      [
-        `debounceFun (Function):
-          The debounced function that delays invoking the original function.`,
-      ],
-    ],
-    liveCode: "",
-    id: 22,
-    code: `const useDebounce = (delay) => {
-  let timerId;
-
-  function debounceFun(callback) {
-    clearTimeout(timerId);
-
-    timerId = setTimeout(() => callback(), delay);
-  }
-
-  return { debounceFun };
-};
-
-export default useDebounce;`,
-  },
-
-  {
-    name: "usePreviousState",
-    explanation: [
-      `
-        The usePreviousState hook allows you to track the previous state of a component.`,
-    ],
-    inputs: [
-      [
-        `state (Any):
-          The current state that you want to track.`,
-      ],
-    ],
-    outputs: [
-      [
-        `oldState (Any):
-          The previous state of the component.`,
-      ],
-    ],
-    liveCode:
-      "https://codesandbox.io/p/sandbox/usetimeout-jsx-mw5z49?file=%2Fsrc%2FTest.jsx%3A4%2C21",
-    id: 23,
-    code: `import { useEffect, useRef } from "react";
-
-const usePreviousState = (state) => {
-  const oldState = useRef(state);
-
-  useEffect(() => {
-    oldState.current = state;
-  }, [state]);
-
-  return oldState.current;
-};
-
-export default usePreviousState;`,
-  },
-
-  {
-    name: "useDebounce",
-    explanation: [
-      `
         The useDebounce hook enables you to debounce a callback function, which means delaying its execution until a certain amount of time has passed since the last invocation. This is particularly useful in scenarios where you want to optimize performance by reducing the frequency of expensive computations or network requests.`,
       `
         It takes three parameters:
@@ -1330,12 +1257,10 @@ export default usePreviousState;`,
     code: `import { useEffect } from "react";
 import useTimeout from "./useTimeout";
 
-export default function useDebounce(callback, delay, dependencies) {
+export default function useDebounce(callback, delay = 500, dependencies = []) {
   const { reset, clear } = useTimeout(callback, delay);
   useEffect(reset, [...dependencies, reset]);
   useEffect(clear, []);
-
-  return { reset, clear };
 }`,
   },
 ];

@@ -1,15 +1,17 @@
-import { useEffect } from "react";
+import useDebounce from "./useDebounce";
 import useKeyPress from "./useKeyPress";
 
 const useFunctionOnKey = (
   callback,
   keyName,
+  delay = 200,
   disableMainKeys = false,
   disableOnFocus = false
 ) => {
   const [pressedKey, setKey, keyPressEvent] = useKeyPress();
+  useDebounce(() => executeOnClick(), delay, [pressedKey, keyPressEvent]);
 
-  useEffect(() => {
+  function executeOnClick() {
     const { shiftKey, altKey, ctrlKey } = keyPressEvent;
     const isOneOfMainKeysPressed = shiftKey || altKey || ctrlKey;
     const focusElement = document.activeElement?.tagName;
@@ -24,7 +26,7 @@ const useFunctionOnKey = (
       callback();
       setKey("");
     }
-  }, [pressedKey, keyPressEvent]);
+  }
 };
 
 export default useFunctionOnKey;
