@@ -8,13 +8,15 @@
 }
 
 ::selection {
-  background-color: var(--dark-gray-opacity5);
-  color: var(--white);
+  color: #fff;
+  background-color: var(--dark-cyan-hover);
 }
 
 a::selection {
-  background-color: rgba(69, 69, 69, .5);
+  background-color: rgba(135, 135, 135, .621);
+  color: var(--white);
 }
+
 
 html {
   scroll-behavior: smooth;
