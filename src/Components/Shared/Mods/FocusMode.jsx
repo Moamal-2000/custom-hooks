@@ -8,7 +8,7 @@ const FocusMode = () => {
   const { isFocusModeActiveLocal, setIsFocusModeActive, setIsSideBarExtended } =
     useGlobalContext();
   const focusModeClass = isFocusModeActiveLocal ? styles.focusMode : "";
-  useFunctionOnKey(toggleFocusMode, "KeyG", 200, true);
+  useFunctionOnKey(toggleFocusMode, "KeyG", 300, true);
 
   function toggleFocusMode() {
     setIsFocusModeActive(!isFocusModeActiveLocal);

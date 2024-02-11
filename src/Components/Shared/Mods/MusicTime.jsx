@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import musicPath from "../../../Assets/Sounds/deep-show.mp3";
 import { useGlobalContext } from "../../../Context/GlobalContext";
-import useDebounce from "../../../Hooks/useDebounce";
 import useFunctionOnKey from "../../../Hooks/useFunctionOnKey";
 import SvgIcon from "../MiniComponents/SvgIcon";
 
@@ -11,21 +10,18 @@ const MusicTime = () => {
   const musicRef = useRef(null);
   const { isFocusModeActiveLocal } = useGlobalContext();
   const noun = isMusicOn ? "Pause" : "Play";
-  const { debounceFun } = useDebounce(200);
-  useFunctionOnKey(toggleMusic, "KeyM", true, true);
+  useFunctionOnKey(toggleMusic, "KeyP", 300, true, true);
 
   function toggleMusic() {
-    debounceFun(() => {
-      if (!musicLoaded) {
-        musicRef.current = new Audio();
-        musicRef.current.src = musicPath;
-        setMusicLoaded(true);
-      }
+    if (!musicLoaded) {
+      musicRef.current = new Audio();
+      musicRef.current.src = musicPath;
+      setMusicLoaded(true);
+    }
 
-      const method = musicRef.current.paused ? "play" : "pause";
-      setIsMusicOn((prevState) => !prevState);
-      musicRef.current[method]();
-    });
+    const method = musicRef.current.paused ? "play" : "pause";
+    setIsMusicOn((prevState) => !prevState);
+    musicRef.current[method]();
   }
 
   function stopMusic() {

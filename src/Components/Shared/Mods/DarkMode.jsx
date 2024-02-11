@@ -1,17 +1,15 @@
 import { useEffect } from "react";
 import { useGlobalContext } from "../../../Context/GlobalContext";
-import useDebounce from "../../../Hooks/useDebounce";
 import useFunctionOnKey from "../../../Hooks/useFunctionOnKey";
 import SvgIcon from "../MiniComponents/SvgIcon";
 
 const DarkMode = () => {
   const { isDarkModeLocal, setIsDarkModeLocal } = useGlobalContext();
-  const { debounceFun } = useDebounce(200);
   let noun = isDarkModeLocal ? "Dark" : "Light";
-  useFunctionOnKey(toggleDarkMode, "KeyD", true, true);
+  useFunctionOnKey(toggleDarkMode, "KeyD", 300, true, true);
 
   function toggleDarkMode() {
-    debounceFun(() => setIsDarkModeLocal(!isDarkModeLocal));
+    setIsDarkModeLocal(!isDarkModeLocal);
   }
 
   useEffect(() => {

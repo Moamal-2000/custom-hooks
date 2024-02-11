@@ -17,12 +17,12 @@ const Mods = () => {
 
         <div className={`${styles.hidedButtonsOnFocusMode} ${focusModeClass}`}>
           <FullScreenMode />
-          {/* <MusicTime /> */}
-          {/* <DarkMode /> */}
+          <MusicTime />
+          <DarkMode />
         </div>
       </div>
 
-      {/* {!isFocusModeActiveLocal && <ScrollBottomTop />} */}
+      {!isFocusModeActiveLocal && <ScrollBottomTop />}
     </nav>
   );
 };

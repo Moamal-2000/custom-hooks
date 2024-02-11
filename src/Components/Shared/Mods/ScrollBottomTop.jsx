@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { scrollCalculations } from "../../../Functions/projectFunctions";
-import useDebounce from "../../../Hooks/useDebounce";
 import useEventListener from "../../../Hooks/useEventListener";
 import useFunctionOnKey from "../../../Hooks/useFunctionOnKey";
 import SvgIcon from "../MiniComponents/SvgIcon";
@@ -8,9 +7,10 @@ import SvgIcon from "../MiniComponents/SvgIcon";
 const ScrollBottomTop = () => {
   const arrowButtonRef = useRef();
   const [noun, setNoun] = useState("Bottom");
-  const { debounceFun } = useDebounce(200);
-  useEventListener(window, "scroll", () => handleFlipScrollIcon(arrowButtonRef));
-  useFunctionOnKey(handleScrollButton, "KeyS", true);
+  useEventListener(window, "scroll", () =>
+    handleFlipScrollIcon(arrowButtonRef)
+  );
+  useFunctionOnKey(handleScrollButton, "KeyS", 300, true);
 
   function handleFlipScrollIcon(buttonIconRef) {
     if (!buttonIconRef.current) return;
@@ -22,11 +22,9 @@ const ScrollBottomTop = () => {
   }
 
   function handleScrollButton() {
-    debounceFun(() => {
-      const { scrollToY } = scrollCalculations();
-      window.scrollTo({ behavior: "smooth" }, scrollToY, 0);
-      setTimeout(() => handleFlipScrollIcon(arrowButtonRef), 700);
-    });
+    const { scrollToY } = scrollCalculations();
+    window.scrollTo({ behavior: "smooth" }, scrollToY, 0);
+    setTimeout(() => handleFlipScrollIcon(arrowButtonRef), 700);
   }
 
   useEffect(() => {
