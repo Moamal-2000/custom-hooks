@@ -17,7 +17,6 @@ a::selection {
   color: var(--white);
 }
 
-
 html {
   scroll-behavior: smooth;
 }
@@ -105,10 +104,6 @@ svg {
     margin-left: 0;
   }
 
-  &.noMarginRight {
-    margin-right: 0;
-  }
-
   &:focus-visible {
     outline: solid 2px var(--cyan-blue);
   }
@@ -162,4 +157,16 @@ svg {
   .linenumber {
     min-width: 40px !important;
   }
+}
+
+.noMarginRight {
+  margin-right: 0 !important;
+}
+
+.noPaddingRight {
+  padding-right: 0 !important;
+}
+
+.noPaddingLeft {
+  padding-left: 0 !important;
 }

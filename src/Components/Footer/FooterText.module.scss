@@ -1,0 +1,35 @@
+
+.text>p {
+  width: 100%;
+  color: var(--white);
+  text-wrap: balance;
+  font-size: 1rem;
+  line-height: 1.6;
+
+  & span {
+    opacity: .7;
+  }
+}
+
+@media (max-width: 1285px) {
+  .text {
+    text-align: center;
+  }
+}
+
+.text>p>a {
+  color: var(--white);
+  padding: 4px;
+  transition: opacity .2s, color .2s;
+  opacity: .7;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:focus {
+    color: var(--light-green);
+    outline: none;
+    opacity: 1;
+  }
+}
