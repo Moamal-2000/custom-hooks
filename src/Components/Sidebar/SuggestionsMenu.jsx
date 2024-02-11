@@ -8,14 +8,14 @@ const SuggestionsMenu = ({ suggestionsData }) => {
     searchItems,
     clearSearchItems,
     isSuggestionMenuActive,
-    setSuggestionsActive,
+    toggleSuggestionsActive,
   } = suggestionsData;
   const activeClass = isSuggestionMenuActive ? styles.active : "";
 
   function handleSuggestionItem(item) {
     navigateToItem(item);
     clearSearchItems();
-    setSuggestionsActive(false);
+    toggleSuggestionsActive(false);
   }
 
   useEffect(() => {
@@ -26,11 +26,11 @@ const SuggestionsMenu = ({ suggestionsData }) => {
         isSearchInp && !isSuggestionMenuActive && searchItems.length > 0;
 
       if (isSearchInp || isSearchButton) {
-        if (shouldActiveSuggestionsMenu) setSuggestionsActive(true);
+        if (shouldActiveSuggestionsMenu) toggleSuggestionsActive(true);
         return;
       }
 
-      setSuggestionsActive(false);
+      toggleSuggestionsActive(false);
     }
 
     document.addEventListener("click", (e) =>

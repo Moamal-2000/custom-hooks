@@ -9,10 +9,15 @@ import SuggestionsMenu from "./SuggestionsMenu";
 
 const SearchHooksInput = () => {
   const searchInpRef = useRef();
-  const searchInpEle = searchInpRef.current
+  const searchInpEle = searchInpRef.current;
   const navigateTo = useNavigate();
-  const { setIsSideBarActive, setIsOverlayActive } = useGlobalContext();
-  const [isSuggestionMenuActive, _, setSuggestionsActive] = useToggle();
+  const {
+    setIsSideBarActive,
+    setIsOverlayActive,
+    numbersOfPages,
+    hooksPerPage,
+  } = useGlobalContext();
+  const [isSuggestionMenuActive, toggleSuggestionsActive] = useToggle(false);
   const {
     array: searchItems,
     set: setSearchItems,
@@ -37,7 +42,7 @@ const SearchHooksInput = () => {
     const isEmptyInput = searchInpEle.value === "";
 
     if (isEmptyInput) {
-      setSuggestionsActive(false);
+      toggleSuggestionsActive(false);
       clearSearchItems();
       return;
     }
@@ -45,7 +50,7 @@ const SearchHooksInput = () => {
     if (isFoundOneItem) navigateToItem(filteredResults[0]);
 
     if (isFoundMoreThanOneItem) {
-      setSuggestionsActive(true);
+      toggleSuggestionsActive(true);
       setSearchItems(filteredResults);
       return;
     }
@@ -60,6 +65,13 @@ const SearchHooksInput = () => {
   }
 
   function navigateToItem(itemData) {
+    // console.log(itemData);
+    // console.log(hooksData);
+    // console.log(hooksData.indexOf(itemData));
+    // console.log(numbersOfPages);
+    // console.log(hooksPerPage);
+    // console.log(hooksPerPage - hooksData.indexOf(itemData));
+
     navigateTo(`/?page=${itemData.page}`);
 
     setTimeout(() => {
@@ -95,7 +107,7 @@ const SearchHooksInput = () => {
           searchItems,
           clearSearchItems,
           isSuggestionMenuActive,
-          setSuggestionsActive,
+          toggleSuggestionsActive,
         }}
       />
     </form>

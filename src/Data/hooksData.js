@@ -77,29 +77,23 @@ export default useCopyText;`,
     name: "useToggle",
     explanation: [
       `
-        The useToggle hook manages a boolean state, providing functions to toggle between true and false.
-        It initializes with an optional initial state (default is false).
-        It returns the current state, a toggle function, and a custom toggle function.
+        The useToggle hook manages a boolean state, providing a function to toggle between true and false.
       `,
     ],
     inputs: [
       [
-        `initState (Boolean):
+        `initialValue (Boolean):
           The initial state for the toggle. Default is false.`,
       ],
     ],
     outputs: [
       [
-        `state (Boolean):
+        `value (Boolean):
           Represents the current state of the toggle.`,
       ],
       [
-        `toggle (Function):
-          Toggles the state between true and false.`,
-      ],
-      [
-        `customToggle (Function):
-          Custom toggle function that sets the state to a specific value. Usage: customToggle(value).`,
+        `toggleValue (Function):
+          Toggles the state between true and false or sets it to a specific boolean value.`,
       ],
     ],
     liveCode:
@@ -107,18 +101,16 @@ export default useCopyText;`,
     id: 2,
     code: `import { useState } from "react";
 
-const useToggle = (initState = false) => {
-  const [state, setState] = useState(initState);
+const useToggle = (initialValue = false) => {
+  const [value, setValue] = useState(initialValue);
 
-  function toggle() {
-    setState((prevState) => !prevState);
+  function toggleValue(value) {
+    setValue((currentValue) =>
+      typeof value === "boolean" ? value : !currentValue
+    );
   }
 
-  function customToggle(value) {
-    setState(value);
-  }
-
-  return [state, toggle, customToggle];
+  return [value, toggleValue];
 };
 
 export default useToggle;`,
@@ -1228,6 +1220,43 @@ const useUndo = (initialValue) => {
 };
 
 export default useUndo;`,
+  },
+
+  {
+    name: "useDebounce",
+    explanation: [
+      `
+        The useDebounce hook provides functionality for debouncing function calls.
+        It delays invoking a function until after a certain amount of time has passed since the last call.
+      `,
+    ],
+    inputs: [
+      [
+        `delay (Number):
+          The delay in milliseconds before invoking the function.`,
+      ],
+    ],
+    outputs: [
+      [
+        `debounceFun (Function):
+          The debounced function that delays invoking the original function.`,
+      ],
+    ],
+    liveCode: "",
+    id: 22,
+    code: `const useDebounce = (delay) => {
+  let timerId;
+
+  function debounceFun(callback) {
+    clearTimeout(timerId);
+
+    timerId = setTimeout(() => callback(), delay);
+  }
+
+  return { debounceFun };
+};
+
+export default useDebounce;`,
   },
 ];
 

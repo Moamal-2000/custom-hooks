@@ -5,7 +5,7 @@ import useToggle from "../../../Hooks/useToggle";
 import SvgIcon from "../MiniComponents/SvgIcon";
 
 const FullScreenMode = () => {
-  const [isFullScreen, toggleIsFullScreen] = useToggle();
+  const [isFullScreen, toggleIsFullScreen] = useToggle(false);
   const { debounceFun } = useDebounce(200);
   useFunctionOnKey(toggleFullScreen, "KeyF", true);
 
@@ -13,10 +13,7 @@ const FullScreenMode = () => {
     debounceFun(() => {
       toggleIsFullScreen();
 
-      if (document.fullscreenElement) {
-        document.exitFullscreen();
-        return;
-      }
+      if (document.fullscreenElement) document.exitFullscreen()
 
       enterFullScreen();
       const method = !isFullScreen ? "add" : "remove";
