@@ -1294,6 +1294,50 @@ const usePreviousState = (state) => {
 
 export default usePreviousState;`,
   },
+
+  {
+    name: "useDebounce",
+    explanation: [
+      `
+        The useDebounce hook enables you to debounce a callback function, which means delaying its execution until a certain amount of time has passed since the last invocation. This is particularly useful in scenarios where you want to optimize performance by reducing the frequency of expensive computations or network requests.`,
+      `
+        It takes three parameters:
+        - callback (Function): The function you want to debounce.
+        - delay (Number): The delay in milliseconds before the callback is executed after the last invocation.
+        - dependencies (Array): An optional array of dependencies for useEffect, which determines when the debounced callback should be updated.`,
+    ],
+    inputs: [
+      [
+        `callback (Function):
+          The function you want to debounce.`,
+        `delay (Number):
+          The delay in milliseconds for debouncing the callback.`,
+        `dependencies (Array):
+          An optional array of dependencies for useEffect.`,
+      ],
+    ],
+    outputs: [
+      [
+        `reset (Function):
+          A function to reset the debounce timer, allowing you to restart the delay period.`,
+        `clear (Function):
+          A function to clear the debounce timer, stopping any pending execution of the callback.`,
+      ],
+    ],
+    liveCode:
+      "https://codesandbox.io/p/sandbox/usedebounce-jsx-y8nvxj?file=%2Fsrc%2FTest.jsx%3A2%2C27",
+    id: 24,
+    code: `import { useEffect } from "react";
+import useTimeout from "./useTimeout";
+
+export default function useDebounce(callback, delay, dependencies) {
+  const { reset, clear } = useTimeout(callback, delay);
+  useEffect(reset, [...dependencies, reset]);
+  useEffect(clear, []);
+
+  return { reset, clear };
+}`,
+  },
 ];
 
 const sortedDataByCodeLength = originalHooksData.sort(
