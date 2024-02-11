@@ -1258,6 +1258,42 @@ export default useUndo;`,
 
 export default useDebounce;`,
   },
+
+  {
+    name: "usePreviousState",
+    explanation: [
+      `
+        The usePreviousState hook allows you to track the previous state of a component.`,
+    ],
+    inputs: [
+      [
+        `state (Any):
+          The current state that you want to track.`,
+      ],
+    ],
+    outputs: [
+      [
+        `oldState (Any):
+          The previous state of the component.`,
+      ],
+    ],
+    liveCode:
+      "https://codesandbox.io/p/sandbox/usetimeout-jsx-mw5z49?file=%2Fsrc%2FTest.jsx%3A4%2C21",
+    id: 23,
+    code: `import { useEffect, useRef } from "react";
+
+const usePreviousState = (state) => {
+  const oldState = useRef(state);
+
+  useEffect(() => {
+    oldState.current = state;
+  }, [state]);
+
+  return oldState.current;
+};
+
+export default usePreviousState;`,
+  },
 ];
 
 const sortedDataByCodeLength = originalHooksData.sort(
