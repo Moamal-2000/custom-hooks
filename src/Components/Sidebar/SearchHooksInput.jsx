@@ -65,14 +65,9 @@ const SearchHooksInput = () => {
   }
 
   function navigateToItem(itemData) {
-    // console.log(itemData);
-    // console.log(hooksData);
-    // console.log(hooksData.indexOf(itemData));
-    // console.log(numbersOfPages);
-    // console.log(hooksPerPage);
-    // console.log(hooksPerPage - hooksData.indexOf(itemData));
-
-    navigateTo(`/?page=${itemData.page}`);
+    const indexOfItem = hooksData.indexOf(itemData);
+    const itemPage = Math.ceil((indexOfItem + 1) / hooksPerPage)
+    navigateTo(`/?page=${itemPage}`);
 
     setTimeout(() => {
       const sidebarLinksHooks = document.querySelectorAll("aside>div>ul>li>a");

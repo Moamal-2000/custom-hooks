@@ -27,8 +27,8 @@ const SideBar = () => {
   const focusModeClass = isFocusModeActiveLocal ? styles.focusMode : "";
   const asideClasses = `${hideClass} ${activeClass} ${extendClass} ${focusModeClass}`;
 
-  useFunctionOnKey(toggleSideBar, "KeyM", true);
-  useFunctionOnKey(toggleExtendSideBar, "KeyE", true);
+  useFunctionOnKey(toggleSideBar, "KeyM", 300, true);
+  useFunctionOnKey(toggleExtendSideBar, "KeyE", 300, true);
 
   // Functions
   function handleOpenSideBarButton() {
