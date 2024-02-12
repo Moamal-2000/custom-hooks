@@ -5,6 +5,12 @@
   align-items: center;
 }
 
+@media print {
+  .wrapper {
+    display: none;
+  }
+}
+
 .wrapper>button {
   z-index: 1;
   position: relative;

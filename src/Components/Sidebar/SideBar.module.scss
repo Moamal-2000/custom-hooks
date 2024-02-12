@@ -9,6 +9,12 @@
   transition: left .5s ease-in-out;
 }
 
+@media print {
+  .sidebarWrapper {
+    display: none;
+  }
+}
+
 .sidebarWrapper.hide {
   left: -250%;
 }

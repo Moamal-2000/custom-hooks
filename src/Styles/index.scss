@@ -146,6 +146,12 @@ svg {
   }
 }
 
+@media print {
+  .skip-content {
+    display: none;
+  }
+}
+
 .linenumber {
   color: var(--codeBlockLinesNumbersColor) !important;
   min-width: 20px !important;

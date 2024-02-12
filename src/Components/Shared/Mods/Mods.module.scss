@@ -11,6 +11,12 @@
   z-index: 99;
 }
 
+@media print {
+  .modsContainer {
+    display: none;
+  }
+}
+
 .buttonsWrapper {
   display: flex;
   flex-direction: column;
