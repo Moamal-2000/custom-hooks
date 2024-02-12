@@ -39,7 +39,9 @@ const HookCode = ({ hookData: { codes, name } }) => {
             <button
               key={i}
               type="button"
-              className={styles.fileName}
+              className={`${styles.fileName} ${
+                displayedCodeName === name ? styles.active : ""
+              }`}
               onClick={() => {
                 setDisplayedCodeName(name);
               }}

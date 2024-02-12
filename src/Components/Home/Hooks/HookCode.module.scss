@@ -57,13 +57,14 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+  transition: border-color .2s;
 
   &:first-child {
     border-top-left-radius: 8px;
   }
 
   &.active {
-    border-bottom: solid 2px #0077ff;
+    border-bottom-color: #0077ff;
   }
 }
 
