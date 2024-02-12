@@ -1223,6 +1223,72 @@ export default useUndo;`,
   },
 
   {
+    name: "useTimeout",
+    explanation: [
+      `
+        The useTimeout hook provides functionality for managing timeouts.
+        It allows executing a callback function after a specified delay,
+        with options to clear or reset the timeout.
+      `,
+    ],
+    inputs: [
+      [
+        `callback (Function):
+          The function to be executed after the timeout.`,
+      ],
+      [
+        `delay (Number):
+        The delay time in milliseconds before executing the callback.`,
+      ],
+    ],
+    outputs: [
+      [
+        `reset (Function):
+          Clears the current timeout and sets a new one.`,
+      ],
+      [
+        `clear (Function):
+          Clears the current timeout.`,
+      ],
+    ],
+    liveCode:
+      "https://codesandbox.io/p/sandbox/usetimeout-jsx-mw5z49?file=%2Fsrc%2FTest.jsx%3A4%2C21",
+    id: 22,
+    code: `import { useCallback, useEffect, useRef } from "react";
+
+function useTimeout(callback, delay) {
+  const callbackRef = useRef(callback);
+  const timeoutRef = useRef();
+
+  useEffect(() => {
+    callbackRef.current = callback;
+  }, [callback]);
+
+  const set = useCallback(() => {
+    timeoutRef.current = setTimeout(() => callbackRef.current(), delay);
+  }, [delay]);
+
+  const clear = useCallback(() => {
+    timeoutRef.current && clearTimeout(timeoutRef.current);
+  }, []);
+
+  useEffect(() => {
+    set();
+    return clear;
+  }, [delay, set, clear]);
+
+  const reset = useCallback(() => {
+    clear();
+    set();
+  }, [clear, set]);
+
+  return { reset, clear };
+}
+
+export default useTimeout;`,
+  },
+
+  {
     name: "useDebounce",
     explanation: [
       `
