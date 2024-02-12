@@ -1,4 +1,4 @@
-import { memo, useEffect } from "react";
+import { memo, useEffect, useState } from "react";
 import { Prism as Highlighter } from "react-syntax-highlighter";
 import {
   oneLight,
@@ -12,33 +12,50 @@ import DownloadButton from "./Buttons/DownloadButton";
 import FullscreenButton from "./Buttons/FullscreenButton";
 import styles from "./HookCode.module.scss";
 
-const HookCode = ({ hookData: { code, name } }) => {
+const HookCode = ({ hookData: { codes, name } }) => {
   const { isDarkModeLocal } = useGlobalContext();
   const [isFullScreen, toggleIsFullScreen] = useToggle(false);
   const codeBlockTheme = isDarkModeLocal ? oneLight : vscDarkPlus;
+  const [displayedCodeName, setDisplayedCodeName] = useState(name);
+  let displayedCode = codes.filter(
+    ({ name }) => name === displayedCodeName
+  )?.[0];
+  const { name: codeName, code } = displayedCode;
 
   useEffect(() => {
     const method = isFullScreen ? "add" : "remove";
     document.body.classList[method]("focusMode");
   }, [isFullScreen]);
 
-  if (typeof code !== "string") {
-    throw Error(`The following code at ${name} is not string, ${code}`);
-  }
+  useEffect(() => {
+    displayedCode = codes.filter(({ name }) => name === displayedCodeName)?.[0];
+  }, [displayedCodeName]);
 
   return (
     <div className={`${styles.code} ${isFullScreen ? styles.fullscreen : ""}`}>
       <header>
-        <button type="button" className={styles.fileName}>
-          <SvgIcon name="react" />
-          <span>{name}.jsx</span>
-        </button>
+        {codes.map(({ name }, i) => {
+          return (
+            <button
+              key={i}
+              type="button"
+              className={styles.fileName}
+              onClick={() => {
+                setDisplayedCodeName(name);
+              }}
+            >
+              <SvgIcon name="react" />
+              <span>{name}.jsx</span>
+            </button>
+          );
+        })}
       </header>
 
       <div className={styles.buttons}>
         <CopyButton code={code} />
-        <DownloadButton name={name} code={code} />
+        <DownloadButton name={codeName} code={code} />
         <FullscreenButton
+          ton
           isFullScreen={isFullScreen}
           toggleIsFullScreen={toggleIsFullScreen}
         />

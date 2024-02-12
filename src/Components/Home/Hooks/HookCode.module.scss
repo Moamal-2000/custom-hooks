@@ -33,6 +33,7 @@
 
 .code>header {
   border-bottom: solid 1px #475264;
+  display: flex;
 }
 
 @include small {
@@ -52,13 +53,17 @@
   font-size: 1rem;
   background-color: transparent;
   border: solid 1px #475264;
-  border-bottom: solid 2px #0077ff;
   color: var(--gray);
+  cursor: pointer;
   display: flex;
   align-items: center;
 
   &:first-child {
     border-top-left-radius: 8px;
+  }
+
+  &.active {
+    border-bottom: solid 2px #0077ff;
   }
 }
 
