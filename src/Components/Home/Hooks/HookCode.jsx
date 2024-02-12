@@ -6,10 +6,10 @@ import {
 } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { useGlobalContext } from "../../../Context/GlobalContext";
 import useToggle from "../../../Hooks/useToggle";
-import SvgIcon from "../../Shared/MiniComponents/SvgIcon";
 import CopyButton from "./Buttons/CopyButton";
 import DownloadButton from "./Buttons/DownloadButton";
 import FullscreenButton from "./Buttons/FullscreenButton";
+import CodeBlockHeader from "./CodeBlockHeader";
 import styles from "./HookCode.module.scss";
 
 const HookCode = ({ hookData: { codes, name } }) => {
@@ -33,25 +33,13 @@ const HookCode = ({ hookData: { codes, name } }) => {
 
   return (
     <div className={`${styles.code} ${isFullScreen ? styles.fullscreen : ""}`}>
-      <header>
-        {codes.map(({ name }, i) => {
-          return (
-            <button
-              key={i}
-              type="button"
-              className={`${styles.fileName} ${
-                displayedCodeName === name ? styles.active : ""
-              }`}
-              onClick={() => {
-                setDisplayedCodeName(name);
-              }}
-            >
-              <SvgIcon name="react" />
-              <span>{name}.jsx</span>
-            </button>
-          );
-        })}
-      </header>
+      <CodeBlockHeader
+        props={{
+          displayedCodeName,
+          setDisplayedCodeName,
+          codes,
+        }}
+      />
 
       <div className={styles.buttons}>
         <CopyButton code={code} />
