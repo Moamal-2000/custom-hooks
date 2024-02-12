@@ -1,591 +1,646 @@
 const originalHooksData = [
-  //   {
-  //     name: "usePreviousState",
-  //     explanation: [
-  //       `
-  //         The usePreviousState hook tracks the previous state of a component.`,
-  //     ],
-  //     inputs: [
-  //       [
-  //         `state (Any):
-  //           The current state that needs to be tracked.`,
-  //       ],
-  //     ],
-  //     outputs: [
-  //       [
-  //         `oldState (Any):
-  //           The previous state of the component.`,
-  //       ],
-  //     ],
-  //     liveCode:
-  //       "https://codesandbox.io/p/sandbox/usepreviousstate-yns2hn?file=%2Fsrc%2FusePreviousState.jsx%3A1%2C9",
-  //     id: 0,
-  //     code: `import { useEffect, useRef } from "react";
-
-  // const usePreviousState = (state) => {
-  //   const oldState = useRef(state);
-
-  //   useEffect(() => {
-  //     oldState.current = state;
-  //   }, [state]);
-
-  //   return oldState.current;
-  // };
-
-  // export default usePreviousState;
-  // `,
-  //   },
-
-  //   {
-  //     name: "useCopyText",
-  //     explanation: [
-  //       `
-  //         The useCopyText hook facilitates copying text to the clipboard. It utilizes the Clipboard API
-  //         to write the provided text to the clipboard and keeps track of the last copied text.`,
-  //     ],
-  //     inputs: [],
-  //     outputs: [
-  //       [
-  //         `copiedText (String):
-  //           Represents the last text that was copied to the clipboard.`,
-  //       ],
-  //       [
-  //         `setCopy (Function):
-  //           Function to copy text to the clipboard. Usage: setCopy(text).`,
-  //       ],
-  //     ],
-  //     liveCode:
-  //       "https://codesandbox.io/p/sandbox/usecopytext-fcqtfr?file=%2Fsrc%2FuseCopyText.jsx%3A6%2C12",
-  //     id: 1,
-  //     code: `import { useState } from "react";
-
-  // const useCopyText = () => {
-  //   const [copiedText, setCopiedText] = useState("");
-
-  //   function setCopy(text) {
-  //     navigator.clipboard.writeText(text);
-  //     setCopiedText(text);
-  //   }
-
-  //   return [copiedText, setCopy];
-  // };
-
-  // export default useCopyText;`,
-  //   },
-
-  //   {
-  //     name: "useToggle",
-  //     explanation: [
-  //       `
-  //         The useToggle hook manages a boolean state, providing a function to toggle between true and false.
-  //       `,
-  //     ],
-  //     inputs: [
-  //       [
-  //         `initialValue (Boolean):
-  //           The initial state for the toggle. Default is false.`,
-  //       ],
-  //     ],
-  //     outputs: [
-  //       [
-  //         `value (Boolean):
-  //           Represents the current state of the toggle.`,
-  //       ],
-  //       [
-  //         `toggleValue (Function):
-  //           Toggles the state between true and false or sets it to a specific boolean value.`,
-  //       ],
-  //     ],
-  //     liveCode:
-  //       "https://codesandbox.io/p/sandbox/usetoggle-dxg958?file=%2Fsrc%2FTest.jsx%3A10%2C11",
-  //     id: 2,
-  //     code: `import { useState } from "react";
-
-  // const useToggle = (initialValue = false) => {
-  //   const [value, setValue] = useState(initialValue);
-
-  //   function toggleValue(value) {
-  //     setValue((currentValue) =>
-  //       typeof value === "boolean" ? value : !currentValue
-  //     );
-  //   }
-
-  //   return [value, toggleValue];
-  // };
-
-  // export default useToggle;`,
-  //   },
-
-  //   {
-  //     name: "useArray",
-  //     explanation: [
-  //       `
-  //         The useArray hook provides a set of functions to manage and manipulate an array state
-  //         in a React component. It initializes with an initial array (initArray) and exposes methods
-  //         for common array operations such as adding, updating, removing elements, and more.
-  //         The hook is particularly useful when dealing with stateful arrays in React components.
-  //       `,
-  //     ],
-  //     inputs: [
-  //       [
-  //         `initArray (Array):
-  //           The initial array with which the state is initialized.`,
-  //       ],
-  //     ],
-  //     outputs: [
-  //       [
-  //         `array (Array):
-  //         Represents the current state of the array.
-  //         `,
-  //       ],
-  //       [
-  //         `
-  //         push (Function):
-  //           Appends a new item to the end of the array.
-  //           Usage: push(item).
-  //         `,
-  //       ],
-  //       [
-  //         `update (Function):
-  //           Updates an existing value in the array.
-  //           Usage: update(oldValue, newValue).
-  //         `,
-  //       ],
-  //       [
-  //         `
-  //         set (Function):
-  //           Sets the entire array to a new value.
-  //           Usage: set(newArray).
-  //         `,
-  //       ],
-  //       [
-  //         `
-  //         remove (Function):
-  //           Removes a specified item from the array.
-  //           Usage: remove(item).`,
-  //       ],
-  //       [
-  //         `
-  //         clear (Function):
-
-  //           Clears the entire array, making it empty.
-  //           Usage: clear().
-  //         `,
-  //       ],
-  //       [
-  //         ` filter (Function):
-  //           Filters the array based on a provided callback function.
-  //           Usage: filter(callback).`,
-  //       ],
-  //     ],
-  //     liveCode:
-  //       "https://codesandbox.io/p/sandbox/usearray-rxj3p5?file=%2Fsrc%2FTest.jsx%3A7%2C1",
-  //     id: 3,
-  //     code: `import { useState } from "react";
-
-  // const useArray = (initArray) => {
-  //   const [array, setArray] = useState(initArray);
-  //   const copiedArray = array;
-
-  //   function clear() {
-  //     setArray([]);
-  //   }
-
-  //   function set(newArray) {
-  //     setArray([...newArray]);
-  //   }
-
-  //   function push(item) {
-  //     setArray((oldArr) => [...oldArr, item]);
-  //   }
-
-  //   function filter(callback) {
-  //     setArray([...array.filter(callback)]);
-  //   }
-
-  //   function update(oldValue, newValue) {
-  //     const requiredIndex = array.indexOf(
-  //       copiedArray.find((item) => item === oldValue)
-  //     );
-
-  //     copiedArray[requiredIndex] = newValue;
-  //     setArray([...copiedArray]);
-  //   }
-
-  //   function remove(item) {
-  //     const filteredArray = copiedArray.filter((arrItem) => item !== arrItem);
-  //     setArray([...filteredArray]);
-  //   }
-
-  //   return { array, push, update, set, remove, clear, filter };
-  // };
-
-  // export default useArray;`,
-  //   },
-
-  //   {
-  //     name: "useCloseElement",
-  //     explanation: [
-  //       `
-  //         The useCloseElement hook manages the state of an element's visibility based on clicks outside designated elements.
-  //         It takes three refs - toggleEleRef, switcherEleRef, and exceptElementRef to control the toggle behavior.
-  //       `,
-  //     ],
-  //     inputs: [
-  //       [
-  //         `toggleEleRef (React ref):
-  //           Ref for the toggle element that triggers the close behavior.`,
-  //       ],
-  //       [
-  //         `switcherEleRef (React ref):
-  //           Ref for the switcher element that controls the visibility of the element.`,
-  //       ],
-  //       [
-  //         `exceptElementRef (React ref):
-  //           Ref for an optional element that should not trigger the close behavior.`,
-  //       ],
-  //     ],
-  //     outputs: [
-  //       [
-  //         `isElementClose (Boolean):
-  //           Represents the current state of whether the element should be closed.`,
-  //       ],
-  //       [
-  //         `setIsElementClose (Function):
-  //           Function to manually set the state of isElementClose.`,
-  //       ],
-  //     ],
-  //     liveCode:
-  //       "https://codesandbox.io/p/sandbox/usecloseelement-z49szj?file=%2Fsrc%2FTest.jsx%3A8%2C14",
-  //     id: 4,
-  //     code: `import { useEffect, useState } from "react";
-
-  // const useCloseElement = (toggleEleRef, switcherEleRef, exceptElementRef) => {
-  //   const [isElementClose, setIsElementClose] = useState(false);
-
-  //   function handleDocumentClick(e) {
-  //     if (!toggleEleRef.current || !switcherEleRef.current) return;
-
-  //     const target = e.target;
-  //     const isSwitcherEle = target === switcherEleRef?.current;
-  //     const isExceptEle = target === exceptElementRef?.current;
-  //     const isInsideToggle = isParentOfElement(target, toggleEleRef?.current);
-  //     const shouldCloseElement =
-  //       (!isSwitcherEle && !isInsideToggle) || isExceptEle;
-
-  //     if (shouldCloseElement) setIsElementClose(false);
-  //     else if (isSwitcherEle) setIsElementClose((prevState) => !prevState);
-  //   }
-
-  //   useEffect(() => {
-  //     window.addEventListener("click", handleDocumentClick);
-
-  //     return () => window.removeEventListener("click", handleDocumentClick);
-  //   }, [toggleEleRef, switcherEleRef, exceptElementRef]);
-
-  //   return [isElementClose, setIsElementClose];
-  // };
-
-  // export default useCloseElement;
-
-  // /* Helper Function */
-  // const isParentOfElement = (element, requiredEle) => {
-  //   let parentElement = element.parentElement;
-
-  //   while (
-  //     parentElement &&
-  //     requiredEle !== parentElement &&
-  //     requiredEle !== element
-  //   ) {
-  //     parentElement = parentElement.parentElement;
-  //   }
-
-  //   return !!parentElement;
-  // };`,
-  //   },
-
-  //   {
-  //     name: "useUpdateEffect",
-  //     explanation: [
-  //       `
-  //         The useUpdateEffect hook is similar to useEffect, but it skips its initial execution.
-  //         It runs the effect only on subsequent re-renders, excluding the initial render.
-  //       `,
-  //     ],
-  //     inputs: [
-  //       [
-  //         `callback (Function):
-  //           The function to run when the effect is triggered on update.`,
-  //       ],
-  //       [
-  //         `dependencies (Array):
-  //           An array of dependencies to watch for changes and trigger the effect accordingly.`,
-  //       ],
-  //     ],
-  //     outputs: [],
-  //     liveCode:
-  //       "https://codesandbox.io/p/sandbox/useupdateeffect-jsx-j7pkck?file=%2Fsrc%2FTest.jsx",
-  //     id: 5,
-  //     code: `import { useEffect, useRef } from "react";
-
-  // const useUpdateEffect = (callback, dependencies) => {
-  //   const mount = useRef(false);
-
-  //   useEffect(() => {
-  //     if (!mount.current) {
-  //       mount.current = true;
-  //       return;
-  //     }
-
-  //     return callback;
-  //   }, dependencies);
-  // };
-
-  // export default useUpdateEffect;`,
-  //   },
-
-  //   {
-  //     name: "useEventListener",
-  //     explanation: [
-  //       `
-  //         The useEventListener hook allows attaching and removing event listeners to a specified DOM element.
-  //         It ensures proper cleanup by removing the event listener when the component unmounts.`,
-  //     ],
-  //     inputs: [
-  //       [
-  //         `element (DOM element):
-  //           The DOM element to which the event listener will be attached.`,
-  //       ],
-  //       [
-  //         `eventName (String):
-  //           The name of the event (e.g., "click", "change").`,
-  //       ],
-  //       [
-  //         `callback (Function):
-  //           The callback function to be executed when the event occurs.`,
-  //       ],
-  //     ],
-  //     outputs: [],
-  //     liveCode:
-  //       "https://codesandbox.io/p/sandbox/useeventlistener-9tcp7n?file=%2Fsrc%2FuseEventListener.jsx%3A1%2C5",
-  //     id: 6,
-  //     code: `import { useEffect } from "react";
-
-  // const useEventListener = (ref, eventName, callback) => {
-  //   useEffect(() => {
-  //     const element = ref.current ? ref.current : ref;
-
-  //     element?.addEventListener(eventName, callback);
-
-  //     return () => element?.removeEventListener(eventName, callback);
-  //   }, []);
-  // };
-
-  // export default useEventListener;`,
-  //   },
-
-  //   {
-  //     name: "useFilteredObjects",
-  //     explanation: [
-  //       `
-  //         The useFilteredObjects hook filters an array of objects based on a specified search value and key.`,
-  //     ],
-  //     inputs: [
-  //       [
-  //         `array (Array):
-  //           The array of objects to be filtered.`,
-  //       ],
-  //       [
-  //         `searchValue (String):
-  //           The value to filter the array with.`,
-  //       ],
-  //       [
-  //         `key (String):
-  //           The key in the objects to be used for filtering.`,
-  //       ],
-  //     ],
-  //     outputs: [
-  //       [
-  //         `filteredArr (Array):
-  //           The array containing objects that match the filtering criteria.`,
-  //       ],
-  //       [
-  //         `setFilteredArr (Function):
-  //           Function to manually set the filtered array.`,
-  //       ],
-  //     ],
-  //     liveCode:
-  //       "https://codesandbox.io/p/sandbox/usefilteredobjects-qjd5tl?file=%2Fsrc%2FTest.jsx%3A3%2C1",
-  //     id: 7,
-  //     code: `import { useEffect, useState } from "react";
-
-  // const useFilteredObjects = (array, searchValue, key) => {
-  //   const [filteredArr, setFilteredArr] = useState(array);
-
-  //   useEffect(() => {
-  //     const filteredData = array.filter((obj) => {
-  //       return obj[key].toLowerCase().startsWith(searchValue.toLowerCase());
-  //     });
-
-  //     setFilteredArr(filteredData);
-  //   }, [searchValue]);
-
-  //   return [filteredArr, setFilteredArr];
-  // };
-
-  // export default useFilteredObjects;`,
-  //   },
-
-  //   {
-  //     name: "useGetParams",
-  //     explanation: [
-  //       `
-  //         The useGetParams hook extracts and manages query parameters from the current URL, updating them whenever the URL changes.`,
-  //     ],
-  //     inputs: [],
-  //     outputs: [
-  //       [
-  //         `params (Object):
-  //           An object containing all the extracted query parameters.`,
-  //       ],
-  //     ],
-  //     liveCode: "",
-  //     id: 8,
-  //     code: `import { useEffect, useState } from "react";
-
-  // const useGetParams = () => {
-  //   const [params, setParams] = useState({});
-
-  //   useEffect(() => {
-  //     const updateParams = () => {
-  //       const url = window.location.href;
-  //       const paramsStr = url.split("?")[1];
-  //       const paramsArray = paramsStr ? paramsStr.split("&") : [];
-  //       let allParams = {};
-
-  //       paramsArray.forEach((param) => {
-  //         const [paramKey, paramValue] = param.split("=");
-  //         allParams = { ...allParams, [paramKey]: paramValue };
-  //       });
-
-  //       setParams(allParams);
-  //     };
-
-  //     updateParams();
-
-  //     window.addEventListener("popstate", updateParams);
-
-  //     return () => window.removeEventListener("popstate", updateParams);
-  //   }, []);
-
-  //   return params;
-  // };
-
-  // export default useGetParams;`,
-  //   },
-
-  //   {
-  //     name: "useGetResizeWindow",
-  //     explanation: [
-  //       `
-  //         The useGetResizeWindow hook tracks the window resize event and returns an object containing
-  //         the current width and height of the viewport's browser window in pixels.
-  //       `,
-  //     ],
-  //     inputs: [],
-  //     outputs: [
-  //       [
-  //         `sizes (Object):
-  //           An object containing the current width and height of the viewport's browser window.`,
-  //       ],
-  //     ],
-  //     liveCode:
-  //       "https://codesandbox.io/p/sandbox/usegetresizewindow-nj9n9p?file=%2Fsrc%2FuseGetResizeWindow.jsx%3A3%2C15",
-  //     id: 9,
-  //     code: `import { useEffect, useState } from "react";
-
-  // const useGetResizeWindow = () => {
-  //   const [sizes, setSizes] = useState({
-  //     width: innerWidth,
-  //     height: innerHeight,
-  //   });
-
-  //   useEffect(() => {
-  //     let timerId;
-
-  //     function handleResize() {
-  //       clearTimeout(timerId);
-
-  //       timerId = setTimeout(() => {
-  //         setSizes({
-  //           width: innerWidth,
-  //           height: innerHeight,
-  //         });
-  //       }, 300);
-  //     }
-
-  //     handleResize();
-  //     window.addEventListener("resize", handleResize);
-
-  //     return () => window.removeEventListener("resize", handleResize);
-  //   }, []);
-
-  //   return sizes;
-  // };
-
-  // export default useGetResizeWindow;`,
-  //   },
-
-  //   {
-  //     name: "useKeyPress",
-  //     explanation: [
-  //       `
-  //       The useKeyPress hook is a custom React hook designed to facilitate the tracking of keypress events
-  //       within a React application. This hook encapsulates the logic necessary to monitor keypress events and
-  //       provides convenient access to both the key code and the associated event object.
-  //       `,
-  //     ],
-  //     inputs: [],
-  //     outputs: [
-  //       [
-  //         `key (String):
-  //           Represents the key code of the pressed key.`,
-  //       ],
-  //       [
-  //         `setKey (Function):
-  //           Function to manually set the key code.`,
-  //       ],
-  //       [
-  //         `event (Object):
-  //           Represents the event object of the keypress event.`,
-  //       ],
-  //     ],
-  //     liveCode:
-  //       "https://codesandbox.io/p/sandbox/usekeypress-dzgxxj?file=%2Fsrc%2FuseKeyPress.jsx%3A3%2C22",
-  //     id: 10,
-  //     code: `import { useEffect, useState } from "react";
-
-  // const useKeyPress = () => {
-  //   const [event, setEvent] = useState({});
-  //   const [key, setKey] = useState("");
-
-  //   function handleKeyPress(e) {
-  //     setEvent(e);
-  //     setKey(e.code);
-  //   }
-
-  //   useEffect(() => {
-  //     window.addEventListener("keydown", handleKeyPress);
-
-  //     return () =>
-  //       window.removeEventListener("keydown", (e) => handleKeyPress(e));
-  //   }, []);
-
-  //   return [key, setKey, event];
-  // };
-
-  // export default useKeyPress;`,
-  //   },
+  {
+    name: "usePreviousState",
+    explanation: [
+      `
+          The usePreviousState hook tracks the previous state of a component.`,
+    ],
+    inputs: [
+      [
+        `state (Any):
+            The current state that needs to be tracked.`,
+      ],
+    ],
+    outputs: [
+      [
+        `oldState (Any):
+            The previous state of the component.`,
+      ],
+    ],
+    liveCode:
+      "https://codesandbox.io/p/sandbox/usepreviousstate-yns2hn?file=%2Fsrc%2FusePreviousState.jsx%3A1%2C9",
+    id: 0,
+    codes: [
+      {
+        name: "usePreviousState",
+        code: `import { useEffect, useRef } from "react";
+
+const usePreviousState = (state) => {
+  const oldState = useRef(state);
+
+  useEffect(() => {
+    oldState.current = state;
+  }, [state]);
+
+  return oldState.current;
+};
+
+export default usePreviousState;
+`,
+      },
+    ],
+  },
+
+  {
+    name: "useCopyText",
+    explanation: [
+      `
+          The useCopyText hook facilitates copying text to the clipboard. It utilizes the Clipboard API
+          to write the provided text to the clipboard and keeps track of the last copied text.`,
+    ],
+    inputs: [],
+    outputs: [
+      [
+        `copiedText (String):
+            Represents the last text that was copied to the clipboard.`,
+      ],
+      [
+        `setCopy (Function):
+            Function to copy text to the clipboard. Usage: setCopy(text).`,
+      ],
+    ],
+    liveCode:
+      "https://codesandbox.io/p/sandbox/usecopytext-fcqtfr?file=%2Fsrc%2FuseCopyText.jsx%3A6%2C12",
+    id: 1,
+    codes: [
+      {
+        name: "useCopyText",
+        code: `import { useState } from "react";
+
+const useCopyText = () => {
+  const [copiedText, setCopiedText] = useState("");
+
+  function setCopy(text) {
+    navigator.clipboard.writeText(text);
+    setCopiedText(text);
+  }
+
+  return [copiedText, setCopy];
+};
+
+export default useCopyText;`,
+      },
+    ],
+  },
+
+  {
+    name: "useToggle",
+    explanation: [
+      `
+          The useToggle hook manages a boolean state, providing a function to toggle between true and false.
+        `,
+    ],
+    inputs: [
+      [
+        `initialValue (Boolean):
+            The initial state for the toggle. Default is false.`,
+      ],
+    ],
+    outputs: [
+      [
+        `value (Boolean):
+            Represents the current state of the toggle.`,
+      ],
+      [
+        `toggleValue (Function):
+            Toggles the state between true and false or sets it to a specific boolean value.`,
+      ],
+    ],
+    liveCode:
+      "https://codesandbox.io/p/sandbox/usetoggle-dxg958?file=%2Fsrc%2FTest.jsx%3A10%2C11",
+    id: 2,
+    codes: [
+      {
+        name: "useToggle",
+        code: `import { useState } from "react";
+
+const useToggle = (initialValue = false) => {
+  const [value, setValue] = useState(initialValue);
+
+  function toggleValue(value) {
+    setValue((currentValue) =>
+      typeof value === "boolean" ? value : !currentValue
+    );
+  }
+
+  return [value, toggleValue];
+};
+
+export default useToggle;`,
+      },
+    ],
+  },
+
+  {
+    name: "useArray",
+    explanation: [
+      `
+          The useArray hook provides a set of functions to manage and manipulate an array state
+          in a React component. It initializes with an initial array (initArray) and exposes methods
+          for common array operations such as adding, updating, removing elements, and more.
+          The hook is particularly useful when dealing with stateful arrays in React components.
+        `,
+    ],
+    inputs: [
+      [
+        `initArray (Array):
+            The initial array with which the state is initialized.`,
+      ],
+    ],
+    outputs: [
+      [
+        `array (Array):
+          Represents the current state of the array.
+          `,
+      ],
+      [
+        `
+          push (Function):
+            Appends a new item to the end of the array.
+            Usage: push(item).
+          `,
+      ],
+      [
+        `update (Function):
+            Updates an existing value in the array.
+            Usage: update(oldValue, newValue).
+          `,
+      ],
+      [
+        `
+          set (Function):
+            Sets the entire array to a new value.
+            Usage: set(newArray).
+          `,
+      ],
+      [
+        `
+          remove (Function):
+            Removes a specified item from the array.
+            Usage: remove(item).`,
+      ],
+      [
+        `
+          clear (Function):
+
+            Clears the entire array, making it empty.
+            Usage: clear().
+          `,
+      ],
+      [
+        ` filter (Function):
+            Filters the array based on a provided callback function.
+            Usage: filter(callback).`,
+      ],
+    ],
+    liveCode:
+      "https://codesandbox.io/p/sandbox/usearray-rxj3p5?file=%2Fsrc%2FTest.jsx%3A7%2C1",
+    id: 3,
+    codes: [
+      {
+        name: "useArray",
+        code: `import { useState } from "react";
+
+const useArray = (initArray) => {
+  const [array, setArray] = useState(initArray);
+  const copiedArray = array;
+
+  function clear() {
+    setArray([]);
+  }
+
+  function set(newArray) {
+    setArray([...newArray]);
+  }
+
+  function push(item) {
+    setArray((oldArr) => [...oldArr, item]);
+  }
+
+  function filter(callback) {
+    setArray([...array.filter(callback)]);
+  }
+
+  function update(oldValue, newValue) {
+    const requiredIndex = array.indexOf(
+      copiedArray.find((item) => item === oldValue)
+    );
+
+    copiedArray[requiredIndex] = newValue;
+    setArray([...copiedArray]);
+  }
+
+  function remove(item) {
+    const filteredArray = copiedArray.filter((arrItem) => item !== arrItem);
+    setArray([...filteredArray]);
+  }
+
+  return { array, push, update, set, remove, clear, filter };
+};
+
+export default useArray;`,
+      },
+    ],
+  },
+
+  {
+    name: "useCloseElement",
+    explanation: [
+      `
+          The useCloseElement hook manages the state of an element's visibility based on clicks outside designated elements.
+          It takes three refs - toggleEleRef, switcherEleRef, and exceptElementRef to control the toggle behavior.
+        `,
+    ],
+    inputs: [
+      [
+        `toggleEleRef (React ref):
+            Ref for the toggle element that triggers the close behavior.`,
+      ],
+      [
+        `switcherEleRef (React ref):
+            Ref for the switcher element that controls the visibility of the element.`,
+      ],
+      [
+        `exceptElementRef (React ref):
+            Ref for an optional element that should not trigger the close behavior.`,
+      ],
+    ],
+    outputs: [
+      [
+        `isElementClose (Boolean):
+            Represents the current state of whether the element should be closed.`,
+      ],
+      [
+        `setIsElementClose (Function):
+            Function to manually set the state of isElementClose.`,
+      ],
+    ],
+    liveCode:
+      "https://codesandbox.io/p/sandbox/usecloseelement-z49szj?file=%2Fsrc%2FTest.jsx%3A8%2C14",
+    id: 4,
+    codes: [
+      {
+        name: "useCloseElement",
+        code: `import { useEffect, useState } from "react";
+
+const useCloseElement = (toggleEleRef, switcherEleRef, exceptElementRef) => {
+  const [isElementClose, setIsElementClose] = useState(false);
+
+  function handleDocumentClick(e) {
+    if (!toggleEleRef.current || !switcherEleRef.current) return;
+
+    const target = e.target;
+    const isSwitcherEle = target === switcherEleRef?.current;
+    const isExceptEle = target === exceptElementRef?.current;
+    const isInsideToggle = isParentOfElement(target, toggleEleRef?.current);
+    const shouldCloseElement =
+      (!isSwitcherEle && !isInsideToggle) || isExceptEle;
+
+    if (shouldCloseElement) setIsElementClose(false);
+    else if (isSwitcherEle) setIsElementClose((prevState) => !prevState);
+  }
+
+  useEffect(() => {
+    window.addEventListener("click", handleDocumentClick);
+
+    return () => window.removeEventListener("click", handleDocumentClick);
+  }, [toggleEleRef, switcherEleRef, exceptElementRef]);
+
+  return [isElementClose, setIsElementClose];
+};
+
+export default useCloseElement;
+
+/* Helper Function */
+const isParentOfElement = (element, requiredEle) => {
+  let parentElement = element.parentElement;
+
+  while (
+    parentElement &&
+    requiredEle !== parentElement &&
+    requiredEle !== element
+  ) {
+    parentElement = parentElement.parentElement;
+  }
+
+  return !!parentElement;
+};`,
+      },
+    ],
+  },
+
+  {
+    name: "useUpdateEffect",
+    explanation: [
+      `
+          The useUpdateEffect hook is similar to useEffect, but it skips its initial execution.
+          It runs the effect only on subsequent re-renders, excluding the initial render.
+        `,
+    ],
+    inputs: [
+      [
+        `callback (Function):
+            The function to run when the effect is triggered on update.`,
+      ],
+      [
+        `dependencies (Array):
+            An array of dependencies to watch for changes and trigger the effect accordingly.`,
+      ],
+    ],
+    outputs: [],
+    liveCode:
+      "https://codesandbox.io/p/sandbox/useupdateeffect-jsx-j7pkck?file=%2Fsrc%2FTest.jsx",
+    id: 5,
+    codes: [
+      {
+        name: "useUpdateEffect",
+        code: `import { useEffect, useRef } from "react";
+
+const useUpdateEffect = (callback, dependencies) => {
+  const mount = useRef(false);
+
+  useEffect(() => {
+    if (!mount.current) {
+      mount.current = true;
+      return;
+    }
+
+    return callback;
+  }, dependencies);
+};
+
+export default useUpdateEffect;`,
+      },
+    ],
+  },
+
+  {
+    name: "useEventListener",
+    explanation: [
+      `
+          The useEventListener hook allows attaching and removing event listeners to a specified DOM element.
+          It ensures proper cleanup by removing the event listener when the component unmounts.`,
+    ],
+    inputs: [
+      [
+        `element (DOM element):
+            The DOM element to which the event listener will be attached.`,
+      ],
+      [
+        `eventName (String):
+            The name of the event (e.g., "click", "change").`,
+      ],
+      [
+        `callback (Function):
+            The callback function to be executed when the event occurs.`,
+      ],
+    ],
+    outputs: [],
+    liveCode:
+      "https://codesandbox.io/p/sandbox/useeventlistener-9tcp7n?file=%2Fsrc%2FuseEventListener.jsx%3A1%2C5",
+    id: 6,
+    codes: [
+      {
+        name: "useEventListener",
+        code: `import { useEffect } from "react";
+
+const useEventListener = (ref, eventName, callback) => {
+  useEffect(() => {
+    const element = ref.current ? ref.current : ref;
+
+    element?.addEventListener(eventName, callback);
+
+    return () => element?.removeEventListener(eventName, callback);
+  }, []);
+};
+
+export default useEventListener;`,
+      },
+    ],
+  },
+
+  {
+    name: "useFilteredObjects",
+    explanation: [
+      `
+          The useFilteredObjects hook filters an array of objects based on a specified search value and key.`,
+    ],
+    inputs: [
+      [
+        `array (Array):
+            The array of objects to be filtered.`,
+      ],
+      [
+        `searchValue (String):
+            The value to filter the array with.`,
+      ],
+      [
+        `key (String):
+            The key in the objects to be used for filtering.`,
+      ],
+    ],
+    outputs: [
+      [
+        `filteredArr (Array):
+            The array containing objects that match the filtering criteria.`,
+      ],
+      [
+        `setFilteredArr (Function):
+            Function to manually set the filtered array.`,
+      ],
+    ],
+    liveCode:
+      "https://codesandbox.io/p/sandbox/usefilteredobjects-qjd5tl?file=%2Fsrc%2FTest.jsx%3A3%2C1",
+    id: 7,
+    codes: [
+      {
+        name: "useFilteredObjects",
+        code: `import { useEffect, useState } from "react";
+
+const useFilteredObjects = (array, searchValue, key) => {
+  const [filteredArr, setFilteredArr] = useState(array);
+
+  useEffect(() => {
+    const filteredData = array.filter((obj) => {
+      return obj[key].toLowerCase().startsWith(searchValue.toLowerCase());
+    });
+
+    setFilteredArr(filteredData);
+  }, [searchValue]);
+
+  return [filteredArr, setFilteredArr];
+};
+
+export default useFilteredObjects;`,
+      },
+    ],
+  },
+
+  {
+    name: "useGetParams",
+    explanation: [
+      `
+          The useGetParams hook extracts and manages query parameters from the current URL, updating them whenever the URL changes.`,
+    ],
+    inputs: [],
+    outputs: [
+      [
+        `params (Object):
+            An object containing all the extracted query parameters.`,
+      ],
+    ],
+    liveCode: "",
+    id: 8,
+    codes: [
+      {
+        name: "useGetParams",
+        code: `import { useEffect, useState } from "react";
+
+const useGetParams = () => {
+  const [params, setParams] = useState({});
+
+  useEffect(() => {
+    const updateParams = () => {
+      const url = window.location.href;
+      const paramsStr = url.split("?")[1];
+      const paramsArray = paramsStr ? paramsStr.split("&") : [];
+      let allParams = {};
+
+      paramsArray.forEach((param) => {
+        const [paramKey, paramValue] = param.split("=");
+        allParams = { ...allParams, [paramKey]: paramValue };
+      });
+
+      setParams(allParams);
+    };
+
+    updateParams();
+
+    window.addEventListener("popstate", updateParams);
+
+    return () => window.removeEventListener("popstate", updateParams);
+  }, []);
+
+  return params;
+};
+
+export default useGetParams;`,
+      },
+    ],
+  },
+
+  {
+    name: "useGetResizeWindow",
+    explanation: [
+      `
+          The useGetResizeWindow hook tracks the window resize event and returns an object containing
+          the current width and height of the viewport's browser window in pixels.
+        `,
+    ],
+    inputs: [],
+    outputs: [
+      [
+        `sizes (Object):
+            An object containing the current width and height of the viewport's browser window.`,
+      ],
+    ],
+    liveCode:
+      "https://codesandbox.io/p/sandbox/usegetresizewindow-nj9n9p?file=%2Fsrc%2FuseGetResizeWindow.jsx%3A3%2C15",
+    id: 9,
+    codes: [
+      {
+        name: "useGetResizeWindow",
+        code: `import { useEffect, useState } from "react";
+
+const useGetResizeWindow = () => {
+  const [sizes, setSizes] = useState({
+    width: innerWidth,
+    height: innerHeight,
+  });
+
+  useEffect(() => {
+    let timerId;
+
+    function handleResize() {
+      clearTimeout(timerId);
+
+      timerId = setTimeout(() => {
+        setSizes({
+          width: innerWidth,
+          height: innerHeight,
+        });
+      }, 300);
+    }
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return sizes;
+};
+
+export default useGetResizeWindow;`,
+      },
+    ],
+  },
+
+  {
+    name: "useKeyPress",
+    explanation: [
+      `
+        The useKeyPress hook is a custom React hook designed to facilitate the tracking of keypress events
+        within a React application. This hook encapsulates the logic necessary to monitor keypress events and
+        provides convenient access to both the key code and the associated event object.
+        `,
+    ],
+    inputs: [],
+    outputs: [
+      [
+        `key (String):
+            Represents the key code of the pressed key.`,
+      ],
+      [
+        `setKey (Function):
+            Function to manually set the key code.`,
+      ],
+      [
+        `event (Object):
+            Represents the event object of the keypress event.`,
+      ],
+    ],
+    liveCode:
+      "https://codesandbox.io/p/sandbox/usekeypress-dzgxxj?file=%2Fsrc%2FuseKeyPress.jsx%3A3%2C22",
+    id: 10,
+    codes: [
+      {
+        name: "useKeyPress",
+        code: `import { useEffect, useState } from "react";
+
+const useKeyPress = () => {
+  const [event, setEvent] = useState({});
+  const [key, setKey] = useState("");
+
+  function handleKeyPress(e) {
+    setEvent(e);
+    setKey(e.code);
+  }
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyPress);
+
+    return () =>
+      window.removeEventListener("keydown", (e) => handleKeyPress(e));
+  }, []);
+
+  return [key, setKey, event];
+};
+
+export default useKeyPress;`,
+      },
+    ],
+  },
 
   {
     name: "useLocalStorage",
