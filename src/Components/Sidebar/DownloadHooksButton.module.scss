@@ -10,14 +10,14 @@
   &:active {
     transform: scale(.98);
   }
-}
 
-.downloadAllButton:hover {
-  background-color: var(--cyan-blue-hover);
-}
+  &:hover {
+    background-color: var(--cyan-blue-hover);
+  }
 
-.downloadAllButton:focus-visible {
-  outline: solid 2px var(--white);
+  &:focus-visible {
+    outline: solid 2px var(--white);
+  }
 }
 
 .downloadAllButton>span {
@@ -44,8 +44,4 @@
   width: 20px;
   height: 20px;
   border-radius: 0 5px 5px 0;
-}
-
-.downloadAllButton:hover .iconWrapper {
-  background-color: var(--dark-cyan-hover);
 }
