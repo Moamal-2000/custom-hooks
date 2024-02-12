@@ -5,6 +5,7 @@ import FullScreenMode from "./FullScreenMode";
 import styles from "./Mods.module.scss";
 import MusicTime from "./MusicTime";
 import ScrollBottomTop from "./ScrollBottomTop";
+import ShortcutsMode from "./ShortcutsMode";
 
 const Mods = () => {
   const { isFocusModeActiveLocal } = useGlobalContext();
@@ -19,6 +20,7 @@ const Mods = () => {
           <FullScreenMode />
           <MusicTime />
           <DarkMode />
+          <ShortcutsMode />
         </div>
       </div>
 

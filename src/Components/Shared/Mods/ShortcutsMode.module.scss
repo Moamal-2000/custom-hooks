@@ -1,0 +1,57 @@
+.shortcutsButton {}
+
+.shortcutsMenu {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #181818;
+  width: 740px;
+  height: 450px;
+  z-index: 1000;
+  border-radius: 5px;
+}
+
+.shortcutsMenu>header {
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.shortcutsMenu>header>span {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.shortcutsMenu>header>svg {
+  fill: #575757;
+  width: 35px;
+  height: 35px;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.shortcutsMenu>hr {
+  border-color: #181818;
+}
+
+.shortcutsMenu main {
+  display: block;
+  padding: 0 14px 18px 18px;
+  padding-top: 0;
+  max-height: 200px;
+  min-height: 310px;
+  overflow-y: auto;
+  margin: 38px 0;
+  margin-right: 5px;
+}
+
+.shortcutsMenu main::-webkit-scrollbar {
+  background-color: transparent;
+  width: 6px;
+}
+
+.shortcutsMenu main::-webkit-scrollbar-thumb {
+  background-color: #ededed2f;
+}

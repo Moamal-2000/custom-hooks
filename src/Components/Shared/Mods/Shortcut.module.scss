@@ -1,0 +1,41 @@
+.shortcut {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: fit-content;
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+.shortcut p {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.keys {
+  display: flex;
+}
+
+.keys>button {
+  color: var(--white);
+  font-weight: 500;
+  border: solid 1px #363636;
+  height: 34px;
+  width: fit-content;
+  padding: 16px 10.87px;
+  font-size: 1rem;
+  user-select: none;
+  cursor: auto;
+  transition: border-color .2s;
+
+  &:not(:last-child) {
+    margin: 0;
+    margin-right: 5px;
+  }
+
+  &:hover {
+    border-color: var(--white);
+  }
+}
