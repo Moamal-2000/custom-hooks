@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import { hooksData } from "../Data/hooksData";
+import useKeyPress from "../Hooks/useKeyPress";
 import useLocalStorage from "../Hooks/useLocalStorage";
 import useToggle from "../Hooks/useToggle";
 
@@ -9,6 +10,8 @@ const GlobalContextProvider = ({ children }) => {
   const [isOverlayActive, setIsOverlayActive] = useState(false);
   const [isNotFoundPageShown, setIsNotFoundPageShown] = useState(false);
   const [isShortcutMenuActive, toggleIsShortcutMenuActive] = useToggle(false);
+  const [pressedKey] = useKeyPress();
+
   const [isSideBarExtendedLocal, setIsSideBarExtended] =
     useLocalStorage("sidebar-extend");
   const [isFocusModeActiveLocal, setIsFocusModeActive] =
@@ -17,6 +20,7 @@ const GlobalContextProvider = ({ children }) => {
     "dark-mode",
     false
   );
+
   const lengthHooks = hooksData.length;
   const hooksPerPage = 5;
   const numbersOfPages = Math.ceil(lengthHooks / hooksPerPage);
@@ -41,6 +45,7 @@ const GlobalContextProvider = ({ children }) => {
     setIsNotFoundPageShown,
     isShortcutMenuActive,
     toggleIsShortcutMenuActive,
+    pressedKey,
   };
 
   return (

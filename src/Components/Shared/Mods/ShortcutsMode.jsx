@@ -12,7 +12,7 @@ const ShortcutsMode = () => {
   }
 
   return (
-    <button type="button" onClick={toggleShortcutsMenu}>
+    <button type="button" title="Shortcuts Menu" onClick={toggleShortcutsMenu}>
       <SvgIcon name="keyboard" />
     </button>
   );
