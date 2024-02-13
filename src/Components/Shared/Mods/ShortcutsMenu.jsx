@@ -13,7 +13,8 @@ const ShortcutsMenu = () => {
   const pagesKeys = Array.from(
     { length: numbersOfPages },
     (_, i) => `Num${i + 1}`
-  );
+    );
+    const activeClass = isShortcutMenuActive ? styles.active : "";
 
   function closeShortcutMenu() {
     toggleIsShortcutMenuActive(false);
@@ -21,11 +22,7 @@ const ShortcutsMenu = () => {
   }
 
   return (
-    <div
-      className={`${styles.shortcutsMenu} ${
-        isShortcutMenuActive ? styles.active : ""
-      }`}
-    >
+    <div className={`${styles.shortcutsMenu} ${activeClass}`}>
       <header>
         <span>Keyboard shortcuts</span>
         <button

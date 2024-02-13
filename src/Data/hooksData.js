@@ -1004,18 +1004,22 @@ export default useMouseEffect;`,
     name: "useFunctionOnKey",
     explanation: [
       `
-          The useFunctionOnKey hook listens for a specific key press and triggers a callback function when that key is pressed.
+          The useFunctionOnKey hook listens for a specific key press or combination of key presses and triggers a callback function when those keys are pressed.
           It also allows disabling the callback when certain conditions are met.
         `,
     ],
     inputs: [
       [
         `callback (Function):
-            The function to be called when the specified key is pressed.`,
+            The function to be called when the specified keys are pressed.`,
       ],
       [
-        `keyName (String):
-            The name of the key to listen for.`,
+        `keysNames (Array):
+            An array of strings representing the names of the keys to listen for.`,
+      ],
+      [
+        `delay (Number):
+            Optional. The delay (in milliseconds) to debounce the key press events. Default is 200 milliseconds.`,
       ],
       [
         `disableMainKeys (Boolean):
@@ -1026,25 +1030,27 @@ export default useMouseEffect;`,
             Flag to disable the callback when focus is on an input or textarea element. Default is false.`,
       ],
     ],
-    outputs: [],
     liveCode:
-      "https://codesandbox.io/s/sandbox-usefunctiononkey-mfpznn?file=/src/useKeyPress.jsx:6:1",
+      "https://codesandbox.io/p/sandbox/determined-khayyam-mfpznn?file=%2Fsrc%2FTest.jsx%3A12%2C13",
     id: 18,
     codes: [
       {
         name: "useFunctionOnKey",
         code: `import { useEffect } from "react";
+import useDebounce from "./useDebounce";
 import useKeyPress from "./useKeyPress";
 
 const useFunctionOnKey = (
   callback,
-  keyName,
+  keysNames,
+  delay = 200,
   disableMainKeys = false,
   disableOnFocus = false
 ) => {
   const [pressedKey, setKey, keyPressEvent] = useKeyPress();
+  useDebounce(() => executeOnClick(), delay, [pressedKey, keyPressEvent]);
 
-  useEffect(() => {
+  function executeOnClick() {
     const { shiftKey, altKey, ctrlKey } = keyPressEvent;
     const isOneOfMainKeysPressed = shiftKey || altKey || ctrlKey;
     const focusElement = document.activeElement?.tagName;
@@ -1055,11 +1061,11 @@ const useFunctionOnKey = (
 
     if (shouldRejectExecution) return;
 
-    if (pressedKey === keyName) {
+    if (keysNames.includes(pressedKey)) {
       callback();
       setKey("");
     }
-  }, [pressedKey, keyPressEvent]);
+  }
 };
 
 export default useFunctionOnKey;`,
