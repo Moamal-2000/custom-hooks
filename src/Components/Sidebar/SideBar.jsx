@@ -29,8 +29,8 @@ const SideBar = () => {
   const shortcutMenuClass = isShortcutMenuActive ? styles.shortcutMenu : "";
   const asideClasses = `${hideClass} ${activeClass} ${extendClass} ${focusModeClass} ${shortcutMenuClass}`;
 
-  useFunctionOnKey(toggleSideBar, "KeyM", 300, true);
-  useFunctionOnKey(toggleExtendSideBar, "KeyE", 300, true);
+  useFunctionOnKey(toggleSideBar, ["KeyM"], 300, true);
+  useFunctionOnKey(toggleExtendSideBar, ["KeyE"], 300, true);
 
   // Functions
   function handleOpenSideBarButton() {

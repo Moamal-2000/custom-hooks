@@ -4,7 +4,7 @@ import SvgIcon from "../MiniComponents/SvgIcon";
 
 const ShortcutsMode = () => {
   const { setIsOverlayActive, toggleIsShortcutMenuActive } = useGlobalContext();
-  useFunctionOnKey(() => toggleShortcutsMenu(), "KeyK", 300, true, true);
+  useFunctionOnKey(() => toggleShortcutsMenu(), ["KeyK"], 300, true, true);
 
   function toggleShortcutsMenu() {
     toggleIsShortcutMenuActive();

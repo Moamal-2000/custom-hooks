@@ -10,7 +10,7 @@ const MusicTime = () => {
   const musicRef = useRef(null);
   const { isFocusModeActiveLocal } = useGlobalContext();
   const noun = isMusicOn ? "Pause" : "Play";
-  useFunctionOnKey(toggleMusic, "KeyP", 300, true, true);
+  useFunctionOnKey(toggleMusic, ["KeyP"], 300, true, true);
 
   function toggleMusic() {
     if (!musicLoaded) {

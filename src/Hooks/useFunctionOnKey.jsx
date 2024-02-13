@@ -3,7 +3,7 @@ import useKeyPress from "./useKeyPress";
 
 const useFunctionOnKey = (
   callback,
-  keyName,
+  keysNames,
   delay = 200,
   disableMainKeys = false,
   disableOnFocus = false
@@ -22,7 +22,7 @@ const useFunctionOnKey = (
 
     if (shouldRejectExecution) return;
 
-    if (pressedKey === keyName) {
+    if (keysNames.includes(pressedKey)) {
       callback();
       setKey("");
     }

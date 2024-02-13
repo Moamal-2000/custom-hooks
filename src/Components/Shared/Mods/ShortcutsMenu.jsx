@@ -8,7 +8,12 @@ const ShortcutsMenu = () => {
     isShortcutMenuActive,
     toggleIsShortcutMenuActive,
     setIsOverlayActive,
+    numbersOfPages,
   } = useGlobalContext();
+  const pagesKeys = Array.from(
+    { length: numbersOfPages },
+    (_, i) => `Num${i + 1}`
+  );
 
   function closeShortcutMenu() {
     toggleIsShortcutMenuActive(false);
@@ -43,11 +48,12 @@ const ShortcutsMenu = () => {
         <Shortcut keys={["K"]}>Toggle shortcuts menu</Shortcut>
         <Shortcut keys={["S"]}>Scroll to bottom/top</Shortcut>
         <Shortcut keys={["E"]}>Extend sidebar</Shortcut>
+        <Shortcut keys={pagesKeys}>Navigate between pages</Shortcut>
         <Shortcut keys={["M"]}>Toggle sidebar for the smaller screens</Shortcut>
         <Shortcut keys={["Tap"]}>Focus system</Shortcut>
         <Shortcut keys={["Space"]}>Scroll down</Shortcut>
         <Shortcut keys={["Ctrl", "F"]}>Global search</Shortcut>
-        {/* <Shortcut keys={[""]}></Shortcut> */}
+        <Shortcut keys={["Ctrl", "P"]}>Print the website</Shortcut>
       </main>
     </div>
   );

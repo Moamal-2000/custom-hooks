@@ -10,7 +10,7 @@ const ScrollBottomTop = () => {
   useEventListener(window, "scroll", () =>
     handleFlipScrollIcon(arrowButtonRef)
   );
-  useFunctionOnKey(handleScrollButton, "KeyS", 300, true);
+  useFunctionOnKey(handleScrollButton, ["KeyS"], 300, true);
 
   function handleFlipScrollIcon(buttonIconRef) {
     if (!buttonIconRef.current) return;

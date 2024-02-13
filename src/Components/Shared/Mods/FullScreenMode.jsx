@@ -5,7 +5,7 @@ import SvgIcon from "../MiniComponents/SvgIcon";
 
 const FullScreenMode = () => {
   const [isFullScreen, toggleIsFullScreen] = useToggle(false);
-  useFunctionOnKey(toggleFullScreen, "KeyF", 200, true);
+  useFunctionOnKey(toggleFullScreen, ["KeyF"], 200, true);
 
   function toggleFullScreen() {
     toggleIsFullScreen();

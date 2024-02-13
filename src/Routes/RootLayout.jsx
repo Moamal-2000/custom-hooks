@@ -7,6 +7,7 @@ import SideBar from "../Components/Sidebar/SideBar";
 import { useGlobalContext } from "../Context/GlobalContext";
 import Mods from "../Components/Shared/Mods/Mods";
 import ShortcutsMenu from "../Components/Shared/Mods/ShortcutsMenu";
+import NavigateBetweenPages from "../Components/Shared/NavigateBetweenPages";
 
 const RootLayout = () => {
   const { isNotFoundPageShown } = useGlobalContext();
@@ -25,6 +26,7 @@ const RootLayout = () => {
       </div>
 
       <GlobalOverlay />
+      <NavigateBetweenPages />
     </>
   );
 };

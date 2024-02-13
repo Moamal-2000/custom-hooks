@@ -6,7 +6,7 @@ import SvgIcon from "../MiniComponents/SvgIcon";
 const DarkMode = () => {
   const { isDarkModeLocal, setIsDarkModeLocal } = useGlobalContext();
   let noun = isDarkModeLocal ? "Dark" : "Light";
-  useFunctionOnKey(toggleDarkMode, "KeyD", 300, true, true);
+  useFunctionOnKey(toggleDarkMode, ["KeyD"], 300, true, true);
 
   function toggleDarkMode() {
     setIsDarkModeLocal(!isDarkModeLocal);
