@@ -16,6 +16,7 @@ const SideBar = () => {
     isSideBarExtendedLocal,
     setIsSideBarExtended,
     isFocusModeActiveLocal,
+    isShortcutMenuActive,
   } = useGlobalContext();
   const sidebarRef = useRef();
   const requiredScreenWidth = 1200;
@@ -25,7 +26,8 @@ const SideBar = () => {
   const activeClass = isSideBarActive ? styles.active : "";
   const extendClass = isSideBarExtendedLocal ? styles.extend : "";
   const focusModeClass = isFocusModeActiveLocal ? styles.focusMode : "";
-  const asideClasses = `${hideClass} ${activeClass} ${extendClass} ${focusModeClass}`;
+  const shortcutMenuClass = isShortcutMenuActive ? styles.shortcutMenu : "";
+  const asideClasses = `${hideClass} ${activeClass} ${extendClass} ${focusModeClass} ${shortcutMenuClass}`;
 
   useFunctionOnKey(toggleSideBar, "KeyM", 300, true);
   useFunctionOnKey(toggleExtendSideBar, "KeyE", 300, true);

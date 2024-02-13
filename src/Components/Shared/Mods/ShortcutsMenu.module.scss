@@ -1,4 +1,4 @@
-.shortcutsButton {}
+@import "../../../Styles/mixins";
 
 .shortcutsMenu {
   position: fixed;
@@ -6,10 +6,32 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #181818;
-  width: 740px;
+  width: 800px;
   height: 450px;
-  z-index: 1000;
+  z-index: 100;
   border-radius: 5px;
+  transition: opacity .2s;
+  opacity: 0;
+  pointer-events: none;
+
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+@include medium {
+  .shortcutsMenu {
+    width: 84%;
+    height: 400px;
+  }
+}
+
+@include small {
+  .shortcutsMenu {
+    width: 100vw;
+    height: 100vh;
+  }
 }
 
 .shortcutsMenu>header {
@@ -24,7 +46,13 @@
   font-weight: 500;
 }
 
-.shortcutsMenu>header>svg {
+.shortcutsMenu>header>button {
+  background-color: transparent;
+  width: 35px;
+  height: 35px;
+}
+
+.shortcutsMenu>header>button>svg {
   fill: #575757;
   width: 35px;
   height: 35px;
@@ -42,9 +70,23 @@
   padding-top: 0;
   max-height: 200px;
   min-height: 310px;
+  width: 100%;
   overflow-y: auto;
   margin: 38px 0;
   margin-right: 5px;
+}
+
+@include medium {
+  .shortcutsMenu main {
+    min-height: 260px;
+  }
+}
+
+@include small {
+  .shortcutsMenu main {
+    width: 100%;
+    min-height: calc(100vh - 110px);
+  }
 }
 
 .shortcutsMenu main::-webkit-scrollbar {

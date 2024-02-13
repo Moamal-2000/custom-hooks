@@ -1,3 +1,5 @@
+@import "../../../Styles/mixins";
+
 .shortcut {
   display: flex;
   align-items: center;
@@ -14,17 +16,25 @@
   font-weight: 500;
 }
 
+@include small {
+  .shortcut p {
+    font-size: .9rem;
+  }
+}
+
 .keys {
   display: flex;
 }
 
 .keys>button {
+  background-color: transparent;
   color: var(--white);
   font-weight: 500;
   border: solid 1px #363636;
   height: 34px;
-  width: fit-content;
-  padding: 16px 10.87px;
+  // width: fit-content;
+  padding: 0 10.87px;
+  border-radius: 4px;
   font-size: 1rem;
   user-select: none;
   cursor: auto;

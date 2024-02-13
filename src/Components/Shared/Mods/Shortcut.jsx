@@ -1,16 +1,18 @@
-import styles from "./Shortcut.module.scss"
+import styles from "./Shortcut.module.scss";
 
-const Shortcut = ({children, keys}) => {
+const Shortcut = ({ children, keys }) => {
   return (
     <div className={styles.shortcut}>
       <p>{children}</p>
 
       <div className={styles.keys}>
-        {keys.map(key => (
-          <button type="button">{key}</button>
+        {keys.map((key, i) => (
+          <button key={i} type="button">
+            {key}
+          </button>
         ))}
       </div>
     </div>
-  )
-}
-export default Shortcut
+  );
+};
+export default Shortcut;

@@ -6,6 +6,7 @@ import SkipContentLink from "../Components/Shared/MiniComponents/SkipContentLink
 import SideBar from "../Components/Sidebar/SideBar";
 import { useGlobalContext } from "../Context/GlobalContext";
 import Mods from "../Components/Shared/Mods/Mods";
+import ShortcutsMenu from "../Components/Shared/Mods/ShortcutsMenu";
 
 const RootLayout = () => {
   const { isNotFoundPageShown } = useGlobalContext();
@@ -15,6 +16,7 @@ const RootLayout = () => {
       <SkipContentLink scrollTo="main-content" />
       <SideBar />
       <Mods />
+      <ShortcutsMenu />
       <Outlet />
       {!isNotFoundPageShown && <HooksNavigator />}
 
