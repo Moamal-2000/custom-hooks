@@ -26,6 +26,7 @@ const ShortcutsMenu = () => {
         <button
           type="button"
           title="Close shortcuts menu"
+          className={styles.closeShortcutMenuButton}
           onClick={closeShortcutMenu}
         >
           <SvgIcon name="xMark" />

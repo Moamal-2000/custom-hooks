@@ -2,14 +2,9 @@
   --black: #070b10;
   --secondary-black: #2b2b2b;
   --third-black: #383838;
-  --codeBlockBgColor: #07090c;
-  --codeBlockBorderColor: #090b0f;
-  --codeBlockSelectionColor: #0e2238;
-  --codeBlockSelectionTextColor: inherit;
   --extra-dark-blue: #0a1119;
   --dark-blue: #151c27;
   --light-dark-blue: #363a45;
-  --d: #383838;
   --dark-gray: #292a2e;
   --darker-gray: #1e1e1e;
   --very-dark-purple: #2d3058;
@@ -22,7 +17,6 @@
   --error-guy-color2: #2b2b2b;
   --gray-purple: #575c71;
   --gray-purple-secondary: #70768f;
-  --codeBlockLinesNumbersColor: #7f8799;
   --gray: #cccccc;
   --very-light-gray: #f0f0f0;
   --white: #fff;
@@ -32,10 +26,30 @@
   --cyan-blue2: #275efe;
   --cyan-blue-hover: #1c55ff;
   --dark-cyan: #184fee;
+  --dark-cyan-hover: #0e44e8;
   --light-green: #64ffda;
   --orange: #ffa500;
 }
 
+// Code block variables
+:root {
+  --codeBlockBgColor: #07090c;
+  --codeBlockBorderColor: #090b0f;
+  --codeBlockSelectionColor: #0e2238;
+  --codeBlockSelectionTextColor: inherit;
+  --codeBlockLinesNumbersColor: #7f8799;
+}
+
+// Shortcuts menu variables
+:root {
+  --shortcutsMenuBg: #181818;
+  --shortcutsMenuScrollbarColor: #ededed2f;
+  --shortcutsMenuScrollbarHoverColor: rgba(193, 193, 193, .5);
+  --shortcutsMenuCloseButtonColor: #575757;
+  --shortcutsMenuCloseButtonHoverColor: #fff;
+}
+
+// Light mode colors
 :root.light-mode {
   --white: #070b10;
   --very-light-gray: #2b2b2b;
@@ -43,15 +57,26 @@
   --light-green: #070b10;
   --gray: #363636;
   --gray-opacity23: rgba(13, 15, 17, 0.23);
-  --codeBlockLinesNumbersColor: #383a42;
   --gray-purple-secondary: #7e8399;
   --gray-purple: #959ab0;
-  --codeBlockBorderColor: #f2f2f2;
-  --codeBlockBgColor: #f2f2f2;
   --extra-dark-blue: #fff;
   --secondary-black: #fff;
   --third-black: #fff;
-  --codeBlockSelectionTextColor: #fff;
   --dark-gray-opacity5: #2483ff;
+}
+
+:root.light-mode {
+  --codeBlockLinesNumbersColor: #383a42;
+  --codeBlockBorderColor: #f2f2f2;
+  --codeBlockBgColor: #f2f2f2;
+  --codeBlockSelectionTextColor: #fff;
   --codeBlockSelectionColor: #2483ff;
+}
+
+:root.light-mode {
+  --shortcutsMenuBg: #fff;
+  --shortcutsMenuScrollbarColor: #4444442f;
+  --shortcutsMenuScrollbarHoverColor: #44444455;
+  --shortcutsMenuCloseButtonColor: #8f8f8f;
+  --shortcutsMenuCloseButtonHoverColor: #474747;
 }

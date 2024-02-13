@@ -5,7 +5,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #181818;
+  background-color: var(--shortcutsMenuBg);
+  color: var(--white);
   width: 800px;
   height: 450px;
   z-index: 100;
@@ -46,22 +47,28 @@
   font-weight: 500;
 }
 
-.shortcutsMenu>header>button {
+.closeShortcutMenuButton {
   background-color: transparent;
   width: 35px;
   height: 35px;
 }
 
-.shortcutsMenu>header>button>svg {
-  fill: #575757;
+.closeShortcutMenuButton>svg {
+  fill: var(--shortcutsMenuCloseButtonColor);
   width: 35px;
   height: 35px;
   padding: 4px;
   cursor: pointer;
+  transition: fill .2s;
+}
+
+.closeShortcutMenuButton:hover>svg {
+  fill: var(--shortcutsMenuCloseButtonHoverColor);
 }
 
 .shortcutsMenu>hr {
-  border-color: #181818;
+  border: none;
+  border-bottom: solid 1px #545454;
 }
 
 .shortcutsMenu main {
@@ -95,5 +102,9 @@
 }
 
 .shortcutsMenu main::-webkit-scrollbar-thumb {
-  background-color: #ededed2f;
+  background-color: var(--shortcutsMenuScrollbarColor);
+
+  &:hover {
+    background-color: var(--shortcutsMenuScrollbarHoverColor);
+  }
 }
