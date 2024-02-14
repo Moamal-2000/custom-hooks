@@ -87,25 +87,16 @@ export default useCopyText;`,
   {
     name: "useToggle",
     explanation: [
-      `
-          The useToggle hook manages a boolean state, providing a function to toggle between true and false.
-        `,
+      `The useToggle hook is a custom React hook designed to manage a boolean state, providing
+      a function to toggle between true and false. This hook simplifies the management of boolean
+      states in React components by encapsulating state logic and providing a convenient toggle function.`,
     ],
     inputs: [
-      [
-        `initialValue (Boolean):
-            The initial state for the toggle. Default is false.`,
-      ],
+      "initialValue (Boolean): The initial state for the toggle. Default is false.",
     ],
     outputs: [
-      [
-        `value (Boolean):
-            Represents the current state of the toggle.`,
-      ],
-      [
-        `toggleValue (Function):
-            Toggles the state between true and false or sets it to a specific boolean value.`,
-      ],
+      "value (Boolean): Represents the current state of the toggle.",
+      "toggleValue (Function): Toggles the state between true and false or sets it to a specific boolean value.",
     ],
     liveCode:
       "https://codesandbox.io/p/sandbox/usetoggle-dxg958?file=%2Fsrc%2FTest.jsx%3A10%2C11",
