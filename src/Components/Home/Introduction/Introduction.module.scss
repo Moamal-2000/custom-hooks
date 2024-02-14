@@ -29,6 +29,7 @@
   cursor: wait;
   animation: loading-img infinite ease-in .6s alternate;
   display: flex;
+  user-select: none;
 }
 
 .introImageWrapper>img {
