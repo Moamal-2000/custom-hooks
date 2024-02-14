@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: space-between;
   height: fit-content;
+  gap: 50px;
 
   &:not(:last-child) {
     margin-bottom: 10.2px;
@@ -14,6 +15,8 @@
 .shortcut p {
   font-size: 1rem;
   font-weight: 500;
+  width: max-content;
+  text-wrap: nowrap;
 }
 
 @include small {
@@ -24,6 +27,9 @@
 
 .keys {
   display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 5px;
 }
 
 .keys>button {
@@ -39,11 +45,6 @@
   user-select: none;
   cursor: auto;
   transition: border-color .2s;
-
-  &:not(:last-child) {
-    margin: 0;
-    margin-right: 5px;
-  }
 
   &:hover {
     border-color: var(--white);
