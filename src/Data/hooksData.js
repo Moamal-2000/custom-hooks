@@ -2,22 +2,12 @@ const originalHooksData = [
   {
     name: "usePreviousState",
     explanation: [
-      `
-      The usePreviousState hook is a custom React hook designed to track the previous state of a component. This can be particularly useful in scenarios where you need to compare the current state with the previous state to determine changes or trigger certain actions.
-      `,
+      `The usePreviousState hook is a custom React hook designed to track the previous state of a component.
+      This can be particularly useful in scenarios where you need to compare the current state with the
+      previous state to determine changes or trigger certain actions.`,
     ],
-    inputs: [
-      [
-        `state (Any):
-            The current state that needs to be tracked.`,
-      ],
-    ],
-    outputs: [
-      [
-        `oldState (Any):
-            The previous state of the component.`,
-      ],
-    ],
+    inputs: ["state (Any): The current state that needs to be tracked."],
+    outputs: ["oldState (Any): The previous state of the component."],
     liveCode:
       "https://codesandbox.io/p/sandbox/usepreviousstate-yns2hn?file=%2Fsrc%2FTest.jsx%3A3%2C1",
     id: 0,
@@ -45,20 +35,12 @@ export default usePreviousState;
   {
     name: "useCopyText",
     explanation: [
-      `
-          The useCopyText hook facilitates copying text to the clipboard. It utilizes the Clipboard API
-          to write the provided text to the clipboard and keeps track of the last copied text.`,
+      `The useCopyText hook facilitates copying text to the clipboard. It utilizes the Clipboard API 
+      to write the provided text to the clipboard and keeps track of the last copied text.`,
     ],
-    inputs: [],
     outputs: [
-      [
-        `copiedText (String):
-            Represents the last text that was copied to the clipboard.`,
-      ],
-      [
-        `setCopy (Function):
-            Function to copy text to the clipboard. Usage: setCopy(text).`,
-      ],
+      "copiedText (String): Represents the last text that was copied to the clipboard.",
+      "setCopy (Function): Function to copy text to the clipboard. Usage: setCopy(text).",
     ],
     liveCode:
       "https://codesandbox.io/p/sandbox/usecopytext-fcqtfr?file=%2Fsrc%2FuseCopyText.jsx%3A6%2C12",
@@ -125,64 +107,22 @@ export default useToggle;`,
   {
     name: "useArray",
     explanation: [
-      `
-          The useArray hook provides a set of functions to manage and manipulate an array state
-          in a React component. It initializes with an initial array (initArray) and exposes methods
-          for common array operations such as adding, updating, removing elements, and more.
-          The hook is particularly useful when dealing with stateful arrays in React components.
-        `,
+      `The useArray hook provides a set of functions to manage and manipulate an array state
+      in a React component. It initializes with an initial array (initArray) and exposes methods
+      for common array operations such as adding, updating, removing elements, and more.
+      The hook is particularly useful when dealing with stateful arrays in React components.`,
     ],
     inputs: [
-      [
-        `initArray (Array):
-            The initial array with which the state is initialized.`,
-      ],
+      "initArray (Array): The initial array with which the state is initialized.",
     ],
     outputs: [
-      [
-        `array (Array):
-          Represents the current state of the array.
-          `,
-      ],
-      [
-        `
-          push (Function):
-            Appends a new item to the end of the array.
-            Usage: push(item).
-          `,
-      ],
-      [
-        `update (Function):
-            Updates an existing value in the array.
-            Usage: update(oldValue, newValue).
-          `,
-      ],
-      [
-        `
-          set (Function):
-            Sets the entire array to a new value.
-            Usage: set(newArray).
-          `,
-      ],
-      [
-        `
-          remove (Function):
-            Removes a specified item from the array.
-            Usage: remove(item).`,
-      ],
-      [
-        `
-          clear (Function):
-
-            Clears the entire array, making it empty.
-            Usage: clear().
-          `,
-      ],
-      [
-        ` filter (Function):
-            Filters the array based on a provided callback function.
-            Usage: filter(callback).`,
-      ],
+      "array (Array): Represents the current state of the array.",
+      "push (Function): Appends a new item to the end of the array.",
+      "update (Function): Updates an existing value in the array.",
+      "set (Function): Sets the entire array to a new value.",
+      "remove (Function): Removes a specified item from the array.",
+      "clear (Function): Clears the entire array, making it empty.",
+      "filter (Function): Filters the array based on a provided callback function.",
     ],
     liveCode:
       "https://codesandbox.io/p/sandbox/usearray-rxj3p5?file=%2Fsrc%2FTest.jsx%3A7%2C1",
@@ -236,34 +176,17 @@ export default useArray;`,
   {
     name: "useCloseElement",
     explanation: [
-      `
-          The useCloseElement hook manages the state of an element's visibility based on clicks outside designated elements.
-          It takes three refs - toggleEleRef, switcherEleRef, and exceptElementRef to control the toggle behavior.
-        `,
+      `The useCloseElement hook manages the state of an element's visibility based on clicks outside designated elements.
+      It takes three refs - toggleEleRef, switcherEleRef, and exceptElementRef to control the toggle behavior.`,
     ],
     inputs: [
-      [
-        `toggleEleRef (React ref):
-            Ref for the toggle element that triggers the close behavior.`,
-      ],
-      [
-        `switcherEleRef (React ref):
-            Ref for the switcher element that controls the visibility of the element.`,
-      ],
-      [
-        `exceptElementRef (React ref):
-            Ref for an optional element that should not trigger the close behavior.`,
-      ],
+      "toggleEleRef (React ref): Ref for the toggle element that triggers the close behavior.",
+      "switcherEleRef (React ref): Ref for the switcher element that controls the visibility of the element.",
+      "exceptElementRef (React ref): Ref for an optional element that should not trigger the close behavior.",
     ],
     outputs: [
-      [
-        `isElementClose (Boolean):
-            Represents the current state of whether the element should be closed.`,
-      ],
-      [
-        `setIsElementClose (Function):
-            Function to manually set the state of isElementClose.`,
-      ],
+      "isElementClose (Boolean): Represents the current state of whether the element should be closed.",
+      "setIsElementClose (Function): Function to manually set the state of isElementClose.",
     ],
     liveCode:
       "https://codesandbox.io/p/sandbox/usecloseelement-z49szj?file=%2Fsrc%2FTest.jsx%3A8%2C14",
@@ -321,21 +244,15 @@ const isParentOfElement = (element, requiredEle) => {
   {
     name: "useUpdateEffect",
     explanation: [
-      `
-      The useUpdateEffect hook is designed to be similar to the useEffect hook in React but with a key difference: it skips its initial execution and runs the effect only on subsequent re-renders, excluding the initial render. This can be useful when you want to perform certain actions or side effects only after the initial render has occurred and avoid unnecessary execution during component mounting.
-      `,
+      `The useUpdateEffect hook is designed to be similar to the useEffect hook in React but with a key difference:
+      it skips its initial execution and runs the effect only on subsequent re-renders, excluding the initial render.
+      This can be useful when you want to perform certain actions or side effects only after the initial render has
+      occurred and avoid unnecessary execution during component mounting.`,
     ],
     inputs: [
-      [
-        `callback (Function):
-            The function to run when the effect is triggered on update.`,
-      ],
-      [
-        `dependencies (Array):
-            An array of dependencies to watch for changes and trigger the effect accordingly.`,
-      ],
+      "callback (Function): The function to run when the effect is triggered on update.",
+      "dependencies (Array): An array of dependencies to watch for changes and trigger the effect accordingly.",
     ],
-    outputs: [],
     liveCode:
       "https://codesandbox.io/p/sandbox/useupdateeffect-jsx-j7pkck?file=%2Fsrc%2FTest.jsx",
     id: 5,
@@ -364,25 +281,14 @@ export default useUpdateEffect;`,
   {
     name: "useEventListener",
     explanation: [
-      `
-          The useEventListener hook allows attaching and removing event listeners to a specified DOM element.
-          It ensures proper cleanup by removing the event listener when the component unmounts.`,
+      `The useEventListener hook allows attaching and removing event listeners to a specified DOM element.
+      It ensures proper cleanup by removing the event listener when the component unmounts.`,
     ],
     inputs: [
-      [
-        `element (DOM element):
-            The DOM element to which the event listener will be attached.`,
-      ],
-      [
-        `eventName (String):
-            The name of the event (e.g., "click", "change").`,
-      ],
-      [
-        `callback (Function):
-            The callback function to be executed when the event occurs.`,
-      ],
+      "element (DOM element): The DOM element to which the event listener will be attached.",
+      'eventName (String): The name of the event (e.g., "click", "change").',
+      "callback (Function): The callback function to be executed when the event occurs.",
     ],
-    outputs: [],
     liveCode:
       "https://codesandbox.io/p/sandbox/useeventlistener-9tcp7n?file=%2Fsrc%2FuseEventListener.jsx%3A1%2C5",
     id: 6,
@@ -408,32 +314,16 @@ export default useEventListener;`,
   {
     name: "useFilteredObjects",
     explanation: [
-      `
-          The useFilteredObjects hook filters an array of objects based on a specified search value and key.`,
+      `The useFilteredObjects hook filters an array of objects based on a specified search value and key.`,
     ],
     inputs: [
-      [
-        `array (Array):
-            The array of objects to be filtered.`,
-      ],
-      [
-        `searchValue (String):
-            The value to filter the array with.`,
-      ],
-      [
-        `key (String):
-            The key in the objects to be used for filtering.`,
-      ],
+      "array (Array): The array of objects to be filtered.",
+      "searchValue (String): The value to filter the array with.",
+      "key (String): The key in the objects to be used for filtering.",
     ],
     outputs: [
-      [
-        `filteredArr (Array):
-            The array containing objects that match the filtering criteria.`,
-      ],
-      [
-        `setFilteredArr (Function):
-            Function to manually set the filtered array.`,
-      ],
+      "filteredArr (Array): The array containing objects that match the filtering criteria.",
+      "setFilteredArr (Function): Function to manually set the filtered array.",
     ],
     liveCode:
       "https://codesandbox.io/p/sandbox/usefilteredobjects-qjd5tl?file=%2Fsrc%2FTest.jsx%3A3%2C1",
@@ -464,17 +354,11 @@ export default useFilteredObjects;`,
   {
     name: "useGetParams",
     explanation: [
-      `
-          The useGetParams hook extracts and manages query parameters from the current URL, updating them whenever the URL changes.`,
+      `The useGetParams hook extracts and manages query parameters from the current URL, updating them whenever the URL changes.`,
     ],
-    inputs: [],
     outputs: [
-      [
-        `params (Object):
-            An object containing all the extracted query parameters.`,
-      ],
+      "params (Object): An object containing all the extracted query parameters.",
     ],
-    liveCode: "",
     id: 8,
     codes: [
       {
@@ -516,17 +400,11 @@ export default useGetParams;`,
   {
     name: "useGetResizeWindow",
     explanation: [
-      `
-          The useGetResizeWindow hook tracks the window resize event and returns an object containing
-          the current width and height of the viewport's browser window in pixels.
-        `,
+      `The useGetResizeWindow hook tracks the window resize event and returns an object containing
+      the current width and height of the viewport's browser window in pixels.`,
     ],
-    inputs: [],
     outputs: [
-      [
-        `sizes (Object):
-            An object containing the current width and height of the viewport's browser window.`,
-      ],
+      "sizes (Object): An object containing the current width and height of the viewport's browser window.",
     ],
     liveCode:
       "https://codesandbox.io/p/sandbox/usegetresizewindow-nj9n9p?file=%2Fsrc%2FuseGetResizeWindow.jsx%3A3%2C15",
@@ -573,26 +451,14 @@ export default useGetResizeWindow;`,
   {
     name: "useKeyPress",
     explanation: [
-      `
-        The useKeyPress hook is a custom React hook designed to facilitate the tracking of keypress events
-        within a React application. This hook encapsulates the logic necessary to monitor keypress events and
-        provides convenient access to both the key code and the associated event object.
-        `,
+      `The useKeyPress hook is a custom React hook designed to facilitate the tracking of keypress events
+      within a React application. This hook encapsulates the logic necessary to monitor keypress events and
+      provides convenient access to both the key code and the associated event object.`,
     ],
-    inputs: [],
     outputs: [
-      [
-        `key (String):
-            Represents the key code of the pressed key.`,
-      ],
-      [
-        `setKey (Function):
-            Function to manually set the key code.`,
-      ],
-      [
-        `event (Object):
-            Represents the event object of the keypress event.`,
-      ],
+      "key (String): Represents the key code of the pressed key.",
+      "setKey (Function): Function to manually set the key code.",
+      "event (Object): Represents the event object of the keypress event.",
     ],
     liveCode:
       "https://codesandbox.io/p/sandbox/usekeypress-dzgxxj?file=%2Fsrc%2FuseKeyPress.jsx%3A3%2C22",
@@ -629,31 +495,17 @@ export default useKeyPress;`,
   {
     name: "useLocalStorage",
     explanation: [
-      `
-          The useLocalStorage hook provides a way to store and retrieve data in the browser's local storage.
-          It takes a key name and initial data as inputs and returns the stored data along with a function
-          to update it in the local storage.
-        `,
+      `The useLocalStorage hook provides a way to store and retrieve data in the browser's local storage.
+      It takes a key name and initial data as inputs and returns the stored data along with a function
+      to update it in the local storage.`,
     ],
     inputs: [
-      [
-        `keyName (String):
-            The name under which the data will be stored in the local storage.`,
-      ],
-      [
-        `initialData (Any):
-            The initial data to be stored if no data exists in the local storage under the given key name.`,
-      ],
+      "keyName (String): The name under which the data will be stored in the local storage.",
+      "initialData (Any): The initial data to be stored if no data exists in the local storage under the given key name.",
     ],
     outputs: [
-      [
-        `data (Any):
-            The data retrieved from the local storage.`,
-      ],
-      [
-        `setDataFun (Function):
-            A function to update the data in the local storage.`,
-      ],
+      "data (Any): The data retrieved from the local storage.",
+      "setDataFun (Function): A function to update the data in the local storage.",
     ],
     liveCode:
       "https://codesandbox.io/p/sandbox/uselocalstorage-6hy7w2?file=%2Fsrc%2FTest.jsx%3A2%2C8",
@@ -690,15 +542,10 @@ export default useLocalStorage;`,
   {
     name: "useOnlineStatus",
     explanation: [
-      `
-          The useOnlineStatus hook detects the online/offline status of the user's device.`,
+      `The useOnlineStatus hook detects the online/offline status of the user's device.`,
     ],
-    inputs: [],
     outputs: [
-      [
-        `isOnline (Boolean):
-            True if the device is online, false if it is offline.`,
-      ],
+      "isOnline (Boolean): True if the device is online, false if it is offline.",
     ],
     liveCode:
       "https://codesandbox.io/p/sandbox/useonlinestatus-49z4lv?file=%2Fsrc%2FuseOnlineStatus.jsx%3A5%2C1",
@@ -744,19 +591,13 @@ export default useOnlineStatus;`,
       "The useOnScreen hook detects whether a specified DOM element is visible on the screen.",
     ],
     inputs: [
-      [
-        "ref (React ref): Ref of the DOM element to be observed for visibility.",
-      ],
-      [
-        "options (Object): Optional object with configuration options for the IntersectionObserver.",
-        " - rootMargin (String): The margin around the root (viewport) to consider when triggering visibility changes.",
-        " - threshold (Number or Array of Numbers): A single number or an array of numbers between 0 and 1 indicating at what percentage of the target's visibility the observer's callback should be executed.",
-      ],
+      "ref (React ref): Ref of the DOM element to be observed for visibility.",
+      "options (Object): Optional object with configuration options for the IntersectionObserver.",
+      " - rootMargin (String): The margin around the root (viewport) to consider when triggering visibility changes.",
+      " - threshold (Number or Array of Numbers): A single number or an array of numbers between 0 and 1 indicating at what percentage of the target's visibility the observer's callback should be executed.",
     ],
     outputs: [
-      [
-        "isVisible (Boolean): True if the observed element is visible, false otherwise.",
-      ],
+      "isVisible (Boolean): True if the observed element is visible, false otherwise.",
     ],
     liveCode:
       "https://codesandbox.io/p/sandbox/useonscreen-zkvlhy?file=%2Fsrc%2FuseOnScreen.jsx%3A5%2C1",
@@ -799,14 +640,10 @@ export default useOnScreen;`,
       "The usePageBottom hook detects whether the user has scrolled to the bottom of the page.",
     ],
     inputs: [
-      [
-        "marginBottom (Number): Optional margin from the bottom of the page to consider when determining if scrolled to the bottom. Default is 1.",
-      ],
+      "marginBottom (Number): Optional margin from the bottom of the page to consider when determining if scrolled to the bottom. Default is 1.",
     ],
     outputs: [
-      [
-        "isScrolledToBottom (Boolean): True if the page is scrolled to the bottom, false otherwise.",
-      ],
+      "isScrolledToBottom (Boolean): True if the page is scrolled to the bottom, false otherwise.",
     ],
     liveCode:
       "https://codesandbox.io/p/sandbox/usepagebottom-lg2clp?file=%2Fsrc%2FTest.jsx%3A5%2C1",
@@ -848,30 +685,17 @@ export default usePageBottom;`,
   {
     name: "useRandomNumber",
     explanation: [
-      `
-        The useRandomNumber hook is a custom React hook designed to generate and manage random numbers
-        within a specified range. It encapsulates the logic for generating random numbers and provides functionality to change the generated number within the specified range.
-        `,
+      `The useRandomNumber hook is a custom React hook designed to generate and manage random numbers
+      within a specified range. It encapsulates the logic for generating random numbers and provides
+      functionality to change the generated number within the specified range.`,
     ],
     inputs: [
-      [
-        `min (Number):
-            The minimum value of the random number range.`,
-      ],
-      [
-        `max (Number):
-            The maximum value of the random number range.`,
-      ],
+      "min (Number): The minimum value of the random number range.",
+      "max (Number): The maximum value of the random number range.",
     ],
     outputs: [
-      [
-        `randomNumber (Number):
-            The current random number within the specified range.`,
-      ],
-      [
-        `changeRandomNumber (Function):
-            Function to change the random number within the specified range. Usage: changeRandomNumber(newMin, newMax).`,
-      ],
+      "randomNumber (Number): The current random number within the specified range.",
+      "changeRandomNumber (Function): Function to change the random number within the specified range. Usage: changeRandomNumber(newMin, newMax).",
     ],
     liveCode:
       "https://codesandbox.io/s/sandbox-userandomnumber-cfhdkv?file=/src/Test.jsx",
@@ -910,9 +734,9 @@ function generateRandomNumber(min, max) {
   {
     name: "useMouseEffect",
     explanation: [
-      "The useMouseEffect hook applies effects related to mouse movements on a specified element.",
-      "It allows adding a custom class when the mouse is active, positioning the element based on mouse coordinates,",
-      "and toggling a class on specified elements when the mouse hovers over them.",
+      `The useMouseEffect hook applies effects related to mouse movements on a specified element.,
+      It allows adding a custom class when the mouse is active, positioning the element based on mouse
+      coordinates, and toggling a class on specified elements when the mouse hovers over them.`,
     ],
     inputs: [
       [
@@ -987,32 +811,15 @@ export default useMouseEffect;`,
   {
     name: "useFunctionOnKey",
     explanation: [
-      `
-          The useFunctionOnKey hook listens for a specific key press or combination of key presses and triggers a callback function when those keys are pressed.
-          It also allows disabling the callback when certain conditions are met.
-        `,
+      `The useFunctionOnKey hook listens for a specific key press or combination of key presses and triggers
+      a callback function when those keys are pressed. It also allows disabling the callback when certain conditions are met.`,
     ],
     inputs: [
-      [
-        `callback (Function):
-            The function to be called when the specified keys are pressed.`,
-      ],
-      [
-        `keysNames (Array):
-            An array of strings representing the names of the keys to listen for.`,
-      ],
-      [
-        `delay (Number):
-            Optional. The delay (in milliseconds) to debounce the key press events. Default is 200 milliseconds.`,
-      ],
-      [
-        `disableMainKeys (Boolean):
-            Flag to disable the callback when one of the main keys (Shift, Alt, Ctrl) is pressed. Default is false.`,
-      ],
-      [
-        `disableOnFocus (Boolean):
-            Flag to disable the callback when focus is on an input or textarea element. Default is false.`,
-      ],
+      "callback (Function): The function to be called when the specified keys are pressed.",
+      "keysNames (Array): An array of strings representing the names of the keys to listen for.",
+      "delay (Number): Optional. The delay (in milliseconds) to debounce the key press events. Default is 200 milliseconds.",
+      "disableMainKeys (Boolean): Flag to disable the callback when one of the main keys (Shift, Alt, Ctrl) is pressed. Default is false.",
+      "disableOnFocus (Boolean): Flag to disable the callback when focus is on an input or textarea element. Default is false.",
     ],
     liveCode:
       "https://codesandbox.io/p/sandbox/determined-khayyam-mfpznn?file=%2Fsrc%2FTest.jsx%3A12%2C13",
@@ -1060,32 +867,17 @@ export default useFunctionOnKey;`,
   {
     name: "useFormData",
     explanation: [
-      `
-          The useFormData hook facilitates managing form data by providing functions to handle form changes and submission.
-          It enables tracking form values and executing a callback function upon form submission.
-        `,
+      `The useFormData hook facilitates managing form data by providing functions to handle form changes and submission.
+      It enables tracking form values and executing a callback function upon form submission.`,
     ],
     inputs: [
-      [
-        `initialValues (Object):
-            An object containing the initial values for the form fields.`,
-        `onSubmit (Function):
-            A function to be called when the form is submitted. It receives the current form values as its argument.`,
-      ],
+      "initialValues (Object): An object containing the initial values for the form fields.",
+      "onSubmit (Function): A function to be called when the form is submitted. It receives the current form values as its argument.",
     ],
     outputs: [
-      [
-        `values (Object):
-            Represents the current values of the form fields.`,
-      ],
-      [
-        `handleChange (Function):
-            A function to handle changes in form fields. It updates the corresponding value in the form data.`,
-      ],
-      [
-        `handleSubmit (Function):
-            A function to handle form submission. It prevents the default form submission behavior and invokes the onSubmit callback with the current form values.`,
-      ],
+      "values (Object): Represents the current values of the form fields.",
+      "handleChange (Function): A function to handle changes in form fields. It updates the corresponding value in the form data.",
+      "handleSubmit (Function): A function to handle form submission. It prevents the default form submission behavior and invokes the onSubmit callback with the current form values.",
     ],
     liveCode:
       "https://codesandbox.io/s/sandbox/useformdata-jsx-vvdsq?file=/src/Test.jsx:17:1",
@@ -1123,51 +915,25 @@ export default useFormData;`,
   {
     name: "usePagination",
     explanation: [
-      `
-          The usePagination hook manages pagination state for a list of items.
-          It calculates the current page, total pages, start index, and end index based on the total number of items and items per page.
-          It provides functions to navigate between pages: nextPage, prevPage, and goToPage.
-        `,
+      `The usePagination hook manages pagination state for a list of items. It calculates the current page,
+      total pages, start index, and end index based on the total number of items and items per page.
+      It provides functions to navigate between pages: nextPage, prevPage, and goToPage.`,
     ],
     inputs: [
       [
-        `totalItems (Number):
-            The total number of items.`,
-        `itemsPerPage (Number):
-            The number of items to display per page.`,
-        `pageNumber (Number):
-            The initial page number. Default is 1.`,
+        "totalItems (Number): The total number of items.",
+        "itemsPerPage (Number): The number of items to display per page.",
+        "pageNumber (Number): The initial page number. Default is 1.",
       ],
     ],
     outputs: [
-      [
-        `currentPage (Number):
-            Represents the current page.`,
-      ],
-      [
-        `totalPages (Number):
-            Represents the total number of pages.`,
-      ],
-      [
-        `nextPage (Function):
-            Advances to the next page if available.`,
-      ],
-      [
-        `prevPage (Function):
-            Goes to the previous page if available.`,
-      ],
-      [
-        `goToPage (Function):
-            Navigates to the specified page.`,
-      ],
-      [
-        `startIndex (Number):
-            Represents the start index of items on the current page.`,
-      ],
-      [
-        `endIndex (Number):
-            Represents the end index of items on the current page.`,
-      ],
+      "currentPage (Number): Represents the current page.",
+      "totalPages (Number): Represents the total number of pages.",
+      "nextPage (Function): Advances to the next page if available.",
+      "prevPage (Function): Goes to the previous page if available.",
+      "goToPage (Function): Navigates to the specified page.",
+      "startIndex (Number): Represents the start index of items on the current page.",
+      "endIndex (Number): Represents the end index of items on the current page.",
     ],
     liveCode:
       "https://codesandbox.io/p/sandbox/usepagination-jsx-jx9p99?file=%2Fsrc%2FTest.jsx%3A1%2C28",
@@ -1218,30 +984,14 @@ export default usePagination;`,
   {
     name: "useUndo",
     explanation: [
-      `
-          The useUndo hook provides undo functionality for managing state changes.
-          It allows reverting to the previous state and saving the current state for future undo actions.
-        `,
+      `The useUndo hook provides undo functionality for managing state changes.
+      It allows reverting to the previous state and saving the current state for future undo actions.`,
     ],
-    inputs: [
-      [
-        `initialValue (Any):
-            The initial value for the state.`,
-      ],
-    ],
+    inputs: ["initialValue (Any): The initial value for the state."],
     outputs: [
-      [
-        `value (Any):
-            Represents the current state.`,
-      ],
-      [
-        `set (Function):
-            Sets the current state to a new value.`,
-      ],
-      [
-        `undo (Function):
-            Reverts the current state to the previous value.`,
-      ],
+      "value (Any): Represents the current state.",
+      "set (Function): Sets the current state to a new value.",
+      "undo (Function): Reverts the current state to the previous value.",
     ],
     liveCode:
       "https://codesandbox.io/p/sandbox/useundo-jsx-x8kq6k?file=%2Fsrc%2FTest.jsx%3A17%2C1",
@@ -1275,31 +1025,17 @@ export default useUndo;`,
   {
     name: "useTimeout",
     explanation: [
-      `
-          The useTimeout hook provides functionality for managing timeouts.
-          It allows executing a callback function after a specified delay,
-          with options to clear or reset the timeout.
-        `,
+      `The useTimeout hook provides functionality for managing timeouts.
+      It allows executing a callback function after a specified delay,
+      with options to clear or reset the timeout.`,
     ],
     inputs: [
-      [
-        `callback (Function):
-            The function to be executed after the timeout.`,
-      ],
-      [
-        `delay (Number):
-          The delay time in milliseconds before executing the callback.`,
-      ],
+      "callback (Function): The function to be executed after the timeout.",
+      "delay (Number): The delay time in milliseconds before executing the callback.",
     ],
     outputs: [
-      [
-        `reset (Function):
-            Clears the current timeout and sets a new one.`,
-      ],
-      [
-        `clear (Function):
-            Clears the current timeout.`,
-      ],
+      "reset (Function): Clears the current timeout and sets a new one.",
+      "clear (Function): Clears the current timeout.",
     ],
     liveCode:
       "https://codesandbox.io/p/sandbox/usetimeout-jsx-mw5z49?file=%2Fsrc%2FTest.jsx%3A4%2C21",

@@ -1,7 +1,8 @@
 import styles from "./ListedSection.module.scss";
 
 const ListedSection = ({ listData, name }) => {
-  const isListDataExist = listData?.length !== 0;
+  const isListDataExist = listData?.length !== 0 && listData;
+  console.log(listData);
 
   const listItems = listData?.map((item, index) => (
     <li key={`${name}-${index}`}>
