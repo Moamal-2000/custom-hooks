@@ -6,7 +6,7 @@ export function scrollCalculations() {
   const documentHeight = Number.parseInt(htmlElement.offsetHeight.toFixed(0)),
     halfDocumentHeight = documentHeight / 2,
     scrollY = Number.parseInt(window.scrollY.toFixed(0)),
-    isUserScrolledToTop = halfDocumentHeight > scrollY,
+    isUserScrolledToTop = halfDocumentHeight + 2 > scrollY,
     scrollToY = isUserScrolledToTop ? documentHeight : 0;
 
   return { scrollToY, isUserScrolledToTop };

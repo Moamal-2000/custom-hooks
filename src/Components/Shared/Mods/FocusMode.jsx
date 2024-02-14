@@ -29,16 +29,15 @@ const FocusMode = () => {
   }, [isFocusModeActiveLocal]);
 
   return (
-    <ToolTip content="Focus Mode" left="-118px" top="3px" arrowDir="right">
-      <button
-        type="button"
-        className={`${styles.focusModeButton} ${focusModeClass}`}
-        onClick={toggleFocusMode}
-        // title="Focus Mode"
-      >
-        <SvgIcon name={isFocusModeActiveLocal ? "eyeSlash" : "eye"} />
-      </button>
-    </ToolTip>
+    <button
+      type="button"
+      className={`${styles.focusModeButton} ${focusModeClass}`}
+      onClick={toggleFocusMode}
+      aria-label="Focus Mode"
+    >
+      <SvgIcon name={isFocusModeActiveLocal ? "eyeSlash" : "eye"} />
+      <ToolTip content="Focus Mode" left="-105px" top="1.2px" arrowDir="right" />
+    </button>
   );
 };
 

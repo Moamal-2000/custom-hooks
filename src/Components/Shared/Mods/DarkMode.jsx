@@ -2,10 +2,12 @@ import { useEffect } from "react";
 import { useGlobalContext } from "../../../Context/GlobalContext";
 import useFunctionOnKey from "../../../Hooks/useFunctionOnKey";
 import SvgIcon from "../MiniComponents/SvgIcon";
+import ToolTip from "../MiniComponents/ToolTip";
 
 const DarkMode = () => {
   const { isDarkModeLocal, setIsDarkModeLocal } = useGlobalContext();
   let noun = isDarkModeLocal ? "Dark" : "Light";
+  const toolTipLeftPos = isDarkModeLocal ? "-97px" : "-98px";
   useFunctionOnKey(toggleDarkMode, ["KeyD"], 300, true, true);
 
   function toggleDarkMode() {
@@ -18,8 +20,14 @@ const DarkMode = () => {
   }, [isDarkModeLocal]);
 
   return (
-    <button type="button" onClick={toggleDarkMode} title={`${noun} Mode`}>
+    <button type="button" onClick={toggleDarkMode} aria-label={`${noun} Mode`}>
       <SvgIcon name={isDarkModeLocal ? "moon" : "sun"} />
+      <ToolTip
+        content={`${noun} Mode`}
+        left={toolTipLeftPos}
+        top="1.3px"
+        arrowDir="right"
+      />
     </button>
   );
 };

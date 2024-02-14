@@ -1,4 +1,9 @@
-.toolTip::before {
+[data-is-tooltip=true] {
+  position: absolute;
+  color: var(--white);
+}
+
+[data-is-tooltip=true]::before {
   content: '';
   position: absolute;
   width: 0;
@@ -6,7 +11,7 @@
   border: solid 8px;
 }
 
-.toolTip {
+[data-is-tooltip=true] {
   &.top::before {
     border-color: transparent transparent var(--tooltip-bg-color) transparent;
     right: 50%;

@@ -7,6 +7,7 @@ import ActiveHooksMenu from "./ActiveHooksMenu";
 import DownloadHooksButton from "./DownloadHooksButton";
 import SearchHooksInput from "./SearchHooksInput";
 import styles from "./SideBar.module.scss";
+import ToolTip from "../Shared/MiniComponents/ToolTip";
 
 const SideBar = () => {
   const {
@@ -75,11 +76,17 @@ const SideBar = () => {
         type="button"
         className={`${styles.extendSideBarButton} ${activeClass}`}
         onClick={toggleExtendSideBar}
-        title="Extend Sidebar"
+        aria-label="Extend Sidebar"
         tabIndex="-1"
       >
         <i className={`fa-solid fa-angles-${arrowDirection}`}></i>
         <SvgIcon name={`double${arrowDirection}Arrow`} />
+        <ToolTip
+        content="Extend Sidebar"
+        left="40px"
+        top="-1px"
+        arrowDir="left"
+      />
       </button>
     );
   };

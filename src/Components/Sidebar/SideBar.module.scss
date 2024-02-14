@@ -162,6 +162,10 @@
   }
 }
 
+.extendSideBarButton:hover>* {
+  opacity: 1;
+}
+
 .extendSideBarButton svg {
   width: 14px;
   height: 14px;

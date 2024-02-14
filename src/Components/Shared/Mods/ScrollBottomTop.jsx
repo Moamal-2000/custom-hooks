@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { scrollCalculations } from "../../../Functions/projectFunctions";
 import useEventListener from "../../../Hooks/useEventListener";
 import useFunctionOnKey from "../../../Hooks/useFunctionOnKey";
@@ -6,49 +6,39 @@ import SvgIcon from "../MiniComponents/SvgIcon";
 import ToolTip from "../MiniComponents/ToolTip";
 
 const ScrollBottomTop = () => {
-  const arrowButtonRef = useRef();
+  const { isUserScrolledToTop } = scrollCalculations();
   const [noun, setNoun] = useState("Bottom");
-  useEventListener(window, "scroll", () =>
-    handleFlipScrollIcon(arrowButtonRef)
-  );
-  let toolTipLeftPos = noun === "Bottom" ? "-145px" : "-119px";
+  const [iconName, setIconName] = useState(isUserScrolledToTop ? "chevronDown" : "chevronUp");
+  let toolTipLeftPos = noun === "Bottom" ? "-126px" : "-105px";
+  useEventListener(window, "scroll", () => handleFlipScrollIcon());
   useFunctionOnKey(handleScrollButton, ["KeyS"], 300, true);
 
-  function handleFlipScrollIcon(buttonIconRef) {
-    if (!buttonIconRef.current) return;
+  function handleFlipScrollIcon() {
     const { isUserScrolledToTop } = scrollCalculations();
-    const turnValue = isUserScrolledToTop ? ".5" : "5.0";
-
     setNoun(isUserScrolledToTop ? "Bottom" : "Top");
-    buttonIconRef.current.style.transform = `rotate(${turnValue}turn)`;
+    setIconName(isUserScrolledToTop ? "chevronDown" : "chevronUp");
   }
 
   function handleScrollButton() {
     const { scrollToY } = scrollCalculations();
     window.scrollTo({ behavior: "smooth" }, scrollToY, 0);
-    setTimeout(() => handleFlipScrollIcon(arrowButtonRef), 700);
+    setTimeout(() => handleFlipScrollIcon(), 700);
   }
 
-  useEffect(() => {
-    handleFlipScrollIcon(arrowButtonRef);
-  }, []);
-
   return (
-    <ToolTip
-      content={`Scroll to ${noun}`}
-      left={toolTipLeftPos}
-      top="3px"
-      arrowDir="right"
+    <button
+      type="button"
+      onClick={handleScrollButton}
+      aria-label={`Scroll to ${noun}`}
     >
-      <button
-        ref={arrowButtonRef}
-        type="button"
-        onClick={handleScrollButton}
-        // title={`Scroll to ${noun}`}
-      >
-        <SvgIcon name="chevronUp" />
-      </button>
-    </ToolTip>
+      <SvgIcon name={iconName} />
+      <ToolTip
+        content={`Scroll to ${noun}`}
+        left={toolTipLeftPos}
+        top="1.3px"
+        arrowDir="right"
+      />
+    </button>
   );
 };
 export default ScrollBottomTop;

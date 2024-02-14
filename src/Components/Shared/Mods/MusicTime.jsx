@@ -11,7 +11,7 @@ const MusicTime = () => {
   const musicRef = useRef(null);
   const { isFocusModeActiveLocal } = useGlobalContext();
   const noun = isMusicOn ? "Pause" : "Play";
-  const toolTipLeftPos = isMusicOn ? "-123px" : "-109px";
+  const toolTipLeftPos = isMusicOn ? "-108px" : "-96px";
   useFunctionOnKey(toggleMusic, ["KeyP"], 300, true, true);
 
   function toggleMusic() {
@@ -46,14 +46,14 @@ const MusicTime = () => {
     !isFocusModeActiveLocal && (
       <button
         type="button"
-        // title={`${noun} Music`}
+        aria-label={`${noun} Music`}
         onClick={toggleMusic}
       >
         <SvgIcon name={isMusicOn ? "pause" : "play"} />
         <ToolTip
           content={`${noun} Music`}
           left={toolTipLeftPos}
-          top="3px"
+          top="1.3px"
           arrowDir="right"
         />
       </button>

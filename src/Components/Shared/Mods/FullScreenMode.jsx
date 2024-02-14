@@ -19,20 +19,19 @@ const FullScreenMode = () => {
   }
 
   return (
-    <ToolTip
-      content="Full Screen Mode"
-      left="-153px"
-      top="3px"
-      arrowDir="right"
+    <button
+      type="button"
+      aria-label="Full Screen Mode"
+      onClick={toggleFullScreen}
     >
-      <button
-        type="button"
-        // title="Full Screen Mode"
-        onClick={toggleFullScreen}
-      >
-        <SvgIcon name={isFullScreen ? "compress" : "expand"} />
-      </button>
-    </ToolTip>
+      <SvgIcon name={isFullScreen ? "compress" : "expand"} />
+      <ToolTip
+        content="Full Screen Mode"
+        left="-136px"
+        top="1.2px"
+        arrowDir="right"
+      />
+    </button>
   );
 };
 export default FullScreenMode;
