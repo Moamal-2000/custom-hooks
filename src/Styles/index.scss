@@ -153,9 +153,11 @@ svg {
 }
 
 .linenumber {
+  display: inline-block !important;
   color: var(--codeBlockLinesNumbersColor) !important;
-  padding-right: 30px !important;
   font-style: normal !important;
+  text-align: left !important;
+  min-width: 50px !important;
 }
 
 @include medium {

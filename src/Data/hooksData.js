@@ -26,8 +26,7 @@ const usePreviousState = (state) => {
   return oldState.current;
 };
 
-export default usePreviousState;
-`,
+export default usePreviousState;`,
       },
     ],
   },
@@ -221,10 +220,11 @@ const useCloseElement = (toggleEleRef, switcherEleRef, exceptElementRef) => {
   return [isElementClose, setIsElementClose];
 };
 
-export default useCloseElement;
-
-/* Helper Function */
-const isParentOfElement = (element, requiredEle) => {
+export default useCloseElement;`,
+      },
+      {
+        name: "isParentOfElement",
+        code: `const isParentOfElement = (element, requiredEle) => {
   let parentElement = element.parentElement;
 
   while (
@@ -236,8 +236,8 @@ const isParentOfElement = (element, requiredEle) => {
   }
 
   return !!parentElement;
-};`,
-      },
+};`
+      }
     ],
   },
 
@@ -721,10 +721,11 @@ const useRandomNumber = (min = 0, max = 1000) => {
   return [randomNumber, changeRandomNumber];
 };
 
-export default useRandomNumber;
-
-/* Helper Function */
-function generateRandomNumber(min, max) {
+export default useRandomNumber;`,
+      },
+      {
+        name: "generateRandomNumber",
+        code: `function generateRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }`,
       },
@@ -1104,11 +1105,13 @@ export default useTimeout;`,
         code: `import { useEffect } from "react";
 import useTimeout from "./useTimeout";
 
-export default function useDebounce(callback, delay = 500, dependencies = []) {
+function useDebounce(callback, delay = 500, dependencies = []) {
   const { reset, clear } = useTimeout(callback, delay);
   useEffect(reset, [...dependencies, reset]);
   useEffect(clear, []);
-}`,
+}
+
+export default useDebounce;`,
       },
       {
         name: "useTimeout",
