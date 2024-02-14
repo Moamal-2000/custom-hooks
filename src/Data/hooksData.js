@@ -19,7 +19,7 @@ const originalHooksData = [
       ],
     ],
     liveCode:
-      "https://codesandbox.io/p/sandbox/usepreviousstate-yns2hn?file=%2Fsrc%2FusePreviousState.jsx%3A1%2C9",
+      "https://codesandbox.io/p/sandbox/usepreviousstate-yns2hn?file=%2Fsrc%2FTest.jsx%3A3%2C1",
     id: 0,
     codes: [
       {
@@ -331,9 +331,8 @@ const isParentOfElement = (element, requiredEle) => {
     name: "useUpdateEffect",
     explanation: [
       `
-          The useUpdateEffect hook is similar to useEffect, but it skips its initial execution.
-          It runs the effect only on subsequent re-renders, excluding the initial render.
-        `,
+      The useUpdateEffect hook is designed to be similar to the useEffect hook in React but with a key difference: it skips its initial execution and runs the effect only on subsequent re-renders, excluding the initial render. This can be useful when you want to perform certain actions or side effects only after the initial render has occurred and avoid unnecessary execution during component mounting.
+      `,
     ],
     inputs: [
       [
