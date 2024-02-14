@@ -3,7 +3,8 @@ const originalHooksData = [
     name: "usePreviousState",
     explanation: [
       `
-          The usePreviousState hook tracks the previous state of a component.`,
+      The usePreviousState hook is a custom React hook designed to track the previous state of a component. This can be particularly useful in scenarios where you need to compare the current state with the previous state to determine changes or trigger certain actions.
+      `,
     ],
     inputs: [
       [
@@ -65,7 +66,7 @@ export default usePreviousState;
     codes: [
       {
         name: "useCopyText",
-        code: `import { useState } from "react";
+        code: `import { useEffect, useRef, useState } from "react";
 
 const useCopyText = () => {
   const [copiedText, setCopiedText] = useState("");
@@ -112,8 +113,7 @@ export default useCopyText;`,
     codes: [
       {
         name: "useToggle",
-        code: `import { useState } from "react";
-
+        code: `
 const useToggle = (initialValue = false) => {
   const [value, setValue] = useState(initialValue);
 
@@ -199,8 +199,7 @@ export default useToggle;`,
     codes: [
       {
         name: "useArray",
-        code: `import { useState } from "react";
-
+        code: `
 const useArray = (initArray) => {
   const [array, setArray] = useState(initArray);
   const copiedArray = array;
@@ -281,8 +280,7 @@ export default useArray;`,
     codes: [
       {
         name: "useCloseElement",
-        code: `import { useEffect, useState } from "react";
-
+        code: `
 const useCloseElement = (toggleEleRef, switcherEleRef, exceptElementRef) => {
   const [isElementClose, setIsElementClose] = useState(false);
 
@@ -354,8 +352,7 @@ const isParentOfElement = (element, requiredEle) => {
     codes: [
       {
         name: "useUpdateEffect",
-        code: `import { useEffect, useRef } from "react";
-
+        code: `
 const useUpdateEffect = (callback, dependencies) => {
   const mount = useRef(false);
 
@@ -402,8 +399,7 @@ export default useUpdateEffect;`,
     codes: [
       {
         name: "useEventListener",
-        code: `import { useEffect } from "react";
-
+        code: `
 const useEventListener = (ref, eventName, callback) => {
   useEffect(() => {
     const element = ref.current ? ref.current : ref;
@@ -455,8 +451,7 @@ export default useEventListener;`,
     codes: [
       {
         name: "useFilteredObjects",
-        code: `import { useEffect, useState } from "react";
-
+        code: `
 const useFilteredObjects = (array, searchValue, key) => {
   const [filteredArr, setFilteredArr] = useState(array);
 
@@ -494,8 +489,7 @@ export default useFilteredObjects;`,
     codes: [
       {
         name: "useGetParams",
-        code: `import { useEffect, useState } from "react";
-
+        code: `
 const useGetParams = () => {
   const [params, setParams] = useState({});
 
