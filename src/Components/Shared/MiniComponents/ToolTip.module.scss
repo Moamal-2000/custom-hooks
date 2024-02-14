@@ -1,0 +1,39 @@
+.toolTip::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: solid 8px;
+}
+
+.toolTip {
+  &.top::before {
+    border-color: transparent transparent var(--tooltip-bg-color) transparent;
+    right: 50%;
+    left: 50%;
+    top: -16px;
+    transform: translateX(-50%);
+  }
+
+  &.right::before {
+    border-color: transparent transparent transparent var(--tooltip-bg-color);
+    right: -16px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &.bottom::before {
+    border-color: var(--tooltip-bg-color) transparent transparent transparent;
+    right: 50%;
+    left: 50%;
+    bottom: -16px;
+    transform: translateX(-50%);
+  }
+
+  &.left::before {
+    border-color: transparent var(--tooltip-bg-color) transparent transparent;
+    left: -16px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { useGlobalContext } from "../../../Context/GlobalContext";
-import SvgIcon from "../MiniComponents/SvgIcon";
-import styles from "./FocusMode.module.scss";
 import useFunctionOnKey from "../../../Hooks/useFunctionOnKey";
+import SvgIcon from "../MiniComponents/SvgIcon";
+import ToolTip from "../MiniComponents/ToolTip";
+import styles from "./FocusMode.module.scss";
 
 const FocusMode = () => {
   const { isFocusModeActiveLocal, setIsFocusModeActive, setIsSideBarExtended } =
@@ -28,14 +29,16 @@ const FocusMode = () => {
   }, [isFocusModeActiveLocal]);
 
   return (
-    <button
-      type="button"
-      className={`${styles.focusModeButton} ${focusModeClass}`}
-      onClick={toggleFocusMode}
-      title="Focus Mode"
-    >
-      <SvgIcon name={isFocusModeActiveLocal ? "eyeSlash" : "eye"} />
-    </button>
+    <ToolTip content="Focus Mode" left="-118px" top="3px" arrowDir="right">
+      <button
+        type="button"
+        className={`${styles.focusModeButton} ${focusModeClass}`}
+        onClick={toggleFocusMode}
+        // title="Focus Mode"
+      >
+        <SvgIcon name={isFocusModeActiveLocal ? "eyeSlash" : "eye"} />
+      </button>
+    </ToolTip>
   );
 };
 

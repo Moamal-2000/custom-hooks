@@ -3,6 +3,7 @@ import musicPath from "../../../Assets/Sounds/deep-show.mp3";
 import { useGlobalContext } from "../../../Context/GlobalContext";
 import useFunctionOnKey from "../../../Hooks/useFunctionOnKey";
 import SvgIcon from "../MiniComponents/SvgIcon";
+import ToolTip from "../MiniComponents/ToolTip";
 
 const MusicTime = () => {
   const [isMusicOn, setIsMusicOn] = useState(false);
@@ -10,6 +11,7 @@ const MusicTime = () => {
   const musicRef = useRef(null);
   const { isFocusModeActiveLocal } = useGlobalContext();
   const noun = isMusicOn ? "Pause" : "Play";
+  const toolTipLeftPos = isMusicOn ? "-123px" : "-109px";
   useFunctionOnKey(toggleMusic, ["KeyP"], 300, true, true);
 
   function toggleMusic() {
@@ -42,8 +44,18 @@ const MusicTime = () => {
 
   return (
     !isFocusModeActiveLocal && (
-      <button type="button" title={`${noun} Music`} onClick={toggleMusic}>
+      <button
+        type="button"
+        // title={`${noun} Music`}
+        onClick={toggleMusic}
+      >
         <SvgIcon name={isMusicOn ? "pause" : "play"} />
+        <ToolTip
+          content={`${noun} Music`}
+          left={toolTipLeftPos}
+          top="3px"
+          arrowDir="right"
+        />
       </button>
     )
   );

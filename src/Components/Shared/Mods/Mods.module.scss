@@ -42,6 +42,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  position: relative;
   opacity: .7;
   transition: opacity .2s;
 
@@ -65,6 +66,10 @@
   &:hover {
     opacity: 1;
   }
+}
+
+.modsContainer button:hover * {
+  opacity: 1;
 }
 
 .modsContainer button svg {
