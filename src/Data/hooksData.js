@@ -236,8 +236,8 @@ export default useCloseElement;`,
   }
 
   return !!parentElement;
-};`
-      }
+};`,
+      },
     ],
   },
 
@@ -281,8 +281,16 @@ export default useUpdateEffect;`,
   {
     name: "useEventListener",
     explanation: [
-      `The useEventListener hook allows attaching and removing event listeners to a specified DOM element.
-      It ensures proper cleanup by removing the event listener when the component unmounts.`,
+      `The useEventListener custom hook allows for easy attachment and removal of event listeners to
+      a specified DOM element within a React component. This hook utilizes the useEffect hook from
+      React to manage the lifecycle of the event listener. When the component mounts, it adds the
+      event listener to the specified DOM element, and when the component unmounts, it removes
+      the event listener to prevent memory leaks.`,
+
+      `The benefit of using the useEventListener hook is that it encapsulates the logic for attaching
+      and removing event listeners within a reusable hook, promoting code reusability and readability.
+      It abstracts away the complexity of managing event listeners directly within components, resulting
+      in cleaner and more maintainable code.`,
     ],
     inputs: [
       "element (DOM element): The DOM element to which the event listener will be attached.",
@@ -290,20 +298,26 @@ export default useUpdateEffect;`,
       "callback (Function): The callback function to be executed when the event occurs.",
     ],
     liveCode:
-      "https://codesandbox.io/p/sandbox/useeventlistener-9tcp7n?file=%2Fsrc%2FuseEventListener.jsx%3A1%2C5",
+      "https://codesandbox.io/p/sandbox/useeventlistener-9tcp7n?file=%2Fsrc%2FTest.jsx%3A8%2C1",
     id: 6,
     codes: [
       {
         name: "useEventListener",
-        code: `
-const useEventListener = (ref, eventName, callback) => {
+        code: `import { useEffect } from "react";
+
+const useEventListener = (
+  ref,
+  eventName,
+  callback,
+  dependencies = [ref, eventName, callback]
+) => {
   useEffect(() => {
     const element = ref.current ? ref.current : ref;
 
     element?.addEventListener(eventName, callback);
 
     return () => element?.removeEventListener(eventName, callback);
-  }, []);
+  }, dependencies);
 };
 
 export default useEventListener;`,
