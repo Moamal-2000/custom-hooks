@@ -8,14 +8,18 @@ const HookExplanation = ({ hookData }) => {
     <section className={styles.explanation}>
       <HookName hookData={hookData} />
 
-      {explanation?.map((explain, i) => (
+      {explanation?.map((explanationText, i) => (
         <p className={styles.hookParagraph} key={i}>
-          {explain}
+          {explanationText}
         </p>
       ))}
 
       {liveCode && (
-        <a href={liveCode} target="_blank" className="linkStyle1">
+        <a
+          href={liveCode}
+          target="_blank"
+          className="linkStyle1 noMarginLeft noMarginRight"
+        >
           Explore an interactive demo of {name} hook.
         </a>
       )}

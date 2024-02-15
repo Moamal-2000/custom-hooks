@@ -166,16 +166,20 @@ svg {
   }
 }
 
+.noMarginLeft {
+  margin-left: 0 !important;
+}
+
 .noMarginRight {
   margin-right: 0 !important;
 }
 
-.noPaddingRight {
-  padding-right: 0 !important;
-}
-
 .noPaddingLeft {
   padding-left: 0 !important;
+}
+
+.noPaddingRight {
+  padding-right: 0 !important;
 }
 
 .toolTip {
