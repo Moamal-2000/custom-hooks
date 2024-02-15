@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useGlobalContext } from "../../Context/GlobalContext";
 import SvgIcon from "../Shared/MiniComponents/SvgIcon";
 import styles from "./SuggestionsMenu.module.scss";
 
@@ -10,7 +11,11 @@ const SuggestionsMenu = ({ suggestionsData }) => {
     isSuggestionMenuActive,
     toggleSuggestionsActive,
   } = suggestionsData;
+  const { pressedKey, setPressedKey } = useGlobalContext();
   const activeClass = isSuggestionMenuActive ? styles.active : "";
+  const isTabPressed = pressedKey === "Tab";
+  const isSearchInpFocused = document.activeElement?.id === "search";
+  const isSearchButtonFocused = document.activeElement?.textContent === "Go";
 
   function handleSuggestionItem(item) {
     navigateToItem(item);
@@ -20,12 +25,12 @@ const SuggestionsMenu = ({ suggestionsData }) => {
 
   useEffect(() => {
     function handleSuggestionsMenuAppearance(e) {
-      const isSearchInp = e.target?.id === "search";
-      const isSearchButton = e.target.textContent === "Go";
+      const isSearchInpFocused = e.target?.id === "search";
+      const isSearchButtonFocused = e.target?.textContent === "Go";
       const shouldActiveSuggestionsMenu =
-        isSearchInp && !isSuggestionMenuActive && searchItems.length > 0;
+        isSearchInpFocused && !isSuggestionMenuActive && searchItems.length > 0;
 
-      if (isSearchInp || isSearchButton) {
+      if (isSearchInpFocused || isSearchButtonFocused) {
         if (shouldActiveSuggestionsMenu) toggleSuggestionsActive(true);
         return;
       }
@@ -33,15 +38,22 @@ const SuggestionsMenu = ({ suggestionsData }) => {
       toggleSuggestionsActive(false);
     }
 
-    document.addEventListener("click", (e) =>
-      handleSuggestionsMenuAppearance(e)
-    );
+    document.addEventListener("click", handleSuggestionsMenuAppearance);
 
-    return () =>
-      document.removeEventListener("click", (e) =>
-        handleSuggestionsMenuAppearance(e)
-      );
+    return () => {
+      document.removeEventListener("click", handleSuggestionsMenuAppearance);
+    };
   }, [isSuggestionMenuActive]);
+
+  useEffect(() => {
+    const shouldHideSuggestionsMenu =
+      isTabPressed && (isSearchInpFocused || isSearchButtonFocused);
+
+    if (shouldHideSuggestionsMenu) {
+      toggleSuggestionsActive(false);
+      setPressedKey("");
+    }
+  }, [pressedKey]);
 
   return (
     <ul className={`${styles.suggestionMenu} ${activeClass}`}>

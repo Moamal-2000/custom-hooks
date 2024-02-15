@@ -4,34 +4,34 @@ import styles from "./SocialMedia.module.scss";
 const SocialMedia = () => {
   return (
     <div className={styles.SocialMedia}>
-      <SocialMediaIcon
+      <SocialMediaLink
         icon={<SvgIcon name="github" />}
         href="https://github.com/Moamal-2000"
         title="Github"
       />
 
-      <SocialMediaIcon
+      <SocialMediaLink
         icon={<SvgIcon name="linkedin" />}
-        href="https://www.linkedin.com/in/moamal-alaa-a4bb15237/"
+        href="https://www.linkedin.com/in/moamal-alaa-a4bb15237"
         title="Linkedin"
       />
 
-      <SocialMediaIcon
+      <SocialMediaLink
         icon={<SvgIcon name="codepen" />}
         href="https://codepen.io/moamal-2000"
         title="Codepen"
       />
 
-      <SocialMediaIcon
+      <SocialMediaLink
         icon={<SvgIcon name="facebook" />}
         href="https://www.facebook.com/MoamalAlaa109"
         title="Facebook"
       />
 
-      <SocialMediaIcon
+      <SocialMediaLink
         icon={<SvgIcon name="email" />}
         href="mailto:moamalalaapro1@gmail.com"
-        title="Send Mail"
+        title="Send me an email"
       />
     </div>
   );
@@ -39,12 +39,10 @@ const SocialMedia = () => {
 
 export default SocialMedia;
 
-const SocialMediaIcon = ({ icon, href, title }) => {
+const SocialMediaLink = ({ icon, href, title }) => {
   return (
-    <button className={styles.buttonIcon}>
-      <a href={href} target="_blank" tabIndex="-1" title={title}>
-        {icon}
-      </a>
-    </button>
+    <a className={styles.socialLink} href={href} target="_blank" title={title}>
+      {icon}
+    </a>
   );
 };

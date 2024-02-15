@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../../Context/GlobalContext";
 import { hooksData } from "../../Data/hooksData";
@@ -14,7 +14,6 @@ const SearchHooksInput = () => {
   const {
     setIsSideBarActive,
     setIsOverlayActive,
-    numbersOfPages,
     hooksPerPage,
   } = useGlobalContext();
   const [isSuggestionMenuActive, toggleSuggestionsActive] = useToggle(false);

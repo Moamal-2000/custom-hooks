@@ -6,6 +6,11 @@
   position: relative;
   right: 0;
   top: 8px;
+  text-decoration: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 1285px) {
@@ -15,9 +20,7 @@
   }
 }
 
-.buttonIcon {
-  background-color: transparent;
-  border: none;
+.socialLink {
   outline: none;
   cursor: pointer;
   border-radius: 4px;
@@ -32,26 +35,18 @@
   }
 }
 
-.buttonIcon a {
-  text-decoration: none;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.buttonIcon:focus-visible svg {
+.socialLink:focus-visible svg {
   fill: var(--light-green);
 }
 
-.buttonIcon svg {
+.socialLink svg {
   fill: #78819a;
   width: 23px;
   height: 23px;
   transition: fill .2s, transform .2s;
 }
 
-.buttonIcon:hover svg {
+.socialLink:hover svg {
   transform: scale(1.06);
   fill: var(--light-green);
 }
