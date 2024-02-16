@@ -425,17 +425,19 @@ export default useGetResizeWindow;`,
   {
     name: "useKeyPress",
     explanation: [
-      `The useKeyPress hook is a custom React hook designed to facilitate the tracking of keypress events
-      within a React application. This hook encapsulates the logic necessary to monitor keypress events and
-      provides convenient access to both the key code and the associated event object.`,
+      `The useKeyPress hook is a custom React hook designed to track keypress events within a React application.
+      It encapsulates the logic necessary to monitor keypress events and provides convenient access to information
+      about the key pressed, including metadata such as whether modifier keys like Alt, Ctrl, or Shift were held down
+      during the keypress, the target element, the timestamp of the event, and the keycode. This enhances the
+      development process by simplifying key press event handling, promoting code reusability, and improving the
+      overall user experience through enhanced keyboard interaction.`,
     ],
     outputs: [
       "key (String): Represents the key code of the pressed key.",
-      "setKey (Function): Function to manually set the key code.",
-      "event (Object): Represents the event object of the keypress event.",
+      "pressInfo (Object): An object containing information about the keypress event.",
     ],
     liveCode:
-      "https://codesandbox.io/p/sandbox/usekeypress-dzgxxj?file=%2Fsrc%2FuseKeyPress.jsx%3A3%2C22",
+      "https://codesandbox.io/p/sandbox/usekeypress-dzgxxj?file=%2Fsrc%2FTest.jsx%3A13%2C1",
     id: 10,
     codes: [
       {
@@ -443,22 +445,23 @@ export default useGetResizeWindow;`,
         code: `import { useEffect, useState } from "react";
 
 const useKeyPress = () => {
-  const [event, setEvent] = useState({});
+  const [pressInfo, setPressInfo] = useState({});
   const [key, setKey] = useState("");
 
   function handleKeyPress(e) {
-    setEvent(e);
+    const { altKey, ctrlKey, shiftKey, target, timeStamp, keyCode } = e;
+    const extractedInfo = { altKey, ctrlKey, shiftKey, target, timeStamp, keyCode };
+    setPressInfo(extractedInfo);
     setKey(e.code);
   }
 
   useEffect(() => {
     window.addEventListener("keydown", handleKeyPress);
 
-    return () =>
-      window.removeEventListener("keydown", (e) => handleKeyPress(e));
+    return () => window.removeEventListener("keydown", handleKeyPress);
   }, []);
 
-  return [key, setKey, event];
+  return [key, pressInfo];
 };
 
 export default useKeyPress;`,

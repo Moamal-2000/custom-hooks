@@ -6,14 +6,7 @@ const useKeyPress = () => {
 
   function handleKeyPress(e) {
     const { altKey, ctrlKey, shiftKey, target, timeStamp, keyCode } = e;
-    const extractedInfo = {
-      altKey,
-      ctrlKey,
-      shiftKey,
-      target,
-      timeStamp,
-      keyCode,
-    };
+    const extractedInfo = { altKey, ctrlKey, shiftKey, target, timeStamp, keyCode };
     setPressInfo(extractedInfo);
     setKey(e.code);
   }
