@@ -326,45 +326,6 @@ export default useEventListener;`,
   },
 
   {
-    name: "useFilteredObjects",
-    explanation: [
-      `The useFilteredObjects hook filters an array of objects based on a specified search value and key.`,
-    ],
-    inputs: [
-      "array (Array): The array of objects to be filtered.",
-      "searchValue (String): The value to filter the array with.",
-      "key (String): The key in the objects to be used for filtering.",
-    ],
-    outputs: [
-      "filteredArr (Array): The array containing objects that match the filtering criteria.",
-      "setFilteredArr (Function): Function to manually set the filtered array.",
-    ],
-    liveCode:
-      "https://codesandbox.io/p/sandbox/usefilteredobjects-qjd5tl?file=%2Fsrc%2FTest.jsx%3A3%2C1",
-    id: 7,
-    codes: [
-      {
-        name: "useFilteredObjects",
-        code: `const useFilteredObjects = (array, searchValue, key) => {
-  const [filteredArr, setFilteredArr] = useState(array);
-
-  useEffect(() => {
-    const filteredData = array.filter((obj) => {
-      return obj[key].toLowerCase().startsWith(searchValue.toLowerCase());
-    });
-
-    setFilteredArr(filteredData);
-  }, [searchValue]);
-
-  return [filteredArr, setFilteredArr];
-};
-
-export default useFilteredObjects;`,
-      },
-    ],
-  },
-
-  {
     name: "useGetParams",
     explanation: [
       `The useGetParams hook extracts and manages query parameters from the current URL, updating them whenever the URL changes.`,
