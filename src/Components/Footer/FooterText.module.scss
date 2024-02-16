@@ -1,4 +1,12 @@
-.text>p {
+.subject {
+  max-width: 600px;
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+
+.text p {
   width: 100%;
   color: var(--white);
   text-wrap: balance;
@@ -16,7 +24,7 @@
   }
 }
 
-.text>p>a {
+.text p>a {
   color: var(--white);
   padding: 4px;
   transition: opacity .2s, color .2s;
