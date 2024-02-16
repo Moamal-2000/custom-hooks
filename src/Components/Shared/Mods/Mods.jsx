@@ -6,6 +6,7 @@ import styles from "./Mods.module.scss";
 import MusicTime from "./MusicTime";
 import ScrollBottomTop from "./ScrollBottomTop";
 import ShortcutsMode from "./ShortcutsMode";
+import StarRepo from "./StarRepo";
 
 const Mods = () => {
   const { isFocusModeActiveLocal } = useGlobalContext();
@@ -21,6 +22,7 @@ const Mods = () => {
           <MusicTime />
           <DarkMode />
           <ShortcutsMode />
+          <StarRepo />
         </div>
       </div>
 

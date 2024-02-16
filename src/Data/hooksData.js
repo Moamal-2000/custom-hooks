@@ -345,8 +345,7 @@ export default useEventListener;`,
     codes: [
       {
         name: "useFilteredObjects",
-        code: `
-const useFilteredObjects = (array, searchValue, key) => {
+        code: `const useFilteredObjects = (array, searchValue, key) => {
   const [filteredArr, setFilteredArr] = useState(array);
 
   useEffect(() => {

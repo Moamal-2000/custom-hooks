@@ -32,10 +32,11 @@
   pointer-events: none;
 }
 
-.modsContainer button {
+.modsContainer :where(button, a) {
   width: 32px;
   height: 32px;
   background-color: transparent;
+  outline: none;
   border: solid 2px var(--white);
   border-radius: 4px;
   display: flex;
@@ -60,7 +61,7 @@
   }
 }
 
-.modsContainer button.focusMode {
+.modsContainer :where(button, a).focusMode {
   opacity: .2;
   transition: opacity .2s;
 
@@ -69,11 +70,11 @@
   }
 }
 
-.modsContainer button:hover>* {
+.modsContainer :where(button, a):hover>* {
   opacity: 1;
 }
 
-.modsContainer button svg {
+.modsContainer :where(button, a) svg {
   width: 17px;
   height: 17px;
   cursor: pointer;
@@ -81,11 +82,19 @@
   transition: opacity .2s, fill .04s;
 }
 
-.modsContainer button:focus-visible svg {
+.modsContainer :where(button, a):focus-visible svg {
   fill: var(--cyan-blue);
 }
 
-.modsContainer button .eyeSlashIcon {
+.modsContainer :where(button, a) .eyeSlashIcon {
   padding: 7.3px 6px;
   font-size: .9rem;
+}
+
+.modsContainer a {
+  border-color: yellow;
+}
+
+.modsContainer a>svg {
+  fill: yellow;
 }
