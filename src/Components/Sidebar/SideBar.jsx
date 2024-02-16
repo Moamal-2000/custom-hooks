@@ -8,6 +8,7 @@ import DownloadHooksButton from "./DownloadHooksButton";
 import SearchHooksInput from "./SearchHooksInput";
 import styles from "./SideBar.module.scss";
 import ToolTip from "../Shared/MiniComponents/ToolTip";
+import RepoStarsForks from "./RepoStarsForks";
 
 const SideBar = () => {
   const {
@@ -82,11 +83,11 @@ const SideBar = () => {
         <i className={`fa-solid fa-angles-${arrowDirection}`}></i>
         <SvgIcon name={`double${arrowDirection}Arrow`} />
         <ToolTip
-        content="Extend Sidebar"
-        left="40px"
-        top="-1px"
-        arrowDir="left"
-      />
+          content="Extend Sidebar"
+          left="40px"
+          top="-1px"
+          arrowDir="left"
+        />
       </button>
     );
   };
@@ -123,6 +124,7 @@ const SideBar = () => {
           <SearchHooksInput />
           <DownloadHooksButton />
           <ActiveHooksMenu />
+          <RepoStarsForks />
         </div>
 
         {!isSmallThanScreen && <ExtendSideBarButton />}
