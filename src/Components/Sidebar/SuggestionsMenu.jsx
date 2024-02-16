@@ -11,7 +11,7 @@ const SuggestionsMenu = ({ suggestionsData }) => {
     isSuggestionMenuActive,
     toggleSuggestionsActive,
   } = suggestionsData;
-  const { pressedKey, setPressedKey } = useGlobalContext();
+  const { pressedKey } = useGlobalContext();
   const activeClass = isSuggestionMenuActive ? styles.active : "";
   const isTabPressed = pressedKey === "Tab";
   const isSearchInpFocused = document.activeElement?.id === "search";
@@ -51,7 +51,6 @@ const SuggestionsMenu = ({ suggestionsData }) => {
 
     if (shouldHideSuggestionsMenu) {
       toggleSuggestionsActive(false);
-      setPressedKey("");
     }
   }, [pressedKey]);
 

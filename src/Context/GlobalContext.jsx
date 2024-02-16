@@ -10,7 +10,7 @@ const GlobalContextProvider = ({ children }) => {
   const [isOverlayActive, setIsOverlayActive] = useState(false);
   const [isNotFoundPageShown, setIsNotFoundPageShown] = useState(false);
   const [isShortcutMenuActive, toggleIsShortcutMenuActive] = useToggle(false);
-  const [pressedKey, setPressedKey] = useKeyPress();
+  const [pressedKey] = useKeyPress();
 
   const [isSideBarExtendedLocal, setIsSideBarExtended] =
     useLocalStorage("sidebar-extend");
@@ -46,7 +46,6 @@ const GlobalContextProvider = ({ children }) => {
     isShortcutMenuActive,
     toggleIsShortcutMenuActive,
     pressedKey,
-    setPressedKey
   };
 
   return (

@@ -8,11 +8,11 @@ const useFunctionOnKey = (
   disableMainKeys = false,
   disableOnFocus = false
 ) => {
-  const [pressedKey, setKey, keyPressEvent] = useKeyPress();
-  useDebounce(() => executeOnClick(), delay, [pressedKey, keyPressEvent]);
+  const [pressedKey, pressInfo] = useKeyPress();
+  useDebounce(() => executeOnClick(), delay, [pressedKey, pressInfo]);
 
   function executeOnClick() {
-    const { shiftKey, altKey, ctrlKey } = keyPressEvent;
+    const { shiftKey, altKey, ctrlKey } = pressInfo;
     const isOneOfMainKeysPressed = shiftKey || altKey || ctrlKey;
     const focusElement = document.activeElement?.tagName;
     const isFocusOnInput = /^(input|textarea)$/i.test(focusElement);
@@ -22,10 +22,7 @@ const useFunctionOnKey = (
 
     if (shouldRejectExecution) return;
 
-    if (keysNames.includes(pressedKey)) {
-      callback();
-      setKey("");
-    }
+    if (keysNames.includes(pressedKey)) callback();
   }
 };
 
