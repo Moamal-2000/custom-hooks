@@ -13,8 +13,8 @@ const ShortcutsMenu = () => {
   const pagesKeys = Array.from(
     { length: numbersOfPages },
     (_, i) => `Num${i + 1}`
-    );
-    const activeClass = isShortcutMenuActive ? styles.active : "";
+  );
+  const activeClass = isShortcutMenuActive ? styles.active : "";
 
   function closeShortcutMenu() {
     toggleIsShortcutMenuActive(false);
@@ -43,6 +43,7 @@ const ShortcutsMenu = () => {
         <Shortcut keys={["P"]}>Play/Pause music</Shortcut>
         <Shortcut keys={["D"]}>Toggle dark/light mode</Shortcut>
         <Shortcut keys={["K"]}>Toggle shortcuts menu</Shortcut>
+        <Shortcut keys={["R"]}>Go to website's repository</Shortcut>
         <Shortcut keys={["S"]}>Scroll to bottom/top</Shortcut>
         <Shortcut keys={["E"]}>Extend sidebar</Shortcut>
         <Shortcut keys={pagesKeys}>Navigate between pages</Shortcut>
