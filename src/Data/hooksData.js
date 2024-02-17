@@ -563,7 +563,11 @@ export default useOnlineStatus;`,
   {
     name: "useOnScreen",
     explanation: [
-      "The useOnScreen hook detects whether a specified DOM element is visible on the screen.",
+      `The useOnScreen hook, leveraging the Intersection Observer API, efficiently detects whether a specified
+      DOM element is visible within the viewport. This capability is invaluable for implementing features like
+      lazy loading, infinite scrolling, animations, and analytics tracking, thereby enhancing
+      performance, simplifying implementation, ensuring cross-browser compatibility,
+      and improving the overall user experience in React applications.`,
     ],
     inputs: [
       "ref (React ref): Ref of the DOM element to be observed for visibility.",
