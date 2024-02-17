@@ -5,10 +5,9 @@ const useGetResizeWindow = () => {
     width: innerWidth,
     height: innerHeight,
   });
+  let timerId;
 
   useEffect(() => {
-    let timerId;
-
     function handleResize() {
       clearTimeout(timerId);
 
@@ -20,10 +19,9 @@ const useGetResizeWindow = () => {
       }, 300);
     }
 
-    handleResize();
-    window.addEventListener("resize", () => handleResize());
+    window.addEventListener("resize", handleResize);
 
-    return () => window.removeEventListener("resize", () => handleResize());
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return sizes;
