@@ -9,7 +9,7 @@ const originalHooksData = [
     inputs: ["state (Any): The current state that needs to be tracked."],
     outputs: ["oldState (Any): The previous state of the component."],
     liveCode:
-      "https://codesandbox.io/p/sandbox/usepreviousstate-yns2hn?file=%2Fsrc%2FTest.jsx%3A3%2C1",
+      "https://codesandbox.io/p/sandbox/usepreviousstate-yns2hn?file=%2Fsrc%2FTest.jsx%3A4%2C33",
     id: 0,
     codes: [
       {
@@ -42,7 +42,7 @@ export default usePreviousState;`,
       "setCopy (Function): Function to copy text to the clipboard. Usage: setCopy(text).",
     ],
     liveCode:
-      "https://codesandbox.io/p/sandbox/usecopytext-fcqtfr?file=%2Fsrc%2FuseCopyText.jsx%3A6%2C12",
+      "https://codesandbox.io/p/sandbox/usecopytext-fcqtfr?file=%2Fsrc%2FTest.jsx%3A6%2C33",
     id: 1,
     codes: [
       {
@@ -80,7 +80,7 @@ export default useCopyText;`,
       "toggleValue (Function): Toggles the state between true and false or sets it to a specific boolean value.",
     ],
     liveCode:
-      "https://codesandbox.io/p/sandbox/usetoggle-dxg958?file=%2Fsrc%2FTest.jsx%3A10%2C11",
+      "https://codesandbox.io/p/sandbox/usetoggle-dxg958?file=%2Fsrc%2FTest.jsx%3A8%2C46",
     id: 2,
     codes: [
       {
@@ -124,7 +124,7 @@ export default useToggle;`,
       "filter (Function): Filters the array based on a provided callback function.",
     ],
     liveCode:
-      "https://codesandbox.io/p/sandbox/usearray-rxj3p5?file=%2Fsrc%2FTest.jsx%3A7%2C1",
+      "https://codesandbox.io/p/sandbox/usearray-rxj3p5?file=%2Fsrc%2FTest.jsx%3A8%2C11",
     id: 3,
     codes: [
       {
@@ -188,7 +188,7 @@ export default useArray;`,
       "setIsElementClose (Function): Function to manually set the state of isElementClose.",
     ],
     liveCode:
-      "https://codesandbox.io/p/sandbox/usecloseelement-z49szj?file=%2Fsrc%2FTest.jsx%3A8%2C14",
+      "https://codesandbox.io/p/sandbox/usecloseelement-z49szj?file=%2Fsrc%2FTest.jsx%3A2%2C49",
     id: 4,
     codes: [
       {
@@ -254,7 +254,7 @@ export default useCloseElement;`,
       "dependencies (Array): An array of dependencies to watch for changes and trigger the effect accordingly.",
     ],
     liveCode:
-      "https://codesandbox.io/p/sandbox/useupdateeffect-jsx-j7pkck?file=%2Fsrc%2FTest.jsx",
+      "https://codesandbox.io/p/sandbox/useupdateeffect-jsx-j7pkck?file=%2Fsrc%2FTest.jsx%3A5%2C41",
     id: 5,
     codes: [
       {
@@ -298,7 +298,7 @@ export default useUpdateEffect;`,
       "dependencies (Array): An optional array of dependencies that triggers the effect to re-run when changed.",
     ],
     liveCode:
-      "https://codesandbox.io/p/sandbox/useeventlistener-9tcp7n?file=%2Fsrc%2FTest.jsx%3A8%2C1",
+      "https://codesandbox.io/p/sandbox/useeventlistener-9tcp7n?file=%2Fsrc%2FTest.jsx%3A3%2C1",
     id: 6,
     codes: [
       {
@@ -380,7 +380,7 @@ export default useGetParams;`,
       "sizes (Object): An object containing the current width and height of the viewport's browser window.",
     ],
     liveCode:
-      "https://codesandbox.io/p/sandbox/usegetresizewindow-nj9n9p?file=%2Fsrc%2FuseGetResizeWindow.jsx%3A3%2C15",
+      "https://codesandbox.io/p/sandbox/usegetresizewindow-nj9n9p?file=%2Fsrc%2FTest.jsx%3A8%2C10",
     id: 9,
     codes: [
       {
@@ -434,7 +434,7 @@ export default useGetResizeWindow;`,
       "pressInfo (Object): An object containing information about the keypress event.",
     ],
     liveCode:
-      "https://codesandbox.io/p/sandbox/usekeypress-dzgxxj?file=%2Fsrc%2FTest.jsx%3A13%2C1",
+      "https://codesandbox.io/p/sandbox/usekeypress-dzgxxj?file=%2Fsrc%2FTest.jsx%3A8%2C45",
     id: 10,
     codes: [
       {
@@ -490,7 +490,7 @@ export default useKeyPress;`,
       "setDataFun (Function): A function to update the data in the local storage.",
     ],
     liveCode:
-      "https://codesandbox.io/p/sandbox/uselocalstorage-6hy7w2?file=%2Fsrc%2FTest.jsx%3A2%2C8",
+      "https://codesandbox.io/p/sandbox/uselocalstorage-6hy7w2?file=%2Fsrc%2FTest.jsx%3A4%2C33",
     id: 11,
     codes: [
       {
@@ -532,7 +532,7 @@ export default useLocalStorage;`,
       "isOnline (Boolean): True if the device is online, false if it is offline.",
     ],
     liveCode:
-      "https://codesandbox.io/p/sandbox/useonlinestatus-49z4lv?file=%2Fsrc%2FuseOnlineStatus.jsx%3A5%2C1",
+      "https://codesandbox.io/p/sandbox/useonscreen-zkvlhy?file=%2Fsrc%2FTest.jsx%3A7%2C28",
     id: 12,
     codes: [
       {
@@ -634,7 +634,7 @@ export default useOnScreen;`,
       "isScrolledToBottom (Boolean): True if the page is scrolled to the bottom, false otherwise.",
     ],
     liveCode:
-      "https://codesandbox.io/p/sandbox/usepagebottom-lg2clp?file=%2Fsrc%2FTest.jsx%3A5%2C1",
+      "https://codesandbox.io/p/sandbox/usepagination-jsx-jx9p99?file=%2Fsrc%2FTest.jsx%3A2%2C1",
     id: 14,
     codes: [
       {
@@ -686,7 +686,7 @@ export default usePageBottom;`,
       "changeRandomNumber (Function): Function to change the random number within the specified range.",
     ],
     liveCode:
-      "https://codesandbox.io/s/sandbox-userandomnumber-cfhdkv?file=/src/Test.jsx",
+      "https://codesandbox.io/p/sandbox/hopeful-maria-cfhdkv?file=%2Fsrc%2FTest.jsx",
     id: 16,
     codes: [
       {
@@ -734,7 +734,7 @@ export default useRandomNumber;`,
       "activeTime (Number, default: 500): Time in milliseconds before applying the activeClass.",
     ],
     liveCode:
-      "https://codesandbox.io/p/sandbox/usemouseeffect-t4mzrz?file=%2Fsrc%2FuseMouseEffect.jsx%3A1%2C13",
+      "https://codesandbox.io/p/sandbox/usemouseeffect-t4mzrz?file=%2Fsrc%2FTest.jsx%3A4%2C33",
     id: 17,
     codes: [
       {
@@ -805,13 +805,12 @@ export default useMouseEffect;`,
       "disableOnFocus (Boolean): Flag to disable the callback when focus is on an input or textarea element. Default is false.",
     ],
     liveCode:
-      "https://codesandbox.io/p/sandbox/determined-khayyam-mfpznn?file=%2Fsrc%2FTest.jsx%3A12%2C13",
+      "https://codesandbox.io/p/sandbox/determined-khayyam-mfpznn?file=%2Fsrc%2FTest.jsx%3A8%2C22",
     id: 18,
     codes: [
       {
         name: "useFunctionOnKey",
-        code: `import { useEffect } from "react";
-import useDebounce from "./useDebounce";
+        code: `import useDebounce from "./useDebounce";
 import useKeyPress from "./useKeyPress";
 
 const useFunctionOnKey = (
@@ -821,11 +820,11 @@ const useFunctionOnKey = (
   disableMainKeys = false,
   disableOnFocus = false
 ) => {
-  const [pressedKey, setKey, keyPressEvent] = useKeyPress();
-  useDebounce(() => executeOnClick(), delay, [pressedKey, keyPressEvent]);
+  const [pressedKey, pressInfo] = useKeyPress();
+  useDebounce(() => executeOnClick(), delay, [pressedKey, pressInfo]);
 
   function executeOnClick() {
-    const { shiftKey, altKey, ctrlKey } = keyPressEvent;
+    const { shiftKey, altKey, ctrlKey } = pressInfo;
     const isOneOfMainKeysPressed = shiftKey || altKey || ctrlKey;
     const focusElement = document.activeElement?.tagName;
     const isFocusOnInput = /^(input|textarea)$/i.test(focusElement);
@@ -835,10 +834,7 @@ const useFunctionOnKey = (
 
     if (shouldRejectExecution) return;
 
-    if (keysNames.includes(pressedKey)) {
-      callback();
-      setKey("");
-    }
+    if (keysNames.includes(pressedKey)) callback();
   }
 };
 
@@ -863,7 +859,7 @@ export default useFunctionOnKey;`,
       "handleSubmit (Function): A function to handle form submission. It prevents the default form submission behavior and invokes the onSubmit callback with the current form values.",
     ],
     liveCode:
-      "https://codesandbox.io/s/sandbox/useformdata-jsx-vvdsq?file=/src/Test.jsx:17:1",
+      "https://codesandbox.io/p/sandbox/useformdata-vcdd4w?file=%2Fsrc%2FTest.jsx%3A2%2C1",
     id: 19,
     codes: [
       {
@@ -975,7 +971,7 @@ export default usePagination;`,
       "undo (Function): Reverts the current state to the previous value.",
     ],
     liveCode:
-      "https://codesandbox.io/p/sandbox/useundo-jsx-x8kq6k?file=%2Fsrc%2FTest.jsx%3A17%2C1",
+      "https://codesandbox.io/p/sandbox/useundo-jsx-x8kq6k?file=%2Fsrc%2FTest.jsx%3A9%2C39",
     id: 21,
     codes: [
       {
@@ -1025,7 +1021,7 @@ export default useUndo;`,
       "clear (Function): Clears the current timeout.",
     ],
     liveCode:
-      "https://codesandbox.io/p/sandbox/usetimeout-jsx-mw5z49?file=%2Fsrc%2FTest.jsx%3A4%2C21",
+      "https://codesandbox.io/p/sandbox/usetimeout-jsx-mw5z49?file=%2Fsrc%2FTest.jsx%3A7%2C49",
     id: 22,
     codes: [
       {
@@ -1079,7 +1075,7 @@ export default useTimeout;`,
       "dependencies (Array): An optional array of dependencies for useEffect.",
     ],
     liveCode:
-      "https://codesandbox.io/p/sandbox/usedebounce-jsx-y8nvxj?file=%2Fsrc%2FTest.jsx%3A5%2C52",
+      "https://codesandbox.io/p/sandbox/usedebounce-jsx-y8nvxj?file=%2Fsrc%2FTest.jsx%3A3%2C1",
     id: 24,
     codes: [
       {
@@ -1143,7 +1139,7 @@ export default useTimeout;`,
     ],
     inputs: ["title (String): The new title to be set for the document."],
     liveCode:
-      "https://codesandbox.io/p/sandbox/usedocumenttitle-jsx-d887rj?file=%2Fsrc%2FTest.jsx%3A3%2C1",
+      "https://codesandbox.io/p/sandbox/usedocumenttitle-jsx-d887rj?file=%2Fsrc%2FTest.jsx%3A10%2C1",
     id: 25,
     codes: [
       {
