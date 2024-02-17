@@ -524,7 +524,9 @@ export default useLocalStorage;`,
   {
     name: "useOnlineStatus",
     explanation: [
-      `The useOnlineStatus hook detects the online/offline status of the user's device.`,
+      `The useOnlineStatus hook is a custom React hook designed to monitor and provide the online/offline
+      status of the user's device, The primary use case for the useOnlineStatus hook is to enable developers
+      to build components that react to changes in the online/offline status of the user's device. `,
     ],
     outputs: [
       "isOnline (Boolean): True if the device is online, false if it is offline.",
