@@ -1126,21 +1126,19 @@ export default useTimeout;`,
       providing meaningful titles to pages or components within a single-page application.`,
     ],
     inputs: ["title (String): The new title to be set for the document."],
-    liveCode: null,
+    liveCode: "https://codesandbox.io/p/sandbox/usedocumenttitle-jsx-d887rj?file=%2Fsrc%2FTest.jsx%3A3%2C1",
     id: 25,
     codes: [
       {
         name: "useDocumentTitle",
-        code: `import { useEffect } from 'react';
+        code: `import { useEffect } from "react";
 
 const useDocumentTitle = (title) => {
   useEffect(() => {
     const originalTitle = document.title;
     document.title = title;
 
-    return () => {
-      document.title = originalTitle;
-    };
+    return () => (document.title = originalTitle);
   }, [title]);
 };
 
