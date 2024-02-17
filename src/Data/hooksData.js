@@ -259,8 +259,7 @@ export default useCloseElement;`,
     codes: [
       {
         name: "useUpdateEffect",
-        code: `
-const useUpdateEffect = (callback, dependencies) => {
+        code: `const useUpdateEffect = (callback, dependencies) => {
   const mount = useRef(false);
 
   useEffect(() => {
@@ -296,6 +295,7 @@ export default useUpdateEffect;`,
       "element (DOM element): The DOM element to which the event listener will be attached.",
       'eventName (String): The name of the event (e.g., "click", "change").',
       "callback (Function): The callback function to be executed when the event occurs.",
+      "dependencies (Array): An optional array of dependencies that triggers the effect to re-run when changed.",
     ],
     liveCode:
       "https://codesandbox.io/p/sandbox/useeventlistener-9tcp7n?file=%2Fsrc%2FTest.jsx%3A8%2C1",
@@ -337,8 +337,7 @@ export default useEventListener;`,
     codes: [
       {
         name: "useGetParams",
-        code: `
-const useGetParams = () => {
+        code: `const useGetParams = () => {
   const [params, setParams] = useState({});
 
   useEffect(() => {
@@ -572,8 +571,8 @@ export default useOnlineStatus;`,
     inputs: [
       "ref (React ref): Ref of the DOM element to be observed for visibility.",
       "options (Object): Optional object with configuration options for the IntersectionObserver.",
-      " - rootMargin (String): The margin around the root (viewport) to consider when triggering visibility changes.",
-      " - threshold (Number or Array of Numbers): A single number or an array of numbers between 0 and 1 indicating at what percentage of the target's visibility the observer's callback should be executed.",
+      "rootMargin (String): The margin around the root (viewport) to consider when triggering visibility changes.",
+      "threshold (Number or Array of Numbers): A single number or an array of numbers between 0 and 1 indicating at what percentage of the target's visibility the observer's callback should be executed.",
     ],
     outputs: [
       "isVisible (Boolean): True if the observed element is visible, false otherwise.",
@@ -674,7 +673,7 @@ export default usePageBottom;`,
     ],
     outputs: [
       "randomNumber (Number): The current random number within the specified range.",
-      "changeRandomNumber (Function): Function to change the random number within the specified range. Usage: changeRandomNumber(newMin, newMax).",
+      "changeRandomNumber (Function): Function to change the random number within the specified range.",
     ],
     liveCode:
       "https://codesandbox.io/s/sandbox-userandomnumber-cfhdkv?file=/src/Test.jsx",
@@ -719,17 +718,11 @@ export default useRandomNumber;`,
       coordinates, and toggling a class on specified elements when the mouse hovers over them.`,
     ],
     inputs: [
-      [
-        "mouseEffectRef (React ref): Ref for the element on which mouse effects will be applied.",
-      ],
-      [
-        "options (Object): An object containing optional parameters:",
-        "- activeClass (String, default: 'active'): Class to be added when the mouse is active.",
-        "- isActiveOnHover (Boolean, default: false): Determines if the activeClass should be applied on hover.",
-        "- hoverElements (Array, default: []): Array of tag names on which hover effects should be applied.",
-      ],
+      "mouseEffectRef (React ref): Ref for the element on which mouse effects will be applied.",
+      "activeClass (String, default: 'active'): Class to be added when the mouse is active.",
+      "hoverElements (Array, default: []): Array of tag names on which hover effects should be applied.",
+      "activeTime (Number, default: 500): Time in milliseconds before applying the activeClass.",
     ],
-    outputs: [],
     liveCode:
       "https://codesandbox.io/p/sandbox/usemouseeffect-t4mzrz?file=%2Fsrc%2FuseMouseEffect.jsx%3A1%2C13",
     id: 17,
@@ -900,11 +893,9 @@ export default useFormData;`,
       It provides functions to navigate between pages: nextPage, prevPage, and goToPage.`,
     ],
     inputs: [
-      [
-        "totalItems (Number): The total number of items.",
-        "itemsPerPage (Number): The number of items to display per page.",
-        "pageNumber (Number): The initial page number. Default is 1.",
-      ],
+      "totalItems (Number): The total number of items.",
+      "itemsPerPage (Number): The number of items to display per page.",
+      "pageNumber (Number): The initial page number. Default is 1.",
     ],
     outputs: [
       "currentPage (Number): Represents the current page.",
@@ -1070,10 +1061,6 @@ export default useTimeout;`,
       "callback (Function): The function you want to debounce.",
       "delay (Number): The delay in milliseconds for debouncing the callback.",
       "dependencies (Array): An optional array of dependencies for useEffect.",
-    ],
-    outputs: [
-      "reset (Function): A function to reset the debounce timer, allowing you to restart the delay period.",
-      "clear (Function): A function to clear the debounce timer, stopping any pending execution of the callback.",
     ],
     liveCode:
       "https://codesandbox.io/p/sandbox/usedebounce-jsx-y8nvxj?file=%2Fsrc%2FTest.jsx%3A5%2C52",
