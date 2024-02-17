@@ -1116,6 +1116,38 @@ export default useTimeout;`,
       },
     ],
   },
+
+  {
+    name: "useDocumentTitle",
+    explanation: [
+      `The useDocumentTitle hook allows you to dynamically update the title of the document in
+      a React component. It sets the document title to a specified value when the component mounts
+      and restores the original title when the component unmounts. This functionality is useful for
+      providing meaningful titles to pages or components within a single-page application.`,
+    ],
+    inputs: ["title (String): The new title to be set for the document."],
+    liveCode: null,
+    id: 25,
+    codes: [
+      {
+        name: "useDocumentTitle",
+        code: `import { useEffect } from 'react';
+
+const useDocumentTitle = (title) => {
+  useEffect(() => {
+    const originalTitle = document.title;
+    document.title = title;
+
+    return () => {
+      document.title = originalTitle;
+    };
+  }, [title]);
+};
+
+export default useDocumentTitle;`,
+      },
+    ],
+  },
 ];
 
 const sortedDataByCodeLength = originalHooksData.sort(
