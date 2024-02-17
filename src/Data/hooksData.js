@@ -469,9 +469,17 @@ export default useKeyPress;`,
   {
     name: "useLocalStorage",
     explanation: [
-      `The useLocalStorage hook provides a way to store and retrieve data in the browser's local storage.
-      It takes a key name and initial data as inputs and returns the stored data along with a function
-      to update it in the local storage.`,
+      `The useLocalStorage hook is a custom React hook designed to simplify the process of storing
+      and retrieving data in the browser's local storage. It takes two parameters: keyName, which
+      represents the key under which the data will be stored in the local storage, and initialData,
+      which provides a default value for the stored data if it doesn't exist yet.`,
+      `The hook utilizes the useState hook from React to manage the state of the
+      stored data within the component. Upon initialization, it checks if there is
+      already data stored in the local storage under the specified key. If data is found,
+      it parses it from JSON format and sets it as the initial state; otherwise, it uses the provided initialData.`,
+      `The primary use case for the useLocalStorage hook is when you need to persist data across page
+      refreshes or even when the user closes and reopens the browser. This is particularly useful for storing
+      user preferences, authentication tokens, or any other data that needs to be retained between sessions.`,
     ],
     inputs: [
       "keyName (String): The name under which the data will be stored in the local storage.",
@@ -1126,7 +1134,8 @@ export default useTimeout;`,
       providing meaningful titles to pages or components within a single-page application.`,
     ],
     inputs: ["title (String): The new title to be set for the document."],
-    liveCode: "https://codesandbox.io/p/sandbox/usedocumenttitle-jsx-d887rj?file=%2Fsrc%2FTest.jsx%3A3%2C1",
+    liveCode:
+      "https://codesandbox.io/p/sandbox/usedocumenttitle-jsx-d887rj?file=%2Fsrc%2FTest.jsx%3A3%2C1",
     id: 25,
     codes: [
       {
