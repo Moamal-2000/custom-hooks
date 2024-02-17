@@ -13,9 +13,24 @@ export function download(blob, nameFile) {
   link.remove();
 }
 
+function createFolderInRARFile(codes, zip) {
+  const folderName = codes[0].name + ".jsx";
+  const folder = zip.folder(folderName);
+  codes.forEach((code) => folder.file(code.name + ".jsx", code.code));
+}
+
 export async function saveInRAR(files) {
   const zip = new JSZip();
-  files.forEach(({ codes }) => zip.file(codes[0].name, codes[0].code));
+
+  files.forEach(({ codes }) => {
+    if (codes.length > 1) {
+      createFolderInRARFile(codes, zip);
+      return;
+    }
+
+    return zip.file(codes[0].name + ".jsx", codes[0].code);
+  });
+
   const blob = await zip.generateAsync({ type: "blob" });
   download(blob, "custom-hooks.rar");
 }
