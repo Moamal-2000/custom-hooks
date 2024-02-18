@@ -6,8 +6,12 @@ import ToolTip from "../MiniComponents/ToolTip";
 import styles from "./FocusMode.module.scss";
 
 const FocusMode = () => {
-  const { isFocusModeActiveLocal, setIsFocusModeActive, setIsSideBarExtended } =
-    useGlobalContext();
+  const {
+    isFocusModeActiveLocal,
+    setIsFocusModeActive,
+    isSideBarExtendedLocal,
+    setIsSideBarExtended,
+  } = useGlobalContext();
   const focusModeClass = isFocusModeActiveLocal ? styles.focusMode : "";
   useFunctionOnKey(toggleFocusMode, ["KeyG"], 300, true);
 
@@ -17,7 +21,7 @@ const FocusMode = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      if (isFocusModeActiveLocal) {
+      if (isFocusModeActiveLocal || isSideBarExtendedLocal) {
         setIsSideBarExtended(true);
         document.body.classList.add("focusMode");
         return;
@@ -36,7 +40,12 @@ const FocusMode = () => {
       aria-label="Focus Mode"
     >
       <SvgIcon name={isFocusModeActiveLocal ? "eyeSlash" : "eye"} />
-      <ToolTip content="Focus Mode" left="-105px" top="1.2px" arrowDir="right" />
+      <ToolTip
+        content="Focus Mode"
+        left="-105px"
+        top="1.2px"
+        arrowDir="right"
+      />
     </button>
   );
 };
