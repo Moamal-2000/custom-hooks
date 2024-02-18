@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useGlobalContext } from "../../Context/GlobalContext";
 import useFunctionOnKey from "../../Hooks/useFunctionOnKey";
-import useGetResizeWindow from "../../Hooks/useGetResizeWindow";
 import SvgIcon from "../Shared/MiniComponents/SvgIcon";
 import ActiveHooksMenu from "./ActiveHooksMenu";
 import DownloadHooksButton from "./DownloadHooksButton";
@@ -19,10 +18,10 @@ const SideBar = () => {
     setIsSideBarExtended,
     isFocusModeActiveLocal,
     isShortcutMenuActive,
+    windowWidth
   } = useGlobalContext();
   const sidebarRef = useRef();
   const requiredScreenWidth = 1200;
-  const { width: windowWidth } = useGetResizeWindow();
   const isSmallThanScreen = windowWidth < requiredScreenWidth;
   const hideClass = isSmallThanScreen ? styles.hide : "";
   const activeClass = isSideBarActive ? styles.active : "";

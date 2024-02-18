@@ -65,7 +65,7 @@ p {
 }
 
 main {
-  min-height: 100vh;
+  min-height: calc(100vh - (100vh - 100%));
 }
 
 svg {

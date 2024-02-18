@@ -31,7 +31,7 @@
 @include small {
   .shortcutsMenu {
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - (100vh - 100%));
   }
 }
 

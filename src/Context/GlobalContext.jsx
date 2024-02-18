@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import { hooksData } from "../Data/hooksData";
+import useGetResizeWindow from "../Hooks/useGetResizeWindow";
 import useKeyPress from "../Hooks/useKeyPress";
 import useLocalStorage from "../Hooks/useLocalStorage";
 import useToggle from "../Hooks/useToggle";
@@ -11,6 +12,7 @@ const GlobalContextProvider = ({ children }) => {
   const [isNotFoundPageShown, setIsNotFoundPageShown] = useState(false);
   const [isShortcutMenuActive, toggleIsShortcutMenuActive] = useToggle(false);
   const [pressedKey] = useKeyPress();
+  const { width: windowWidth } = useGetResizeWindow();
 
   const [isSideBarExtendedLocal, setIsSideBarExtended] =
     useLocalStorage("sidebar-extend");
@@ -46,6 +48,7 @@ const GlobalContextProvider = ({ children }) => {
     isShortcutMenuActive,
     toggleIsShortcutMenuActive,
     pressedKey,
+    windowWidth,
   };
 
   return (

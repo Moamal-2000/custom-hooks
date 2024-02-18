@@ -1,8 +1,10 @@
+@import "../../Styles/mixins";
+
 .sidebarWrapper {
   position: fixed;
   left: 0;
   top: 0;
-  height: 100vh;
+  height: calc(100vh - (100vh - 100%));
   user-select: none;
   z-index: 100;
   pointer-events: all;
@@ -55,6 +57,12 @@
   &:focus-visible {
     outline: solid 2px var(--orange);
     border-radius: 6px;
+  }
+}
+
+@include small {
+  .sidebarButton {
+    left: 5px;
   }
 }
 

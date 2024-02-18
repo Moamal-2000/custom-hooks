@@ -1,3 +1,5 @@
+@import "../../../Styles/mixins";
+
 .wrapper {
   width: fit-content;
   margin-inline: auto;
@@ -14,7 +16,7 @@
 .wrapper>button {
   z-index: 1;
   position: relative;
-  font-size: inherit;
+  font-size: 1rem;
   font-family: inherit;
   min-width: 132px;
   color: #fff;
@@ -28,6 +30,13 @@
 
   &:not(:last-child) {
     margin-right: 20px;
+  }
+}
+
+@include small {
+  .wrapper>button {
+    padding: .4rem .8rem;
+    font-size: .9rem;
   }
 }
 

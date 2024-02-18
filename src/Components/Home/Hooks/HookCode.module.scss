@@ -25,7 +25,7 @@
   left: 0;
   top: 0;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - (100vh - 100%));
   overflow: hidden;
   z-index: 101;
   border-radius: 0;

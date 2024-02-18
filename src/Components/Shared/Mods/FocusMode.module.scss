@@ -1,8 +1,16 @@
+@import "../../../Styles/_mixins.scss";
+
 .focusModeButton.focusMode {
   opacity: .2;
   transition: opacity .2s;
 
   &:hover {
     opacity: 1;
+  }
+}
+
+@include small {
+  button.focusModeButton {
+    display: none;
   }
 }
