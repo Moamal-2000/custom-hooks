@@ -328,7 +328,16 @@ export default useEventListener;`,
   {
     name: "useGetParams",
     explanation: [
-      `The useGetParams hook extracts and manages query parameters from the current URL, updating them whenever the URL changes.`,
+      `The useGetParams custom hook efficiently manages URL query parameters within React components.
+      By encapsulating parameter extraction logic, it promotes code reuse and maintainability.
+      Its automatic updates ensure components reflect the latest URL parameters, simplifying
+      integration and offering a centralized solution for parameter management.`,
+      `A common use case for the useGetParams hook is in scenarios where a React application needs
+      to dynamically adjust its behavior or content based on URL query parameters. For example,
+      in a multi-step form where each step is represented by a different URL parameter, this hoo
+      can be used to extract the current step from the URL and display the corresponding form
+      component. This allows for a more seamless user experience as users can navigate between
+      form steps using browser navigation buttons while preserving their progress.`,
     ],
     outputs: [
       "params (Object): An object containing all the extracted query parameters.",
