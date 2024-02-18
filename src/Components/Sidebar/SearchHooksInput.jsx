@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../../Context/GlobalContext";
 import { hooksData } from "../../Data/hooksData";
@@ -6,16 +6,14 @@ import useArray from "../../Hooks/useArray";
 import useToggle from "../../Hooks/useToggle";
 import styles from "./SearchHooksInput.module.scss";
 import SuggestionsMenu from "./SuggestionsMenu";
+import { resetZoom } from "../../Functions/helper";
 
 const SearchHooksInput = () => {
   const searchInpRef = useRef();
   const searchInpEle = searchInpRef.current;
   const navigateTo = useNavigate();
-  const {
-    setIsSideBarActive,
-    setIsOverlayActive,
-    hooksPerPage,
-  } = useGlobalContext();
+  const { setIsSideBarActive, setIsOverlayActive, hooksPerPage } =
+    useGlobalContext();
   const [isSuggestionMenuActive, toggleSuggestionsActive] = useToggle(false);
   const {
     array: searchItems,
@@ -43,19 +41,25 @@ const SearchHooksInput = () => {
     if (isEmptyInput) {
       toggleSuggestionsActive(false);
       clearSearchItems();
+      resetZoom();
       return;
     }
 
-    if (isFoundOneItem) navigateToItem(filteredResults[0]);
+    if (isFoundOneItem) {
+      navigateToItem(filteredResults[0]);
+      resetZoom();
+    }
 
     if (isFoundMoreThanOneItem) {
       toggleSuggestionsActive(true);
       setSearchItems(filteredResults);
+      resetZoom();
       return;
     }
 
     if (isNotFound) {
       clearSearchItems();
+      resetZoom();
       return;
     }
 
@@ -65,7 +69,7 @@ const SearchHooksInput = () => {
 
   function navigateToItem(itemData) {
     const indexOfItem = hooksData.indexOf(itemData);
-    const itemPage = Math.ceil((indexOfItem + 1) / hooksPerPage)
+    const itemPage = Math.ceil((indexOfItem + 1) / hooksPerPage);
     navigateTo(`/?page=${itemPage}`);
 
     setTimeout(() => {

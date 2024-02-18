@@ -1,0 +1,7 @@
+@import "../../../Styles/_mixins.scss";
+
+@include small {
+  .fullscreenModeButton {
+    display: none;
+  }
+}
