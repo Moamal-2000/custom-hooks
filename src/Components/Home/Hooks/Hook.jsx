@@ -8,11 +8,13 @@ const Hook = ({ hookData }) => {
   const { name, inputs, outputs } = hookData;
 
   useEffect(() => {
-    console.log(document.body.innerText.includes("[object Object]"));
-    if (document.body.innerText.includes("[object Object]")) {
-      location.reload()
-    }
-  }, [])
+    setTimeout(() => {
+      console.log(document.body.innerText.includes("[object Object]"));
+      if (document.body.innerText.includes("[object Object]")) {
+        location.reload();
+      }
+    }, 500);
+  }, []);
 
   return (
     <article className={styles.hook} id={`${name}-hook`}>
