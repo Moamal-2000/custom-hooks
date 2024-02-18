@@ -10,6 +10,7 @@ const Hook = ({ hookData }) => {
   useEffect(() => {
     setTimeout(() => {
       console.log(document.body.innerText.includes("[object Object]"));
+      console.log(document.body.innerText);
       if (document.body.innerText.includes("[object Object]")) {
         location.reload();
       }
