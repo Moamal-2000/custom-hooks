@@ -747,6 +747,10 @@ export default useRandomNumber;`,
       `The useMouseEffect hook applies effects related to mouse movements on a specified element.,
       It allows adding a custom class when the mouse is active, positioning the element based on mouse
       coordinates, and toggling a class on specified elements when the mouse hovers over them.`,
+      `A common use case is in creating interactive UI elements, such as tooltips or interactive widgets,
+      where visual feedback enhances user engagement. This hook simplifies the implementation of such
+      effects by encapsulating mouse event handling logic, enabling developers to easily integrate dynamic
+      visual feedback into their React components, thereby improving user experience and interactivity.`,
     ],
     inputs: [
       "mouseEffectRef (React ref): Ref for the element on which mouse effects will be applied.",
