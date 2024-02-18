@@ -72,5 +72,8 @@ export function filterFromToIndex(startIndex, endIndex, entireData) {
 export function resetZoom() {
   document
     .querySelector('meta[name="viewport"]')
-    .setAttribute("content", "width=device-width, initial-scale=1");
+    .setAttribute(
+      "content",
+      "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    );
 }

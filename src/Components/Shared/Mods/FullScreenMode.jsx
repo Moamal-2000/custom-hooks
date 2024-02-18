@@ -3,7 +3,6 @@ import useFunctionOnKey from "../../../Hooks/useFunctionOnKey";
 import useToggle from "../../../Hooks/useToggle";
 import SvgIcon from "../MiniComponents/SvgIcon";
 import ToolTip from "../MiniComponents/ToolTip";
-import styles from "./FullScreenMode.module.scss";
 
 const FullScreenMode = () => {
   const [isFullScreen, toggleIsFullScreen] = useToggle(false);
@@ -22,7 +21,6 @@ const FullScreenMode = () => {
   return (
     <button
       type="button"
-      className={styles.fullscreenModeButton}
       aria-label="Full Screen Mode"
       onClick={toggleFullScreen}
     >
