@@ -634,7 +634,15 @@ export default useOnScreen;`,
   {
     name: "usePageBottom",
     explanation: [
-      "The usePageBottom hook detects whether the user has scrolled to the bottom of the page.",
+      `
+      The usePageBottom custom hook detects when a user has scrolled to the bottom of a page,
+      with an optional margin, by tracking the scroll position and window dimensions.`,
+
+      `A common use case is in implementing infinite scrolling, where new content is loaded
+      dynamically as the user reaches the bottom of the page, optimizing performance by
+      fetching data only when needed. This hook simplifies implementation by encapsulating
+      scroll position logic and provides a responsive user experience by seamlessly
+      integrating new content during scrolling.`,
     ],
     inputs: [
       "marginBottom (Number): Optional margin from the bottom of the page to consider when determining if scrolled to the bottom. Default is 1.",
