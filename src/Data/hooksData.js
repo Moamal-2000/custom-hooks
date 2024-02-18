@@ -129,8 +129,7 @@ export default useToggle;`,
     codes: [
       {
         name: "useArray",
-        code: `
-const useArray = (initArray) => {
+        code: `const useArray = (initArray) => {
   const [array, setArray] = useState(initArray);
   const copiedArray = array;
 
@@ -197,8 +196,7 @@ export default useArray;`,
     codes: [
       {
         name: "useCloseElement",
-        code: `
-const useCloseElement = (toggleEleRef, switcherEleRef, exceptElementRef) => {
+        code: `const useCloseElement = (toggleEleRef, switcherEleRef, exceptElementRef) => {
   const [isElementClose, setIsElementClose] = useState(false);
 
   function handleDocumentClick(e) {
@@ -868,6 +866,78 @@ const useFunctionOnKey = (
 };
 
 export default useFunctionOnKey;`,
+      },
+      {
+        name: "useKeyPress",
+        code: `import { useEffect, useState } from "react";
+
+const useKeyPress = () => {
+  const [pressInfo, setPressInfo] = useState({});
+  const [key, setKey] = useState("");
+
+  function handleKeyPress(e) {
+    const { altKey, ctrlKey, shiftKey, target, timeStamp, keyCode } = e;
+    const extractedInfo = { altKey, ctrlKey, shiftKey, target, timeStamp, keyCode };
+    setPressInfo(extractedInfo);
+    setKey(e.code);
+  }
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyPress);
+
+    return () => window.removeEventListener("keydown", handleKeyPress);
+  }, []);
+
+  return [key, pressInfo];
+};
+
+export default useKeyPress;`
+      },
+      {
+        name: "useDebounce",
+        code: `import { useEffect } from "react";
+import useTimeout from "./useTimeout";
+
+export default function useDebounce(callback, delay = 500, dependencies = []) {
+  const { reset, clear } = useTimeout(callback, delay);
+  useEffect(reset, [...dependencies, reset]);
+  useEffect(clear, []);
+}`
+      },
+      {
+        name: "useTimeout",
+        code: `import { useCallback, useEffect, useRef } from "react";
+
+function useTimeout(callback, delay) {
+  const callbackRef = useRef(callback);
+  const timeoutRef = useRef();
+
+  useEffect(() => {
+    callbackRef.current = callback;
+  }, [callback]);
+
+  const set = useCallback(() => {
+    timeoutRef.current = setTimeout(() => callbackRef.current(), delay);
+  }, [delay]);
+
+  const clear = useCallback(() => {
+    timeoutRef.current && clearTimeout(timeoutRef.current);
+  }, []);
+
+  useEffect(() => {
+    set();
+    return clear;
+  }, [delay, set, clear]);
+
+  const reset = useCallback(() => {
+    clear();
+    set();
+  }, [clear, set]);
+
+  return { reset, clear };
+}
+
+export default useTimeout;`
       },
     ],
   },
