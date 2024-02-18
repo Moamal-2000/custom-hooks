@@ -31,13 +31,13 @@ const HookCode = ({ hookData: { codes, name } }) => {
     displayedCode = codes.filter(({ name }) => name === displayedCodeName)?.[0];
   }, [displayedCodeName]);
 
-  // if (typeof code !== "string") {
-  //   console.error(
-  //     "Error while reading code block's code, Please refresh the website"
-  //   );
-  //   return "Reload the page";
-  // }
-  console.log("code", code);
+  if (code.includes("[object Object]")) {
+    console.error(
+      "Error while reading code block's code, Please refresh the website"
+    );
+    console.log("code:", code);
+    return "Reload the page";
+  }
 
   return (
     <div className={`${styles.code} ${isFullScreen ? styles.fullscreen : ""}`}>
