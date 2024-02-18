@@ -811,8 +811,12 @@ export default useMouseEffect;`,
   {
     name: "useFunctionOnKey",
     explanation: [
-      `The useFunctionOnKey hook listens for a specific key press or combination of key presses and triggers
-      a callback function when those keys are pressed. It also allows disabling the callback when certain conditions are met.`,
+      `The useFunctionOnKey custom hook triggers a callback function when specific keys are pressed, with optional
+      configurations for debounce, disabling on main keys, and disabling on focus elements.`,
+      `A common use case is in enhancing user interaction, such as implementing keyboard shortcuts in web applications,
+      improving accessibility by allowing users to perform actions efficiently without relying solely on mouse clicks.
+      This hook simplifies keyboard event handling and provides flexibility through configurable options,
+      contributing to a smoother and more responsive user experience.`,
     ],
     inputs: [
       "callback (Function): The function to be called when the specified keys are pressed.",
