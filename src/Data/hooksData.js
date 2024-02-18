@@ -175,8 +175,12 @@ export default useArray;`,
   {
     name: "useCloseElement",
     explanation: [
-      `The useCloseElement hook manages the state of an element's visibility based on clicks outside designated elements.
-      It takes three refs - toggleEleRef, switcherEleRef, and exceptElementRef to control the toggle behavior.`,
+      `The useCloseElement custom hook manages the state of an element's visibility based
+      on document click events, with options to specify elements that should not trigger the element to close.`,
+      `The use case of this hook is in creating custom dropdown menus or modal components where clicking outside
+      the element should close it. This hook simplifies the implementation of such behavior by encapsulating
+      the logic to handle document click events and manage the element's visibility state, enhancing user
+      interaction and providing a more intuitive user experience.`,
     ],
     inputs: [
       "toggleEleRef (React ref): Ref for the toggle element that triggers the close behavior.",
