@@ -1,4 +1,4 @@
-import { memo, useEffect } from "react";
+import { memo } from "react";
 import styles from "./Hook.module.scss";
 import HookCode from "./HookCode";
 import HookExplanation from "./HookExplanation";
@@ -6,17 +6,6 @@ import HookInputsOutputs from "./HookInputsOutputs";
 
 const Hook = ({ hookData }) => {
   const { name, inputs, outputs } = hookData;
-
-  useEffect(() => {
-    setTimeout(() => {
-      console.log(document.body.innerText.includes("[object Object]"));
-      console.log(document.body.innerText);
-      if (document.body.innerText.includes("[object Object]")) {
-        location.reload();
-      }
-    }, 500);
-  }, []);
-
   return (
     <article className={styles.hook} id={`${name}-hook`}>
       <HookExplanation hookData={hookData} />
