@@ -21,8 +21,6 @@ const GlobalContextProvider = ({ children }) => {
     false
   );
 
-  console.log(isSideBarExtendedLocal);
-
   const lengthHooks = hooksData.length;
   const hooksPerPage = 5;
   const numbersOfPages = Math.ceil(lengthHooks / hooksPerPage);
