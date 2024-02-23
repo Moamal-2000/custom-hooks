@@ -26,10 +26,10 @@ export const manifestForPlugin = {
       },
     ],
     theme_color: "#181818",
-    background_color: "#e0cc3b",
+    background_color: "#181818",
     display: "standalone",
     scope: "/",
-    start_url: "/",
+    start_url: "https://main--hooks-time.netlify.app/",
     orientation: "portrait",
   },
 };
