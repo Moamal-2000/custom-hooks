@@ -24,6 +24,12 @@ export const manifestForPlugin = {
         sizes: "180x180",
         type: "image/png",
       },
+      {
+        src: "/android-chrome-512x512.png",
+        sizes: "maskable",
+        type: "image/png",
+        purpose: "maskable",
+      },
     ],
     theme_color: "#181818",
     background_color: "#181818",
