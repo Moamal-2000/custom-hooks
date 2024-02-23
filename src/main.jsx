@@ -4,6 +4,7 @@ import App from "./App";
 import GlobalContextProvider from "./Context/GlobalContext";
 import "./Styles/colors.scss";
 import "./Styles/index.scss";
+import * as serviceWorker from './serviceWorker';
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -12,3 +13,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </GlobalContextProvider>
   </StrictMode>
 );
+
+serviceWorker.register();
