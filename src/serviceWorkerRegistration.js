@@ -139,3 +139,16 @@ export function unregister() {
       });
   }
 }
+
+
+self.addEventListener("fetch", (fetchEvent) => {
+  console.log(fetchEvent);
+})
+
+self.addEventListener("install", (installEvent) => {
+  console.log(installEvent);
+})
+
+self.addEventListener("activate", (activateEvent) => {
+  console.log(activateEvent);
+})
