@@ -17,7 +17,13 @@ export default defineConfig({
   build: {
     sourcemap: true,
   },
-  define: {
-    "process.env": {},
+  build: {
+    rollupOptions: {
+      plugins: [
+        inject({
+          process: "process",
+        }),
+      ],
+    },
   },
 });
