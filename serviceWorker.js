@@ -13,6 +13,7 @@ async function loadServiceWorker() {
   }
 }
 
+console.log('Loading serviceWorker.js');
 
 
 // Listen for install event
