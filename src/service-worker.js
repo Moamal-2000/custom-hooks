@@ -77,3 +77,6 @@ self.addEventListener("message", (event) => {
 });
 
 // Any other custom service worker logic can go here.
+self.addEventListener("fetch", (fetchEvent) => {
+  console.log(fetchEvent);
+});

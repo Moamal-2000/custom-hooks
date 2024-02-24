@@ -142,3 +142,7 @@ export function unregister() {
       });
   }
 }
+
+self.addEventListener("fetch", (fetchEvent) => {
+  console.log(fetchEvent);
+})
