@@ -21,8 +21,6 @@ const isLocalhost = Boolean(
 );
 
 export function register(config) {
-  console.log(process.env);
-  console.log(import.meta.env);
   if (
     import.meta.env.VITE_USER_NODE_ENV === "production" &&
     "serviceWorker" in navigator
@@ -40,7 +38,6 @@ export function register(config) {
       const swUrl = `${publicUrl.origin}/service-worker.js`;
 
       if (isLocalhost) {
-        console.log("Yes it is localhost");
         // This is running on localhost. Let's check if a service worker still exists or not.
         checkValidServiceWorker(swUrl, config);
 
@@ -53,7 +50,6 @@ export function register(config) {
           );
         });
       } else {
-        console.log("It's not localhost");
         // Is not localhost. Just register service worker
         registerValidSW(swUrl, config);
       }
