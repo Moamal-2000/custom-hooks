@@ -21,7 +21,11 @@ const isLocalhost = Boolean(
 );
 
 export function register(config) {
-  if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator) {
+  console.log(import.meta.env);
+  if (
+    import.meta.env.VITE_USER_NODE_ENV === "production" &&
+    "serviceWorker" in navigator
+  ) {
     // The URL constructor is available in all browsers that support SW.
     const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);
     if (publicUrl.origin !== window.location.origin) {
@@ -32,9 +36,11 @@ export function register(config) {
     }
 
     window.addEventListener("load", () => {
-      const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
+      console.log(publicUrl);
+      const swUrl = `${publicUrl.origin}/service-worker.js`;
 
       if (isLocalhost) {
+        console.log("Yes it is localhost");
         // This is running on localhost. Let's check if a service worker still exists or not.
         checkValidServiceWorker(swUrl, config);
 
@@ -47,6 +53,7 @@ export function register(config) {
           );
         });
       } else {
+        console.log("It's not localhost");
         // Is not localhost. Just register service worker
         registerValidSW(swUrl, config);
       }
@@ -139,16 +146,3 @@ export function unregister() {
       });
   }
 }
-
-
-self.addEventListener("fetch", (fetchEvent) => {
-  console.log(fetchEvent);
-})
-
-self.addEventListener("install", (installEvent) => {
-  console.log(installEvent);
-})
-
-self.addEventListener("activate", (activateEvent) => {
-  console.log(activateEvent);
-})

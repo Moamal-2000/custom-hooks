@@ -123,7 +123,7 @@ const SideBar = () => {
           <SearchHooksInput />
           <DownloadHooksButton />
           <ActiveHooksMenu />
-          {/* <RepoStarsForks /> */}
+          <RepoStarsForks />
         </div>
 
         {!isSmallThanScreen && <ExtendSideBarButton />}
