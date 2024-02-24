@@ -38,7 +38,7 @@ export function register(config) {
     window.addEventListener("load", () => {
       console.log(publicUrl);
       const swUrl = `/service-worker.js`;
-      console.log('swUrl', swUrl);
+      console.log("swUrl", swUrl);
 
       if (isLocalhost) {
         console.log("Yes it is localhost");
@@ -56,7 +56,18 @@ export function register(config) {
       } else {
         console.log("It's not localhost");
         // Is not localhost. Just register service worker
-        registerValidSW(swUrl, config);
+        // registerValidSW(swUrl, config);
+        // This is running on localhost. Let's check if a service worker still exists or not.
+        checkValidServiceWorker(swUrl, config);
+
+        // Add some additional logging to localhost, pointing developers to the
+        // service worker/PWA documentation.
+        navigator.serviceWorker.ready.then(() => {
+          console.log(
+            "This web app is being served cache-first by a service " +
+              "worker. To learn more, visit https://cra.link/PWA"
+          );
+        });
       }
     });
   }
