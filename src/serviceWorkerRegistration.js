@@ -37,7 +37,8 @@ export function register(config) {
 
     window.addEventListener("load", () => {
       console.log(publicUrl);
-      const swUrl = `${publicUrl.origin}/service-worker.js`;
+      const swUrl = `${publicUrl.href}/service-worker.js`;
+      console.log('swUrl', swUrl);
 
       if (isLocalhost) {
         console.log("Yes it is localhost");
