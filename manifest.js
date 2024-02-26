@@ -10,24 +10,24 @@ export const manifestForPlugin = {
     Download all hooks as a convenient RAR file for seamless integration.`,
     icons: [
       {
-        src: "/android-chrome-192x192.png",
+        src: "/android-chrome-192x192.webp",
         sizes: "192x192",
-        type: "image/png",
+        type: "image/webp",
       },
       {
-        src: "/android-chrome-512x512.png",
+        src: "/android-chrome-512x512.webp",
         sizes: "512x512",
-        type: "image/png",
+        type: "image/webp",
       },
       {
-        src: "/apple-touch-icon.png",
+        src: "/apple-touch-icon.webp",
         sizes: "180x180",
-        type: "image/png",
+        type: "image/webp",
       },
       {
-        src: "/android-chrome-512x512.png",
+        src: "/android-chrome-512x512.webp",
         sizes: "maskable",
-        type: "image/png",
+        type: "image/webp",
         purpose: "maskable",
       },
     ],
