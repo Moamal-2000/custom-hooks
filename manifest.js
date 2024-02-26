@@ -31,6 +31,11 @@ export const manifestForPlugin = {
         purpose: "maskable",
       },
       {
+        src: "/android-chrome-512x512.png",
+        sizes: "512x512",
+        type: "image/png",
+      },
+      {
         src: "/favicon-16x16.webp",
         sizes: "16x16",
         type: "image/webp",
