@@ -2,7 +2,7 @@ export async function register() {
   if ("serviceWorker" in navigator) {
     try {
       const registration = await navigator.serviceWorker.register(
-        "service-worker.js"
+        "serviceWorker.js"
       );
 
       // console.log("registered", registration);
