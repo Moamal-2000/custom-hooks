@@ -1,8 +1,7 @@
 "use strict";
 
-const CACHE_NAME = "test-v4";
-
-const assets = ["/", "/index.html", "/main.css", "/script.js"];
+const CACHE_NAME = "hooks-time-v1";
+const assets = ["/", "/index.html", "/src/Assets/Images/intro"];
 
 async function caching() {
   const cache = await caches.open(CACHE_NAME);
@@ -19,7 +18,6 @@ async function respondFetch(request) {
       return networkRes;
     });
   });
-
 
   return cacheResponse || networkResponse;
 }
