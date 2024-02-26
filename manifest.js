@@ -19,17 +19,17 @@ export const manifestForPlugin = {
         sizes: "512x512",
         type: "image/webp",
       },
-      {
-        src: "/apple-touch-icon.webp",
-        sizes: "180x180",
-        type: "image/webp",
-      },
-      {
-        src: "/android-chrome-512x512.webp",
-        sizes: "maskable",
-        type: "image/webp",
-        purpose: "maskable",
-      },
+      // {
+      //   src: "/apple-touch-icon.webp",
+      //   sizes: "180x180",
+      //   type: "image/webp",
+      // },
+      // {
+      //   src: "/android-chrome-512x512.webp",
+      //   sizes: "maskable",
+      //   type: "image/webp",
+      //   purpose: "maskable",
+      // },
       // {
       //   src: "/android-chrome-512x512.png",
       //   sizes: "512x512",
