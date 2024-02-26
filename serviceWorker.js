@@ -1,7 +1,11 @@
 "use strict";
 
 const CACHE_NAME = "hooks-time-v1";
-const assets = ["/", "/index.html", "/src/Assets/Images/intro"];
+const assets = [
+  "/",
+  "/index.html",
+  "/src/Assets/Images/introduction-image.webp",
+];
 
 async function caching() {
   const cache = await caches.open(CACHE_NAME);
