@@ -8,7 +8,7 @@
   publish = "build"
 
 [[plugins]]
-  package = "@netlify/plugin-inline-functions-env"
+  package = "netlify-plugin-inline-functions-env"
 
 # Configure the service worker behavior
 [build.processing]
