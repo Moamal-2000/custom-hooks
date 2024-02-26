@@ -5,11 +5,9 @@ export async function register() {
         "serviceWorker.js"
       );
 
-      // console.log("registered", registration);
+      console.log("registered", registration);
     } catch (e) {
       console.log("failed to register", e);
     }
   }
 }
-
-window.addEventListener("load", register);
