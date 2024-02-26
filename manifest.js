@@ -30,6 +30,21 @@ export const manifestForPlugin = {
         type: "image/webp",
         purpose: "maskable",
       },
+      {
+        src: "/favicon-16x16.webp",
+        sizes: "16x16",
+        type: "image/webp",
+      },
+      {
+        src: "/favicon.ico",
+        sizes: "32x32",
+        type: "image/x-icon",
+      },
+      {
+        src: "/favicon-32x32.webp",
+        sizes: "32x32",
+        type: "image/webp",
+      },
     ],
     theme_color: "#181818",
     background_color: "#181818",
