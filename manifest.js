@@ -9,16 +9,16 @@ export const manifestForPlugin = {
     and stay tuned as we regularly add new hooks. Enhance your React projects with our comprehensive collection. 
     Download all hooks as a convenient RAR file for seamless integration.`,
     icons: [
-      {
-        src: "/android-chrome-192x192.webp",
-        sizes: "192x192",
-        type: "image/webp",
-      },
-      {
-        src: "/android-chrome-512x512.webp",
-        sizes: "512x512",
-        type: "image/webp",
-      },
+      // {
+      //   src: "/android-chrome-192x192.webp",
+      //   sizes: "192x192",
+      //   type: "image/webp",
+      // },
+      // {
+      //   src: "/android-chrome-512x512.webp",
+      //   sizes: "512x512",
+      //   type: "image/webp",
+      // },
       // {
       //   src: "/apple-touch-icon.webp",
       //   sizes: "180x180",
