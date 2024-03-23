@@ -55,7 +55,7 @@ export const manifestForPlugin = {
     background_color: "#181818",
     display: "standalone",
     scope: "/",
-    start_url: "https://main--hooks-time.netlify.app/",
+    start_url: "https://hooks-time.netlify.app/",
     orientation: "portrait",
   },
 };
