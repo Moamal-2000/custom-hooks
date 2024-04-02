@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_NAME = "hooks-time-v1";
+const CACHE_NAME = "hooks-time-v2";
 const assets = [
   "/",
   "/index.html",
