@@ -562,7 +562,9 @@ const useOnlineStatus = () => {
   }
 
   useEffect(() => {
-    checkOnlineStatus();
+    if (navigator.onLine) checkOnlineStatus();
+    else checkOfflineStatus();
+
     window.addEventListener("online", checkOnlineStatus);
     window.addEventListener("offline", checkOfflineStatus);
 

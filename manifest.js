@@ -26,7 +26,7 @@ export const manifestForPlugin = {
       },
       {
         src: "/android-chrome-512x512.webp",
-        sizes: "maskable",
+        sizes: "512x512",
         type: "image/webp",
         purpose: "maskable",
       },
