@@ -2,7 +2,7 @@
   "registerType": "prompt",
   "name": "Hooks time",
   "short_name": "Hooks time",
-  "description": "Explore custom React hooks with detailed explanations, live code examples, and input/output demonstrations. Download code effortlessly and stay updated with new hooks added regularly.",
+  "description": "Enjoy fast, reliable access, even offline. Seamlessly integrate with your device",
   "icons": [
     {
       "src": "/android-chrome-192x192.webp",
@@ -29,6 +29,15 @@
       "src": "/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/install-pwa-image.webp",
+      "sizes": "640x320",
+      "type": "image/webp",
+      "form_factor": "wide",
+      "label": "Wonder Widgets"
     }
   ],
   "theme_color": "#181818",
