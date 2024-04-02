@@ -2,7 +2,7 @@
   "registerType": "prompt",
   "name": "Hooks time",
   "short_name": "Hooks time",
-  "description": "Explore custom React hooks",
+  "description": "Explore custom React hooks with detailed explanations, live code examples, and input/output demonstrations. Download code effortlessly and stay updated with new hooks added regularly.",
   "icons": [
     {
       "src": "/android-chrome-192x192.webp",
