@@ -1,5 +1,3 @@
-"use strict";
-
 const CACHE_NAME = "hooks-time-v3";
 const assets = ["/", "/index.html"];
 
