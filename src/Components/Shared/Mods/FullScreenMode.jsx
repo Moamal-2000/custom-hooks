@@ -15,7 +15,7 @@ const FullScreenMode = () => {
 
     enterFullScreen();
     const method = !isFullScreen ? "add" : "remove";
-    document.body.classList[method]("focusMode");
+    document.documentElement.classList[method]("focusMode");
   }
 
   return (

@@ -23,12 +23,12 @@ const FocusMode = () => {
     setTimeout(() => {
       if (isFocusModeActiveLocal || isSideBarExtendedLocal) {
         setIsSideBarExtended(true);
-        document.body.classList.add("focusMode");
+        document.documentElement.classList.add("focusMode");
         return;
       }
 
       setIsSideBarExtended(false);
-      document.body.classList.remove("focusMode");
+      document.documentElement.classList.remove("focusMode");
     }, 0);
   }, [isFocusModeActiveLocal]);
 

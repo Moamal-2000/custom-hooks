@@ -23,6 +23,10 @@ html {
   scrollbar-color: var(--gray-purple) var(--extra-dark-blue);
 }
 
+html.focusMode {
+  scrollbar-width: none;
+}
+
 body {
   background-color: var(--extra-dark-blue);
   color: var(--white);
@@ -35,10 +39,6 @@ body {
   body {
     padding-left: 0;
   }
-}
-
-body.focusMode::-webkit-scrollbar {
-  width: 0;
 }
 
 body.sidebarExtend {

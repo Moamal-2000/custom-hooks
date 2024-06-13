@@ -17,18 +17,16 @@ const HookCode = ({ hookData: { codes, name } }) => {
   const [isFullScreen, toggleIsFullScreen] = useToggle(false);
   const codeBlockTheme = isDarkModeLocal ? oneLight : vscDarkPlus;
   const [displayedCodeName, setDisplayedCodeName] = useState(name);
-  let displayedCode = codes.filter(
-    ({ name }) => name === displayedCodeName
-  )?.[0];
+  let displayedCode = codes.find(({ name }) => name === displayedCodeName);
   const { name: codeName, code } = displayedCode;
 
   useEffect(() => {
     const method = isFullScreen ? "add" : "remove";
-    document.body.classList[method]("focusMode");
+    document.documentElement.classList[method]("focusMode");
   }, [isFullScreen]);
 
   useEffect(() => {
-    displayedCode = codes.filter(({ name }) => name === displayedCodeName)?.[0];
+    displayedCode = codes.find(({ name }) => name === displayedCodeName);
   }, [displayedCodeName]);
 
   return (
@@ -45,7 +43,6 @@ const HookCode = ({ hookData: { codes, name } }) => {
         <CopyButton code={code} />
         <DownloadButton name={codeName} code={code} />
         <FullscreenButton
-          ton
           isFullScreen={isFullScreen}
           toggleIsFullScreen={toggleIsFullScreen}
         />

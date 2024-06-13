@@ -10,16 +10,15 @@ const CodeBlockHeader = ({ props }) => {
 
   return (
     <header className={s.header}>
-      {codes.map(({ name }, i) => {
-        if (i !== 0 && isTablesScreen) return;
+      {codes.map(({ name }, index) => {
+        if (index !== 0 && isTablesScreen) return;
+        const activeClass = displayedCodeName === name ? s.active : "";
 
         return (
           <button
-            key={i}
+            key={index}
             type="button"
-            className={`${s.fileName} ${
-              displayedCodeName === name ? s.active : ""
-            }`}
+            className={`${s.fileName} ${activeClass}`}
             onClick={() => setDisplayedCodeName(name)}
           >
             <SvgIcon name="react" />
