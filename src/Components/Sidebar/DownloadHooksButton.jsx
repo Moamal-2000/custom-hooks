@@ -1,5 +1,5 @@
 import { hooksData } from "src/Data/hooksData";
-import { saveInRAR } from "s/Functions/helper";
+import { saveInRAR } from "src/Functions/helper";
 import SvgIcon from "../Shared/MiniComponents/SvgIcon";
 import s from "./DownloadHooksButton.module.scss";
 

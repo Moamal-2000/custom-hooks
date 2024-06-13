@@ -8,6 +8,7 @@ const CopyButton = ({ code }) => {
 
   function handleCopyButton() {
     if (isCopied) return;
+
     copyText(code);
     toggleIsCopied();
     setTimeout(() => toggleIsCopied(), 1000);

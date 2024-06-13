@@ -1,13 +1,12 @@
 import { useGlobalContext } from "src/Context/GlobalContext";
+import { SCREEN_SIZES } from "src/Data/variables";
 import SvgIcon from "../../Shared/MiniComponents/SvgIcon";
 import s from "./CodeBlockHeader.module.scss";
 
-const CodeBlockHeader = ({
-  props: { displayedCodeName, setDisplayedCodeName, codes },
-}) => {
+const CodeBlockHeader = ({ props }) => {
+  const { displayedCodeName, setDisplayedCodeName, codes } = props;
   const { windowWidth } = useGlobalContext();
-  const tabletsScreenSize = 768;
-  const isTablesScreen = tabletsScreenSize > windowWidth;
+  const isTablesScreen = SCREEN_SIZES.tablet > windowWidth;
 
   return (
     <header className={s.header}>
