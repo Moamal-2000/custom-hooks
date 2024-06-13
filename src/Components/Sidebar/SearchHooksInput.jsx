@@ -2,7 +2,6 @@ import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGlobalContext } from "src/Context/GlobalContext";
 import { hooksData } from "src/Data/hooksData";
-import { resetZoom } from "src/Functions/helper";
 import useArray from "src/Hooks/useArray";
 import useToggle from "src/Hooks/useToggle";
 import s from "./SearchHooksInput.module.scss";
@@ -41,25 +40,21 @@ const SearchHooksInput = () => {
     if (isEmptyInput) {
       toggleSuggestionsActive(false);
       clearSearchItems();
-      resetZoom();
       return;
     }
 
     if (isFoundOneItem) {
       navigateToItem(filteredResults[0]);
-      resetZoom();
     }
 
     if (isFoundMoreThanOneItem) {
       toggleSuggestionsActive(true);
       setSearchItems(filteredResults);
-      resetZoom();
       return;
     }
 
     if (isNotFound) {
       clearSearchItems();
-      resetZoom();
       return;
     }
 

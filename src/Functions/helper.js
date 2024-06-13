@@ -68,7 +68,3 @@ export function filterFromToIndex(startIndex, endIndex, entireData) {
 
   return { data, indexes };
 }
-
-export function resetZoom() {
-  // Uncompleted feature
-}

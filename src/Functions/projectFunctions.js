@@ -32,3 +32,7 @@ export function getPageData(data, pageNumber, itemsPerPage = 5) {
 
   return { pageData, indexes };
 }
+
+export function getPageKeys(numbersOfPages) {
+  return Array.from({ length: numbersOfPages }, (_, i) => `Digit${i + 1}`);
+}
