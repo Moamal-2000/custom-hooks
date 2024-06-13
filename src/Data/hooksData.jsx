@@ -1260,6 +1260,50 @@ export default useDocumentTitle;`,
       },
     ],
   },
+
+  {
+    name: "usePageVisibility",
+    explanation: [
+      `The usePageVisibility hook is a custom React hook that detects whether the web page is visible
+      or hidden. This can be particularly useful for optimizing performance, pausing non-critical operations,
+      or enhancing user experience by performing certain actions only when the user is actively viewing the page.`,
+    ],
+    inputs: [],
+    outputs: [
+      "isVisible (Boolean): Indicates whether the web page is currently visible to the user.",
+    ],
+    liveCode:
+      "https://codesandbox.io/p/sandbox/usepagevisibility-jsx-dvydsv?file=%2Fsrc%2FTest.jsx%3A7%2C1",
+    id: 26,
+    codes: [
+      {
+        name: "usePageVisibility",
+        code: `import { useEffect, useState } from "react";
+
+const usePageVisibility = () => {
+  const [isVisible, setIsVisible] = useState(
+    document.visibilityState === "visible"
+  );
+
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      setIsVisible(document.visibilityState === "visible");
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, []);
+
+  return isVisible;
+};
+
+export default usePageVisibility;`,
+      },
+    ],
+  },
 ];
 
 const sortedDataByCodeLength = originalHooksData.sort(
