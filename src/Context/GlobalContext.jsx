@@ -12,7 +12,7 @@ const GlobalContextProvider = ({ children }) => {
   const [isNotFoundPageShown, setIsNotFoundPageShown] = useState(false);
   const [isShortcutMenuActive, toggleIsShortcutMenuActive] = useToggle(false);
   const [pressedKey] = useKeyPress();
-  const { width: windowWidth } = useGetResizeWindow();
+  const { windowWidth } = useGetResizeWindow();
 
   const [isSideBarExtendedLocal, setIsSideBarExtended] =
     useLocalStorage("sidebar-extend");
