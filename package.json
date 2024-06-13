@@ -17,7 +17,7 @@
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.23.1",
     "react-syntax-highlighter": "npm:@fengkx/react-syntax-highlighter@15.6.1",
-    "sass": "^1.77.2"
+    "sass": "^1.77.5"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
@@ -25,11 +25,11 @@
     "@vitejs/plugin-react-swc": "^3.7.0",
     "autoprefixer": "^10.4.19",
     "eslint": "^8.56.0",
-    "eslint-plugin-react": "^7.34.1",
+    "eslint-plugin-react": "^7.34.2",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
     "netlify-plugin-inline-functions-env": "^1.0.9",
     "postcss": "^8.4.38",
-    "vite": "^5.2.11"
+    "vite": "^5.3.0"
   }
 }
