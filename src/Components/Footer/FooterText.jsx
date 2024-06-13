@@ -1,16 +1,18 @@
+import { socialMediaLinks } from "src/Data/staticData";
+import { myName } from "src/Data/variables";
 import s from "./FooterText.module.scss";
 
 const FooterText = () => {
+  const [github, linkedin] = socialMediaLinks;
+  const customHooksRepo = `${github.href}/custom-hooks`;
+
   return (
     <div className={s.text}>
       <div className={s.subject}>
         <p>
           <span>The website designed and coded by</span>
-          <a
-            href="https://www.linkedin.com/in/moamal-alaa-a4bb15237"
-            target="_blank"
-          >
-            Moamal Alaa
+          <a href={linkedin.href} target="_blank">
+            {myName}
           </a>
         </p>
 
@@ -19,7 +21,7 @@ const FooterText = () => {
             If you found this helpful, show your support by starring the
             repository on
           </span>
-          <a href="https://github.com/Moamal-2000/custom-hooks" target="_blank">
+          <a href={customHooksRepo} target="_blank">
             GitHub
           </a>
         </p>
@@ -61,7 +63,7 @@ const FooterText = () => {
 
           <span>, and</span>
 
-          <a href="https://chat.openai.com" className="" target="_blank">
+          <a href="https://chat.openai.com" target="_blank">
             ChatGPT.
           </a>
         </p>
