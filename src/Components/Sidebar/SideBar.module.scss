@@ -81,6 +81,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  scrollbar-width: initial;
+  scrollbar-color: initial;
 }
 
 .sidebar.active {

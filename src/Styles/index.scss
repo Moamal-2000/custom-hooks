@@ -19,6 +19,8 @@ a::selection {
 
 html {
   scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gray-purple) var(--extra-dark-blue);
 }
 
 body {
