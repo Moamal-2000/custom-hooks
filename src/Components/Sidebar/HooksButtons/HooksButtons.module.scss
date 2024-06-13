@@ -1,15 +1,10 @@
-@import "../../Styles/mixins";
+@import "src/Styles/mixins";
 
-.hooksMenu {
-  display: flex;
-  flex-direction: column;
-}
-
-.hooksMenu>li:not(:last-child) {
+.hookButton:not(:last-child) {
   margin-bottom: 14px;
 }
 
-.hooksMenu>li>a {
+.hookButton>a {
   text-decoration: none;
   padding: 12px 10px;
   background-color: var(--black);
@@ -39,7 +34,7 @@
 }
 
 @include large {
-  .hooksMenu>li>a {
+  .hookButton>a {
     font-size: 1rem;
   }
 }
