@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import musicPath from "../../../Assets/Sounds/deep-show.mp3";
-import { useGlobalContext } from "../../../Context/GlobalContext";
-import useFunctionOnKey from "../../../Hooks/useFunctionOnKey";
+import musicPath from "src/Assets/Sounds/deep-show.mp3";
+import { useGlobalContext } from "src/Context/GlobalContext";
+import useFunctionOnKey from "src/Hooks/useFunctionOnKey";
 import SvgIcon from "../MiniComponents/SvgIcon";
 import ToolTip from "../MiniComponents/ToolTip";
 

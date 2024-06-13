@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import useFunctionOnKey from "../../../Hooks/useFunctionOnKey";
+import useFunctionOnKey from "src/Hooks/useFunctionOnKey";
 import SvgIcon from "../MiniComponents/SvgIcon";
 import ToolTip from "../MiniComponents/ToolTip";
 

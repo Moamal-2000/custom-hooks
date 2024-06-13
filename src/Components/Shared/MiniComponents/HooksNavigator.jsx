@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { useGlobalContext } from "../../../Context/GlobalContext";
-import { scrollToBottom } from "../../../Functions/helper";
+import { useGlobalContext } from "src/Context/GlobalContext";
+import { scrollToBottom } from "src/Functions/helper";
 import s from "./HooksNavigator.module.scss";
 
 const HooksNavigator = () => {

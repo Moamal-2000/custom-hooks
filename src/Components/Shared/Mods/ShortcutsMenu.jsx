@@ -1,5 +1,5 @@
-import { useGlobalContext } from "../../../Context/GlobalContext";
-import { shortcuts } from "../../../Data/staticData";
+import { useGlobalContext } from "src/Context/GlobalContext";
+import { shortcuts } from "src/Data/staticData";
 import SvgIcon from "../MiniComponents/SvgIcon";
 import Shortcut from "./Shortcut";
 import s from "./ShortcutsMenu.module.scss";

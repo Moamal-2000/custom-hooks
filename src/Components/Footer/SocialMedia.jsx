@@ -1,4 +1,4 @@
-import { socialMediaLinks } from "../../Data/staticData";
+import { socialMediaLinks } from "src/Data/staticData";
 import SvgIcon from "../Shared/MiniComponents/SvgIcon";
 import s from "./SocialMedia.module.scss";
 

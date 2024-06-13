@@ -1,4 +1,4 @@
-import useAsync from "../../Hooks/useAsync";
+import useAsync from "src/Hooks/useAsync";
 import SvgIcon from "../Shared/MiniComponents/SvgIcon";
 import s from "./RepoStarsForks.module.scss";
 

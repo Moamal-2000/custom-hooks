@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
-import { useGlobalContext } from "../../Context/GlobalContext";
+import { useGlobalContext } from "src/Context/GlobalContext";
 import s from "./Home.module.scss";
 import Introduction from "./Introduction/Introduction";
 

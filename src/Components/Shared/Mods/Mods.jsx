@@ -1,4 +1,4 @@
-import { useGlobalContext } from "../../../Context/GlobalContext";
+import { useGlobalContext } from "src/Context/GlobalContext";
 import DarkMode from "./DarkMode";
 import FocusMode from "./FocusMode";
 import FullScreenMode from "./FullScreenMode";

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
-import { useGlobalContext } from "../../../Context/GlobalContext";
-import useOnScreen from "../../../Hooks/useOnScreen";
+import { useGlobalContext } from "src/Context/GlobalContext";
+import useOnScreen from "src/Hooks/useOnScreen";
 import s from "./HookName.module.scss";
 
 const HookName = ({ hookData: { name, index } }) => {

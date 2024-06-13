@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useGlobalContext } from "../../Context/GlobalContext";
+import { useGlobalContext } from "src/Context/GlobalContext";
 import SvgIcon from "../Shared/MiniComponents/SvgIcon";
 import s from "./SuggestionsMenu.module.scss";
 

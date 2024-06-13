@@ -1,10 +1,10 @@
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { useGlobalContext } from "../../Context/GlobalContext";
-import { hooksData } from "../../Data/hooksData";
-import { resetZoom } from "../../Functions/helper";
-import useArray from "../../Hooks/useArray";
-import useToggle from "../../Hooks/useToggle";
+import { useGlobalContext } from "src/Context/GlobalContext";
+import { hooksData } from "src/Data/hooksData";
+import { resetZoom } from "src/Functions/helper";
+import useArray from "src/Hooks/useArray";
+import useToggle from "src/Hooks/useToggle";
 import s from "./SearchHooksInput.module.scss";
 import SuggestionsMenu from "./SuggestionsMenu";
 

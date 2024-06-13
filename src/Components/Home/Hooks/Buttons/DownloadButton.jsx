@@ -1,5 +1,5 @@
-import { saveInFile } from "../../../../Functions/helper";
-import useToggle from "../../../../Hooks/useToggle";
+import { saveInFile } from "src/Functions/helper";
+import useToggle from "src/Hooks/useToggle";
 import SvgIcon from "../../../Shared/MiniComponents/SvgIcon";
 
 const DownloadButton = ({ name, code }) => {

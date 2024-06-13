@@ -1,6 +1,6 @@
-import { enterFullScreen } from "../../../Functions/projectFunctions";
-import useFunctionOnKey from "../../../Hooks/useFunctionOnKey";
-import useToggle from "../../../Hooks/useToggle";
+import { enterFullScreen } from "src/Functions/projectFunctions";
+import useFunctionOnKey from "src/Hooks/useFunctionOnKey";
+import useToggle from "src/Hooks/useToggle";
 import SvgIcon from "../MiniComponents/SvgIcon";
 import ToolTip from "../MiniComponents/ToolTip";
 

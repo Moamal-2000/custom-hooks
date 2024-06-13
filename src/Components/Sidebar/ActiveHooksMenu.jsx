@@ -1,7 +1,7 @@
 import { useSearchParams } from "react-router-dom";
-import { useGlobalContext } from "../../Context/GlobalContext";
-import { hooksData } from "../../Data/hooksData";
-import { getPageData } from "../../Functions/projectFunctions";
+import { useGlobalContext } from "src/Context/GlobalContext";
+import { hooksData } from "src/Data/hooksData";
+import { getPageData } from "src/Functions/projectFunctions";
 import s from "./ActiveHooksMenu.module.scss";
 
 const ActiveHooksMenu = () => {

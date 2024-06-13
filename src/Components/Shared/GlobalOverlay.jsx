@@ -1,4 +1,4 @@
-import { useGlobalContext } from "../../Context/GlobalContext";
+import { useGlobalContext } from "src/Context/GlobalContext";
 import s from "./GlobalOverlay.module.scss";
 
 const GlobalOverlay = () => {

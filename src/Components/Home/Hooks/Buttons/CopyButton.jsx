@@ -1,5 +1,5 @@
-import useCopyText from "../../../../Hooks/useCopyText";
-import useToggle from "../../../../Hooks/useToggle";
+import useCopyText from "src/Hooks/useCopyText";
+import useToggle from "src/Hooks/useToggle";
 import SvgIcon from "../../../Shared/MiniComponents/SvgIcon";
 
 const CopyButton = ({ code }) => {

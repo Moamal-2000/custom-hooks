@@ -1,14 +1,16 @@
 import { useState } from "react";
-import { scrollCalculations } from "../../../Functions/projectFunctions";
-import useEventListener from "../../../Hooks/useEventListener";
-import useFunctionOnKey from "../../../Hooks/useFunctionOnKey";
+import { scrollCalculations } from "src/Functions/projectFunctions";
+import useEventListener from "src/Hooks/useEventListener";
+import useFunctionOnKey from "src/Hooks/useFunctionOnKey";
 import SvgIcon from "../MiniComponents/SvgIcon";
 import ToolTip from "../MiniComponents/ToolTip";
 
 const ScrollBottomTop = () => {
   const { isUserScrolledToTop } = scrollCalculations();
   const [noun, setNoun] = useState("Bottom");
-  const [iconName, setIconName] = useState(isUserScrolledToTop ? "chevronDown" : "chevronUp");
+  const [iconName, setIconName] = useState(
+    isUserScrolledToTop ? "chevronDown" : "chevronUp"
+  );
   let toolTipLeftPos = noun === "Bottom" ? "-126px" : "-105px";
   useEventListener(window, "scroll", () => handleFlipScrollIcon());
   useFunctionOnKey(handleScrollButton, ["KeyS"], 300, true);

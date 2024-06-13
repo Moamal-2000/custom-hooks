@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useGlobalContext } from "../../../Context/GlobalContext";
+import { useGlobalContext } from "src/Context/GlobalContext";
 import Error404 from "./Error404";
 import s from "./NotFoundPage.module.scss";
 

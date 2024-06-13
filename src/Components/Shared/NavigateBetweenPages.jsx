@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { useGlobalContext } from "../../Context/GlobalContext";
-import useFunctionOnKey from "../../Hooks/useFunctionOnKey";
+import { useGlobalContext } from "src/Context/GlobalContext";
+import useFunctionOnKey from "src/Hooks/useFunctionOnKey";
 
 const NavigateBetweenPages = () => {
   const { numbersOfPages, pressedKey } = useGlobalContext();

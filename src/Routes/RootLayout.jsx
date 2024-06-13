@@ -3,11 +3,11 @@ import Footer from "../Components/Footer/Footer";
 import GlobalOverlay from "../Components/Shared/GlobalOverlay";
 import HooksNavigator from "../Components/Shared/MiniComponents/HooksNavigator";
 import SkipContentLink from "../Components/Shared/MiniComponents/SkipContentLink";
-import SideBar from "../Components/Sidebar/SideBar";
-import { useGlobalContext } from "../Context/GlobalContext";
 import Mods from "../Components/Shared/Mods/Mods";
 import ShortcutsMenu from "../Components/Shared/Mods/ShortcutsMenu";
 import NavigateBetweenPages from "../Components/Shared/NavigateBetweenPages";
+import SideBar from "../Components/Sidebar/SideBar";
+import { useGlobalContext } from "../Context/GlobalContext";
 
 const RootLayout = () => {
   const { isNotFoundPageShown } = useGlobalContext();
