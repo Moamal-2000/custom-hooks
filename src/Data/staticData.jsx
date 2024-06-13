@@ -17,3 +17,31 @@ export const shortcuts = [
   { keys: ["Ctrl", "F"], description: "Global search" },
   { keys: ["Ctrl", "P"], description: "Print the website" },
 ];
+
+export const socialMediaLinks = [
+  {
+    icon: "github",
+    href: "https://github.com/Moamal-2000",
+    title: "Github",
+  },
+  {
+    icon: "linkedin",
+    href: "https://www.linkedin.com/in/moamal-alaa-a4bb15237",
+    title: "Linkedin",
+  },
+  {
+    icon: "codepen",
+    href: "https://codepen.io/moamal-2000",
+    title: "Codepen",
+  },
+  {
+    icon: "facebook",
+    href: "https://www.facebook.com/MoamalAlaa109",
+    title: "Facebook",
+  },
+  {
+    icon: "email",
+    href: "mailto:moamalalaapro1@gmail.com",
+    title: "Send me an email",
+  },
+];
