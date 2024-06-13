@@ -1,17 +1,17 @@
 import introImage from "../../../Assets/Images/introduction-image.webp";
 import { useGlobalContext } from "../../../Context/GlobalContext";
-import styles from "./Introduction.module.scss";
+import s from "./Introduction.module.scss";
 
 const Introduction = () => {
   const { numberOfHooks } = useGlobalContext();
 
   return (
-    <article className={styles.introduction}>
+    <article className={s.introduction}>
       <h1>
         <strong>Explore {numberOfHooks} Custom Hooks in React!</strong>
       </h1>
 
-      <div className={styles.introImageWrapper}>
+      <div className={s.introImageWrapper}>
         <img
           fetchpriority="high"
           src={introImage}

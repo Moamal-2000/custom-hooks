@@ -1,17 +1,17 @@
 import { hooksData } from "../../Data/hooksData";
 import { saveInRAR } from "../../Functions/helper";
 import SvgIcon from "../Shared/MiniComponents/SvgIcon";
-import styles from "./DownloadHooksButton.module.scss";
+import s from "./DownloadHooksButton.module.scss";
 
 const DownloadHooksButton = () => {
   return (
     <button
       type="button"
-      className={styles.downloadAllButton}
+      className={s.downloadAllButton}
       onClick={() => saveInRAR(hooksData)}
     >
       <span>Download Hooks</span>
-      <div className={styles.iconWrapper}>
+      <div className={s.iconWrapper}>
         <SvgIcon name="arrowDown" />
       </div>
     </button>

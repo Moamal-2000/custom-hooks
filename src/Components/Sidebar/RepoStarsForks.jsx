@@ -1,6 +1,6 @@
 import useAsync from "../../Hooks/useAsync";
 import SvgIcon from "../Shared/MiniComponents/SvgIcon";
-import styles from "./RepoStarsForks.module.scss";
+import s from "./RepoStarsForks.module.scss";
 
 const myReposUrl = "https://api.github.com/users/Moamal-2000/repos";
 const websiteRepoId = 744430639;
@@ -19,14 +19,14 @@ const RepoStarsForks = () => {
       <a
         href={repoUrl}
         target="_blank"
-        className={styles.repoStarsForks}
+        className={s.repoStarsForks}
         title="Website's repository"
       >
-        <div className={styles.wrapper}>
+        <div className={s.wrapper}>
           <SvgIcon name="star" /> <span>{repoStars}</span>
         </div>
 
-        <div className={styles.wrapper}>
+        <div className={s.wrapper}>
           <SvgIcon name="codeFork" /> <span>{repoForks}</span>
         </div>
       </a>

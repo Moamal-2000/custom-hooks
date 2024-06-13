@@ -1,9 +1,9 @@
-import styles from "./FooterText.module.scss";
+import s from "./FooterText.module.scss";
 
 const FooterText = () => {
   return (
-    <div className={styles.text}>
-      <div className={styles.subject}>
+    <div className={s.text}>
+      <div className={s.subject}>
         <p>
           <span>The website designed and coded by</span>
           <a
@@ -25,7 +25,7 @@ const FooterText = () => {
         </p>
       </div>
 
-      <div className={styles.subject}>
+      <div className={s.subject}>
         <p>
           <span>
             These custom hooks were developed with insights and inspiration from

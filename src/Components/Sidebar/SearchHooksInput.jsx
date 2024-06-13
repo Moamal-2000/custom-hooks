@@ -2,11 +2,11 @@ import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../../Context/GlobalContext";
 import { hooksData } from "../../Data/hooksData";
+import { resetZoom } from "../../Functions/helper";
 import useArray from "../../Hooks/useArray";
 import useToggle from "../../Hooks/useToggle";
-import styles from "./SearchHooksInput.module.scss";
+import s from "./SearchHooksInput.module.scss";
 import SuggestionsMenu from "./SuggestionsMenu";
-import { resetZoom } from "../../Functions/helper";
 
 const SearchHooksInput = () => {
   const searchInpRef = useRef();
@@ -85,7 +85,7 @@ const SearchHooksInput = () => {
 
   return (
     <form
-      className={styles.SearchForm}
+      className={s.SearchForm}
       onSubmit={(e) => handleSearch(e)}
       role="search"
     >

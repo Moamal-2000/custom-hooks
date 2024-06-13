@@ -2,7 +2,7 @@ import { useGlobalContext } from "../../../Context/GlobalContext";
 import DarkMode from "./DarkMode";
 import FocusMode from "./FocusMode";
 import FullScreenMode from "./FullScreenMode";
-import styles from "./Mods.module.scss";
+import s from "./Mods.module.scss";
 import MusicTime from "./MusicTime";
 import ScrollBottomTop from "./ScrollBottomTop";
 import ShortcutsMode from "./ShortcutsMode";
@@ -10,14 +10,14 @@ import StarRepo from "./StarRepo";
 
 const Mods = () => {
   const { isFocusModeActiveLocal } = useGlobalContext();
-  const focusModeClass = isFocusModeActiveLocal ? styles.focusMode : "";
+  const focusModeClass = isFocusModeActiveLocal ? s.focusMode : "";
 
   return (
-    <nav className={styles.modsContainer}>
-      <div className={styles.buttonsWrapper}>
+    <nav className={s.modsContainer}>
+      <div className={s.buttonsWrapper}>
         <FocusMode />
 
-        <div className={`${styles.hidedButtonsOnFocusMode} ${focusModeClass}`}>
+        <div className={`${s.hidedButtonsOnFocusMode} ${focusModeClass}`}>
           <FullScreenMode />
           <MusicTime />
           <DarkMode />

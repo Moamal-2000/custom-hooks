@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { useGlobalContext } from "../../Context/GlobalContext";
-import styles from "./Home.module.scss";
+import s from "./Home.module.scss";
 import Introduction from "./Introduction/Introduction";
 
 const Home = () => {
@@ -13,10 +13,10 @@ const Home = () => {
 
   return (
     <div className="container">
-      <main className={styles.content} id="main-content">
+      <main className={s.content} id="main-content">
         <Introduction />
 
-        <article className={styles.hooks}>
+        <article className={s.hooks}>
           <Outlet />
         </article>
       </main>

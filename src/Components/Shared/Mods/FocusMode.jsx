@@ -3,7 +3,7 @@ import { useGlobalContext } from "../../../Context/GlobalContext";
 import useFunctionOnKey from "../../../Hooks/useFunctionOnKey";
 import SvgIcon from "../MiniComponents/SvgIcon";
 import ToolTip from "../MiniComponents/ToolTip";
-import styles from "./FocusMode.module.scss";
+import s from "./FocusMode.module.scss";
 
 const FocusMode = () => {
   const {
@@ -12,7 +12,7 @@ const FocusMode = () => {
     isSideBarExtendedLocal,
     setIsSideBarExtended,
   } = useGlobalContext();
-  const focusModeClass = isFocusModeActiveLocal ? styles.focusMode : "";
+  const focusModeClass = isFocusModeActiveLocal ? s.focusMode : "";
   useFunctionOnKey(toggleFocusMode, ["KeyG"], 300, true);
 
   function toggleFocusMode() {
@@ -35,7 +35,7 @@ const FocusMode = () => {
   return (
     <button
       type="button"
-      className={`${styles.focusModeButton} ${focusModeClass}`}
+      className={`${s.focusModeButton} ${focusModeClass}`}
       onClick={toggleFocusMode}
       aria-label="Focus Mode"
     >

@@ -1,10 +1,10 @@
-import styles from "./Footer.module.scss";
+import s from "./Footer.module.scss";
 import FooterText from "./FooterText";
 import SocialMedia from "./SocialMedia";
 
 const Footer = () => {
   return (
-    <footer className={styles.footer}>
+    <footer className={s.footer}>
       <FooterText />
       <SocialMedia />
     </footer>

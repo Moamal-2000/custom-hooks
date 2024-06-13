@@ -1,6 +1,6 @@
 import { useGlobalContext } from "../../../Context/GlobalContext";
 import SvgIcon from "../../Shared/MiniComponents/SvgIcon";
-import styles from "./CodeBlockHeader.module.scss";
+import s from "./CodeBlockHeader.module.scss";
 
 const CodeBlockHeader = ({
   props: { displayedCodeName, setDisplayedCodeName, codes },
@@ -10,7 +10,7 @@ const CodeBlockHeader = ({
   const isTablesScreen = tabletsScreenSize > windowWidth;
 
   return (
-    <header className={styles.header}>
+    <header className={s.header}>
       {codes.map(({ name }, i) => {
         if (i !== 0 && isTablesScreen) return;
 
@@ -18,8 +18,8 @@ const CodeBlockHeader = ({
           <button
             key={i}
             type="button"
-            className={`${styles.fileName} ${
-              displayedCodeName === name ? styles.active : ""
+            className={`${s.fileName} ${
+              displayedCodeName === name ? s.active : ""
             }`}
             onClick={() => setDisplayedCodeName(name)}
           >

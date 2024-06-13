@@ -1,7 +1,7 @@
 import { useGlobalContext } from "../../../Context/GlobalContext";
 import SvgIcon from "../MiniComponents/SvgIcon";
 import Shortcut from "./Shortcut";
-import styles from "./ShortcutsMenu.module.scss";
+import s from "./ShortcutsMenu.module.scss";
 
 const ShortcutsMenu = () => {
   const {
@@ -14,7 +14,7 @@ const ShortcutsMenu = () => {
     { length: numbersOfPages },
     (_, i) => `Num${i + 1}`
   );
-  const activeClass = isShortcutMenuActive ? styles.active : "";
+  const activeClass = isShortcutMenuActive ? s.active : "";
 
   function closeShortcutMenu() {
     toggleIsShortcutMenuActive(false);
@@ -22,13 +22,13 @@ const ShortcutsMenu = () => {
   }
 
   return (
-    <div className={`${styles.shortcutsMenu} ${activeClass}`}>
+    <div className={`${s.shortcutsMenu} ${activeClass}`}>
       <header>
         <span>Keyboard shortcuts</span>
         <button
           type="button"
           title="Close shortcuts menu"
-          className={styles.closeShortcutMenuButton}
+          className={s.closeShortcutMenuButton}
           onClick={closeShortcutMenu}
         >
           <SvgIcon name="xMark" />

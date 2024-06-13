@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useGlobalContext } from "../../Context/GlobalContext";
 import SvgIcon from "../Shared/MiniComponents/SvgIcon";
-import styles from "./SuggestionsMenu.module.scss";
+import s from "./SuggestionsMenu.module.scss";
 
 const SuggestionsMenu = ({ suggestionsData }) => {
   const {
@@ -12,7 +12,7 @@ const SuggestionsMenu = ({ suggestionsData }) => {
     toggleSuggestionsActive,
   } = suggestionsData;
   const { pressedKey } = useGlobalContext();
-  const activeClass = isSuggestionMenuActive ? styles.active : "";
+  const activeClass = isSuggestionMenuActive ? s.active : "";
   const isTabPressed = pressedKey === "Tab";
   const isSearchInpFocused = document.activeElement?.id === "search";
   const isSearchButtonFocused = document.activeElement?.textContent === "Go";
@@ -55,7 +55,7 @@ const SuggestionsMenu = ({ suggestionsData }) => {
   }, [pressedKey]);
 
   return (
-    <ul className={`${styles.suggestionMenu} ${activeClass}`}>
+    <ul className={`${s.suggestionMenu} ${activeClass}`}>
       {searchItems.length > 0 &&
         searchItems?.map((item) => (
           <SearchItem
@@ -71,7 +71,7 @@ const SuggestionsMenu = ({ suggestionsData }) => {
 export default SuggestionsMenu;
 
 const SearchItem = ({ item, onClick }) => (
-  <li className={styles.searchItem} onClick={onClick}>
+  <li className={s.searchItem} onClick={onClick}>
     <span>{item.name}</span>
     <SvgIcon name="search" />
   </li>

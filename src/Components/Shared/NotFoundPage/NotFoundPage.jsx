@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useGlobalContext } from "../../../Context/GlobalContext";
-import styles from "./NotFoundPage.module.scss";
 import Error404 from "./Error404";
+import s from "./NotFoundPage.module.scss";
 
 const NotFoundPage = () => {
   const { setIsNotFoundPageShown } = useGlobalContext();
@@ -12,7 +12,7 @@ const NotFoundPage = () => {
 
   return (
     <div className="container">
-      <main className={styles.notFoundPage}>
+      <main className={s.notFoundPage}>
         <Error404 />
       </main>
     </div>

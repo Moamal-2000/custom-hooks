@@ -1,4 +1,4 @@
-import styles from "./ListedSection.module.scss";
+import s from "./ListedSection.module.scss";
 
 const ListedSection = ({ listData, name }) => {
   const isListDataExist = listData?.length !== 0 && listData;
@@ -11,7 +11,7 @@ const ListedSection = ({ listData, name }) => {
 
   return (
     isListDataExist && (
-      <section className={styles.section}>
+      <section className={s.section}>
         <h3>{name}:</h3>
         <ul>{listItems}</ul>
       </section>

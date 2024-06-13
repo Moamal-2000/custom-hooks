@@ -1,8 +1,8 @@
 import React from "react";
-import { useSearchParams, useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { useGlobalContext } from "../../../Context/GlobalContext";
 import { scrollToBottom } from "../../../Functions/helper";
-import styles from "./HooksNavigator.module.scss";
+import s from "./HooksNavigator.module.scss";
 
 const HooksNavigator = () => {
   const { numbersOfPages } = useGlobalContext();
@@ -31,10 +31,10 @@ const HooksNavigator = () => {
   }
 
   return (
-    <div className={styles.wrapper}>
+    <div className={s.wrapper}>
       <button
         type="button"
-        className={styles.prevButton}
+        className={s.prevButton}
         onClick={handlePreviousPage}
         disabled={isFirstPage}
       >
@@ -43,7 +43,7 @@ const HooksNavigator = () => {
 
       <button
         type="button"
-        className={styles.nextButton}
+        className={s.nextButton}
         onClick={handleNextPage}
         disabled={isLastPage}
       >

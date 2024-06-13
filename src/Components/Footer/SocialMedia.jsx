@@ -1,9 +1,9 @@
 import SvgIcon from "../Shared/MiniComponents/SvgIcon";
-import styles from "./SocialMedia.module.scss";
+import s from "./SocialMedia.module.scss";
 
 const SocialMedia = () => {
   return (
-    <div className={styles.SocialMedia}>
+    <div className={s.SocialMedia}>
       <SocialMediaLink
         icon={<SvgIcon name="github" />}
         href="https://github.com/Moamal-2000"
@@ -41,7 +41,7 @@ export default SocialMedia;
 
 const SocialMediaLink = ({ icon, href, title }) => {
   return (
-    <a className={styles.socialLink} href={href} target="_blank" title={title}>
+    <a className={s.socialLink} href={href} target="_blank" title={title}>
       {icon}
     </a>
   );

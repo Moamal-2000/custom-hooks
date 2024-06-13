@@ -10,7 +10,7 @@ import CopyButton from "./Buttons/CopyButton";
 import DownloadButton from "./Buttons/DownloadButton";
 import FullscreenButton from "./Buttons/FullscreenButton";
 import CodeBlockHeader from "./CodeBlockHeader";
-import styles from "./HookCode.module.scss";
+import s from "./HookCode.module.scss";
 
 const HookCode = ({ hookData: { codes, name } }) => {
   const { isDarkModeLocal } = useGlobalContext();
@@ -32,7 +32,7 @@ const HookCode = ({ hookData: { codes, name } }) => {
   }, [displayedCodeName]);
 
   return (
-    <div className={`${styles.code} ${isFullScreen ? styles.fullscreen : ""}`}>
+    <div className={`${s.code} ${isFullScreen ? s.fullscreen : ""}`}>
       <CodeBlockHeader
         props={{
           displayedCodeName,
@@ -41,7 +41,7 @@ const HookCode = ({ hookData: { codes, name } }) => {
         }}
       />
 
-      <div className={styles.buttons}>
+      <div className={s.buttons}>
         <CopyButton code={code} />
         <DownloadButton name={codeName} code={code} />
         <FullscreenButton
@@ -51,9 +51,9 @@ const HookCode = ({ hookData: { codes, name } }) => {
         />
       </div>
 
-      <div className={styles.codeArea}>
+      <div className={s.codeArea}>
         <Highlighter
-          className={`${styles.preElement}`}
+          className={`${s.preElement}`}
           language="javascript"
           style={codeBlockTheme}
           showLineNumbers={true}

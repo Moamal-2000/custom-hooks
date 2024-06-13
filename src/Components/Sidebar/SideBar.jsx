@@ -2,12 +2,12 @@ import { useEffect, useRef } from "react";
 import { useGlobalContext } from "../../Context/GlobalContext";
 import useFunctionOnKey from "../../Hooks/useFunctionOnKey";
 import SvgIcon from "../Shared/MiniComponents/SvgIcon";
+import ToolTip from "../Shared/MiniComponents/ToolTip";
 import ActiveHooksMenu from "./ActiveHooksMenu";
 import DownloadHooksButton from "./DownloadHooksButton";
-import SearchHooksInput from "./SearchHooksInput";
-import styles from "./SideBar.module.scss";
-import ToolTip from "../Shared/MiniComponents/ToolTip";
 import RepoStarsForks from "./RepoStarsForks";
+import SearchHooksInput from "./SearchHooksInput";
+import s from "./SideBar.module.scss";
 
 const SideBar = () => {
   const {
@@ -18,16 +18,16 @@ const SideBar = () => {
     setIsSideBarExtended,
     isFocusModeActiveLocal,
     isShortcutMenuActive,
-    windowWidth
+    windowWidth,
   } = useGlobalContext();
   const sidebarRef = useRef();
   const requiredScreenWidth = 1200;
   const isSmallThanScreen = windowWidth < requiredScreenWidth;
-  const hideClass = isSmallThanScreen ? styles.hide : "";
-  const activeClass = isSideBarActive ? styles.active : "";
-  const extendClass = isSideBarExtendedLocal ? styles.extend : "";
-  const focusModeClass = isFocusModeActiveLocal ? styles.focusMode : "";
-  const shortcutMenuClass = isShortcutMenuActive ? styles.shortcutMenu : "";
+  const hideClass = isSmallThanScreen ? s.hide : "";
+  const activeClass = isSideBarActive ? s.active : "";
+  const extendClass = isSideBarExtendedLocal ? s.extend : "";
+  const focusModeClass = isFocusModeActiveLocal ? s.focusMode : "";
+  const shortcutMenuClass = isShortcutMenuActive ? s.shortcutMenu : "";
   const asideClasses = `${hideClass} ${activeClass} ${extendClass} ${focusModeClass} ${shortcutMenuClass}`;
 
   useFunctionOnKey(toggleSideBar, ["KeyM"], 300, true);
@@ -68,13 +68,13 @@ const SideBar = () => {
 
   // Components
   const ExtendSideBarButton = () => {
-    const activeClass = isSideBarExtendedLocal ? styles.active : "";
+    const activeClass = isSideBarExtendedLocal ? s.active : "";
     const arrowDirection = isSideBarExtendedLocal ? "Right" : "Left";
 
     return (
       <button
         type="button"
-        className={`${styles.extendSideBarButton} ${activeClass}`}
+        className={`${s.extendSideBarButton} ${activeClass}`}
         onClick={toggleExtendSideBar}
         aria-label="Extend Sidebar"
         tabIndex="-1"
@@ -94,7 +94,7 @@ const SideBar = () => {
   const closeSideBarButton = (
     <button
       type="button"
-      className={`${styles.closeNavButton} ${activeClass}`}
+      className={`${s.closeNavButton} ${activeClass}`}
       onClick={handleCloseSideBarButton}
       title="Close Sidebar"
     >
@@ -105,7 +105,7 @@ const SideBar = () => {
   const sidebarButton = (
     <button
       type="button"
-      className={styles.sidebarButton}
+      className={s.sidebarButton}
       onClick={handleOpenSideBarButton}
       title="Sidebar Menu"
     >
@@ -117,8 +117,8 @@ const SideBar = () => {
     <>
       {isSmallThanScreen && !isFocusModeActiveLocal && sidebarButton}
 
-      <aside className={`${styles.sidebarWrapper} ${asideClasses}`}>
-        <div className={`${styles.sidebar}`} ref={sidebarRef}>
+      <aside className={`${s.sidebarWrapper} ${asideClasses}`}>
+        <div className={`${s.sidebar}`} ref={sidebarRef}>
           {isSmallThanScreen && closeSideBarButton}
           <SearchHooksInput />
           <DownloadHooksButton />
@@ -129,7 +129,7 @@ const SideBar = () => {
         {!isSmallThanScreen && <ExtendSideBarButton />}
 
         {isSideBarExtendedLocal && (
-          <div className={styles.dragLine} onClick={toggleExtendSideBar}></div>
+          <div className={s.dragLine} onClick={toggleExtendSideBar}></div>
         )}
       </aside>
     </>

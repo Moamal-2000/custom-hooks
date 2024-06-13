@@ -1,9 +1,9 @@
-import styles from "./HookInputsOutputs.module.scss";
+import s from "./HookInputsOutputs.module.scss";
 import ListedSection from "./ListedSection";
 
 const HookInputsOutputs = ({ data: { inputs, outputs } }) => {
   return (
-    <article className={styles.inputsOutputs}>
+    <article className={s.inputsOutputs}>
       <ListedSection listData={inputs} name="Inputs" />
       <ListedSection listData={outputs} name="Outputs" />
     </article>

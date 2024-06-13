@@ -2,7 +2,7 @@ import { useSearchParams } from "react-router-dom";
 import { useGlobalContext } from "../../Context/GlobalContext";
 import { hooksData } from "../../Data/hooksData";
 import { getPageData } from "../../Functions/projectFunctions";
-import styles from "./ActiveHooksMenu.module.scss";
+import s from "./ActiveHooksMenu.module.scss";
 
 const ActiveHooksMenu = () => {
   const {
@@ -31,7 +31,7 @@ const ActiveHooksMenu = () => {
     <li key={id}>
       <a
         href={`#${name}-hook`}
-        className={`${scrolledHook === name ? styles.active : ""}`}
+        className={`${scrolledHook === name ? s.active : ""}`}
         onClick={() => handleClickLink(name)}
       >
         {name}
@@ -40,7 +40,7 @@ const ActiveHooksMenu = () => {
   ));
 
   return (
-    !isNotFoundPageShown && <ul className={styles.hooksMenu}>{hooksButtons}</ul>
+    !isNotFoundPageShown && <ul className={s.hooksMenu}>{hooksButtons}</ul>
   );
 };
 

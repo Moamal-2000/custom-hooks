@@ -1,15 +1,15 @@
-import styles from "./HookExplanation.module.scss";
+import s from "./HookExplanation.module.scss";
 import HookName from "./HookName";
 
 const HookExplanation = ({ hookData }) => {
   const { explanation, liveCode, name } = hookData;
 
   return (
-    <section className={styles.explanation}>
+    <section className={s.explanation}>
       <HookName hookData={hookData} />
 
       {explanation?.map((explanationText, i) => (
-        <p className={styles.hookParagraph} key={i}>
+        <p className={s.hookParagraph} key={i}>
           {explanationText}
         </p>
       ))}

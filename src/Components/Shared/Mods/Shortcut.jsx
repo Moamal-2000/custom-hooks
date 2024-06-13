@@ -1,11 +1,11 @@
-import styles from "./Shortcut.module.scss";
+import s from "./Shortcut.module.scss";
 
 const Shortcut = ({ children, keys }) => {
   return (
-    <div className={styles.shortcut}>
+    <div className={s.shortcut}>
       <p>{children}</p>
 
-      <div className={styles.keys}>
+      <div className={s.keys}>
         {keys.map((key, i) => (
           <button key={i} type="button">
             {key}
