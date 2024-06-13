@@ -6,12 +6,8 @@ import ToolTip from "../MiniComponents/ToolTip";
 import s from "./FocusMode.module.scss";
 
 const FocusMode = () => {
-  const {
-    isFocusModeActiveLocal,
-    setIsFocusModeActive,
-    isSideBarExtendedLocal,
-    setIsSideBarExtended,
-  } = useGlobalContext();
+  const { isFocusModeActiveLocal, setIsFocusModeActive, setIsSideBarExtended } =
+    useGlobalContext();
   const focusModeClass = isFocusModeActiveLocal ? s.focusMode : "";
   useFunctionOnKey(toggleFocusMode, ["KeyG"], 300, true);
 
@@ -20,16 +16,14 @@ const FocusMode = () => {
   }
 
   useEffect(() => {
-    setTimeout(() => {
-      if (isFocusModeActiveLocal || isSideBarExtendedLocal) {
-        setIsSideBarExtended(true);
-        document.documentElement.classList.add("focusMode");
-        return;
-      }
+    if (isFocusModeActiveLocal) {
+      setIsSideBarExtended(true);
+      document.documentElement.classList.add("focusMode");
+      return;
+    }
 
-      setIsSideBarExtended(false);
-      document.documentElement.classList.remove("focusMode");
-    }, 0);
+    setIsSideBarExtended(false);
+    document.documentElement.classList.remove("focusMode");
   }, [isFocusModeActiveLocal]);
 
   return (
