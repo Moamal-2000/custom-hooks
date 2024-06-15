@@ -1,10 +1,10 @@
 import { useEffect, useRef } from "react";
-import { useGlobalContext } from "src/Context/GlobalContext";
 import useOnScreen from "src/Hooks/useOnScreen";
+import { useHooksContext } from "../../../../Context/HooksContext";
 import s from "./HookName.module.scss";
 
 const HookName = ({ hookData: { name, index } }) => {
-  const { setScrolledHook } = useGlobalContext();
+  const { setScrolledHook } = useHooksContext();
   const hookTitleRef = useRef();
   const isVisible = useOnScreen(hookTitleRef);
 

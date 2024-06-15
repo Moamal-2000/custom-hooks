@@ -1,11 +1,11 @@
 import React from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { useGlobalContext } from "src/Context/GlobalContext";
 import { scrollToBottom } from "src/Functions/helper";
+import { useHooksContext } from "../../../Context/HooksContext";
 import s from "./HooksNavigator.module.scss";
 
 const HooksNavigator = () => {
-  const { numbersOfPages } = useGlobalContext();
+  const { numbersOfPages } = useHooksContext();
   const [params, setParams] = useSearchParams();
   const navigateTo = useNavigate();
   const currentPage = parseInt(params.get("page")) || 1;

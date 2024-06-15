@@ -4,6 +4,7 @@ import { useGlobalContext } from "src/Context/GlobalContext";
 import { hooksData } from "src/Data/hooksData";
 import useArray from "src/Hooks/useArray";
 import useToggle from "src/Hooks/useToggle";
+import { useHooksContext } from "../../Context/HooksContext";
 import s from "./SearchHooksInput.module.scss";
 import SuggestionsMenu from "./SuggestionsMenu";
 
@@ -11,8 +12,8 @@ const SearchHooksInput = () => {
   const searchInpRef = useRef();
   const searchInpEle = searchInpRef.current;
   const navigateTo = useNavigate();
-  const { setIsSideBarActive, setIsOverlayActive, hooksPerPage } =
-    useGlobalContext();
+  const { setIsSideBarActive, setIsOverlayActive } = useGlobalContext();
+  const { hooksPerPage } = useHooksContext();
   const [isSuggestionMenuActive, toggleSuggestionsActive] = useToggle(false);
   const {
     array: searchItems,

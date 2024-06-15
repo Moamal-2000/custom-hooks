@@ -2,16 +2,12 @@ import { useSearchParams } from "react-router-dom";
 import { hooksData } from "src/Data/hooksData";
 import { getPageData } from "src/Functions/projectFunctions";
 import { useGlobalContext } from "../../../Context/GlobalContext";
+import { useHooksContext } from "../../../Context/HooksContext";
 import s from "./HooksButtons.module.scss";
 
 const HooksButtons = () => {
-  const {
-    scrolledHook,
-    setIsOverlayActive,
-    setScrolledHook,
-    setIsSideBarActive,
-    hooksPerPage,
-  } = useGlobalContext();
+  const { scrolledHook, setScrolledHook, hooksPerPage } = useHooksContext();
+  const { setIsOverlayActive, setIsSideBarActive } = useGlobalContext();
   const [params] = useSearchParams();
   const pageId = parseInt(params.get("page")) || 1;
   const { pageData } = getPageData(hooksData, pageId, hooksPerPage);

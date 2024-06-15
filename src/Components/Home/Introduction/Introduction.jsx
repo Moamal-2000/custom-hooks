@@ -1,9 +1,9 @@
 import introImage from "src/Assets/Images/introduction-image.webp";
-import { useGlobalContext } from "src/Context/GlobalContext";
+import { useHooksContext } from "../../../Context/HooksContext";
 import s from "./Introduction.module.scss";
 
 const Introduction = () => {
-  const { numberOfHooks } = useGlobalContext();
+  const { numberOfHooks } = useHooksContext();
 
   return (
     <article className={s.introduction}>
