@@ -1,6 +1,6 @@
 import { useGlobalContext } from "src/Context/GlobalContext";
 import { SCREEN_SIZES } from "src/Data/variables";
-import SvgIcon from "../../Shared/MiniComponents/SvgIcon";
+import SvgIcon from "../../../Shared/MiniComponents/SvgIcon";
 import s from "./CodeBlockHeader.module.scss";
 
 const CodeBlockHeader = ({ props }) => {

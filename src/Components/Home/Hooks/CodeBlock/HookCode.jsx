@@ -6,9 +6,9 @@ import {
 } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { useGlobalContext } from "src/Context/GlobalContext";
 import useToggle from "src/Hooks/useToggle";
-import CopyButton from "./Buttons/CopyButton";
-import DownloadButton from "./Buttons/DownloadButton";
-import FullscreenButton from "./Buttons/FullscreenButton";
+import CopyButton from "../Buttons/CopyButton";
+import DownloadButton from "../Buttons/DownloadButton";
+import FullscreenButton from "../Buttons/FullscreenButton";
 import CodeBlockHeader from "./CodeBlockHeader";
 import s from "./HookCode.module.scss";
 
