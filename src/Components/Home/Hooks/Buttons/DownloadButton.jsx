@@ -1,5 +1,6 @@
 import { saveInFile } from "src/Functions/helper";
 import useToggle from "src/Hooks/useToggle";
+import { ICON_TOGGLE_DELAY } from "../../../../Data/variables";
 import SvgIcon from "../../../Shared/MiniComponents/SvgIcon";
 
 const DownloadButton = ({ name, code }) => {
@@ -10,7 +11,7 @@ const DownloadButton = ({ name, code }) => {
 
     toggleIsDownloaded();
     saveInFile(`${name}.jsx`, code);
-    setTimeout(() => toggleIsDownloaded(), 1000);
+    setTimeout(() => toggleIsDownloaded(), ICON_TOGGLE_DELAY);
   }
 
   return (

@@ -1,14 +1,12 @@
 import introImage from "src/Assets/Images/introduction-image.webp";
-import { useHooksContext } from "../../../Context/HooksContext";
+import { NUMBER_OF_HOOKS } from "src/Data/variables";
 import s from "./Introduction.module.scss";
 
 const Introduction = () => {
-  const { numberOfHooks } = useHooksContext();
-
   return (
     <article className={s.introduction}>
       <h1>
-        <strong>Explore {numberOfHooks} Custom Hooks in React!</strong>
+        <strong>Explore {NUMBER_OF_HOOKS} Custom Hooks in React!</strong>
       </h1>
 
       <div className={s.introImageWrapper}>
@@ -48,7 +46,7 @@ const Introduction = () => {
       <section>
         <h2>Navigating the Hooks</h2>
         <p>
-          Navigating the Hooks Here, we present {numberOfHooks} custom hooks
+          Navigating the Hooks Here, we present {NUMBER_OF_HOOKS} custom hooks
           designed to enhance your React development experience. Each hook
           addresses specific use cases, providing solutions to common challenges
           in building robust and efficient React applications.

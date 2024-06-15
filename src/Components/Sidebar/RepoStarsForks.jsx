@@ -1,15 +1,13 @@
 import useAsync from "src/Hooks/useAsync";
+import { MY_REPOS_URL, WEBSITE_REPO_ID } from "../../Data/variables";
 import SvgIcon from "../Shared/MiniComponents/SvgIcon";
 import s from "./RepoStarsForks.module.scss";
 
-const myReposUrl = "https://api.github.com/users/Moamal-2000/repos";
-const websiteRepoId = 744430639;
-
 const RepoStarsForks = () => {
-  const [reposData, isError] = useAsync(myReposUrl);
-  const websiteRepo = reposData?.filter(
-    (repoObj) => repoObj.id === websiteRepoId
-  )?.[0];
+  const [reposData, isError] = useAsync(MY_REPOS_URL);
+  const websiteRepo = reposData?.find(
+    (repoObj) => repoObj.id === WEBSITE_REPO_ID
+  );
   const repoStars = websiteRepo?.stargazers_count;
   const repoForks = websiteRepo?.forks;
   const repoUrl = websiteRepo?.html_url;

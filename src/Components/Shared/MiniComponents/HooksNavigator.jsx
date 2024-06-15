@@ -1,15 +1,14 @@
 import React from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import { NUMBER_OF_PAGES } from "src/Data/variables";
 import { scrollToBottom } from "src/Functions/helper";
-import { useHooksContext } from "../../../Context/HooksContext";
 import s from "./HooksNavigator.module.scss";
 
 const HooksNavigator = () => {
-  const { numbersOfPages } = useHooksContext();
   const [params, setParams] = useSearchParams();
   const navigateTo = useNavigate();
   const currentPage = parseInt(params.get("page")) || 1;
-  const isLastPage = currentPage === numbersOfPages;
+  const isLastPage = currentPage === NUMBER_OF_PAGES;
   const isFirstPage = currentPage === 1;
 
   function handleNextPage() {

@@ -1,9 +1,10 @@
 import useCopyText from "src/Hooks/useCopyText";
 import useToggle from "src/Hooks/useToggle";
+import { ICON_TOGGLE_DELAY } from "../../../../Data/variables";
 import SvgIcon from "../../../Shared/MiniComponents/SvgIcon";
 
 const CopyButton = ({ code }) => {
-  const [copiedText, copyText] = useCopyText();
+  const [, copyText] = useCopyText();
   const [isCopied, toggleIsCopied] = useToggle(false);
 
   function handleCopyButton() {
@@ -11,7 +12,7 @@ const CopyButton = ({ code }) => {
 
     copyText(code);
     toggleIsCopied();
-    setTimeout(() => toggleIsCopied(), 1000);
+    setTimeout(() => toggleIsCopied(), ICON_TOGGLE_DELAY);
   }
 
   return (

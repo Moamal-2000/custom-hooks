@@ -4,9 +4,7 @@ import useToggle from "../Hooks/useToggle";
 
 const ModesContextProvider = ({ children }) => {
   const [isShortcutMenuActive, toggleIsShortcutMenuActive] = useToggle(false);
-
-  const [isFocusModeActiveLocal, setIsFocusModeActive] =
-    useLocalStorage("focus-mode");
+  const [isFocusModeActiveLocal, setIsFocusModeActive] = useLocalStorage("focus-mode");
   const [isDarkModeLocal, setIsDarkModeLocal] = useLocalStorage(
     "dark-mode",
     false
