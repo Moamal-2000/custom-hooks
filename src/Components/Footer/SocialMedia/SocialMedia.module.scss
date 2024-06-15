@@ -20,7 +20,7 @@
   }
 }
 
-.socialLink {
+.SocialMedia a {
   outline: none;
   cursor: pointer;
   border-radius: 4px;
@@ -35,18 +35,18 @@
   }
 }
 
-.socialLink:focus-visible svg {
+.SocialMedia a:focus-visible svg {
   fill: var(--light-green);
 }
 
-.socialLink svg {
+.SocialMedia a svg {
   fill: #78819a;
   width: 22px;
   height: 22px;
   transition: fill .2s, transform .2s;
 }
 
-.socialLink:hover svg {
+.SocialMedia a:hover svg {
   transform: scale(1.06);
   fill: var(--light-green);
 }

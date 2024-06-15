@@ -1,6 +1,7 @@
 import { socialMediaLinks } from "src/Data/staticData";
-import SvgIcon from "../Shared/MiniComponents/SvgIcon";
+import SvgIcon from "../../Shared/MiniComponents/SvgIcon";
 import s from "./SocialMedia.module.scss";
+import SocialMediaLink from "./SocialMediaLink";
 
 const SocialMedia = () => {
   return (
@@ -18,11 +19,3 @@ const SocialMedia = () => {
 };
 
 export default SocialMedia;
-
-const SocialMediaLink = ({ icon, href, title }) => {
-  return (
-    <a className={s.socialLink} href={href} target="_blank" title={title}>
-      {icon}
-    </a>
-  );
-};

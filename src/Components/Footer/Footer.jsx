@@ -1,6 +1,6 @@
 import s from "./Footer.module.scss";
 import FooterText from "./FooterText";
-import SocialMedia from "./SocialMedia";
+import SocialMedia from "./SocialMedia/SocialMedia";
 
 const Footer = () => {
   return (
