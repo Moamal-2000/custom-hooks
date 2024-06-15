@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import musicPath from "src/Assets/Sounds/deep-show.mp3";
-import { useGlobalContext } from "src/Context/GlobalContext";
 import useFunctionOnKey from "src/Hooks/useFunctionOnKey";
+import { useModesContext } from "../../../Context/ModesContext";
 import SvgIcon from "../MiniComponents/SvgIcon";
 import ToolTip from "../MiniComponents/ToolTip";
 
 const MusicTime = () => {
   const [isMusicOn, setIsMusicOn] = useState(false);
   const musicRef = useRef(new Audio(musicPath));
-  const { isFocusModeActiveLocal } = useGlobalContext();
+  const { isFocusModeActiveLocal } = useModesContext();
   const noun = isMusicOn ? "Pause" : "Play";
   const toolTipLeftPos = isMusicOn ? "-108px" : "-96px";
   useFunctionOnKey(toggleMusic, ["KeyP"], 300, true, true);

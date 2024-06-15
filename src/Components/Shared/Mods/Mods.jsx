@@ -1,4 +1,4 @@
-import { useGlobalContext } from "src/Context/GlobalContext";
+import { useModesContext } from "../../../Context/ModesContext";
 import DarkMode from "./DarkMode";
 import FocusMode from "./FocusMode";
 import FullScreenMode from "./FullScreenMode";
@@ -9,7 +9,7 @@ import ShortcutsMode from "./ShortcutsMode";
 import StarRepo from "./StarRepo";
 
 const Mods = () => {
-  const { isFocusModeActiveLocal } = useGlobalContext();
+  const { isFocusModeActiveLocal } = useModesContext();
   const focusModeClass = isFocusModeActiveLocal ? s.focusMode : "";
 
   return (

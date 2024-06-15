@@ -4,8 +4,8 @@ import {
   oneLight,
   vscDarkPlus,
 } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { useGlobalContext } from "src/Context/GlobalContext";
 import useToggle from "src/Hooks/useToggle";
+import { useModesContext } from "../../../../Context/ModesContext";
 import CopyButton from "../Buttons/CopyButton";
 import DownloadButton from "../Buttons/DownloadButton";
 import FullscreenButton from "../Buttons/FullscreenButton";
@@ -13,7 +13,7 @@ import CodeBlockHeader from "./CodeBlockHeader";
 import s from "./HookCode.module.scss";
 
 const HookCode = ({ hookData: { codes, name } }) => {
-  const { isDarkModeLocal } = useGlobalContext();
+  const { isDarkModeLocal } = useModesContext();
   const [isFullScreen, toggleIsFullScreen] = useToggle(false);
   const codeBlockTheme = isDarkModeLocal ? oneLight : vscDarkPlus;
   const [displayedCodeName, setDisplayedCodeName] = useState(name);

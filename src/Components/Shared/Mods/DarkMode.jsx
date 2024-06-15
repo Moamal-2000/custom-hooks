@@ -1,11 +1,11 @@
 import { useEffect } from "react";
-import { useGlobalContext } from "src/Context/GlobalContext";
 import useFunctionOnKey from "src/Hooks/useFunctionOnKey";
+import { useModesContext } from "../../../Context/ModesContext";
 import SvgIcon from "../MiniComponents/SvgIcon";
 import ToolTip from "../MiniComponents/ToolTip";
 
 const DarkMode = () => {
-  const { isDarkModeLocal, setIsDarkModeLocal } = useGlobalContext();
+  const { isDarkModeLocal, setIsDarkModeLocal } = useModesContext();
   let noun = isDarkModeLocal ? "Dark" : "Light";
   const toolTipLeftPos = isDarkModeLocal ? "-97px" : "-98px";
   useFunctionOnKey(toggleDarkMode, ["KeyD"], 300, true, true);

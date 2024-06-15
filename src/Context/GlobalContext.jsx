@@ -3,25 +3,17 @@ import { hooksData } from "../Data/hooksData";
 import useGetResizeWindow from "../Hooks/useGetResizeWindow";
 import useKeyPress from "../Hooks/useKeyPress";
 import useLocalStorage from "../Hooks/useLocalStorage";
-import useToggle from "../Hooks/useToggle";
 
 const GlobalContextProvider = ({ children }) => {
   const [scrolledHook, setScrolledHook] = useState(hooksData[0].name);
   const [isSideBarActive, setIsSideBarActive] = useState(false);
   const [isOverlayActive, setIsOverlayActive] = useState(false);
   const [isNotFoundPageShown, setIsNotFoundPageShown] = useState(false);
-  const [isShortcutMenuActive, toggleIsShortcutMenuActive] = useToggle(false);
   const [pressedKey] = useKeyPress();
   const { windowWidth } = useGetResizeWindow();
 
   const [isSideBarExtendedLocal, setIsSideBarExtended] =
     useLocalStorage("sidebar-extend");
-  const [isFocusModeActiveLocal, setIsFocusModeActive] =
-    useLocalStorage("focus-mode");
-  const [isDarkModeLocal, setIsDarkModeLocal] = useLocalStorage(
-    "dark-mode",
-    false
-  );
 
   const lengthHooks = hooksData.length;
   const hooksPerPage = 5;
@@ -37,16 +29,10 @@ const GlobalContextProvider = ({ children }) => {
     numberOfHooks: lengthHooks,
     isSideBarExtendedLocal,
     setIsSideBarExtended,
-    isFocusModeActiveLocal,
-    setIsFocusModeActive,
-    isDarkModeLocal,
-    setIsDarkModeLocal,
     hooksPerPage,
     numbersOfPages,
     isNotFoundPageShown,
     setIsNotFoundPageShown,
-    isShortcutMenuActive,
-    toggleIsShortcutMenuActive,
     pressedKey,
     windowWidth,
   };

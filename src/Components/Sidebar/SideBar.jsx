@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useGlobalContext } from "src/Context/GlobalContext";
 import useFunctionOnKey from "src/Hooks/useFunctionOnKey";
+import { useModesContext } from "../../Context/ModesContext";
 import SvgIcon from "../Shared/MiniComponents/SvgIcon";
 import ToolTip from "../Shared/MiniComponents/ToolTip";
 import DownloadHooksButton from "./DownloadHooksButton";
@@ -16,10 +17,9 @@ const SideBar = () => {
     setIsOverlayActive,
     isSideBarExtendedLocal,
     setIsSideBarExtended,
-    isFocusModeActiveLocal,
-    isShortcutMenuActive,
     windowWidth,
   } = useGlobalContext();
+  const { isFocusModeActiveLocal, isShortcutMenuActive } = useModesContext();
   const sidebarRef = useRef();
   const requiredScreenWidth = 1200;
   const isSmallThanScreen = windowWidth < requiredScreenWidth;

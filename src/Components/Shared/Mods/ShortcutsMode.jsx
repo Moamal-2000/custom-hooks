@@ -1,10 +1,12 @@
 import { useGlobalContext } from "src/Context/GlobalContext";
 import useFunctionOnKey from "src/Hooks/useFunctionOnKey";
+import { useModesContext } from "../../../Context/ModesContext";
 import SvgIcon from "../MiniComponents/SvgIcon";
 import ToolTip from "../MiniComponents/ToolTip";
 
 const ShortcutsMode = () => {
-  const { setIsOverlayActive, toggleIsShortcutMenuActive } = useGlobalContext();
+  const { toggleIsShortcutMenuActive } = useModesContext();
+  const { setIsOverlayActive } = useGlobalContext();
   useFunctionOnKey(() => toggleShortcutsMenu(), ["KeyK"], 300, true, true);
 
   function toggleShortcutsMenu() {
