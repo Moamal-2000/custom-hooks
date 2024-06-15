@@ -2,8 +2,6 @@ import { createContext, useContext } from "react";
 import useLocalStorage from "../Hooks/useLocalStorage";
 import useToggle from "../Hooks/useToggle";
 
-export const ModesContext = createContext();
-
 const ModesContextProvider = ({ children }) => {
   const [isShortcutMenuActive, toggleIsShortcutMenuActive] = useToggle(false);
 
@@ -25,6 +23,7 @@ const ModesContextProvider = ({ children }) => {
 
   return <ModesContext.Provider value={data}>{children}</ModesContext.Provider>;
 };
-export default ModesContextProvider;
 
+export default ModesContextProvider;
+export const ModesContext = createContext();
 export const useModesContext = () => useContext(ModesContext);
