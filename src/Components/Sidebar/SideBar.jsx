@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useGlobalContext } from "src/Context/GlobalContext";
+import { useModesContext } from "src/Context/ModesContext";
 import useFunctionOnKey from "src/Hooks/useFunctionOnKey";
-import { useModesContext } from "../../Context/ModesContext";
 import SvgIcon from "../Shared/MiniComponents/SvgIcon";
 import ToolTip from "../Shared/MiniComponents/ToolTip";
 import DownloadHooksButton from "./DownloadHooksButton";

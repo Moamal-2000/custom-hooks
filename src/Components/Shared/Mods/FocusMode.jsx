@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useGlobalContext } from "src/Context/GlobalContext";
+import { useModesContext } from "src/Context/ModesContext";
 import useFunctionOnKey from "src/Hooks/useFunctionOnKey";
-import { useModesContext } from "../../../Context/ModesContext";
 import SvgIcon from "../MiniComponents/SvgIcon";
 import ToolTip from "../MiniComponents/ToolTip";
 import s from "./FocusMode.module.scss";

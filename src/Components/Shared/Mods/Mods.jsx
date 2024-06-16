@@ -1,4 +1,4 @@
-import { useModesContext } from "../../../Context/ModesContext";
+import { useModesContext } from "src/Context/ModesContext";
 import DarkMode from "./DarkMode";
 import FocusMode from "./FocusMode";
 import FullScreenMode from "./FullScreenMode";

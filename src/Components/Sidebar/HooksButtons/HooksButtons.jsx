@@ -1,8 +1,8 @@
 import { useSearchParams } from "react-router-dom";
+import { useGlobalContext } from "src/Context/GlobalContext";
+import { useHooksContext } from "src/Context/HooksContext";
 import { hooksData } from "src/Data/hooksData";
 import { getPageData } from "src/Functions/projectFunctions";
-import { useGlobalContext } from "../../../Context/GlobalContext";
-import { useHooksContext } from "../../../Context/HooksContext";
 import s from "./HooksButtons.module.scss";
 
 const HooksButtons = () => {

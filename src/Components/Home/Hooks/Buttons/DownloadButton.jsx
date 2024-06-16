@@ -1,6 +1,6 @@
+import { ICON_TOGGLE_DELAY } from "src/Data/variables";
 import { saveInFile } from "src/Functions/helper";
 import useToggle from "src/Hooks/useToggle";
-import { ICON_TOGGLE_DELAY } from "../../../../Data/variables";
 import SvgIcon from "../../../Shared/MiniComponents/SvgIcon";
 
 const DownloadButton = ({ name, code }) => {

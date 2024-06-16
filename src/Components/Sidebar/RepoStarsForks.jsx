@@ -1,5 +1,5 @@
+import { MY_REPOS_URL, WEBSITE_REPO_ID } from "src/Data/variables";
 import useAsync from "src/Hooks/useAsync";
-import { MY_REPOS_URL, WEBSITE_REPO_ID } from "../../Data/variables";
 import SvgIcon from "../Shared/MiniComponents/SvgIcon";
 import s from "./RepoStarsForks.module.scss";
 

@@ -4,8 +4,8 @@ import {
   oneLight,
   vscDarkPlus,
 } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { useModesContext } from "src/Context/ModesContext";
 import useToggle from "src/Hooks/useToggle";
-import { useModesContext } from "../../../../Context/ModesContext";
 import CopyButton from "../Buttons/CopyButton";
 import DownloadButton from "../Buttons/DownloadButton";
 import FullscreenButton from "../Buttons/FullscreenButton";

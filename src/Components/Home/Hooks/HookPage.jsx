@@ -1,7 +1,7 @@
 import { useSearchParams } from "react-router-dom";
+import { useHooksContext } from "src/Context/HooksContext";
 import { hooksData } from "src/Data/hooksData";
 import { getPageData } from "src/Functions/projectFunctions";
-import { useHooksContext } from "../../../Context/HooksContext";
 import Hook from "./CodeBlock/Hook";
 
 const HookPage = () => {

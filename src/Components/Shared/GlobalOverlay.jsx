@@ -1,5 +1,5 @@
 import { useGlobalContext } from "src/Context/GlobalContext";
-import { useModesContext } from "../../Context/ModesContext";
+import { useModesContext } from "src/Context/ModesContext";
 import s from "./GlobalOverlay.module.scss";
 
 const GlobalOverlay = () => {

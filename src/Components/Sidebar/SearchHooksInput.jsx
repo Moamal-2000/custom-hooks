@@ -1,10 +1,10 @@
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGlobalContext } from "src/Context/GlobalContext";
+import { useHooksContext } from "src/Context/HooksContext";
 import { hooksData } from "src/Data/hooksData";
 import useArray from "src/Hooks/useArray";
 import useToggle from "src/Hooks/useToggle";
-import { useHooksContext } from "../../Context/HooksContext";
 import s from "./SearchHooksInput.module.scss";
 import SuggestionsMenu from "./SuggestionsMenu";
 

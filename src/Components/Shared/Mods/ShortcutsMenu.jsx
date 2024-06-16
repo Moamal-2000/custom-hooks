@@ -1,12 +1,13 @@
 import { useGlobalContext } from "src/Context/GlobalContext";
+import { useModesContext } from "src/Context/ModesContext";
 import { shortcuts } from "src/Data/staticData";
-import { useModesContext } from "../../../Context/ModesContext";
 import SvgIcon from "../MiniComponents/SvgIcon";
 import Shortcut from "./Shortcut";
 import s from "./ShortcutsMenu.module.scss";
 
 const ShortcutsMenu = () => {
-  const { isShortcutMenuActive, toggleIsShortcutMenuActive } = useModesContext();
+  const { isShortcutMenuActive, toggleIsShortcutMenuActive } =
+    useModesContext();
   const { setIsOverlayActive } = useGlobalContext();
   const activeClass = isShortcutMenuActive ? s.active : "";
 
