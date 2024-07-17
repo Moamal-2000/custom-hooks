@@ -1,8 +1,8 @@
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGlobalContext } from "src/Context/GlobalContext";
-import { useHooksContext } from "src/Context/HooksContext";
 import { hooksData } from "src/Data/hooksData";
+import { NUMBER_OF_PAGES } from "src/Data/variables";
 import useArray from "src/Hooks/useArray";
 import useToggle from "src/Hooks/useToggle";
 import s from "./SearchHooksInput.module.scss";
@@ -13,7 +13,6 @@ const SearchHooksInput = () => {
   const searchInpEle = searchInpRef.current;
   const navigateTo = useNavigate();
   const { setIsSideBarActive, setIsOverlayActive } = useGlobalContext();
-  const { hooksPerPage } = useHooksContext();
   const [isSuggestionMenuActive, toggleSuggestionsActive] = useToggle(false);
   const {
     array: searchItems,
@@ -65,7 +64,7 @@ const SearchHooksInput = () => {
 
   function navigateToItem(itemData) {
     const indexOfItem = hooksData.indexOf(itemData);
-    const itemPage = Math.ceil((indexOfItem + 1) / hooksPerPage);
+    const itemPage = Math.ceil((indexOfItem + 1) / NUMBER_OF_PAGES);
     navigateTo(`/?page=${itemPage}`);
 
     setTimeout(() => {
