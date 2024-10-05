@@ -26,6 +26,7 @@
   border: none;
   background-color: var(--very-dark-purple);
   overflow: hidden;
+  user-select: none;
   cursor: pointer;
 
   &:not(:last-child) {
