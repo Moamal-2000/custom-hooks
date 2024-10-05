@@ -19,16 +19,18 @@
   font-size: 1rem;
   font-family: inherit;
   min-width: 132px;
-  color: #fff;
   padding: .5em 1em;
   border-radius: 4px;
   outline: none;
   border: none;
-  background-color: var(--very-dark-purple);
+  color: var(--white);
+  background-color: transparent;
+  border: solid 2px var(--golden);
   overflow: hidden;
   user-select: none;
   cursor: pointer;
-
+  transition: color .2s 0s;
+  
   &:not(:last-child) {
     margin-right: 20px;
   }
@@ -41,18 +43,25 @@
   }
 }
 
+.wrapper>button:not(:disabled):hover {
+  transition: color .2s .2s;
+  color: var(--orange);
+}
+
 .wrapper>button:not(:disabled):focus-visible {
-  outline: solid 2px var(--light-green);
+  outline: solid 2px var(--golden);
 }
 
 .wrapper>button:disabled {
-  background-color: var(--dark-gray);
+  filter: grayscale(1);
+  cursor: not-allowed;
 }
 
 .wrapper>button::after {
   content: '';
   z-index: -1;
-  background-color: var(--gray-opacity2);
+  background-color: var(--golden);
+  background-color: rgba(230, 180, 80, .5);
   position: absolute;
   top: -200px;
   bottom: -100%;
