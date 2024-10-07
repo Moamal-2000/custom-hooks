@@ -32,6 +32,7 @@
   --orange: #ffa500;
   --yellow: #ffff00;
   --golden: #e6b450;
+  --text-selection-bg: #233554b6;
 }
 
 // Code block variables
@@ -54,7 +55,7 @@
 
 // Light mode colors
 :root.light-mode {
-  --white: #070b10;
+  --white: #3f4349;
   --very-light-gray: #2b2b2b;
   --secondary-white: #2b2b2b;
   --light-green: #070b10;
@@ -64,12 +65,14 @@
   --gray-purple-secondary: #7e8399;
   --gray-purple: #959ab0;
   --tooltip-bg-color: #b8bec7;
-  --extra-dark-blue: #fff;
+  --extra-dark-blue: #f8f8f8;
   --secondary-black: #fff;
   --third-black: #fff;
   --dark-gray-opacity5: #2483ff;
   --light-green2: #ff7300;
   --yellow: #ff7300;
+  --golden: #202020;
+  --text-selection-bg: #2667d9b6;
 }
 
 :root.light-mode {

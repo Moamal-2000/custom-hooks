@@ -16,7 +16,7 @@ const HookExplanation = ({ hookData }) => {
 
       {liveCode && (
         <a href={liveCode} target="_blank" className="linkStyle1">
-          Explore an interactive demo of {name} hook.
+          Explore an interactive demo of {name} hook
         </a>
       )}
     </section>

@@ -1,10 +1,11 @@
 .downloadAllButton {
   display: flex;
-  background-color: var(--cyan-blue2);
+  background-color: transparent;
   border-radius: 5px;
   margin: 20px 0 20px;
   cursor: pointer;
   overflow: hidden;
+  border: solid 2px #e6b450;
   transition: background-color .2s, transform .2s;
 
   &:active {
@@ -12,7 +13,8 @@
   }
 
   &:hover {
-    background-color: var(--cyan-blue-hover);
+    background-color: #e6b45049;
+    border-color: #f3b63c;
   }
 
   &:focus-visible {
@@ -26,22 +28,26 @@
   font-size: 1rem;
   font-weight: 500;
   line-height: 28px;
-  color: #fff;
+  color: var(--white);
 }
 
 .iconWrapper {
-  background-color: var(--dark-cyan);
-  transition: background-color .2s;
   min-width: 47px;
   min-height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #e6b450;
+  transition: background-color .2s;
+}
+
+.downloadAllButton:hover .iconWrapper {
+  background-color: #f3b63c;
 }
 
 .downloadAllButton svg {
-  fill: #fff;
-  width: 20px;
-  height: 20px;
+  fill: var(--black);
+  width: 18px;
+  height: 18px;
   border-radius: 0 5px 5px 0;
 }

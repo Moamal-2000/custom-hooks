@@ -8,8 +8,8 @@
 }
 
 ::selection {
-  color: var(--white);
-  background-color: #233554b6;
+  color: #fff;
+  background-color: var(--text-selection-bg);
 }
 
 html {
@@ -88,7 +88,7 @@ svg {
 
 .linkStyle1 {
   outline: none;
-  display: inline;
+  display: inline-block;
   text-decoration: none;
   position: relative;
   transition: color .3s;
@@ -96,7 +96,7 @@ svg {
   color: var(--golden);
 
   &:focus-visible {
-    outline: solid 2px var(--cyan-blue);
+    outline: solid 1px var(--golden);
   }
 }
 
@@ -107,13 +107,12 @@ svg {
   bottom: -2px;
   width: 100%;
   height: 1px;
-  background-color: var(--cyan-blue);
   background-color: var(--golden);
   transition: height .3s, opacity .2s .2s;
 }
 
 .linkStyle1:hover::before {
-  height: calc(100% + 4px);
+  height: calc(100% + 3px);
   opacity: .3;
   transition: height .2s, opacity .2s;
 }
