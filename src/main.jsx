@@ -20,4 +20,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   </StrictMode>
 );
 
-serviceWorker.register();
+// serviceWorker.register();
