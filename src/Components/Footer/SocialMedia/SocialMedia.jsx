@@ -5,7 +5,7 @@ import SocialMediaLink from "./SocialMediaLink";
 
 const SocialMedia = () => {
   return (
-    <div className={s.SocialMedia}>
+    <div className={s.socialMedia}>
       {socialMediaLinks.map(({ icon, href, title }) => (
         <SocialMediaLink
           key={title}
