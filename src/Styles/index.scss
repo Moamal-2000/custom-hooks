@@ -92,19 +92,13 @@ svg {
 }
 
 .linkStyle1 {
-  display: inline-block;
+  outline: none;
+  display: inline;
   text-decoration: none;
   position: relative;
-  cursor: pointer;
   transition: color .3s;
-  padding: 0;
-  margin: 0 4px;
   color: var(--cyan-blue);
-  outline: none;
-
-  &:first-child {
-    margin-left: 0;
-  }
+  color: var(--golden);
 
   &:focus-visible {
     outline: solid 2px var(--cyan-blue);
@@ -114,16 +108,17 @@ svg {
 .linkStyle1::before {
   content: '';
   position: absolute;
-  left: -1px;
+  left: 0;
   bottom: -2px;
-  width: calc(100% + 2px);
-  height: 2px;
+  width: 100%;
+  height: 1px;
   background-color: var(--cyan-blue);
+  background-color: var(--golden);
   transition: height .3s, opacity .2s .2s;
 }
 
 .linkStyle1:hover::before {
-  height: calc(100% + 2px);
+  height: calc(100% + 4px);
   opacity: .3;
   transition: height .2s, opacity .2s;
 }
@@ -166,22 +161,6 @@ svg {
   .linenumber {
     min-width: 40px !important;
   }
-}
-
-.noMarginLeft {
-  margin-left: 0 !important;
-}
-
-.noMarginRight {
-  margin-right: 0 !important;
-}
-
-.noPaddingLeft {
-  padding-left: 0 !important;
-}
-
-.noPaddingRight {
-  padding-right: 0 !important;
 }
 
 .toolTip {

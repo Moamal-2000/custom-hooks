@@ -21,6 +21,7 @@ const Introduction = () => {
         <h2>
           <strong>What are Custom Hooks?</strong>
         </h2>
+
         <p>
           <a
             href="https://react.dev/learn/reusing-logic-with-custom-hooks"
@@ -29,17 +30,17 @@ const Introduction = () => {
           >
             Custom Hooks
           </a>
-          in React allow you to extract and reuse logic from
+          &nbsp;in React allow you to extract and reuse logic from&nbsp;
           <a
             href="https://react.dev/reference/react/Component"
             target="_blank"
-            className="linkStyle1 noMarginRight"
+            className="linkStyle1"
           >
             components
           </a>
-          , making your code more modular and maintainable. They are functions
-          that can encapsulate complex behavior and be shared across different
-          components.
+          , making your code more modular and maintainable. They are
+          functionsthat can encapsulate complex behavior and be shared across
+          differentcomponents.
         </p>
       </section>
 

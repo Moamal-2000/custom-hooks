@@ -26,7 +26,6 @@
 
 .text p>a {
   color: var(--white);
-  padding: 4px;
   transition: opacity .2s, color .2s;
   opacity: .7;
 
@@ -35,7 +34,7 @@
   }
 
   &:focus {
-    color: var(--light-green);
+    color: var(--golden);
     outline: none;
     opacity: 1;
   }
