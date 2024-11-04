@@ -23,7 +23,7 @@ const SearchHooksInput = () => {
   function filterSearchData() {
     const searchValue = searchInpEle.value.toLowerCase();
     const filteredData = hooksData.filter((hookData) =>
-      hookData.name.toLowerCase().startsWith(searchValue)
+      hookData.name.toLowerCase().includes(searchValue)
     );
     return filteredData;
   }
@@ -31,29 +31,16 @@ const SearchHooksInput = () => {
   function handleSearch(e) {
     e.preventDefault();
 
-    const filteredResults = filterSearchData();
-    const isNotFound = filteredResults.length === 0;
-    const isFoundOneItem = filteredResults.length === 1;
-    const isFoundMoreThanOneItem = filteredResults.length > 1;
-    const isEmptyInput = searchInpEle.value === "";
+    const filterResults = filterSearchData();
+    const isFoundItem = filterResults.length >= 1;
 
-    if (isEmptyInput) {
-      toggleSuggestionsActive(false);
-      clearSearchItems();
-      return;
-    }
-
-    if (isFoundOneItem) {
-      navigateToItem(filteredResults[0]);
-    }
-
-    if (isFoundMoreThanOneItem) {
+    if (isFoundItem) {
       toggleSuggestionsActive(true);
-      setSearchItems(filteredResults);
+      setSearchItems(filterResults);
       return;
     }
 
-    if (isNotFound) {
+    if (!isFoundItem) {
       clearSearchItems();
       return;
     }
@@ -79,11 +66,7 @@ const SearchHooksInput = () => {
   }
 
   return (
-    <form
-      className={s.SearchForm}
-      onSubmit={(e) => handleSearch(e)}
-      role="search"
-    >
+    <form className={s.SearchForm} onSubmit={handleSearch} role="search">
       <input
         id="search"
         type="search"
