@@ -20,6 +20,9 @@
 }
 
 .searchItem {
+  background-color: transparent;
+  width: 100%;
+  font-size: 1rem;
   padding: 12px;
   cursor: pointer;
   display: flex;
@@ -29,6 +32,15 @@
 
   &:hover {
     background-color: #323538;
+  }
+
+  &:focus {
+    outline: none;
+    background-color: #323538;
+  }
+
+  &:focus:hover {
+    background-color: #464b4f;
   }
 }
 

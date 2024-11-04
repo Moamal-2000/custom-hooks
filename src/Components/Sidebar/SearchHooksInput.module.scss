@@ -7,7 +7,7 @@
 }
 
 .SearchForm input,
-.SearchForm button {
+.SearchForm button[type=submit] {
   height: 40px;
   font-family: 'Lato', sans-serif;
   border: none;
@@ -48,7 +48,7 @@
   }
 }
 
-.SearchForm button {
+.SearchForm button[type=submit] {
   display: none;
   position: absolute;
   top: 0;

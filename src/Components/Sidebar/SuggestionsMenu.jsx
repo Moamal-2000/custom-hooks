@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { useGlobalContext } from "src/Context/GlobalContext";
 import SvgIcon from "../Shared/MiniComponents/SvgIcon";
 import s from "./SuggestionsMenu.module.scss";
 
@@ -11,11 +10,7 @@ const SuggestionsMenu = ({ suggestionsData }) => {
     isSuggestionMenuActive,
     toggleSuggestionsActive,
   } = suggestionsData;
-  const { pressedKey } = useGlobalContext();
   const activeClass = isSuggestionMenuActive ? s.active : "";
-  const isTabPressed = pressedKey === "Tab";
-  const isSearchInpFocused = document.activeElement?.id === "search";
-  const isSearchButtonFocused = document.activeElement?.textContent === "Go";
 
   function handleSuggestionItem(item) {
     navigateToItem(item);
@@ -45,34 +40,31 @@ const SuggestionsMenu = ({ suggestionsData }) => {
     };
   }, [isSuggestionMenuActive]);
 
-  useEffect(() => {
-    const shouldHideSuggestionsMenu =
-      isTabPressed && (isSearchInpFocused || isSearchButtonFocused);
-
-    if (shouldHideSuggestionsMenu) {
-      toggleSuggestionsActive(false);
-    }
-  }, [pressedKey]);
-
   return (
-    <ul className={`${s.suggestionMenu} ${activeClass}`}>
+    <div className={`${s.suggestionMenu} ${activeClass}`}>
       {searchItems.length > 0 &&
-        searchItems?.map((item) => (
-          <SearchItem
-            item={item}
-            key={`search-${item.id}`}
-            onClick={() => handleSuggestionItem(item)}
-          />
-        ))}
-    </ul>
+        searchItems?.map((item) => {
+          const isLastItem = searchItems.at(-1).id === item.id;
+
+          function closeSuggestionMenu() {
+            toggleSuggestionsActive(false);
+          }
+
+          return (
+            <button
+              className={s.searchItem}
+              key={`search-${item.id}`}
+              type="button"
+              onClick={() => handleSuggestionItem(item)}
+              onBlur={isLastItem ? closeSuggestionMenu : () => {}}
+            >
+              <span>{item.name}</span>
+              <SvgIcon name="search" />
+            </button>
+          );
+        })}
+    </div>
   );
 };
 
 export default SuggestionsMenu;
-
-const SearchItem = ({ item, onClick }) => (
-  <li className={s.searchItem} onClick={onClick}>
-    <span>{item.name}</span>
-    <SvgIcon name="search" />
-  </li>
-);
