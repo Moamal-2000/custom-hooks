@@ -1,4 +1,4 @@
-@import "src/Styles/mixins";
+@use"src/Styles/mixins" as m;
 
 .hookButton:not(:last-child) {
   margin-bottom: 14px;
@@ -33,7 +33,7 @@
   }
 }
 
-@include large {
+@include m.large {
   .hookButton>a {
     font-size: 1rem;
   }

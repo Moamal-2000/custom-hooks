@@ -1,4 +1,4 @@
-@import "../src/Styles/mixins";
+@use "../src/Styles/mixins" as m;
 
 .shortcutsMenu {
   position: fixed;
@@ -21,14 +21,14 @@
   }
 }
 
-@include medium {
+@include m.medium {
   .shortcutsMenu {
     width: 84%;
     height: 400px;
   }
 }
 
-@include small {
+@include m.small {
   .shortcutsMenu {
     width: 100vw;
     height: calc(100vh - (100vh - 100%));
@@ -83,13 +83,13 @@
   margin-right: 5px;
 }
 
-@include medium {
+@include m.medium {
   .shortcutsMenu main {
     min-height: 260px;
   }
 }
 
-@include small {
+@include m.small {
   .shortcutsMenu main {
     width: 100%;
     min-height: calc(100vh - 110px);

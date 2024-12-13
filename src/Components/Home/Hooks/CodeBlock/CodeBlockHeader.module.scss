@@ -1,11 +1,11 @@
-@import "../src/Styles/mixins";
+@use "../src/Styles/mixins" as m;
 
 .header {
   border-bottom: solid 1px #475264;
   display: flex;
 }
 
-@include small {
+@include m.small {
   .header {
     margin-bottom: 10px;
   }
@@ -34,7 +34,7 @@
   }
 }
 
-@include medium {
+@include m.medium {
   .fileName {
     font-size: .9rem;
   }
@@ -57,7 +57,7 @@
   border-radius: 50%;
 }
 
-@include medium {
+@include m.medium {
   .fileName>svg {
     width: 12px;
     height: 12px;

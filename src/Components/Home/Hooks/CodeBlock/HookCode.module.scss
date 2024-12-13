@@ -1,4 +1,4 @@
-@import "../src/Styles/mixins";
+@use "../src/Styles/mixins" as m;
 
 .code {
   font-size: 1.2rem;
@@ -14,7 +14,7 @@
   }
 }
 
-@include medium {
+@include m.medium {
   .code {
     font-size: .9rem;
   }
@@ -57,7 +57,7 @@
   border: none;
   width: 33px;
   height: 33px;
-  @include center-x-y;
+  @include m.center-x-y;
   background-color: var(--third-black);
   border-radius: 4px;
   transition: background-color .2s, transform .1s ease;
@@ -80,7 +80,7 @@
   }
 }
 
-@include medium {
+@include m.medium {
   .buttons>button {
     width: 29px;
     height: 29px;
@@ -93,7 +93,7 @@
   fill: var(--white);
 }
 
-@include medium {
+@include m.medium {
   .buttons>button>svg {
     width: 11px;
     height: 11px;
@@ -155,7 +155,7 @@
   background: var(--codeBlockBgColor) !important;
 }
 
-@include medium {
+@include m.medium {
   .preElement>code {
     font-size: .85rem !important;
     line-height: 1.175 !important;

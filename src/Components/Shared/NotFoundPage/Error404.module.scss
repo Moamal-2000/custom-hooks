@@ -1,8 +1,8 @@
-@import "../src/Styles/mixins";
+@use "../src/Styles/mixins" as m;
 
 .errorContainer {
   width: 100%;
-  @include center-x-y;
+  @include m.center-x-y;
   flex-direction: column;
   user-select: none;
 }

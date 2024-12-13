@@ -1,11 +1,11 @@
-@import "../src/Styles/mixins";
+@use "../src/Styles/mixins" as m;
 
 .hookName {
   font-size: 1.7rem;
   margin-bottom: 14px;
 }
 
-@include medium {
+@include m.medium {
   .hookName {
     font-size: 1.4rem;
   }

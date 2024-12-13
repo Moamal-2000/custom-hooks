@@ -1,4 +1,4 @@
-@import "../src/Styles/mixins";
+@use "../src/Styles/mixins" as m;
 
 .shortcut {
   display: flex;
@@ -19,7 +19,7 @@
   text-wrap: nowrap;
 }
 
-@include small {
+@include m.small {
   .shortcut p {
     font-size: .9rem;
   }

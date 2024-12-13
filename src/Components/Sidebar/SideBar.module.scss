@@ -1,4 +1,4 @@
-@import "src/Styles/mixins";
+@use"src/Styles/mixins" as m;
 
 .sidebarWrapper {
   position: fixed;
@@ -60,7 +60,7 @@
   }
 }
 
-@include small {
+@include m.small {
   .sidebarButton {
     left: 5px;
   }

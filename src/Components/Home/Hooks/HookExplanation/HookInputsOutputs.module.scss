@@ -1,4 +1,4 @@
-@import "../src/Styles/mixins";
+@use "../src/Styles/mixins" as m;
 
 .inputsOutputs>section {
   margin: 30px 0;
@@ -9,7 +9,7 @@
   font-size: 1.3rem;
 }
 
-@include medium {
+@include m.medium {
   .inputsOutputs h3 {
     font-size: 1.2rem;
   }

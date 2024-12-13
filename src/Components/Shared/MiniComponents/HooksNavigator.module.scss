@@ -1,4 +1,4 @@
-@import "../src/Styles/mixins";
+@use "../src/Styles/mixins" as m;
 
 .wrapper {
   width: fit-content;
@@ -30,13 +30,13 @@
   user-select: none;
   cursor: pointer;
   transition: color .2s 0s;
-  
+
   &:not(:last-child) {
     margin-right: 20px;
   }
 }
 
-@include small {
+@include m.small {
   .wrapper>button {
     padding: .4rem .8rem;
     font-size: .9rem;

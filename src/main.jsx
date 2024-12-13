@@ -5,7 +5,7 @@ import App from "./App";
 import GlobalContextProvider from "./Context/GlobalContext";
 import HooksContextProvider from "./Context/HooksContext.jsx";
 import ModesContextProvider from "./Context/ModesContext.jsx";
-import "./Styles/colors.scss";
+import "./Styles/_colors.scss";
 import "./Styles/index.scss";
 
 ReactDOM.createRoot(document.getElementById("root")).render(

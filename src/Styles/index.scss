@@ -1,5 +1,5 @@
-@import "../Styles/mixins";
-@import url("./fonts.css");
+@use "../Styles/mixins" as m;
+@import "./fonts.css";
 
 * {
   margin: 0;
@@ -30,7 +30,7 @@ body {
   transition: padding .5s ease-in-out;
 }
 
-@include large {
+@include m.large {
   body {
     padding-left: 0;
   }
@@ -66,10 +66,10 @@ main {
 }
 
 svg {
-  @include center-x-y;
+  @include m.center-x-y;
 }
 
-@include medium {
+@include m.medium {
   p {
     font-size: 1rem;
   }
@@ -80,7 +80,7 @@ svg {
   margin: 0 auto;
 }
 
-@include medium {
+@include m.medium {
   .container {
     width: 92%;
   }
@@ -151,7 +151,7 @@ svg {
   min-width: 50px !important;
 }
 
-@include medium {
+@include m.medium {
   .linenumber {
     min-width: 40px !important;
   }

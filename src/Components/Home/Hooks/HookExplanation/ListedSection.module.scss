@@ -1,4 +1,4 @@
-@import "../src/Styles/mixins";
+@use "../src/Styles/mixins" as m;
 
 .section>ul {
   margin-bottom: 30px;
@@ -11,7 +11,7 @@
   color: var(--secondary-white);
 }
 
-@include medium {
+@include m.medium {
   .section>ul>li {
     font-size: .9rem;
   }

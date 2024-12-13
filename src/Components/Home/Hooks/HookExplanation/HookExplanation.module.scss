@@ -1,11 +1,11 @@
-@import "../src/Styles/mixins";
+@use "../src/Styles/mixins" as m;
 
 .hookParagraph {
   margin: 0 0 30px;
   color: var(--secondary-white);
 }
 
-@include medium {
+@include m.medium {
   .hookParagraph {
     font-size: .9rem;
   }
@@ -16,7 +16,7 @@
   padding-left: 0;
 }
 
-@include medium {
+@include m.medium {
   .explanation>p+a {
     font-size: .9rem;
   }

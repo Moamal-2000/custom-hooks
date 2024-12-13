@@ -1,4 +1,4 @@
-@import "../src/Styles/mixins";
+@use "../src/Styles/mixins" as m;
 
 .introduction {
   padding: 20px 0;
@@ -11,25 +11,25 @@
   text-wrap: balance;
 }
 
-@include large {
+@include m.large {
   .introduction>h1 {
     font-size: 6rem;
   }
 }
 
-@include medium {
+@include m.medium {
   .introduction>h1 {
     font-size: 5rem;
   }
 }
 
-@include small {
+@include m.small {
   .introduction>h1 {
     font-size: 2.4rem;
   }
 }
 
-@include mobile {
+@include m.mobile {
   .introduction>h1 {
     font-size: 2rem;
   }
@@ -49,13 +49,13 @@
   cursor: auto;
 }
 
-@include medium {
+@include m.medium {
   .introImageWrapper>img {
     min-height: 250px;
   }
 }
 
-@include small {
+@include m.small {
   .introImageWrapper>img {
     min-height: 140px;
   }
@@ -70,7 +70,7 @@
   font-size: 2rem;
 }
 
-@include medium {
+@include m.medium {
   .introduction>section>h2 {
     margin: 40px 0 14px;
     font-size: 1.7rem;
