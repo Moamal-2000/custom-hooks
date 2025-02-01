@@ -11,7 +11,7 @@ const Introduction = () => {
 
       <div className={s.introImageWrapper}>
         <img
-          fetchpriority="high"
+          fetchPriority="high"
           src={introImage}
           alt="React logo at the left side and text at the right side: 'Custom Hook useFetch'."
         />
