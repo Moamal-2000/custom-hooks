@@ -11,26 +11,18 @@ import s from "./HookCode.module.scss";
 const HookCode = ({ hookData: { codes, name } }) => {
   const [isFullScreen, toggleIsFullScreen] = useToggle(false);
   const [displayedCodeName, setDisplayedCodeName] = useState(name);
-  let displayedCode = codes.find(({ name }) => name === displayedCodeName);
+  let displayedCode = getDisplayedCode(codes, displayedCodeName);
   const { name: codeName, code } = displayedCode;
 
   useEffect(() => {
-    const method = isFullScreen ? "add" : "remove";
-    document.documentElement.classList[method]("focusMode");
-  }, [isFullScreen]);
-
-  useEffect(() => {
-    displayedCode = codes.find(({ name }) => name === displayedCodeName);
-  }, [displayedCodeName]);
+    displayedCode = getDisplayedCode(codes, displayedCodeName);
+    document.documentElement.classList.toggle("focusMode", isFullScreen);
+  }, [isFullScreen, displayedCodeName]);
 
   return (
     <div className={`${s.code} ${isFullScreen ? s.fullscreen : ""}`}>
       <CodeBlockHeader
-        props={{
-          displayedCodeName,
-          setDisplayedCodeName,
-          codes,
-        }}
+        props={{ displayedCodeName, setDisplayedCodeName, codes }}
       />
 
       <div className={s.buttons}>
@@ -57,3 +49,7 @@ const HookCode = ({ hookData: { codes, name } }) => {
 };
 
 export default memo(HookCode);
+
+function getDisplayedCode(codes, displayedCodeName) {
+  return codes.find(({ name }) => name === displayedCodeName);
+}
