@@ -1,4 +1,4 @@
-const CACHE_NAME = "hooks-time-v3";
+const CACHE_NAME = "hooks-time-v1.0.1";
 const assets = ["/", "/index.html"];
 
 async function caching() {
