@@ -1,5 +1,4 @@
 import { useModesContext } from "src/Context/ModesContext";
-import DarkMode from "./DarkMode";
 import FocusMode from "./FocusMode";
 import FullScreenMode from "./FullScreenMode";
 import s from "./Mods.module.scss";
@@ -20,7 +19,6 @@ const Mods = () => {
         <div className={`${s.hidedButtonsOnFocusMode} ${focusModeClass}`}>
           <FullScreenMode />
           <MusicTime />
-          <DarkMode />
           <ShortcutsMode />
           <StarRepo />
         </div>

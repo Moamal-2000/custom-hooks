@@ -1,10 +1,6 @@
 import { memo, useEffect, useState } from "react";
 import { Prism as Highlighter } from "react-syntax-highlighter";
-import {
-  oneLight,
-  vscDarkPlus,
-} from "react-syntax-highlighter/dist/esm/styles/prism";
-import { useModesContext } from "src/Context/ModesContext";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import useToggle from "src/Hooks/useToggle";
 import CopyButton from "../Buttons/CopyButton";
 import DownloadButton from "../Buttons/DownloadButton";
@@ -13,9 +9,7 @@ import CodeBlockHeader from "./CodeBlockHeader";
 import s from "./HookCode.module.scss";
 
 const HookCode = ({ hookData: { codes, name } }) => {
-  const { isDarkModeLocal } = useModesContext();
   const [isFullScreen, toggleIsFullScreen] = useToggle(false);
-  const codeBlockTheme = isDarkModeLocal ? oneLight : vscDarkPlus;
   const [displayedCodeName, setDisplayedCodeName] = useState(name);
   let displayedCode = codes.find(({ name }) => name === displayedCodeName);
   const { name: codeName, code } = displayedCode;
@@ -52,7 +46,7 @@ const HookCode = ({ hookData: { codes, name } }) => {
         <Highlighter
           className={`${s.preElement}`}
           language="javascript"
-          style={codeBlockTheme}
+          style={vscDarkPlus}
           showLineNumbers={true}
         >
           {code}
